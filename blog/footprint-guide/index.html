@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Microsoft Clarity מנוהל דרך שכבת המדידה המרכזית (src/lib/analytics/clarity.ts) ונטען רק לאחר הסכמה -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" sizes="32x32" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" sizes="16x16" href="/favicon.ico" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>מה זה פוטפרינט (Footprint)? המדריך המלא לקריאת פוטפרינט | AntarTrade</title>
+    <meta data-rh="true" name="description" content="מדריך פוטפרינט בעברית: Bid ו-Ask, Limit מול Market, קונים ומוכרים אגרסיביים, אימבלנס, דלתא, POC, Value Area וספיגה - עם צילומי מסך ואיך מגדירים בטריידינג ויו.">
+
+    <!-- Open Graph Meta Tags -->
+    <meta data-rh="true" property="og:title" content="מה זה פוטפרינט (Footprint)? המדריך המלא לקריאת פוטפרינט | AntarTrade">
+    <meta data-rh="true" property="og:description" content="מדריך פוטפרינט בעברית: Bid ו-Ask, Limit מול Market, קונים ומוכרים אגרסיביים, אימבלנס, דלתא, POC, Value Area וספיגה - עם צילומי מסך ואיך מגדירים בטריידינג ויו.">
+    <meta data-rh="true" property="og:image" content="https://antartrade.co.il/images/blog/covers/footprint-guide.webp">
+    
+    
+    <meta data-rh="true" property="og:image:alt" content="מה זה פוטפרינט? המדריך המלא">
+    <meta data-rh="true" property="og:type" content="website" />
+    <meta data-rh="true" property="og:site_name" content="AntarTrade" />
+    <meta data-rh="true" property="og:locale" content="he_IL" />
+
+    <!-- Twitter Cards Meta Tags -->
+    <meta data-rh="true" name="twitter:card" content="summary_large_image" />
+    <meta data-rh="true" name="twitter:title" content="מה זה פוטפרינט (Footprint)? המדריך המלא לקריאת פוטפרינט | AntarTrade">
+    <meta data-rh="true" name="twitter:description" content="מדריך פוטפרינט בעברית: Bid ו-Ask, Limit מול Market, קונים ומוכרים אגרסיביים, אימבלנס, דלתא, POC, Value Area וספיגה - עם צילומי מסך ואיך מגדירים בטריידינג ויו.">
+    <meta data-rh="true" name="twitter:image" content="https://antartrade.co.il/images/blog/covers/footprint-guide.webp">
+    <meta data-rh="true" name="twitter:image:alt" content="מה זה פוטפרינט? המדריך המלא">
+
+    <!-- Additional Meta Tags -->
+    <meta name="author" content="AntarTrade" />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://i.ytimg.com" crossorigin />
+    <link rel="dns-prefetch" href="https://img.youtube.com" />
+    <link rel="dns-prefetch" href="https://www.youtube.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" rel="stylesheet" />
+    <!-- Preload LCP image (header logo) -->
+    <link rel="preload" as="image" href="/lovable-uploads/antartrade-logo-new.webp" fetchpriority="high" />
+    <!-- Critical inline CSS for instant LCP paint of hero H1 (replaced by React on hydration) -->
+    <style>
+      html,body{margin:0;padding:0;background:#0D2847;font-family:Heebo,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+      #root{min-height:100vh}
+      .lcp-hero{position:relative;background:linear-gradient(135deg,#0D2847 0%,#1f5470 50%,#17B3B1 100%);padding:96px 16px 64px;text-align:center;direction:rtl;overflow:hidden}
+      .lcp-hero-inner{max-width:1200px;margin:0 auto}
+      .lcp-hero h1{margin:0 0 24px;color:#fff;font-weight:700;line-height:1.15;font-size:32px}
+      .lcp-hero h1 .lcp-line{display:block}
+      .lcp-hero h1 .lcp-grad{background:linear-gradient(90deg,#22d3ee,#2dd4bf,#06b6d4);-webkit-background-clip:text;background-clip:text;color:transparent;margin-top:8px}
+      .lcp-hero p{margin:0 auto;color:rgba(255,255,255,.9);font-size:18px;max-width:56rem;line-height:1.6}
+      @media(min-width:768px){.lcp-hero{padding:128px 16px 96px}.lcp-hero h1{font-size:56px}.lcp-hero p{font-size:22px}}
+      @media(min-width:1024px){.lcp-hero h1{font-size:64px}.lcp-hero p{font-size:24px}}
+      html.no-lcp-hero .lcp-hero{display:none}
+    </style>
+    <script>
+      (function(){
+        var p = location.pathname;
+        if (p !== '/' && p !== '/index.html') {
+          document.documentElement.classList.add('no-lcp-hero');
+        }
+      })();
+    </script>
+    <!-- Stale-deploy recovery: if hashed JS chunks referenced by a cached index.html
+         are gone (404 / "Importing a module script failed"), reload once bypassing cache. -->
+    <script>
+      (function(){
+        var KEY = '__chunk_reload_at';
+        function reloadOnce(){
+          try {
+            var last = Number(sessionStorage.getItem(KEY) || 0);
+            if (Date.now() - last < 20000) return; // avoid reload loops
+            sessionStorage.setItem(KEY, String(Date.now()));
+          } catch(e){}
+          var u = location.pathname + (location.search ? location.search + '&' : '?') + '_r=' + Date.now() + location.hash;
+          location.replace(u);
+        }
+        // Resource-level failures (module script / preload) bubble only in capture phase
+        window.addEventListener('error', function(e){
+          var t = e && e.target;
+          if (t && t !== window && (t.tagName === 'SCRIPT' || t.tagName === 'LINK')) { reloadOnce(); return; }
+          var m = e && e.message;
+          if (m && (m.indexOf('Importing a module script failed') > -1 ||
+                    m.indexOf('Failed to fetch dynamically imported module') > -1 ||
+                    m.indexOf('error loading dynamically imported module') > -1)) reloadOnce();
+        }, true);
+        window.addEventListener('unhandledrejection', function(e){
+          var m = e && e.reason && (e.reason.message || String(e.reason));
+          if (m && (m.indexOf('Importing a module script failed') > -1 ||
+                    m.indexOf('Failed to fetch dynamically imported module') > -1 ||
+                    m.indexOf('error loading dynamically imported module') > -1)) reloadOnce();
+        });
+      })();
+    </script>
+
+    <!-- Meta Pixel מנוהל כעת דרך שכבת המדידה המרכזית (src/lib/analytics) ונטען רק לאחר הסכמה -->
+    <script type="module" crossorigin src="/assets/index-Dg5hPVd3.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/markdown-vendor-OEs9TPKd.js">
+    <link rel="modulepreload" crossorigin href="/assets/react-vendor-Cc7L66Bm.js">
+    <link rel="modulepreload" crossorigin href="/assets/query-vendor-BLCEqCQa.js">
+    <link rel="modulepreload" crossorigin href="/assets/supabase-vendor-D7Xp04Ua.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-Bg6w7v_G.css">
+    <meta data-rh="true" property="og:url" content="https://antartrade.co.il/blog/footprint-guide">
+    <link data-rh="true" rel="canonical" href="https://antartrade.co.il/blog/footprint-guide">
+  </head>
+  <body>
+    <noscript>
+      <img
+        height="1"
+        width="1"
+        style="display:none"
+        src="https://www.facebook.com/tr?id=25761708513493694&ev=PageView&noscript=1"
+      />
+      <div
+        style="max-width:900px;margin:0 auto;padding:40px 20px;font-family:Heebo,sans-serif;direction:rtl;text-align:right;"
+      >
+        <h1>AntarTrade – השוואת חברות מימון למסחר 2026</h1>
+        <p>
+          אתר ההשוואות המוביל בישראל לחברות מימון לסוחרים 2026 – ניתוחים אישיים, קודי הנחה בלעדיים ותוכן מקצועי מאת נועם
+          ענתר.
+        </p>
+        <h2>חברות מימון</h2>
+        <ul>
+          <li>
+            <a href="/top-step">TopStep – סקירה מלאה, חוקים ומחירים</a> – חברת המימון הגדולה בעולם עם מעל 10 שנות
+            פעילות. מגוון גדלי חשבונות, ללא כלל עקביות, ומשיכה ראשונה כבר ביום 5.
+          </li>
+          <li>
+            <a href="/apex">Apex Trader Funding – סקירה מלאה, חוקים ומחירים</a> – חברת מימון פופולרית עם מבחן שלב אחד,
+            ללא כלל עקביות, ואפשרות למספר חשבונות במקביל.
+          </li>
+          <li>
+            <a href="/bulenox">Bulenox – סקירה מלאה, חוקים ומחירים</a> – חברת מימון עם מחירים תחרותיים ומבחן שלב אחד.
+            תומכת ב-NinjaTrader ו-Rithmic.
+          </li>
+          <li>
+            <a href="/take-profit">TakeProfit Trader – סקירה מלאה, חוקים ומחירים</a> – חברת מימון עם גישה ייחודית,
+            מחירים נמוכים, ותמיכה מצוינת בעברית.
+          </li>
+          <li>
+            <a href="/lucid">Lucid Trader – סקירה מלאה, חוקים ומחירים</a> – חברת מימון ישראלית עם תמיכה בעברית, מחירים
+            תחרותיים, וממשק ידידותי.
+          </li>
+          <li>
+            <a href="/alpha-futures">Alpha Futures – סקירה מלאה, חוקים ומחירים</a> – חברת מימון חדשה עם תנאים תחרותיים
+            ומבחן שלב אחד.
+          </li>
+        </ul>
+        <h2>השוואה בין חברות</h2>
+        <ul>
+          <li>
+            <a href="/comparison">טבלת השוואה מקיפה בין כל חברות המימון</a> – השוואה מפורטת של מחירים, חוקים, תנאי משיכה
+            ועוד.
+          </li>
+        </ul>
+        <h2>מדריכים וכלים</h2>
+        <ul>
+          <li>
+            <a href="/atas-guide">מדריך ATAS (אטאס) – ניתוח זרימת פקודות</a> – מדריך מקיף לשימוש בפלטפורמת ATAS לניתוח
+            Order Flow, גרפי Footprint ומפות חום.
+          </li>
+          <li>
+            <a href="/bookmap-guide">מדריך Bookmap (בוקמאפ)</a> – מדריך לשימוש ב-Bookmap לניתוח עומק שוק ו-Order Flow
+            בזמן אמת.
+          </li>
+          <li>
+            <a href="/tradezella-guide">מדריך TradeZella – יומן מסחר</a> – מדריך מקיף לשימוש ב-TradeZella לניהול יומן
+            מסחר, ניתוח ביצועים ושיפור אסטרטגיות.
+          </li>
+          <li>
+            <a href="/replikanto-guide">מדריך Replikanto – העתקת עסקאות</a> – מדריך לשימוש ב-Replikanto להעתקת עסקאות
+            בין חשבונות מרובים ב-NinjaTrader.
+          </li>
+          <li>
+            <a href="/tradesyncer-guide">מדריך TradeSyncer – העתקת עסקאות מ-TradingView</a> – מדריך לחיבור TradingView
+            לחשבונות מימון באמצעות TradeSyncer.
+          </li>
+          <li>
+            <a href="/trading-tools">מרכז כלי מסחר ומדריכים</a> – כל הכלים, הפלטפורמות והמדריכים למסחר בחוזים עתידיים.
+          </li>
+          <li><a href="/economic-calendar">לוח שנה כלכלי</a> – לוח אירועים כלכליים בזמן אמת עם הסברים בעברית.</li>
+        </ul>
+        <h2>קורסים</h2>
+        <ul>
+          <li>
+            <a href="/free-course">קורס מסחר בחוזים עתידיים – חינם</a> – קורס מקיף למתחילים הכולל שיעורי וידאו, חומרי
+            לימוד ותרגול.
+          </li>
+          <li><a href="/full-course">קורס מתקדם למסחר בחוזים עתידיים</a> – קורס מתקדם עם ליווי אישי ותוכן בלעדי.</li>
+        </ul>
+        <h2>מידע נוסף</h2>
+        <ul>
+          <li><a href="/about">אודות AntarTrade</a></li>
+          <li><a href="/promotions">מבצעים והנחות</a></li>
+          <li><a href="/matching-quiz">שאלון התאמה – איזו חברת מימון מתאימה לך?</a></li>
+          <li><a href="/faq">שאלות ותשובות</a></li>
+          <li><a href="/contact">צור קשר</a></li>
+        </ul>
+      </div>
+    </noscript>
+    <div id="root">
+      <style>.pr-body{max-width:860px;margin:0 auto;padding:120px 20px 64px;color:#e8eef5;line-height:1.7;font-size:18px;direction:rtl;text-align:right}.pr-body h1{font-size:40px;line-height:1.15;margin:16px 0}.pr-body h2{font-size:28px;margin:40px 0 12px}.pr-body h3{font-size:21px;margin:24px 0 8px}.pr-body a{color:#7dc6ff}.pr-body img{max-width:100%;height:auto}.pr-body table{border-collapse:collapse;width:100%}.pr-body td,.pr-body th{border:1px solid #33415a;padding:6px 10px}.pr-body nav{font-size:15px;color:#9fb0c6}.pr-body dt{font-weight:700;margin-top:16px}.pr-body dd{margin:4px 0 0}</style><article class="pr-body"><nav aria-label="פירורי לחם"><a href="/">דף הבית</a> / <a href="/blog">בלוג</a> / מה זה פוטפרינט (Footprint)? המדריך המלא לקריאת פוטפרינט</nav><h1>מה זה פוטפרינט (Footprint)? המדריך המלא לקריאת פוטפרינט</h1><p>נכתב על ידי <a href="/about">נועם ענתר</a>, סוחר חוזים עתידיים ומייסד AntarTrade</p>
+<p class="lead">פוטפרינט הוא אחד הכלים החזקים בעולם האורדר פלואו: הוא מראה מה קרה <strong>בתוך</strong> כל נר - כמה נקנה ונמכר בכל מחיר, מי היה אגרסיבי, ואיפה היה חוסר איזון. במדריך הזה נבנה את ההבנה מהבסיס: Bid ו-Ask, פקודות Limit ו-Market, ואז נעבור על כל מה שרואים בנר פוטפרינט ואיך מגדירים אותו בטריידינג ויו.</p>
+
+<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/ayExaYSWli8" title="המדריך המלא לפוט פרינט" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+<div class="toc"><strong>במדריך:</strong>
+<ol>
+  <li><a href="#bid-ask">הבסיס: Bid ו-Ask</a></li>
+  <li><a href="#limit-market">פקודות Limit ו-Market - פסיבי מול אגרסיבי</a></li>
+  <li><a href="#read">איך קוראים נר פוטפרינט</a></li>
+  <li><a href="#imbalance">אימבלנס - חוסר איזון</a></li>
+  <li><a href="#value-area">Value Area ו-POC</a></li>
+  <li><a href="#delta">דלתא</a></li>
+  <li><a href="#absorption">ספיגה</a></li>
+  <li><a href="#tradingview">איך פותחים ומגדירים פוטפרינט בטריידינג ויו</a></li>
+  <li><a href="#atas">פוטפרינט ב-ATAS</a></li>
+  <li><a href="#next">מה הלאה</a></li>
+  <li><a href="#faq">שאלות נפוצות</a></li>
+</ol></div>
+
+<h2 id="bid-ask">הבסיס: Bid ו-Ask</h2>
+<p>לפני שקוראים פוטפרינט, חייבים להבין את הבסיס. נניח שהמחיר הנוכחי הוא 100:</p>
+<ul>
+  <li><strong>Bid (ביקוש)</strong> - אנשים שרוצים <strong>לקנות</strong>, וממתינים מתחת למחיר הנוכחי: ב-99, ב-98, ב-97.</li>
+  <li><strong>Ask (היצע)</strong> - אנשים שרוצים <strong>למכור</strong>, וממתינים מעל המחיר הנוכחי: ב-101, ב-102, ב-103.</li>
+</ul>
+<p>תמיד זה ככה: מתחת למחיר יש קונים שרוצים לקנות זול יותר, ומעליו מוכרים שרוצים למכור יקר יותר.</p>
+<figure><img src="/blog/footprint/fp-01.jpg" alt="תרשים Bid ו-Ask - מחיר נוכחי 100, פקודות Limit של קונים מתחתיו ושל מוכרים מעליו" loading="lazy" /></figure>
+
+<h2 id="limit-market">פקודות Limit ו-Market - פסיבי מול אגרסיבי</h2>
+<p>כל מי שממתין ב-Bid וב-Ask יושב ב<strong>פקודת Limit</strong>: "תקנה (או תמכור) לי רק במחיר הספציפי הזה, ולא בשום מחיר אחר".</p>
+<p><strong>פקודת Market</strong> אומרת משהו אחר: "תקנה לי עכשיו, ברגע זה, במחיר הכי טוב שאפשר להשיג".</p>
+
+<div class="box"><strong>שאלה: אם המחיר על הגרף הוא 100 - אפשר לקנות ב-100?</strong>לא. אין מוכר ב-100 - המוכר הכי קרוב נמצא ב-101. אם לוחצים <span class="en">Buy Market</span>, מקבלים 101. ואם לוחצים <span class="en">Sell Market</span>, המכירה תתבצע מול הקונה הכי קרוב - ב-99.</div>
+
+<h3>Market הוא מה שמזיז את המחיר</h3>
+<p>נניח שיש 10 חוזים בכל אחת מהרמות 99, 98 ו-97, ומישהו שולח פקודת מכירה במרקט של 30 חוזים. אין מספיק קונים ב-99, אז הפקודה "אוכלת" את 99, אחר כך את 98 ואחר כך את 97 - והמחיר יורד. אותו דבר הפוך בקנייה גדולה במרקט: היא מעלה את המחיר.</p>
+<figure><img src="/blog/footprint/fp-02.jpg" alt="תרשים פקודת Market שעוברת דרך כמה רמות Limit ומזיזה את המחיר למעלה או למטה" loading="lazy" /></figure>
+<div class="pair">
+  <div class="sell"><b>Market = אגרסיבי</b>רוצה את הסחורה עכשיו, "מתפשר" על המחיר - וזה מה שמזיז את השוק.</div>
+  <div class="buy"><b>Limit = פסיבי</b>יושב בסבלנות ומחכה למחיר שהוא בחר בלבד.</div>
+</div>
+<p><strong>עסקה מתבצעת רק כשמרקט פוגש לימיט</strong> - אגרסיבי פוגש פסיבי. שני לימיטים לא נפגשים: מי שרוצה לקנות ב-99 ומי שרוצה למכור ב-101 פשוט ממתינים.</p>
+
+<h2 id="read">איך קוראים נר פוטפרינט</h2>
+<p>בנר פוטפרינט יש שתי עמודות של מספרים לכל רמת מחיר:</p>
+<ul>
+  <li><strong>עמודה ימנית - Ask:</strong> עסקאות שבהן <strong>קונים אגרסיביים</strong> (במרקט) קנו ממוכרים פסיביים שישבו בלימיט.</li>
+  <li><strong>עמודה שמאלית - Bid:</strong> עסקאות שבהן <strong>מוכרים אגרסיביים</strong> (במרקט) מכרו לקונים פסיביים שישבו בלימיט.</li>
+</ul>
+<figure><img src="/blog/footprint/fp-05.jpg" alt="המחשת נר פוטפרינט - עמודת BID של מוכרים אגרסיביים ועמודת ASK של קונים אגרסיביים, עם דלתא וסך הכל" loading="lazy" /></figure>
+<div class="box"><strong>טריק לזכור</strong>צד ימין (הירוק) = קונים אגרסיביים. צד שמאל (האדום) = מוכרים אגרסיביים. זה קצת מבלבל, כי עמודת ה-Ask היא בעצם של המוכרים בלימיט - אבל מה שהמספר מודד זה כמה <em>נקנה באגרסיביות</em> באותה רמה.</div>
+<p><strong>קוראים באלכסון:</strong> משווים את הקניות האגרסיביות ברמה מסוימת למכירות האגרסיביות ברמה שמתחתיה. למשל בנר הירוק בתמונה: 1.83K קניות מול 1.87K מכירות - כמעט שוויון.</p>
+
+<h2 id="imbalance">אימבלנס (Imbalance) - חוסר איזון</h2>
+<p>כשההפרש באלכסון גדול - יש <strong>חוסר איזון</strong>. בנר הירוק בתמונה: 491 קניות אגרסיביות מול 195 מכירות, ו-298 מול 30. הפלטפורמה מסמנת רמות כאלה (בקו ירוק בצד הנר) כאימבלנס.</p>
+<p>זה אימבלנס אמיתי - חוסר איזון שנמדד בפועל בין קונים למוכרים, ולא הערכה לפי צורת הנרות.</p>
+<p>בטריידינג ויו אפשר לקבוע מאיזה יחס נחשב אימבלנס ומאיזו כמות רמות ברצף לסמן אותו - נגיע לזה בהגדרות.</p>
+
+<h2 id="value-area">Value Area ו-POC</h2>
+<ul>
+  <li><strong>Value Area</strong> - האזור בנר שבו נסחרו 70% מהווליום של הנר (מסומן בקווים מקווקווים). אם חלק גדול מהתנועה של הנר קרה מחוץ לאזור הזה - הוא קרה בלי הרבה ווליום.</li>
+  <li><strong>POC - Point of Control</strong> - הרמה עם הווליום הכי גבוה בנר (מסומנת בלבן). זה אזור חזק ומעניין לעקוב אחריו.</li>
+</ul>
+
+<h2 id="delta">דלתא (Delta)</h2>
+<p>דלתא היא ההפרש בין סך עמודת ה-Ask לסך עמודת ה-Bid בנר:</p>
+<ul>
+  <li>בנר האדום בתמונה: 6.67K קניות אגרסיביות פחות 7.24K מכירות אגרסיביות = <strong>דלתא שלילית של 569-</strong>. נר אדום עם דלתא שלילית - הגיוני.</li>
+  <li>בנר הירוק: 6.32K פחות 4.77K = <strong>דלתא חיובית של 1.54K</strong>.</li>
+</ul>
+
+<h3>ככה זה נראה על גרף אמיתי</h3>
+<p>בגרף פוטפרינט אמיתי בטריידינג ויו, הכל מופיע יחד - POC, אימבלנסים ודלתא מתחת לכל נר:</p>
+<figure><img src="/blog/footprint/fp-11.jpg" alt="גרף פוטפרינט אמיתי עם סימונים: POC, אימבלנס ברצף ותיבת הדלתא והווליום של הנר" loading="lazy" /><figcaption>1 - POC (התא הלבן). 2 - אימבלנס ברצף: 66, 46, 49 ו-54 קניות אגרסיביות מול 8, 11, 12 ו-10 מכירות באלכסון. 3 - דלתא (863) וסך הווליום (2.93K) של אותו נר.</figcaption></figure>
+
+<h2 id="absorption">ספיגה (Absorption)</h2>
+<p>ספיגה היא אחד הדברים החזקים שאפשר לזהות בפוטפרינט.</p>
+<figure><img src="/blog/footprint/fp-06.jpg" alt="המחשת ספיגה בפוטפרינט - קונים אגרסיביים שתוקפים ב-ASK ונספגים, ומוכרים אגרסיביים שנספגים ב-BID" loading="lazy" /></figure>
+<p>בנר האדום בתמונה (מימין): בחלק העליון של הנר היו קניות אגרסיביות חזקות - 311 מול 94, ו-142 מול 17 - ובכל זאת הנר נסגר למטה. איך? כי עמודת ה-Ask היא לא רק קונים אגרסיביים - אלה קונים שקנו <strong>ממוכרים בלימיט</strong>. מוכרים פסיביים גדולים ישבו שם, "ספגו" את כל הקניות, והמחיר ירד.</p>
+<p>אותו דבר הפוך בנר הירוק (משמאל): בתחתית הנר היו מכירות אגרסיביות - 488 מול 127, ו-113 מול 0 - אבל הנר נסגר למעלה, כי קונים פסיביים גדולים בלימיט ספגו את המכירות.</p>
+
+<h2 id="tradingview">איך פותחים ומגדירים פוטפרינט בטריידינג ויו</h2>
+<p>פוטפרינט בטריידינג ויו הוא <strong>סוג גרף</strong> ולא אינדיקטור - אז אל תחפשו אותו ברשימת האינדיקטורים. נדרש מנוי Premium (נכון לזמן כתיבת המדריך).</p>
+<ol>
+  <li>פותחים את התפריט של סוג הגרף (איפה שמחליפים בין נרות לקו).</li>
+  <li>בוחרים <span class="en">Volume Footprint</span> (בממשק העברי: "ווליום footprint"). אם הוא לא מופיע, מחפשים אותו ומסמנים בכוכב.</li>
+  <li>מתקרבים לגרף כדי לראות את המספרים בתוך הנרות.</li>
+</ol>
+<figure class="narrow"><img src="/blog/footprint/fp-03.jpg" alt="תפריט סוג הגרף בטריידינג ויו עם האפשרות ווליום footprint" loading="lazy" /></figure>
+<figure><img src="/blog/footprint/fp-04.jpg" alt="גרף פוטפרינט בטריידינג ויו" loading="lazy" /></figure>
+<div class="box warn"><strong>שימו לב</strong>בסרטון אני מלמד על טריידינג ויו כי שם הכי קל לראות ולהבין את הפוטפרינט ויזואלית - אבל הנתונים שטריידינג ויו מציגים בפוטפרינט לא מדויקים כמו בתוכנת אורדר פלואו ייעודית. ללימוד ולהבנה זה מצוין; למסחר על בסיס הפוטפרינט אני עובד עם ATAS.</div>
+
+<h3>ההגדרות החשובות</h3>
+<p>לוחצים פעמיים על הנר כדי לפתוח את ההגדרות:</p>
+<figure class="narrow"><img src="/blog/footprint/fp-08.jpg" alt="חלון ההגדרות של הפוטפרינט בטריידינג ויו - גודל שורה, טיקים לכל שורה, אזור ערך, POC וחוסר איזון" loading="lazy" /></figure>
+<ul>
+  <li><strong>גודל שורה</strong> - אוטומטי או ידני. בידני קובעים כמה טיקים בכל שורה: מעט טיקים = הרבה רמות מפורטות, הרבה טיקים = רמות מצומצמות. כדאי לשחק עם זה לפי השעה והסשן (ניו יורק, לונדון).</li>
+  <li><strong>מה להציג</strong> - למשל קנייה ומכירה, או דלתא.</li>
+  <li><strong>אזור ערך</strong> - אחוז הווליום שה-Value Area מסמן (ברירת המחדל 70%; אפשר גם 80% או 50%).</li>
+  <li><strong>POC</strong> - הצגה וצבע.</li>
+  <li><strong>חוסר איזון</strong> - מאיזה יחס נחשב אימבלנס. אצלי 300% (פי 3). 250% מקל ויציג יותר אימבלנסים; 400% מחמיר ויציג רק את המשמעותיים.</li>
+  <li><strong>רמות סטאק</strong> - כמה אימבלנסים ברצף צריך כדי לסמן אזור. בערך 1 יסומן כל אימבלנס; בערך 3 - רק רצף של שלושה ומעלה.</li>
+</ul>
+<figure><img src="/blog/footprint/fp-07.jpg" alt="גרף פוטפרינט בטריידינג ויו עם אזורי אימבלנס מסומנים" loading="lazy" /></figure>
+
+<h2 id="atas">פוטפרינט ב-ATAS</h2>
+<p>ATAS היא תוכנת האורדר פלואו שאני עובד איתה, וכנראה אחת המתקדמות היום. היא מציגה את הפוטפרינט בצורה מדויקת יותר, ואפשר לעבור על הנר עם זכוכית מגדלת ולראות את המספרים בכל רמה. יש בה גם מפת חום (Heat Map) שמראה איפה יושבות פקודות ה-Limit בספר הפקודות.</p>
+<figure><img src="/blog/footprint/fp-10.jpg" alt="גרף פוטפרינט בתוכנת ATAS" loading="lazy" /></figure>
+<figure><img src="/blog/footprint/fp-09.jpg" alt="מפת החום Heat Map בתוכנת ATAS" loading="lazy" /></figure>
+
+<h2 id="next">מה הלאה?</h2>
+<p>במדריך הזה הכרנו את מה שרואים בפוטפרינט: מי אגרסיבי ומי פסיבי, אימבלנס, POC, Value Area, דלתא וספיגה. השלב הבא הוא להבין איך משתמשים בזה בפועל - איפה לחפש אותם על הגרף, ואיך משלבים אותם עם אסטרטגיה.</p>
+<ul>
+  <li><a href="https://youtu.be/n2McJERUc2o" target="_blank" rel="noopener">האימבלנסים האמיתיים - איך מבדילים בין אימבלנס אמיתי לרעש</a></li>
+  <li><a href="https://youtu.be/_Jhb0QtfWnU" target="_blank" rel="noopener">מפת החום של ATAS - איפה יושבות הפקודות</a></li>
+  <li><a href="https://youtu.be/E9Mjaxqepdc" target="_blank" rel="noopener">המדריך המלא ל-ATAS - תוכנת האורדר פלואו</a></li>
+  <li>ואם רוצים את כל התמונה - איך משלבים את הכלים האלה לשיטת מסחר שלמה - <a href="/orderflow-course">קורס האורדר פלואו</a>.</li>
+</ul>
+
+<h2 id="faq">שאלות נפוצות</h2>
+<dl class="faq">
+  <dt>מה ההבדל בין פוטפרינט לנר רגיל?</dt>
+  <dd>נר רגיל מראה רק פתיחה, סגירה, גבוה ונמוך. פוטפרינט מראה גם מה קרה בתוך הנר: כמה נקנה ונמכר באגרסיביות בכל רמת מחיר.</dd>
+  <dt>צריך מנוי בתשלום בטריידינג ויו?</dt>
+  <dd>נכון לזמן כתיבת המדריך - כן, הפוטפרינט בטריידינג ויו דורש מנוי Premium.</dd>
+  <dt>מה זה דלתא בפוטפרינט?</dt>
+  <dd>ההפרש בין סך הקניות האגרסיביות (Ask) לסך המכירות האגרסיביות (Bid) בנר.</dd>
+  <dt>מה זה אימבלנס?</dt>
+  <dd>חוסר איזון גדול באלכסון בין קונים אגרסיביים למוכרים אגרסיביים ברמות סמוכות, לפי יחס שמגדירים (למשל פי 3).</dd>
+  <dt>הנתונים של טריידינג ויו מדויקים?</dt>
+  <dd>לא כמו בתוכנת אורדר פלואו ייעודית. טריידינג ויו מצוין ללמידה; למסחר מומלץ תוכנה כמו ATAS.</dd>
+</dl>
+
+<div class="cta">
+  <h2>רוצים ללמוד אורדר פלואו לעומק?</h2>
+  <p>בקורס האורדר פלואו ב-<a href="/orderflow-course">AntarTrade</a> לומדים איך משלבים את הפוטפרינט, האימבלנסים ומפת החום לשיטת מסחר. ובקניית מבחנים ותוכנות - הקוד <span class="code">ANTAR</span>.</p>
+</div>
+
+<p class="disc">המדריך מובא למטרות מידע ולימוד בלבד ואינו מהווה ייעוץ השקעות או המלצה לפעולה. מסחר בחוזים עתידיים כרוך בסיכון גבוה ועלול לגרום להפסד כספי. המספרים בתמונות הם דוגמאות להמחשה.</p>
+</article>
+    </div>
+  </body>
+</html>

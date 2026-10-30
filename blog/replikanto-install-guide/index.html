@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Microsoft Clarity מנוהל דרך שכבת המדידה המרכזית (src/lib/analytics/clarity.ts) ונטען רק לאחר הסכמה -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" sizes="32x32" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" sizes="16x16" href="/favicon.ico" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>התקנת Replikanto צעד אחר צעד: קופי טרייד בנינג'ה טריידר | AntarTrade</title>
+    <meta data-rh="true" name="description" content="מדריך התקנה ל-Replikanto עם צילומי מסך: רכישה עם קוד הנחה, הפקת Machine ID, התקנה בנינג'ה טריידר, הגדרת חשבון מוביל ויחסים, והגדרות חובה לחשבונות מימון.">
+
+    <!-- Open Graph Meta Tags -->
+    <meta data-rh="true" property="og:title" content="התקנת Replikanto צעד אחר צעד: קופי טרייד בנינג'ה טריידר | AntarTrade">
+    <meta data-rh="true" property="og:description" content="מדריך התקנה ל-Replikanto עם צילומי מסך: רכישה עם קוד הנחה, הפקת Machine ID, התקנה בנינג'ה טריידר, הגדרת חשבון מוביל ויחסים, והגדרות חובה לחשבונות מימון.">
+    <meta data-rh="true" property="og:image" content="https://antartrade.co.il/images/blog/covers/replikanto-install-guide.webp">
+    
+    
+    <meta data-rh="true" property="og:image:alt" content="התקנת Replikanto: עסקה בנינג'ה טריידר שמועתקת לארבעה חשבונות">
+    <meta data-rh="true" property="og:type" content="website" />
+    <meta data-rh="true" property="og:site_name" content="AntarTrade" />
+    <meta data-rh="true" property="og:locale" content="he_IL" />
+
+    <!-- Twitter Cards Meta Tags -->
+    <meta data-rh="true" name="twitter:card" content="summary_large_image" />
+    <meta data-rh="true" name="twitter:title" content="התקנת Replikanto צעד אחר צעד: קופי טרייד בנינג'ה טריידר | AntarTrade">
+    <meta data-rh="true" name="twitter:description" content="מדריך התקנה ל-Replikanto עם צילומי מסך: רכישה עם קוד הנחה, הפקת Machine ID, התקנה בנינג'ה טריידר, הגדרת חשבון מוביל ויחסים, והגדרות חובה לחשבונות מימון.">
+    <meta data-rh="true" name="twitter:image" content="https://antartrade.co.il/images/blog/covers/replikanto-install-guide.webp">
+    <meta data-rh="true" name="twitter:image:alt" content="התקנת Replikanto: עסקה בנינג'ה טריידר שמועתקת לארבעה חשבונות">
+
+    <!-- Additional Meta Tags -->
+    <meta name="author" content="AntarTrade" />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://i.ytimg.com" crossorigin />
+    <link rel="dns-prefetch" href="https://img.youtube.com" />
+    <link rel="dns-prefetch" href="https://www.youtube.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" rel="stylesheet" />
+    <!-- Preload LCP image (header logo) -->
+    <link rel="preload" as="image" href="/lovable-uploads/antartrade-logo-new.webp" fetchpriority="high" />
+    <!-- Critical inline CSS for instant LCP paint of hero H1 (replaced by React on hydration) -->
+    <style>
+      html,body{margin:0;padding:0;background:#0D2847;font-family:Heebo,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+      #root{min-height:100vh}
+      .lcp-hero{position:relative;background:linear-gradient(135deg,#0D2847 0%,#1f5470 50%,#17B3B1 100%);padding:96px 16px 64px;text-align:center;direction:rtl;overflow:hidden}
+      .lcp-hero-inner{max-width:1200px;margin:0 auto}
+      .lcp-hero h1{margin:0 0 24px;color:#fff;font-weight:700;line-height:1.15;font-size:32px}
+      .lcp-hero h1 .lcp-line{display:block}
+      .lcp-hero h1 .lcp-grad{background:linear-gradient(90deg,#22d3ee,#2dd4bf,#06b6d4);-webkit-background-clip:text;background-clip:text;color:transparent;margin-top:8px}
+      .lcp-hero p{margin:0 auto;color:rgba(255,255,255,.9);font-size:18px;max-width:56rem;line-height:1.6}
+      @media(min-width:768px){.lcp-hero{padding:128px 16px 96px}.lcp-hero h1{font-size:56px}.lcp-hero p{font-size:22px}}
+      @media(min-width:1024px){.lcp-hero h1{font-size:64px}.lcp-hero p{font-size:24px}}
+      html.no-lcp-hero .lcp-hero{display:none}
+    </style>
+    <script>
+      (function(){
+        var p = location.pathname;
+        if (p !== '/' && p !== '/index.html') {
+          document.documentElement.classList.add('no-lcp-hero');
+        }
+      })();
+    </script>
+    <!-- Stale-deploy recovery: if hashed JS chunks referenced by a cached index.html
+         are gone (404 / "Importing a module script failed"), reload once bypassing cache. -->
+    <script>
+      (function(){
+        var KEY = '__chunk_reload_at';
+        function reloadOnce(){
+          try {
+            var last = Number(sessionStorage.getItem(KEY) || 0);
+            if (Date.now() - last < 20000) return; // avoid reload loops
+            sessionStorage.setItem(KEY, String(Date.now()));
+          } catch(e){}
+          var u = location.pathname + (location.search ? location.search + '&' : '?') + '_r=' + Date.now() + location.hash;
+          location.replace(u);
+        }
+        // Resource-level failures (module script / preload) bubble only in capture phase
+        window.addEventListener('error', function(e){
+          var t = e && e.target;
+          if (t && t !== window && (t.tagName === 'SCRIPT' || t.tagName === 'LINK')) { reloadOnce(); return; }
+          var m = e && e.message;
+          if (m && (m.indexOf('Importing a module script failed') > -1 ||
+                    m.indexOf('Failed to fetch dynamically imported module') > -1 ||
+                    m.indexOf('error loading dynamically imported module') > -1)) reloadOnce();
+        }, true);
+        window.addEventListener('unhandledrejection', function(e){
+          var m = e && e.reason && (e.reason.message || String(e.reason));
+          if (m && (m.indexOf('Importing a module script failed') > -1 ||
+                    m.indexOf('Failed to fetch dynamically imported module') > -1 ||
+                    m.indexOf('error loading dynamically imported module') > -1)) reloadOnce();
+        });
+      })();
+    </script>
+
+    <!-- Meta Pixel מנוהל כעת דרך שכבת המדידה המרכזית (src/lib/analytics) ונטען רק לאחר הסכמה -->
+    <script type="module" crossorigin src="/assets/index-Dg5hPVd3.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/markdown-vendor-OEs9TPKd.js">
+    <link rel="modulepreload" crossorigin href="/assets/react-vendor-Cc7L66Bm.js">
+    <link rel="modulepreload" crossorigin href="/assets/query-vendor-BLCEqCQa.js">
+    <link rel="modulepreload" crossorigin href="/assets/supabase-vendor-D7Xp04Ua.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-Bg6w7v_G.css">
+    <meta data-rh="true" property="og:url" content="https://antartrade.co.il/blog/replikanto-install-guide">
+    <link data-rh="true" rel="canonical" href="https://antartrade.co.il/blog/replikanto-install-guide">
+  </head>
+  <body>
+    <noscript>
+      <img
+        height="1"
+        width="1"
+        style="display:none"
+        src="https://www.facebook.com/tr?id=25761708513493694&ev=PageView&noscript=1"
+      />
+      <div
+        style="max-width:900px;margin:0 auto;padding:40px 20px;font-family:Heebo,sans-serif;direction:rtl;text-align:right;"
+      >
+        <h1>AntarTrade – השוואת חברות מימון למסחר 2026</h1>
+        <p>
+          אתר ההשוואות המוביל בישראל לחברות מימון לסוחרים 2026 – ניתוחים אישיים, קודי הנחה בלעדיים ותוכן מקצועי מאת נועם
+          ענתר.
+        </p>
+        <h2>חברות מימון</h2>
+        <ul>
+          <li>
+            <a href="/top-step">TopStep – סקירה מלאה, חוקים ומחירים</a> – חברת המימון הגדולה בעולם עם מעל 10 שנות
+            פעילות. מגוון גדלי חשבונות, ללא כלל עקביות, ומשיכה ראשונה כבר ביום 5.
+          </li>
+          <li>
+            <a href="/apex">Apex Trader Funding – סקירה מלאה, חוקים ומחירים</a> – חברת מימון פופולרית עם מבחן שלב אחד,
+            ללא כלל עקביות, ואפשרות למספר חשבונות במקביל.
+          </li>
+          <li>
+            <a href="/bulenox">Bulenox – סקירה מלאה, חוקים ומחירים</a> – חברת מימון עם מחירים תחרותיים ומבחן שלב אחד.
+            תומכת ב-NinjaTrader ו-Rithmic.
+          </li>
+          <li>
+            <a href="/take-profit">TakeProfit Trader – סקירה מלאה, חוקים ומחירים</a> – חברת מימון עם גישה ייחודית,
+            מחירים נמוכים, ותמיכה מצוינת בעברית.
+          </li>
+          <li>
+            <a href="/lucid">Lucid Trader – סקירה מלאה, חוקים ומחירים</a> – חברת מימון ישראלית עם תמיכה בעברית, מחירים
+            תחרותיים, וממשק ידידותי.
+          </li>
+          <li>
+            <a href="/alpha-futures">Alpha Futures – סקירה מלאה, חוקים ומחירים</a> – חברת מימון חדשה עם תנאים תחרותיים
+            ומבחן שלב אחד.
+          </li>
+        </ul>
+        <h2>השוואה בין חברות</h2>
+        <ul>
+          <li>
+            <a href="/comparison">טבלת השוואה מקיפה בין כל חברות המימון</a> – השוואה מפורטת של מחירים, חוקים, תנאי משיכה
+            ועוד.
+          </li>
+        </ul>
+        <h2>מדריכים וכלים</h2>
+        <ul>
+          <li>
+            <a href="/atas-guide">מדריך ATAS (אטאס) – ניתוח זרימת פקודות</a> – מדריך מקיף לשימוש בפלטפורמת ATAS לניתוח
+            Order Flow, גרפי Footprint ומפות חום.
+          </li>
+          <li>
+            <a href="/bookmap-guide">מדריך Bookmap (בוקמאפ)</a> – מדריך לשימוש ב-Bookmap לניתוח עומק שוק ו-Order Flow
+            בזמן אמת.
+          </li>
+          <li>
+            <a href="/tradezella-guide">מדריך TradeZella – יומן מסחר</a> – מדריך מקיף לשימוש ב-TradeZella לניהול יומן
+            מסחר, ניתוח ביצועים ושיפור אסטרטגיות.
+          </li>
+          <li>
+            <a href="/replikanto-guide">מדריך Replikanto – העתקת עסקאות</a> – מדריך לשימוש ב-Replikanto להעתקת עסקאות
+            בין חשבונות מרובים ב-NinjaTrader.
+          </li>
+          <li>
+            <a href="/tradesyncer-guide">מדריך TradeSyncer – העתקת עסקאות מ-TradingView</a> – מדריך לחיבור TradingView
+            לחשבונות מימון באמצעות TradeSyncer.
+          </li>
+          <li>
+            <a href="/trading-tools">מרכז כלי מסחר ומדריכים</a> – כל הכלים, הפלטפורמות והמדריכים למסחר בחוזים עתידיים.
+          </li>
+          <li><a href="/economic-calendar">לוח שנה כלכלי</a> – לוח אירועים כלכליים בזמן אמת עם הסברים בעברית.</li>
+        </ul>
+        <h2>קורסים</h2>
+        <ul>
+          <li>
+            <a href="/free-course">קורס מסחר בחוזים עתידיים – חינם</a> – קורס מקיף למתחילים הכולל שיעורי וידאו, חומרי
+            לימוד ותרגול.
+          </li>
+          <li><a href="/full-course">קורס מתקדם למסחר בחוזים עתידיים</a> – קורס מתקדם עם ליווי אישי ותוכן בלעדי.</li>
+        </ul>
+        <h2>מידע נוסף</h2>
+        <ul>
+          <li><a href="/about">אודות AntarTrade</a></li>
+          <li><a href="/promotions">מבצעים והנחות</a></li>
+          <li><a href="/matching-quiz">שאלון התאמה – איזו חברת מימון מתאימה לך?</a></li>
+          <li><a href="/faq">שאלות ותשובות</a></li>
+          <li><a href="/contact">צור קשר</a></li>
+        </ul>
+      </div>
+    </noscript>
+    <div id="root">
+      <style>.pr-body{max-width:860px;margin:0 auto;padding:120px 20px 64px;color:#e8eef5;line-height:1.7;font-size:18px;direction:rtl;text-align:right}.pr-body h1{font-size:40px;line-height:1.15;margin:16px 0}.pr-body h2{font-size:28px;margin:40px 0 12px}.pr-body h3{font-size:21px;margin:24px 0 8px}.pr-body a{color:#7dc6ff}.pr-body img{max-width:100%;height:auto}.pr-body table{border-collapse:collapse;width:100%}.pr-body td,.pr-body th{border:1px solid #33415a;padding:6px 10px}.pr-body nav{font-size:15px;color:#9fb0c6}.pr-body dt{font-weight:700;margin-top:16px}.pr-body dd{margin:4px 0 0}</style><article class="pr-body"><nav aria-label="פירורי לחם"><a href="/">דף הבית</a> / <a href="/blog">בלוג</a> / איך מתקינים ומגדירים Replikanto: מדריך קופי טרייד צעד אחר צעד</nav><h1>איך מתקינים ומגדירים Replikanto: מדריך קופי טרייד צעד אחר צעד</h1><p>נכתב על ידי <a href="/about">נועם ענתר</a>, סוחר חוזים עתידיים ומייסד AntarTrade</p>
+<p class="xlink">רוצים לדעת קודם מה זה Replikanto, כמה הוא עולה ולמי הוא מתאים? <a href="/replikanto-guide" data-link="replikanto-guide">לדף Replikanto המלא, עם המחירים העדכניים</a></p>
+
+<div class="video" data-embed="youtube"><iframe src="https://www.youtube-nocookie.com/embed/6pm7HCT9U_8" title="מדריך Replikanto: התקנה ושימוש בקופי טרייד" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+<p>ביקשתם ממני מאות פעמים להסביר איך אני מעתיק עסקאות מחשבון לחשבון, אז הנה המדריך המלא: איך קונים את <span class="en">Replikanto</span>, איך מתקינים אותו בנינג'ה טריידר, איך מגדירים אותו ואיך מעתיקים את העסקה הראשונה. כל צילומי המסך לקוחים מהסרטון שלי.</p>
+
+<div class="box"><strong>מה צריך לפני שמתחילים</strong>
+  <ul>
+    <li>מחשב Windows עם <span class="en">NinjaTrader 8</span>. רפליקנטו הוא תוסף (<span class="en">Add-on</span>) של נינג'ה, ולא עובד בלעדיה.</li>
+    <li>החשבונות שאתם רוצים להעתיק אליהם מחוברים לנינג'ה טריידר.</li>
+    <li>קוד ההנחה שלי: <span class="code">ANTAR</span>.</li>
+  </ul>
+</div>
+
+<ol class="toc">
+  <li><strong>רכישה והפקת Machine ID</strong></li>
+  <li><strong>התקנה בנינג'ה טריידר</strong></li>
+  <li><strong>הגדרות והעתקת העסקה הראשונה</strong></li>
+  <li><strong>הגדרות חובה לחשבונות מימון</strong></li>
+</ol>
+
+<!-- ============ PART 1 ============ -->
+<h2>חלק 1: רכישה והפקת Machine ID</h2>
+<p>הרישיון של רפליקנטו מקושר למחשב שלכם דרך מזהה של נינג'ה טריידר שנקרא <span class="en">Machine ID</span>. את המזהה מזינים כבר בעמוד התשלום, ולכן כדאי שהנינג'ה תהיה פתוחה לפני שמתחילים לקנות.</p>
+
+<h3><span class="n">1</span>נכנסים לעמוד המוצר של FlowBots</h3>
+<p>היכנסו לאתר של <span class="en">FlowBots</span>, החברה שמפתחת את רפליקנטו, דרך הקישור שבדף <a href="/replikanto-guide#pricing" data-link="replikanto-guide">Replikanto</a>. אם אתם קונים דרך הקישור שלי אני מרוויח מזה קצת, ותמיד נחמד לפרגן.</p>
+<figure><img src="/images/blog/replikanto-install/01-product-page.webp" alt="עמוד המוצר של Replikanto באתר FlowBots" loading="lazy" /></figure>
+
+<h3><span class="n">2</span>בוחרים סוג רישיון</h3>
+<p>גוללים למטה ובוחרים ב-<span class="en">License Type</span> את הרישיון שמתאים לכם: לשנה או לכל החיים, למחשב אחד או לשני מחשבים. יש גם רישיון ניסיון (<span class="en">Trial</span>) של 7 ימים לחשבונות סימולציה, ואני ממליץ להתחיל בו כדי לוודא שהכל עובד לפני שעוברים לחשבונות אמיתיים. אחרי הבחירה לוחצים <span class="en">Add to cart</span>.</p>
+<figure><img src="/images/blog/replikanto-install/02-license-type.webp" alt="בחירת סוג הרישיון של Replikanto, כאן רישיון ניסיון של 7 ימים" loading="lazy" /></figure>
+<div class="box"><strong>כמה זה עולה?</strong>המחירים שמופיעים בצילומי המסך הם מהיום שבו צילמתי את הסרטון. את המחירים העדכניים, כולל המחיר אחרי ההנחה, תמצאו ב<a href="/replikanto-guide#pricing" data-link="replikanto-guide">טבלת המחירים של Replikanto</a>. היא נבדקת מול האתר הרשמי.</div>
+
+<h3><span class="n">3</span>מזינים את קוד ההנחה</h3>
+<p>בעגלה מקלידים את הקוד <span class="code">ANTAR</span> בשדה הקופון ולוחצים <span class="en">Apply coupon</span>. המחיר מתעדכן מיד. אחר כך ממשיכים לתשלום וממלאים את הפרטים הרגילים.</p>
+<figure><img src="/images/blog/replikanto-install/03-cart-coupon.webp" alt="עגלת הקניות של FlowBots עם שדה הקופון וכפתור Apply coupon" loading="lazy" /></figure>
+
+<h3><span class="n">4</span>מפיקים Machine ID בנינג'ה טריידר</h3>
+<p>בעמוד התשלום יש שדה בשם <span class="en">Signed NinjaTrader Machine ID</span>. כדי למלא אותו:</p>
+<ol>
+  <li>בחלון הראשי של נינג'ה טריידר (<span class="en">Control Center</span>) לוחצים <span class="en">Help</span> ואז <span class="en">3rd party licensing</span>.</li>
+  <li>בשדה <span class="en">Vendor name</span> מקלידים בדיוק <span class="en">FlowBots</span>, עם F ו-B גדולות.</li>
+  <li>בשדה <span class="en">User defined ID</span> כותבים מה שבא לכם, למשל את השם שלכם. זה לא משנה.</li>
+  <li>לוחצים <span class="en">Submit</span>, ונינג'ה מייצרת קוד ארוך.</li>
+</ol>
+<figure><img src="/images/blog/replikanto-install/04-vendor-name.webp" alt="חלון 3rd Party Licensing בנינג'ה טריידר עם FlowBots בשדה Vendor name" loading="lazy" /></figure>
+<p>מעתיקים את הקוד ומדביקים אותו בשדה <span class="en">Signed NinjaTrader Machine ID</span> בעמוד התשלום.</p>
+<figure><img src="/images/blog/replikanto-install/05-machine-id.webp" alt="ה-Machine ID שנינג'ה טריידר מייצרת אחרי לחיצה על Submit (מטושטש)" loading="lazy" /></figure>
+<div class="box"><strong>טוב לדעת</strong>אי אפשר לפתוח משתמש באתר של FlowBots לפני הרכישה. שם המשתמש והסיסמה נוצרים לבד אחרי התשלום הראשון. ואם החלפתם מחשב, את ה-Machine ID אפשר לשנות גם אחרי ההזמנה.</div>
+
+<h3><span class="n">5</span>מאשרים את ההזמנה במייל</h3>
+<p>ממלאים את פרטי האשראי ולוחצים <span class="en">Place order</span>. בפעם הראשונה תקבלו מייל שבו צריך לאשר את החשבון. נכנסים למייל, לוחצים על קישור האישור, חוזרים לעמוד ולוחצים שוב <span class="en">Place order</span>. הפעם ההזמנה תעבור.</p>
+
+<h3><span class="n">6</span>מורידים את הקובץ</h3>
+<p>אחרי אישור הרכישה מופיע אזור <span class="en">Downloads</span>, ושם לוחצים על הגרסה העדכנית של רפליקנטו.</p>
+<figure><img src="/images/blog/replikanto-install/06-download.webp" alt="אזור Downloads באתר FlowBots עם כפתור ההורדה של Replikanto" loading="lazy" /></figure>
+<div class="box warn"><strong>יש שתי גרסאות להורדה</strong>הגרסה תלויה בגרסת הנינג'ה שלכם: אחת לנינג'ה 8.1.6.0 ומעלה, ואחת לנינג'ה 8.1.5.2 ומטה. בדקו את הגרסה שלכם ב-<span class="en">Help &gt; About</span> לפני שאתם מורידים.</div>
+
+<!-- ============ PART 2 ============ -->
+<h2>חלק 2: התקנה בנינג'ה טריידר</h2>
+
+<div class="box warn"><strong>לפני ההתקנה: OneDrive</strong>נינג'ה טריידר ורפליקנטו לא מסתדרות עם שירותי ענן כמו <span class="en">Microsoft OneDrive</span>. הענן נועל קבצים בזמן הסנכרון, וזה גורם לשגיאות כמו <span class="en">Import Failed</span> ואפילו עלול להשחית נתוני מסחר. לפני שמתקינים, בטלו בהגדרות OneDrive את הגיבוי של תיקיית <span class="en">Documents</span>, וודאו שתיקיית <span class="en">NinjaTrader 8</span> יושבת מקומית על המחשב.</div>
+
+<h3><span class="n">1</span>מייבאים את הקובץ לנינג'ה</h3>
+<p>אל תחלצו (<span class="en">Unzip</span>) את הקובץ שהורדתם. בנינג'ה טריידר לוחצים <span class="en">Tools &gt; Import &gt; NinjaScript Add-On</span>, בוחרים את קובץ ה-ZIP (בדרך כלל הוא בתיקיית ההורדות), לוחצים <span class="en">Open</span> ומאשרים כל הודעה שקופצת.</p>
+<figure><img src="/images/blog/replikanto-install/07-import-addon.webp" alt="תפריט Tools, Import, NinjaScript Add-On בנינג'ה טריידר" loading="lazy" /></figure>
+
+<h3><span class="n">2</span>מפעילים את נינג'ה מחדש ופותחים את רפליקנטו</h3>
+<p>סוגרים את נינג'ה טריידר ופותחים אותה שוב. בלי הפעלה מחדש התוסף לא יעבוד. אחרי זה לוחצים <span class="en">New</span>, יורדים עד למטה ל-<span class="en">FlowBots</span>, ובוחרים <span class="en">Replikanto</span>.</p>
+<figure><img src="/images/blog/replikanto-install/08-open-replikanto.webp" alt="תפריט New בנינג'ה טריידר עם FlowBots ו-Replikanto בתחתית" loading="lazy" /></figure>
+
+<!-- ============ PART 3 ============ -->
+<h2>חלק 3: הגדרות והעתקת העסקה הראשונה</h2>
+<p>בסרטון סידרתי שלושה גרפים אחד ליד השני, כל אחד מחובר לחשבון אחר, כדי שתראו איך עסקה בחשבון אחד מועתקת לשאר. הכל בחשבונות סימולציה, ואני ממליץ שגם אתם תתרגלו קודם על סים.</p>
+
+<h3><span class="n">1</span>בוחרים נכס וחשבון מוביל</h3>
+<p>בחלון של רפליקנטו יש בצד שמאל שלוש הגדרות עיקריות:</p>
+<ul>
+  <li><strong><span class="en">Instrument</span>:</strong> הנכס שעליו אתם סוחרים, למשל MNQ, NQ, ES או נפט.</li>
+  <li><strong><span class="en">Leader Account</span>:</strong> החשבון המוביל. כל עסקה שתיכנסו בו תועתק לחשבונות האחרים.</li>
+  <li><strong><span class="en">Method</span>:</strong> איך הכמות מועתקת. מיד בהמשך.</li>
+</ul>
+<p>בצד ימין, תחת <span class="en">Follower Accounts</span>, מופיעים החשבונות העוקבים. <strong>מסמנים את העיגול בעמודת <span class="en">On</span> ליד כל חשבון שרוצים להעתיק אליו.</strong> חשבון שלא סימנתם לא יקבל את העסקה.</p>
+<figure><img src="/images/blog/replikanto-install/09-control-center.webp" alt="חלון Replikanto עם Instrument, Leader Account, Method ורשימת Follower Accounts" loading="lazy" /></figure>
+
+<h3><span class="n">2</span>בוחרים איך להעתיק את הכמות</h3>
+<p>יש כמה שיטות, ואלה שתיים שהכי רלוונטיות:</p>
+<ul>
+  <li><strong><span class="en">Exact Quantity</span>:</strong> אותה כמות בדיוק. נכנסתם בחוזה אחד בחשבון המוביל, וכל העוקבים ייכנסו בחוזה אחד.</li>
+  <li><strong><span class="en">Ratio</span>:</strong> יחס שונה לכל חשבון. מתאים כשהחשבונות בגדלים שונים. למשל, החשבון המוביל הוא 50K ויש לכם חשבון 150K: מגדירים לו יחס 3, וכל חוזה בחשבון המוביל יהפוך לשלושה בחשבון הגדול.</li>
+</ul>
+<figure><img src="/images/blog/replikanto-install/10-ratio.webp" alt="שיטת Ratio ב-Replikanto עם יחס 2 לאחד החשבונות העוקבים" loading="lazy" /></figure>
+
+<h3><span class="n">3</span>העתקה ממיקרו למיני (Cross Order)</h3>
+<p>בעמודת <span class="en">Cross Order</span> אפשר להגדיר שחשבון מסוים יקבל את העסקה בחוזה אחר. בדוגמה בסרטון החשבון המוביל סוחר במיקרו (MNQ), ואחד העוקבים מקבל את אותה עסקה במיני (NQ).</p>
+<figure><img src="/images/blog/replikanto-install/11-cross-order.webp" alt="עמודת Cross Order ב-Replikanto, חשבון עוקב שמוגדר ל-NQ" loading="lazy" /></figure>
+
+<h3><span class="n">4</span>לא פותחים לשוניות נוספות</h3>
+<p>בתחתית החלון יש <span class="en">+</span> שפותח לשונית העתקה נוספת.</p>
+<figure><img src="/images/blog/replikanto-install/12-tabs-warning.webp" alt="שתי לשוניות העתקה פתוחות בתחתית חלון Replikanto" loading="lazy" /></figure>
+<div class="box warn"><strong>אל תשתמשו בזה</strong>אם שכחתם לשונית פתוחה, אתם עלולים לקבל העתקה על העתקה על העתקה, וזה יכול לעשות בלאגן רציני בחשבונות. תעבדו תמיד עם לשונית אחת.</div>
+
+<h3><span class="n">5</span>עסקת ניסיון, ואיך סוגרים</h3>
+<p>נכנסים לעסקה בחשבון המוביל, ובודקים בכל החשבונות שהיא נכנסה בכמות ובחוזה שהגדרתם. בדוגמה נכנסתי בחוזה אחד: החשבון עם יחס 2 נכנס בשניים, והחשבון עם ה-Cross Order נכנס בחוזה אחד במיני.</p>
+<p>כדי לסגור יש שתי אפשרויות:</p>
+<ul>
+  <li><strong>האיקס בעמודת <span class="en">Flatten</span>:</strong> סוגר חשבון אחד. שימו לב לעמודה הזו כל הזמן, כי שם רואים אם נשאר חשבון פתוח אחרי שיצאתם מהעסקה.</li>
+  <li><strong><span class="en">Flatten All</span>:</strong> סוגר את כל החשבונות בבת אחת.</li>
+</ul>
+<figure><img src="/images/blog/replikanto-install/13-flatten.webp" alt="פוזיציות פתוחות בחשבונות העוקבים וכפתורי Flatten ב-Replikanto" loading="lazy" /></figure>
+
+<h3><span class="n">6</span>מסחר מ-Tradovate או מ-TradingView</h3>
+<p>רפליקנטו לא עובד בתוך Tradovate, אבל אפשר לעקוף את זה: מגדירים את החשבון המחובר ל-Tradovate כחשבון המוביל ברפליקנטו. מעכשיו, כל עסקה שתיכנסו ב-Tradovate או ב-TradingView תועתק לשאר החשבונות שפתוחים בנינג'ה. התנאי: נינג'ה טריידר חייבת להישאר פתוחה ברקע כל הזמן.</p>
+
+<!-- ============ PART 4 ============ -->
+<h2>חלק 4: הגדרות חובה לחשבונות מימון</h2>
+<p>חברות מימון כמו Apex ו-Topstep יכולות לסגור חשבון על הפרת חוקים. ברפליקנטו יש שלוש הגדרות שכדאי להכיר כדי שזה לא יקרה לכם.</p>
+
+<h3><span class="n">1</span>Compliance Mode</h3>
+<p>חברות מימון אוסרות על העתקת עסקאות מרחוק (<span class="en">Remote Copy</span>), כדי למנוע ניהול חשבונות של אנשים אחרים. בגרסת <span class="en">Compliance Mode</span> של FlowBots ההעתקה מרחוק ו"המצב הנסתר" (<span class="en">Stealth Mode</span>) מנוטרלים מראש, כך שאתם עובדים לפי הכללים.</p>
+
+<h3><span class="n">2</span>Follower Guard נגד פוזיציות הפוכות</h3>
+<p>לונג בחשבון אחד ושורט בחשבון אחר נחשב לעבירה חמורה (<span class="en">Wash Trade</span>) באפקס ובטופסטפ. זה יכול לקרות בטעות: חשבון עוקב נתקע ולא סגר פוזיציה, ואז פתחתם עסקה הפוכה בחשבון המוביל. כדי למנוע את זה:</p>
+<ol>
+  <li>לוחצים קליק ימני על חלון רפליקנטו ובוחרים <span class="en">Properties</span>.</li>
+  <li>תחת <span class="en">Follower Guard</span> מסמנים את <span class="en">Flatten follower if it becomes out of sync</span>. ההגדרה סוגרת לבד פוזיציה שנתקעה בחשבון עוקב.</li>
+  <li>אף פעם לא מגדירים יחס שלילי (למשל 1.0-). יחס כזה פותח עסקה הפוכה בכוונה.</li>
+</ol>
+
+<h3><span class="n">3</span>ATM Copy</h3>
+<p>אם אתם עובדים עם סטופ וטייק פרופיט יחד (פקודות <span class="en">OCO</span>), מומלץ להפעיל את עמודת <span class="en">ATM Copy</span>. במקום להעתיק כל שינוי בפקודות היציאה, כל חשבון עוקב מנהל את היציאה בעצמו דרך ה-ATM של נינג'ה מרגע שהכניסה בוצעה. זה מצמצם תקלות כשיש בעיות אינטרנט.</p>
+
+<div class="box"><strong>הטיפ שלי (נועם ענתר, כותב המאמר)</strong>קופי טרייד מכפיל הכל, גם את הרווחים וגם את ההפסדים. אם אתם רק מתחילים, אל תמהרו לחבר עשרה חשבונות. קודם תביאו משיכה בחשבון אחד, אחר כך תגדלו לשניים, לחמישה, וכן הלאה. זה גם קשה יותר מנטלית לסחור כשאתה יודע שכל עסקה מוכפלת. ועוד דבר: ההעתקה לא מושלמת. קרה לי לא פעם שעסקה נכנסה רק בחלק מהחשבונות, או שיצאתי וחלק נשארו פתוחים. לכן חלון רפליקנטו תמיד פתוח אצלי על אחד המסכים, ואני בודק בכל כניסה ויציאה שכל החשבונות באמת ביצעו את העסקה.</div>
+
+<p>נתקלתם בתקלה? בדף Replikanto יש <a href="/replikanto-guide" data-link="replikanto-guide">תשובות לתקלות הנפוצות</a>: פקודות שנתקעות ב-Tradovate, גלגול חוזים, הפרשי רווח בין חשבונות וחשבונות שמסומנים בצהוב או באדום. ואם אתם מעדיפים פתרון שרץ בענן ולא דורש מחשב פתוח, תסתכלו על <a href="/tradesyncer-guide" data-link="tradesyncer-guide">Tradesyncer</a>.</p>
+
+<div class="cta">
+  <h2>מוכנים להתחיל?</h2>
+  <p>בדף <a href="/replikanto-guide#pricing" data-link="replikanto-guide">Replikanto</a> תמצאו את המחירים העדכניים וקישור לרכישה. בקופה, הקוד <span class="code">ANTAR</span> נותן לכם הנחה.</p>
+</div>
+
+<p class="disc">המדריך מובא למטרות מידע והדרכה בלבד ואינו מהווה ייעוץ השקעות. הממשק והתנאים של Replikanto ושל NinjaTrader עשויים להשתנות, ולכל חברת מימון יש כללים משלה לגבי העתקת עסקאות. בדקו את הכללים של החברה שלכם לפני שאתם מתחילים.</p>
+</article>
+    </div>
+  </body>
+</html>

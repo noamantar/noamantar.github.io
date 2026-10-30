@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Microsoft Clarity מנוהל דרך שכבת המדידה המרכזית (src/lib/analytics/clarity.ts) ונטען רק לאחר הסכמה -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" sizes="32x32" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" sizes="16x16" href="/favicon.ico" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lucid Trading - מדריך מלא למסלולים, חוקים ומשיכות</title>
+    <meta data-rh="true" name="description" content="מדריך מקיף ל־Lucid Trading: מסלולי המסחר, שלב המבחן, מגבלות ההפסד, תנאי המשיכה, הפלטפורמות ואפשרות המעבר לחשבון Live.">
+
+    <!-- Open Graph Meta Tags -->
+    <meta data-rh="true" property="og:title" content="Lucid Trading - מדריך מלא למסלולים, חוקים ומשיכות">
+    <meta data-rh="true" property="og:description" content="מדריך מקיף ל־Lucid Trading: מסלולי המסחר, שלב המבחן, מגבלות ההפסד, תנאי המשיכה, הפלטפורמות ואפשרות המעבר לחשבון Live.">
+    <meta data-rh="true" property="og:image" content="https://antartrade.co.il/images/blog/covers/lucid-trading-guide.webp">
+    
+    
+    <meta data-rh="true" property="og:image:alt" content="מדריך Lucid Trading">
+    <meta data-rh="true" property="og:type" content="website" />
+    <meta data-rh="true" property="og:site_name" content="AntarTrade" />
+    <meta data-rh="true" property="og:locale" content="he_IL" />
+
+    <!-- Twitter Cards Meta Tags -->
+    <meta data-rh="true" name="twitter:card" content="summary_large_image" />
+    <meta data-rh="true" name="twitter:title" content="Lucid Trading - מדריך מלא למסלולים, חוקים ומשיכות">
+    <meta data-rh="true" name="twitter:description" content="מדריך מקיף ל־Lucid Trading: מסלולי המסחר, שלב המבחן, מגבלות ההפסד, תנאי המשיכה, הפלטפורמות ואפשרות המעבר לחשבון Live.">
+    <meta data-rh="true" name="twitter:image" content="https://antartrade.co.il/images/blog/covers/lucid-trading-guide.webp">
+    <meta data-rh="true" name="twitter:image:alt" content="מדריך Lucid Trading">
+
+    <!-- Additional Meta Tags -->
+    <meta name="author" content="AntarTrade" />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://i.ytimg.com" crossorigin />
+    <link rel="dns-prefetch" href="https://img.youtube.com" />
+    <link rel="dns-prefetch" href="https://www.youtube.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" rel="stylesheet" />
+    <!-- Preload LCP image (header logo) -->
+    <link rel="preload" as="image" href="/lovable-uploads/antartrade-logo-new.webp" fetchpriority="high" />
+    <!-- Critical inline CSS for instant LCP paint of hero H1 (replaced by React on hydration) -->
+    <style>
+      html,body{margin:0;padding:0;background:#0D2847;font-family:Heebo,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+      #root{min-height:100vh}
+      .lcp-hero{position:relative;background:linear-gradient(135deg,#0D2847 0%,#1f5470 50%,#17B3B1 100%);padding:96px 16px 64px;text-align:center;direction:rtl;overflow:hidden}
+      .lcp-hero-inner{max-width:1200px;margin:0 auto}
+      .lcp-hero h1{margin:0 0 24px;color:#fff;font-weight:700;line-height:1.15;font-size:32px}
+      .lcp-hero h1 .lcp-line{display:block}
+      .lcp-hero h1 .lcp-grad{background:linear-gradient(90deg,#22d3ee,#2dd4bf,#06b6d4);-webkit-background-clip:text;background-clip:text;color:transparent;margin-top:8px}
+      .lcp-hero p{margin:0 auto;color:rgba(255,255,255,.9);font-size:18px;max-width:56rem;line-height:1.6}
+      @media(min-width:768px){.lcp-hero{padding:128px 16px 96px}.lcp-hero h1{font-size:56px}.lcp-hero p{font-size:22px}}
+      @media(min-width:1024px){.lcp-hero h1{font-size:64px}.lcp-hero p{font-size:24px}}
+      html.no-lcp-hero .lcp-hero{display:none}
+    </style>
+    <script>
+      (function(){
+        var p = location.pathname;
+        if (p !== '/' && p !== '/index.html') {
+          document.documentElement.classList.add('no-lcp-hero');
+        }
+      })();
+    </script>
+    <!-- Stale-deploy recovery: if hashed JS chunks referenced by a cached index.html
+         are gone (404 / "Importing a module script failed"), reload once bypassing cache. -->
+    <script>
+      (function(){
+        var KEY = '__chunk_reload_at';
+        function reloadOnce(){
+          try {
+            var last = Number(sessionStorage.getItem(KEY) || 0);
+            if (Date.now() - last < 20000) return; // avoid reload loops
+            sessionStorage.setItem(KEY, String(Date.now()));
+          } catch(e){}
+          var u = location.pathname + (location.search ? location.search + '&' : '?') + '_r=' + Date.now() + location.hash;
+          location.replace(u);
+        }
+        // Resource-level failures (module script / preload) bubble only in capture phase
+        window.addEventListener('error', function(e){
+          var t = e && e.target;
+          if (t && t !== window && (t.tagName === 'SCRIPT' || t.tagName === 'LINK')) { reloadOnce(); return; }
+          var m = e && e.message;
+          if (m && (m.indexOf('Importing a module script failed') > -1 ||
+                    m.indexOf('Failed to fetch dynamically imported module') > -1 ||
+                    m.indexOf('error loading dynamically imported module') > -1)) reloadOnce();
+        }, true);
+        window.addEventListener('unhandledrejection', function(e){
+          var m = e && e.reason && (e.reason.message || String(e.reason));
+          if (m && (m.indexOf('Importing a module script failed') > -1 ||
+                    m.indexOf('Failed to fetch dynamically imported module') > -1 ||
+                    m.indexOf('error loading dynamically imported module') > -1)) reloadOnce();
+        });
+      })();
+    </script>
+
+    <!-- Meta Pixel מנוהל כעת דרך שכבת המדידה המרכזית (src/lib/analytics) ונטען רק לאחר הסכמה -->
+    <script type="module" crossorigin src="/assets/index-Dg5hPVd3.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/markdown-vendor-OEs9TPKd.js">
+    <link rel="modulepreload" crossorigin href="/assets/react-vendor-Cc7L66Bm.js">
+    <link rel="modulepreload" crossorigin href="/assets/query-vendor-BLCEqCQa.js">
+    <link rel="modulepreload" crossorigin href="/assets/supabase-vendor-D7Xp04Ua.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-Bg6w7v_G.css">
+    <meta data-rh="true" property="og:url" content="https://antartrade.co.il/blog/lucid-trading-guide">
+    <link data-rh="true" rel="canonical" href="https://antartrade.co.il/blog/lucid-trading-guide">
+  </head>
+  <body>
+    <noscript>
+      <img
+        height="1"
+        width="1"
+        style="display:none"
+        src="https://www.facebook.com/tr?id=25761708513493694&ev=PageView&noscript=1"
+      />
+      <div
+        style="max-width:900px;margin:0 auto;padding:40px 20px;font-family:Heebo,sans-serif;direction:rtl;text-align:right;"
+      >
+        <h1>AntarTrade – השוואת חברות מימון למסחר 2026</h1>
+        <p>
+          אתר ההשוואות המוביל בישראל לחברות מימון לסוחרים 2026 – ניתוחים אישיים, קודי הנחה בלעדיים ותוכן מקצועי מאת נועם
+          ענתר.
+        </p>
+        <h2>חברות מימון</h2>
+        <ul>
+          <li>
+            <a href="/top-step">TopStep – סקירה מלאה, חוקים ומחירים</a> – חברת המימון הגדולה בעולם עם מעל 10 שנות
+            פעילות. מגוון גדלי חשבונות, ללא כלל עקביות, ומשיכה ראשונה כבר ביום 5.
+          </li>
+          <li>
+            <a href="/apex">Apex Trader Funding – סקירה מלאה, חוקים ומחירים</a> – חברת מימון פופולרית עם מבחן שלב אחד,
+            ללא כלל עקביות, ואפשרות למספר חשבונות במקביל.
+          </li>
+          <li>
+            <a href="/bulenox">Bulenox – סקירה מלאה, חוקים ומחירים</a> – חברת מימון עם מחירים תחרותיים ומבחן שלב אחד.
+            תומכת ב-NinjaTrader ו-Rithmic.
+          </li>
+          <li>
+            <a href="/take-profit">TakeProfit Trader – סקירה מלאה, חוקים ומחירים</a> – חברת מימון עם גישה ייחודית,
+            מחירים נמוכים, ותמיכה מצוינת בעברית.
+          </li>
+          <li>
+            <a href="/lucid">Lucid Trader – סקירה מלאה, חוקים ומחירים</a> – חברת מימון ישראלית עם תמיכה בעברית, מחירים
+            תחרותיים, וממשק ידידותי.
+          </li>
+          <li>
+            <a href="/alpha-futures">Alpha Futures – סקירה מלאה, חוקים ומחירים</a> – חברת מימון חדשה עם תנאים תחרותיים
+            ומבחן שלב אחד.
+          </li>
+        </ul>
+        <h2>השוואה בין חברות</h2>
+        <ul>
+          <li>
+            <a href="/comparison">טבלת השוואה מקיפה בין כל חברות המימון</a> – השוואה מפורטת של מחירים, חוקים, תנאי משיכה
+            ועוד.
+          </li>
+        </ul>
+        <h2>מדריכים וכלים</h2>
+        <ul>
+          <li>
+            <a href="/atas-guide">מדריך ATAS (אטאס) – ניתוח זרימת פקודות</a> – מדריך מקיף לשימוש בפלטפורמת ATAS לניתוח
+            Order Flow, גרפי Footprint ומפות חום.
+          </li>
+          <li>
+            <a href="/bookmap-guide">מדריך Bookmap (בוקמאפ)</a> – מדריך לשימוש ב-Bookmap לניתוח עומק שוק ו-Order Flow
+            בזמן אמת.
+          </li>
+          <li>
+            <a href="/tradezella-guide">מדריך TradeZella – יומן מסחר</a> – מדריך מקיף לשימוש ב-TradeZella לניהול יומן
+            מסחר, ניתוח ביצועים ושיפור אסטרטגיות.
+          </li>
+          <li>
+            <a href="/replikanto-guide">מדריך Replikanto – העתקת עסקאות</a> – מדריך לשימוש ב-Replikanto להעתקת עסקאות
+            בין חשבונות מרובים ב-NinjaTrader.
+          </li>
+          <li>
+            <a href="/tradesyncer-guide">מדריך TradeSyncer – העתקת עסקאות מ-TradingView</a> – מדריך לחיבור TradingView
+            לחשבונות מימון באמצעות TradeSyncer.
+          </li>
+          <li>
+            <a href="/trading-tools">מרכז כלי מסחר ומדריכים</a> – כל הכלים, הפלטפורמות והמדריכים למסחר בחוזים עתידיים.
+          </li>
+          <li><a href="/economic-calendar">לוח שנה כלכלי</a> – לוח אירועים כלכליים בזמן אמת עם הסברים בעברית.</li>
+        </ul>
+        <h2>קורסים</h2>
+        <ul>
+          <li>
+            <a href="/free-course">קורס מסחר בחוזים עתידיים – חינם</a> – קורס מקיף למתחילים הכולל שיעורי וידאו, חומרי
+            לימוד ותרגול.
+          </li>
+          <li><a href="/full-course">קורס מתקדם למסחר בחוזים עתידיים</a> – קורס מתקדם עם ליווי אישי ותוכן בלעדי.</li>
+        </ul>
+        <h2>מידע נוסף</h2>
+        <ul>
+          <li><a href="/about">אודות AntarTrade</a></li>
+          <li><a href="/promotions">מבצעים והנחות</a></li>
+          <li><a href="/matching-quiz">שאלון התאמה – איזו חברת מימון מתאימה לך?</a></li>
+          <li><a href="/faq">שאלות ותשובות</a></li>
+          <li><a href="/contact">צור קשר</a></li>
+        </ul>
+      </div>
+    </noscript>
+    <div id="root">
+      <style>.pr-body{max-width:860px;margin:0 auto;padding:120px 20px 64px;color:#e8eef5;line-height:1.7;font-size:18px;direction:rtl;text-align:right}.pr-body h1{font-size:40px;line-height:1.15;margin:16px 0}.pr-body h2{font-size:28px;margin:40px 0 12px}.pr-body h3{font-size:21px;margin:24px 0 8px}.pr-body a{color:#7dc6ff}.pr-body img{max-width:100%;height:auto}.pr-body table{border-collapse:collapse;width:100%}.pr-body td,.pr-body th{border:1px solid #33415a;padding:6px 10px}.pr-body nav{font-size:15px;color:#9fb0c6}.pr-body dt{font-weight:700;margin-top:16px}.pr-body dd{margin:4px 0 0}</style><article class="pr-body"><nav aria-label="פירורי לחם"><a href="/">דף הבית</a> / <a href="/blog">בלוג</a> / Lucid Trading - המדריך המלא: מסלולים, כללים ומשיכות</nav><h1>Lucid Trading - המדריך המלא: מסלולים, כללים ומשיכות</h1><p>נכתב על ידי <a href="/about">נועם ענתר</a>, סוחר חוזים עתידיים ומייסד AntarTrade</p><p>Lucid Trading היא חברת מימון (Prop Firm) לסוחרי חוזים עתידיים. במקום להפקיד הון עצמי, הסוחר בוחר תוכנית ומתחיל לסחור בסביבת סימולציה, כשהביצועים שלו קובעים עד כמה הוא מתקדם: מבחן (Evaluation), חשבון ממומן בסימולציה (Sim Funded) שממנו ניתן למשוך כספים, ובהמשך אפשרות להזמנה ל־LucidLive - חשבון ברוקר אמיתי.</p><p>המדריך מסביר את המסלולים, שלב המבחן, החשבון הממומן, תנאי המשיכה והמעבר ל־Live. המספרים והתנאים המשתנים נשאבים חיים ממאגר הנתונים של האתר ומתעדכנים אוטומטית. המדריך אינו דירוג או המלצה על החברה.</p><h2 id="tracks">ארבעת המסלולים של Lucid</h2><p>לכל מסלול תנאי רכישה, מגבלות סיכון וכללי משיכה שונים. בחירת המסלול היא ההחלטה המרכזית לפני הרכישה, ולכן כדאי להבין את ההבדלים לפני שמשלמים.</p><p>ברכישת LucidDirect מדלגים על שלב המבחן בתמורת עלות התחלתית גבוהה יותר, ומתחילים ישירות בחשבון ממומן בסימולציה.</p><p>LucidLive אינו מסלול שניתן לרכוש - זהו שלב מאוחר יותר שאליו מזמינה החברה סוחרים מתאימים, והוא מוסבר בהמשך המדריך.</p><h2 id="how-it-works">איך המודל עובד בקצרה</h2><ol><li>בחירת סוג חשבון - מסלול מבחן (Pro, Flex או Daily) או מעבר ישיר לממומן (Direct).</li><li>מבחן (Evaluation) - חשבון סימולציה עם יעד רווח; עמידה ביעד זכאית לשדרוג לחשבון ממומן.</li><li>חשבון ממומן (Sim Funded) - גם הוא חשבון סימולציה, שבו צוברים הון מדומה וניתן לבקש משיכות בעמידה בתנאי המסלול.</li><li>משיכות - לאחר עמידה בתנאי הזכאות של המסלול.</li><li>LucidLive - מעבר לחשבון ברוקר אמיתי. המעבר אינו זהה בכל המסלולים ותלוי בתנאי המסלול.</li></ol><h2 id="evaluation">שלב המבחן</h2><p>המבחן הוא השלב שבו הסוחר נדרש לעמוד ביעד רווח מוגדר, תוך שמירה על מגבלות הסיכון והכללים של המסלול. יעד הרווח הוא הסכום שהסוחר נדרש להרוויח בחשבון המבחן כדי להיות זכאי להתקדם לשלב הבא, והוא משתנה לפי המסלול וגודל החשבון. בחלק מהמסלולים נדרשת גם עמידה בחוק עקביות (Consistency) - הגעה ליעד לבדה אינה מספיקה.</p><h3>מגבלת ההפסד המרבית (Drawdown / MLL)</h3><p>מגבלת ההפסד המרבית מגדירה את סף ההפסד שאסור לחשבון להגיע אליו - הגעה לסף גורמת להפרת תנאי החשבון. ב־Lucid קיימות שתי שיטות חישוב: סוף יום (EOD), שבה מגבלת ההפסד מתעדכנת על בסיס יתרת החשבון בסיום יום המסחר, ותוך יומי (Intraday), שבה המגבלה מתעדכנת במהלך יום המסחר תוך התחשבות גם ברווחים ובהפסדים שטרם מומשו.</p><h3>מגבלת הפסד יומית (DLL)</h3><p>מגבלת ההפסד היומית קובעת את רף ההפסד המותר במהלך יום מסחר. הגעה למגבלה היומית נחשבת להפרה זמנית (Soft Breach): המסחר נחסם עד לסשן הבא, אבל החשבון לא נפסל.</p><h3>חוק העקביות (Consistency)</h3><p>חוק העקביות מגביל את חלקו של יום המסחר הרווחי ביותר מתוך הרווח הכולל בחשבון. לדוגמה, אם דרישת העקביות היא 50% והרווח הכולל הוא $2,000, יום המסחר הרווחי ביותר לא יכול לעלות על $1,000. אם הסוחר הגיע ליעד אך לא עמד בעקביות, הוא נדרש להמשיך לצבור רווחים.</p><h3>ימי מסחר ומהירות מעבר</h3><h2 id="funded">אחרי שעוברים את המבחן - החשבון הממומן</h2><p>לאחר עמידה בכל דרישות המבחן (Evaluation), הסוחר מתקדם לחשבון ממומן מדומה (Sim Funded). בחשבון זה ניתן לצבור רווחים ולבקש משיכות בהתאם לתנאי המסלול. חשוב לדעת שכללי החשבון הממומן עשויים להיות שונים מאלה שחלו בשלב המבחן.</p><p>מה משתנה בכל מסלול?</p><h2 id="live">המעבר ל־LucidLive</h2><p>לאחר המעבר לחשבון ממומן מדומה (Sim Funded), הסוחר עשוי לקבל הזמנה לחשבון LucidLive - חשבון שבו המסחר מתבצע בכסף אמיתי. המעבר אינו אוטומטי או מובטח, והוא תמיד נתון לשיקול דעת צוות ניהול הסיכונים של Lucid.</p><p>Lucid בוחנת סוחרים למעבר בהתאם לביצועיהם, להיקף המשיכות שביצעו ולקריטריונים נוספים. גם כאשר אחד הקריטריונים הרלוונטיים מתקיים - כמו הגעה לשלב המשיכה האחרון במסלול או ביצועים יוצאי דופן - ההחלטה הסופית נשארת בידי החברה.</p><h3>מה קורה בעת המעבר?</h3><ul><li>הסוחר מקבל חשבון Live אחד עבור כל חשבון ממומן זכאי שביצע לפחות משיכה אחת.</li><li>החשבונות המדומים נסגרים, והטיפול בהם אינו זכאי לדמי המבחן.</li><li>חשבון ה־Live החדש מתחיל ביתרה של $0, עם מגבלת הפסד מוגדרת לפי גודל החשבון.</li></ul><h3>כללי המסחר המרכזיים ב־Live</h3><ul><li>תוכנית Scaling - כמות החוזים המותרת משתנה בהתאם לגודל החשבון ולרווחים שנצברו.</li></ul><p>מגבלת ההפסד המרבית (MLL) ב־Live מתעדכנת בהתאם ליתרת הסגירה הגבוהה ביותר של החשבון לאחר צבירת רווחים. בקשת משיכה לפני הגעה לגובה ה־Drawdown ההתחלתי שהחברה מגדירה עשויה לגרום לקיבוע המגבלה.</p><p>בהמתנה לאימות: פרטי אפשרות ה־Cashout (קבלת תשלום במקום מעבר ל־Live) ומבנה הבונוס בחשבונות Live חדשים. הסעיפים יושלמו לאחר אימות מול הנהלת האתר.</p><h2 id="payouts">משיכות רווחים</h2><p>אין חלון משיכות חודשי קבוע במסלולים שנבדקו, וניתן להגיש בקשה לאחר עמידה בכל הדרישות. לכל מסלול סכום משיכה מינימלי ומגבלות משיכה מרביות. חשוב לדעת שתנאי הזכאות עשויים להתאפס לאחר משיכה מאושרת, ושבקשה שהוגשה אינה ניתנת לעריכה או לביטול - חשבון שנמצא מתחת לסף הנדרש עלול לגרום לדחיית הבקשה.</p><p>מסחר שמוריד את יתרת החשבון מתחת לסף הזכאות עלול לגרום לדחיית בקשת המשיכה. בנוסף, במסלולים מסוימים משיכת רווחים עשויה לשנות את מגבלת ההפסד (Drawdown) או להפחית את מספר החוזים המותר בהתאם לתוכנית ה־Scaling.</p><p>שדה חסר במאגר הנתונים הקנוני: זמן אישור ומשלוח המשיכה (לפי המקור הרשמי - עד 2 ימי עסקים לאחר אישור). הסעיף יוצג כאן לאחר הוספת השדה למערכת.</p><h2 id="platforms">פלטפורמות מסחר וחיבורים</h2><p>מדריכי חיבור מפורטים לכל פלטפורמה (Rithmic, Tradovate, NinjaTrader, TradingView) - בקרוב באתר.</p><h2 id="rules">יתרונות, מגבלות וכללי מסחר</h2><h3>היתרונות המרכזיים</h3><ul><li>תשלום חד־פעמי - אין מנוי חודשי חוזר במסלולי החשבונות המרכזיים.</li><li>ללא דמי הפעלה נוספים - מעבר מוצלח למבחן במסלולי Pro, Flex ו־Daily אינו כרוך בדמי הפעלה.</li><li>מסלול ללא מבחן - LucidDirect מאפשר להתחיל ישירות בחשבון ממומן מדומה.</li><li>אפשרות התקדמות ל־Live - סוחרים מתאימים עשויים לקבל הזמנה למסחר בכסף אמיתי, בכפוף להחלטת החברה.</li><li>מגוון מסלולים - ניתן לבחור בין תוכניות בעלות שיטות Drawdown, מגבלות סיכון ותנאי משיכה שונים.</li></ul><h3>כללים ומגבלות שחשוב להכיר</h3><ul><li>שעות מסחר - במסלולי Pro, Flex ו־Direct יש לסגור פוזיציות עד 16:45 לפי שעון החוף המזרחי של ארה&quot;ב (EST); פוזיציות שנותרו פתוחות נסגרות אוטומטית. שעות הפעילות עשויות להשתנות בחגים ובחשבון Live.</li></ul><h2 id="getting-started">איך מתחילים לסחור ב־Lucid Trading?</h2><ol><li>בחירת מסלול - בין מסלולי המבחן (Pro, Flex, Daily) לבין LucidDirect, שמאפשר להתחיל בחשבון ממומן מדומה ללא מבחן. לפני הבחירה חשוב לבדוק את יעד הרווח, מגבלות ההפסד, כללי המסחר ותנאי המשיכות.</li><li>רכישת החשבון - לאחר בחירת המסלול וגודל החשבון, הרכישה מתבצעת באתר הרשמי של Lucid Trading.</li><li>חיבור לפלטפורמת מסחר - לאחר הרכישה יש להשתמש בפרטי החיבור של החשבון כדי להתחבר לפלטפורמת מסחר נתמכת, בהתאם לספק שנבחר.</li><li>תחילת מסחר - במסלולי המבחן יש לעמוד ביעד הרווח ובכללי החשבון כדי להתקדם לשלב הבא; במסלול Direct ניתן להתחיל ישירות בחשבון ממומן מדומה, בכפוף לכללי המסלול.</li><li>מעבר לחשבון ממומן מדומה - לאחר מעבר מוצלח של המבחן, הסוחר מתקדם לחשבון Sim Funded; בשלב זה חלים כללי מסחר ומשיכה שעשויים להיות שונים מאלה שהיו בשלב המבחן.</li><li>בקשת משיכת רווחים (Payout) - לאחר עמידה בתנאי הזכאות של החשבון הממומן, ניתן להגיש בקשת משיכה בהתאם למדיניות Lucid Trading.</li></ol><ul><li><a href="/lucid">לעמוד החברה המלא</a></li><li><a href="/comparison">להשוואת כל החברות</a></li></ul><h2 id="related">מדריכים נוספים (בקרוב)</h2><ul><li>איך קונים מבחן ב־Lucid Trading? (בקרוב)</li><li>מה עושים אחרי שעוברים מבחן ב־Lucid Trading? (בקרוב)</li><li>איך מושכים כסף מ־Lucid Trading? (בקרוב)</li><li>איך מחברים את Lucid Trading ל־Rithmic? (בקרוב)</li><li>איך מחברים את Lucid Trading ל־Tradovate? (בקרוב)</li><li>איך מחברים את Lucid Trading ל־NinjaTrader? (בקרוב)</li><li>איך מחברים את Lucid Trading ל־TradingView? (בקרוב)</li></ul><h2>שאלות נפוצות</h2><h3>האם יש דמי מנוי חודשיים בלוסיד?</h3><p>לא. Lucid Trading פועלת במודל של תשלום חד־פעמי, ללא מנוי חודשי מתחדש. גם המעבר ממבחן לחשבון ממומן אינו כרוך בדמי הפעלה נוספים.</p><h3>כמה חשבונות ממומנים מותר להחזיק במקביל?</h3><h3>איך עובדות משיכות כספים וחלוקת רווחים?</h3><h3>מה יגרום לחסימת החשבון שלי?</h3><p>הפרת מגבלת ההפסד המרבית, גידור (Hedging) אסור, מסחר בתדירות גבוהה (HFT) או ניצול מערכות החברה. דפוסי מיקרו־סקלפינג חשודים עלולים להוביל לבדיקה ידנית ולא לפסילה אוטומטית, ועדיין עלולים להוביל להגבלות או לסגירת החשבון.</p><h3>מותר לסחור בזמן חדשות ולהשאיר עסקאות פתוחות ללילה?</h3><h3>מה קורה כשעוברים לחשבון לייב (Live Account)?</h3><h3>מה קורה אם לא סחרתי הרבה זמן?</h3><h3>כמה זמן לוקח לקבל משיכה מ־Lucid Trading?</h3><p>לפי האתר הרשמי, לאחר אישור בקשת המשיכה הכספים מועברים לאמצעי התשלום עד שני ימי עסקים. קבלת התשלום בפועל תלויה באמצעי התשלום ובספק השירות.</p></article>
+    </div>
+  </body>
+</html>

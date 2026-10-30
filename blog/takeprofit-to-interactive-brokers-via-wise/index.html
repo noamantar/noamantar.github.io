@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Microsoft Clarity מנוהל דרך שכבת המדידה המרכזית (src/lib/analytics/clarity.ts) ונטען רק לאחר הסכמה -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" sizes="32x32" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" sizes="16x16" href="/favicon.ico" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>משיכה מטייק פרופיט לאינטראקטיב דרך Wise - מדריך צעד אחר צעד | AntarTrade</title>
+    <meta data-rh="true" name="description" content="מדריך עם צילומי מסך: איך העברתי משיכה מ-Take Profit Trader לחשבון דולרי ב-Wise, ומשם לאינטראקטיב ברוקרס. 20 שלבים, טיפים ונקודות שכדאי לבדוק לפני העברה.">
+
+    <!-- Open Graph Meta Tags -->
+    <meta data-rh="true" property="og:title" content="משיכה מטייק פרופיט לאינטראקטיב דרך Wise - מדריך צעד אחר צעד | AntarTrade">
+    <meta data-rh="true" property="og:description" content="מדריך עם צילומי מסך: איך העברתי משיכה מ-Take Profit Trader לחשבון דולרי ב-Wise, ומשם לאינטראקטיב ברוקרס. 20 שלבים, טיפים ונקודות שכדאי לבדוק לפני העברה.">
+    <meta data-rh="true" property="og:image" content="https://antartrade.co.il/images/blog/covers/takeprofit-to-interactive-brokers-via-wise.webp">
+    
+    
+    <meta data-rh="true" property="og:image:alt" content="משיכה מטייק פרופיט לאינטראקטיב דרך Wise - מדריך צעד אחר צעד">
+    <meta data-rh="true" property="og:type" content="website" />
+    <meta data-rh="true" property="og:site_name" content="AntarTrade" />
+    <meta data-rh="true" property="og:locale" content="he_IL" />
+
+    <!-- Twitter Cards Meta Tags -->
+    <meta data-rh="true" name="twitter:card" content="summary_large_image" />
+    <meta data-rh="true" name="twitter:title" content="משיכה מטייק פרופיט לאינטראקטיב דרך Wise - מדריך צעד אחר צעד | AntarTrade">
+    <meta data-rh="true" name="twitter:description" content="מדריך עם צילומי מסך: איך העברתי משיכה מ-Take Profit Trader לחשבון דולרי ב-Wise, ומשם לאינטראקטיב ברוקרס. 20 שלבים, טיפים ונקודות שכדאי לבדוק לפני העברה.">
+    <meta data-rh="true" name="twitter:image" content="https://antartrade.co.il/images/blog/covers/takeprofit-to-interactive-brokers-via-wise.webp">
+    <meta data-rh="true" name="twitter:image:alt" content="משיכה מטייק פרופיט לאינטראקטיב דרך Wise - מדריך צעד אחר צעד">
+
+    <!-- Additional Meta Tags -->
+    <meta name="author" content="AntarTrade" />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://i.ytimg.com" crossorigin />
+    <link rel="dns-prefetch" href="https://img.youtube.com" />
+    <link rel="dns-prefetch" href="https://www.youtube.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" rel="stylesheet" />
+    <!-- Preload LCP image (header logo) -->
+    <link rel="preload" as="image" href="/lovable-uploads/antartrade-logo-new.webp" fetchpriority="high" />
+    <!-- Critical inline CSS for instant LCP paint of hero H1 (replaced by React on hydration) -->
+    <style>
+      html,body{margin:0;padding:0;background:#0D2847;font-family:Heebo,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+      #root{min-height:100vh}
+      .lcp-hero{position:relative;background:linear-gradient(135deg,#0D2847 0%,#1f5470 50%,#17B3B1 100%);padding:96px 16px 64px;text-align:center;direction:rtl;overflow:hidden}
+      .lcp-hero-inner{max-width:1200px;margin:0 auto}
+      .lcp-hero h1{margin:0 0 24px;color:#fff;font-weight:700;line-height:1.15;font-size:32px}
+      .lcp-hero h1 .lcp-line{display:block}
+      .lcp-hero h1 .lcp-grad{background:linear-gradient(90deg,#22d3ee,#2dd4bf,#06b6d4);-webkit-background-clip:text;background-clip:text;color:transparent;margin-top:8px}
+      .lcp-hero p{margin:0 auto;color:rgba(255,255,255,.9);font-size:18px;max-width:56rem;line-height:1.6}
+      @media(min-width:768px){.lcp-hero{padding:128px 16px 96px}.lcp-hero h1{font-size:56px}.lcp-hero p{font-size:22px}}
+      @media(min-width:1024px){.lcp-hero h1{font-size:64px}.lcp-hero p{font-size:24px}}
+      html.no-lcp-hero .lcp-hero{display:none}
+    </style>
+    <script>
+      (function(){
+        var p = location.pathname;
+        if (p !== '/' && p !== '/index.html') {
+          document.documentElement.classList.add('no-lcp-hero');
+        }
+      })();
+    </script>
+    <!-- Stale-deploy recovery: if hashed JS chunks referenced by a cached index.html
+         are gone (404 / "Importing a module script failed"), reload once bypassing cache. -->
+    <script>
+      (function(){
+        var KEY = '__chunk_reload_at';
+        function reloadOnce(){
+          try {
+            var last = Number(sessionStorage.getItem(KEY) || 0);
+            if (Date.now() - last < 20000) return; // avoid reload loops
+            sessionStorage.setItem(KEY, String(Date.now()));
+          } catch(e){}
+          var u = location.pathname + (location.search ? location.search + '&' : '?') + '_r=' + Date.now() + location.hash;
+          location.replace(u);
+        }
+        // Resource-level failures (module script / preload) bubble only in capture phase
+        window.addEventListener('error', function(e){
+          var t = e && e.target;
+          if (t && t !== window && (t.tagName === 'SCRIPT' || t.tagName === 'LINK')) { reloadOnce(); return; }
+          var m = e && e.message;
+          if (m && (m.indexOf('Importing a module script failed') > -1 ||
+                    m.indexOf('Failed to fetch dynamically imported module') > -1 ||
+                    m.indexOf('error loading dynamically imported module') > -1)) reloadOnce();
+        }, true);
+        window.addEventListener('unhandledrejection', function(e){
+          var m = e && e.reason && (e.reason.message || String(e.reason));
+          if (m && (m.indexOf('Importing a module script failed') > -1 ||
+                    m.indexOf('Failed to fetch dynamically imported module') > -1 ||
+                    m.indexOf('error loading dynamically imported module') > -1)) reloadOnce();
+        });
+      })();
+    </script>
+
+    <!-- Meta Pixel מנוהל כעת דרך שכבת המדידה המרכזית (src/lib/analytics) ונטען רק לאחר הסכמה -->
+    <script type="module" crossorigin src="/assets/index-Dg5hPVd3.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/markdown-vendor-OEs9TPKd.js">
+    <link rel="modulepreload" crossorigin href="/assets/react-vendor-Cc7L66Bm.js">
+    <link rel="modulepreload" crossorigin href="/assets/query-vendor-BLCEqCQa.js">
+    <link rel="modulepreload" crossorigin href="/assets/supabase-vendor-D7Xp04Ua.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-Bg6w7v_G.css">
+    <meta data-rh="true" property="og:url" content="https://antartrade.co.il/blog/takeprofit-to-interactive-brokers-via-wise">
+    <link data-rh="true" rel="canonical" href="https://antartrade.co.il/blog/takeprofit-to-interactive-brokers-via-wise">
+  </head>
+  <body>
+    <noscript>
+      <img
+        height="1"
+        width="1"
+        style="display:none"
+        src="https://www.facebook.com/tr?id=25761708513493694&ev=PageView&noscript=1"
+      />
+      <div
+        style="max-width:900px;margin:0 auto;padding:40px 20px;font-family:Heebo,sans-serif;direction:rtl;text-align:right;"
+      >
+        <h1>AntarTrade – השוואת חברות מימון למסחר 2026</h1>
+        <p>
+          אתר ההשוואות המוביל בישראל לחברות מימון לסוחרים 2026 – ניתוחים אישיים, קודי הנחה בלעדיים ותוכן מקצועי מאת נועם
+          ענתר.
+        </p>
+        <h2>חברות מימון</h2>
+        <ul>
+          <li>
+            <a href="/top-step">TopStep – סקירה מלאה, חוקים ומחירים</a> – חברת המימון הגדולה בעולם עם מעל 10 שנות
+            פעילות. מגוון גדלי חשבונות, ללא כלל עקביות, ומשיכה ראשונה כבר ביום 5.
+          </li>
+          <li>
+            <a href="/apex">Apex Trader Funding – סקירה מלאה, חוקים ומחירים</a> – חברת מימון פופולרית עם מבחן שלב אחד,
+            ללא כלל עקביות, ואפשרות למספר חשבונות במקביל.
+          </li>
+          <li>
+            <a href="/bulenox">Bulenox – סקירה מלאה, חוקים ומחירים</a> – חברת מימון עם מחירים תחרותיים ומבחן שלב אחד.
+            תומכת ב-NinjaTrader ו-Rithmic.
+          </li>
+          <li>
+            <a href="/take-profit">TakeProfit Trader – סקירה מלאה, חוקים ומחירים</a> – חברת מימון עם גישה ייחודית,
+            מחירים נמוכים, ותמיכה מצוינת בעברית.
+          </li>
+          <li>
+            <a href="/lucid">Lucid Trader – סקירה מלאה, חוקים ומחירים</a> – חברת מימון ישראלית עם תמיכה בעברית, מחירים
+            תחרותיים, וממשק ידידותי.
+          </li>
+          <li>
+            <a href="/alpha-futures">Alpha Futures – סקירה מלאה, חוקים ומחירים</a> – חברת מימון חדשה עם תנאים תחרותיים
+            ומבחן שלב אחד.
+          </li>
+        </ul>
+        <h2>השוואה בין חברות</h2>
+        <ul>
+          <li>
+            <a href="/comparison">טבלת השוואה מקיפה בין כל חברות המימון</a> – השוואה מפורטת של מחירים, חוקים, תנאי משיכה
+            ועוד.
+          </li>
+        </ul>
+        <h2>מדריכים וכלים</h2>
+        <ul>
+          <li>
+            <a href="/atas-guide">מדריך ATAS (אטאס) – ניתוח זרימת פקודות</a> – מדריך מקיף לשימוש בפלטפורמת ATAS לניתוח
+            Order Flow, גרפי Footprint ומפות חום.
+          </li>
+          <li>
+            <a href="/bookmap-guide">מדריך Bookmap (בוקמאפ)</a> – מדריך לשימוש ב-Bookmap לניתוח עומק שוק ו-Order Flow
+            בזמן אמת.
+          </li>
+          <li>
+            <a href="/tradezella-guide">מדריך TradeZella – יומן מסחר</a> – מדריך מקיף לשימוש ב-TradeZella לניהול יומן
+            מסחר, ניתוח ביצועים ושיפור אסטרטגיות.
+          </li>
+          <li>
+            <a href="/replikanto-guide">מדריך Replikanto – העתקת עסקאות</a> – מדריך לשימוש ב-Replikanto להעתקת עסקאות
+            בין חשבונות מרובים ב-NinjaTrader.
+          </li>
+          <li>
+            <a href="/tradesyncer-guide">מדריך TradeSyncer – העתקת עסקאות מ-TradingView</a> – מדריך לחיבור TradingView
+            לחשבונות מימון באמצעות TradeSyncer.
+          </li>
+          <li>
+            <a href="/trading-tools">מרכז כלי מסחר ומדריכים</a> – כל הכלים, הפלטפורמות והמדריכים למסחר בחוזים עתידיים.
+          </li>
+          <li><a href="/economic-calendar">לוח שנה כלכלי</a> – לוח אירועים כלכליים בזמן אמת עם הסברים בעברית.</li>
+        </ul>
+        <h2>קורסים</h2>
+        <ul>
+          <li>
+            <a href="/free-course">קורס מסחר בחוזים עתידיים – חינם</a> – קורס מקיף למתחילים הכולל שיעורי וידאו, חומרי
+            לימוד ותרגול.
+          </li>
+          <li><a href="/full-course">קורס מתקדם למסחר בחוזים עתידיים</a> – קורס מתקדם עם ליווי אישי ותוכן בלעדי.</li>
+        </ul>
+        <h2>מידע נוסף</h2>
+        <ul>
+          <li><a href="/about">אודות AntarTrade</a></li>
+          <li><a href="/promotions">מבצעים והנחות</a></li>
+          <li><a href="/matching-quiz">שאלון התאמה – איזו חברת מימון מתאימה לך?</a></li>
+          <li><a href="/faq">שאלות ותשובות</a></li>
+          <li><a href="/contact">צור קשר</a></li>
+        </ul>
+      </div>
+    </noscript>
+    <div id="root">
+      <style>.pr-body{max-width:860px;margin:0 auto;padding:120px 20px 64px;color:#e8eef5;line-height:1.7;font-size:18px;direction:rtl;text-align:right}.pr-body h1{font-size:40px;line-height:1.15;margin:16px 0}.pr-body h2{font-size:28px;margin:40px 0 12px}.pr-body h3{font-size:21px;margin:24px 0 8px}.pr-body a{color:#7dc6ff}.pr-body img{max-width:100%;height:auto}.pr-body table{border-collapse:collapse;width:100%}.pr-body td,.pr-body th{border:1px solid #33415a;padding:6px 10px}.pr-body nav{font-size:15px;color:#9fb0c6}.pr-body dt{font-weight:700;margin-top:16px}.pr-body dd{margin:4px 0 0}</style><article class="pr-body"><nav aria-label="פירורי לחם"><a href="/">דף הבית</a> / <a href="/blog">בלוג</a> / משיכה מטייק פרופיט לאינטראקטיב דרך Wise - מדריך צעד אחר צעד</nav><h1>משיכה מטייק פרופיט לאינטראקטיב דרך Wise - מדריך צעד אחר צעד</h1><p>נכתב על ידי <a href="/about">נועם ענתר</a>, סוחר חוזים עתידיים ומייסד AntarTrade</p>
+<p class="lead">במדריך הזה אני מראה, עם צילומי מסך, את התהליך שביצעתי כדי להעביר משיכה מ-<a href="/take-profit">Take Profit Trader</a> לחשבון שלי באינטראקטיב ברוקרס. הכסף לא עובר ישירות: הוא עובר בשתי העברות נפרדות - קודם מטייק פרופיט לחשבון דולרי ב-Wise, ואחר כך מ-Wise לאינטראקטיב.</p>
+
+<div class="route"><span>TakeProfit</span><i>← העברה 1 ←</i><span>Wise (USD)</span><i>← העברה 2 ←</i><span>Interactive Brokers</span></div>
+
+<div class="box warn">
+  <strong>לפני שמתחילים</strong>
+  המדריך מתאר תהליך שביצעתי בחשבונות שלי, כפי שהממשקים נראו בזמן הביצוע. הוא לא מבטיח שאותן אפשרויות יהיו זמינות לכל משתמש. כל העברה כפופה לתנאים, להגבלות ולבדיקות של כל אחת מהחברות, והעמלות, ההמרות וזמני ההעברה עשויים להיות שונים. ודאו שהמסלול מותר ומתאים לחשבונות שלכם.
+</div>
+
+<div class="box">
+  <strong>מה היה לי לפני שהתחלתי</strong>
+  <ul>
+    <li>חשבון Wise פעיל.</li>
+    <li>חשבון פעיל באינטראקטיב ברוקרס (IBKR).</li>
+    <li>משיכה מאושרת ב-Take Profit Trader שכבר נכנסה לארנק (Wallet).</li>
+    <li>מסמך באנגלית לאימות כתובת - במקרה שלי, אישור ניהול חשבון מהבנק.</li>
+  </ul>
+</div>
+
+<p>המדריך מחולק לשלושה שלבים:</p>
+<ol class="toc">
+  <li>פתיחת פרטי חשבון דולרי ב-Wise.</li>
+  <li>משיכה מטייק פרופיט לחשבון הדולרי ב-Wise (העברה 1).</li>
+  <li>העברה מ-Wise לאינטראקטיב (העברה 2).</li>
+</ol>
+
+<!-- ============ STAGE 1 ============ -->
+<h2><small>שלב 1</small>פתיחת חשבון דולרי ב-Wise</h2>
+<p>אם כבר יש לכם פרטי חשבון דולרי (USD Account details) ב-Wise - אפשר לדלג לשלב 2.</p>
+
+<h3><span class="n">1</span>נכנסים לחשבון הדולרי ולוחצים Account details</h3>
+<p>במסך הבית של Wise לוחצים על חשבון הדולר (<span class="en">USD</span>), ובמסך החשבון לוחצים <span class="en">Account details</span> שמתחת ליתרה.</p>
+<figure><img src="/blog/takeprofit-ibkr/step-01.jpg" alt="מסך חשבון הדולר ב-Wise עם כפתור Account details מתחת ליתרה" loading="lazy" /></figure>
+<div class="box warn"><strong>שימו לב</strong>לא ללחוץ על <span class="en">Add</span> - זה כפתור להוספת כסף לחשבון.</div>
+
+<h3><span class="n">2</span>מתחילים את ההגדרה - Continue</h3>
+<p>במסך <span class="en">Get set up to receive USD</span> מופיע שצריך לאשר כמה פרטים. לוחצים <span class="en">Continue</span>.</p>
+<figure><img src="/blog/takeprofit-ibkr/step-02.jpg" alt="מסך Get set up to receive USD ב-Wise עם כפתור Continue" loading="lazy" /></figure>
+
+<h3><span class="n">3</span>בוחרים סוג מסמך לאימות כתובת</h3>
+<p>Wise מציגים רשימה של מסמכים שהם מקבלים לאימות כתובת. בוחרים את סוג המסמך שיש לכם. אני העליתי אישור ניהול חשבון באנגלית שהורדתי מהבנק.</p>
+<figure><img src="/blog/takeprofit-ibkr/step-03.jpg" alt="רשימת סוגי המסמכים לאימות כתובת ב-Wise" loading="lazy" /></figure>
+
+<h3><span class="n">4</span>מעלים את המסמך ולוחצים Submit</h3>
+<p>על המסך מופיעות הדרישות מהמסמך - בין היתר שיופיעו בו השם המלא, הכתובת הנוכחית ותאריך הנפקה עדכני. אחרי ההעלאה לוחצים <span class="en">Submit</span>.</p>
+<figure><img src="/blog/takeprofit-ibkr/step-04.jpg" alt="מסך Upload your proof of address ב-Wise עם רשימת הדרישות וכפתור Submit" loading="lazy" /></figure>
+<div class="box"><strong>מהניסיון שלי</strong>האישור שהעליתי היה באנגלית, והכתובת הופיעה בו בעברית - וזה התקבל. בהתחלה המסמך נפסל, אבל לא בגלל השפה: Wise לא זיהו את תאריך המסמך וקבעו שהוא ישן, למרות שהוא הונפק באותו יום. פניתי לתמיכה של Wise בצ׳אט, והם סידרו את זה ואישרו. אם המסמך שלכם נפסל, כדאי לוודא שהתאריך מופיע בו בבירור, ולפנות לצ׳אט התמיכה.</div>
+
+<h3><span class="n">5</span>מחכים לאישור</h3>
+<p>מכאן Wise בודקים את המסמך. לפי ההודעה שהופיעה אצלי, הבדיקה נמשכת בדרך כלל עד יומיים, ו-Wise שולחים עדכון כשפרטי החשבון מוכנים.</p>
+<figure><img src="/blog/takeprofit-ibkr/step-05.jpg" alt="מסך That's all we need ב-Wise אחרי שליחת המסמך" loading="lazy" /></figure>
+<figure><img src="/blog/takeprofit-ibkr/step-06.jpg" alt="מסך We're working on it ב-Wise - פרטי החשבון הדולרי בבדיקה" loading="lazy" /></figure>
+
+<h3><span class="n">6</span>מעתיקים את פרטי החשבון הדולרי</h3>
+<p>אחרי שהחשבון נפתח, נכנסים לחשבון הדולרי ולוחצים על הכפתור הירוק כדי לראות את פרטי החשבון: שם בעל החשבון, סוג החשבון, מספר הניתוב ומספר החשבון, שם וכתובת הבנק וקוד Swift. את הפרטים האלה נזין בטייק פרופיט בשלב הבא.</p>
+<figure><img src="/blog/takeprofit-ibkr/step-07.jpg" alt="פרטי חשבון הדולר ב-Wise - Receive USD, עם הפרטים האישיים מוסתרים" loading="lazy" /><figcaption>הפרטים האישיים ומספרי החשבון מוסתרים בתמונה.</figcaption></figure>
+
+<!-- ============ STAGE 2 ============ -->
+<h2><small>שלב 2 · העברה 1</small>משיכה מטייק פרופיט ל-Wise</h2>
+
+<h3><span class="n">7</span>נכנסים לארנק ולוחצים Proceed</h3>
+<p>אחרי שהמשיכה אושרה ונכנסה לארנק, נכנסים בטייק פרופיט ל-<span class="en">Wallet</span> ← <span class="en">Withdrawal requests</span>, ובשורה של המשיכה לוחצים <span class="en">PROCEED</span>.</p>
+<figure><img src="/blog/takeprofit-ibkr/step-08.jpg" alt="Take Profit Trader - לשונית Withdrawal requests בארנק עם כפתור Proceed" loading="lazy" /></figure>
+
+<h3><span class="n">8</span>בוחרים Wise</h3>
+<p>בחלון <span class="en">Withdraw</span> בוחרים <span class="en">Wise</span> תחת <span class="en">Continue with</span> ולוחצים <span class="en">NEXT</span>.</p>
+<figure><img src="/blog/takeprofit-ibkr/step-09.jpg" alt="חלון Withdraw בטייק פרופיט עם Wise מסומן כאמצעי המשיכה" loading="lazy" /></figure>
+
+<h3><span class="n">9</span>בוחרים Bank Account וממלאים את פרטי החשבון הדולרי</h3>
+<p>בחלון <span class="en">Wise details</span> הופיעו אצלי שתי לשוניות: <span class="en">Bank Account</span> ו-<span class="en">International Bank Account</span>. בהעברה הזו בחרתי <span class="en">Bank Account</span> (<span class="en">USD Bank account information</span>) והזנתי את פרטי החשבון הדולרי שקיבלתי מ-Wise בשלב 6.</p>
+<figure><img src="/blog/takeprofit-ibkr/step-10.jpg" alt="חלון Wise details בטייק פרופיט עם הלשונית Bank Account - USD Bank account information" loading="lazy" /></figure>
+<div class="box"><strong>למה לא International Bank Account?</strong>בעבר השתמשתי ב-<span class="en">International Bank Account</span> כדי להעביר את המשיכה לחשבון הבנק שלי בארץ. הפעם רציתי שהכסף ייכנס לחשבון הדולרי שלי ב-Wise, ולכן בחרתי <span class="en">Bank Account</span>. זה תיאור של מה שראיתי וביצעתי - ייתכן שהאפשרויות יוצגו או יפעלו אחרת אצלכם.</div>
+
+<h3><span class="n">10</span>מאשרים - והמשיכה נשלחה</h3>
+<p>לוחצים על כפתור האישור ואחר כך <span class="en">Finish</span>. מופיעה הודעה שהמשיכה נשלחה, והסטטוס בטבלה מתעדכן ל-<span class="en">submitted</span>. מכאן מחכים שהכסף ייכנס ל-Wise.</p>
+<figure><img src="/blog/takeprofit-ibkr/step-11.jpg" alt="הודעת Your payout has been submitted successfully בטייק פרופיט" loading="lazy" /></figure>
+<figure><img src="/blog/takeprofit-ibkr/step-12.jpg" alt="טבלת Withdrawal requests בטייק פרופיט עם המשיכה בסטטוס submitted" loading="lazy" /></figure>
+
+<!-- ============ STAGE 3 ============ -->
+<h2><small>שלב 3 · העברה 2</small>העברה מ-Wise לאינטראקטיב</h2>
+
+<h3><span class="n">11</span>בודקים שהדולרים נכנסו ל-Wise</h3>
+<p>כשהכסף מטייק פרופיט מתקבל, הוא מופיע בחשבון הדולרי ב-Wise.</p>
+<figure><img src="/blog/takeprofit-ibkr/step-13.jpg" alt="מסך הבית ב-Wise עם יתרה בחשבון הדולר אחרי קבלת המשיכה" loading="lazy" /></figure>
+
+<h3><span class="n">12</span>באינטראקטיב: העברות ותשלומים ← Transfer Funds</h3>
+<p>מתחברים לאינטראקטיב, ובתפריט העליון נכנסים ל<strong>העברות ותשלומים</strong> (בממשק האנגלי: <span class="en">Transfer &amp; Pay</span>) ובוחרים <span class="en">Transfer Funds</span>.</p>
+<figure><img src="/blog/takeprofit-ibkr/step-14.jpg" alt="התפריט העברות ותשלומים באינטראקטיב עם האפשרות Transfer Funds" loading="lazy" /></figure>
+
+<h3><span class="n">13</span>בוחרים Deposit Funds</h3>
+<p>במסך <span class="en">Transfer Funds</span> בוחרים <span class="en">Deposit Funds</span> - הפקדה לחשבון.</p>
+<figure><img src="/blog/takeprofit-ibkr/step-15.jpg" alt="מסך Transfer Funds באינטראקטיב עם האפשרות Deposit Funds" loading="lazy" /></figure>
+
+<h3><span class="n">14</span>בוחרים דולר ו-Transfer from Wise Balance</h3>
+<p>במטבע בוחרים <span class="en">United States Dollar</span> (הכסף שלי ב-Wise היה בדולרים), וברשימת השיטות בוחרים <span class="en">Transfer from Wise Balance</span> ולוחצים <span class="en">Go</span>.</p>
+<figure><img src="/blog/takeprofit-ibkr/step-16.jpg" alt="מסך Deposit באינטראקטיב - מטבע דולר ושיטת Transfer from Wise Balance" loading="lazy" /></figure>
+
+<h3><span class="n">15</span>מתחברים ל-Wise ובוחרים את החשבון</h3>
+<p>לוחצים <span class="en">Log in</span>, מתחברים ל-Wise ובוחרים את החשבון שרוצים לחבר - אצלי, החשבון האישי.</p>
+<figure><img src="/blog/takeprofit-ibkr/step-17.jpg" alt="מסך Transfer from Wise Balance באינטראקטיב עם כפתור Log in ל-Wise" loading="lazy" /></figure>
+<figure><img src="/blog/takeprofit-ibkr/step-18.jpg" alt="מסך Which account would you like to connect ב-Wise" loading="lazy" /></figure>
+
+<h3><span class="n">16</span>מאשרים את החיבור - Give access</h3>
+<p>Wise מציגים את ההרשאות שאינטראקטיב מבקשים לחשבון. לוחצים <span class="en">Give access</span>.</p>
+<div class="box warn"><strong>חשוב</strong>לפני לחיצה על <span class="en">Give access</span>, קראו את ההרשאות שמופיעות במסך וודאו שאתם מאשרים חיבור לחשבון ולשירות הנכונים. ההרשאות עשויות לכלול גישה לפרטי חשבון ולפעולות פיננסיות נוספות מעבר להעברה הנוכחית.</div>
+<figure><img src="/blog/takeprofit-ibkr/step-19.jpg" alt="מסך ההרשאות ב-Wise - Interactive Brokers would like to access your, עם כפתור Give access" loading="lazy" /></figure>
+
+<h3><span class="n">17</span>רושמים את הסכום ולוחצים Continue</h3>
+<p>חוזרים לאינטראקטיב, והיתרה הדולרית ב-Wise מוצגת על המסך. רושמים ב-<span class="en">Total Transfer Amount</span> את הסכום להעברה, בודקים את העמלה, את הסכום שיגיע ואת התאריך המשוער, ולוחצים <span class="en">Continue</span> (ושוב <span class="en">Continue</span> לאישור).</p>
+<figure><img src="/blog/takeprofit-ibkr/step-20.jpg" alt="טופס Transfer from Wise Balance באינטראקטיב עם סכום ההעברה, העמלה והסכום שיגיע" loading="lazy" /><figcaption>בהעברה שלי, על 6,700$ הוצגה עמלה של 1.13$. זו דוגמה מההעברה שלי בלבד - העמלה אצלכם עשויה להיות שונה. בדקו את מה שמוצג לכם לפני האישור.</figcaption></figure>
+
+<h3><span class="n">18</span>מאמתים את ההעברה ב-Wise</h3>
+<p>Wise ביקשו את הסיסמה ואימות נוסף. אצלי הוצע קודם אימות ב-Passkey, ובחרתי באפשרות אחרת - קוד ב-SMS. מקלידים את הקוד ולוחצים <span class="en">Done</span>.</p>
+<figure><img src="/blog/takeprofit-ibkr/step-21.jpg" alt="חלון Approve transfer using SMS code ב-Wise" loading="lazy" /></figure>
+
+<h3><span class="n">19</span>ההעברה נשלחה</h3>
+<p>מופיע מסך <span class="en">Thank You</span> עם פרטי ההעברה ותאריך משוער לזמינות הכסף. כשבדקתי את Wise מיד אחר כך, הסכום כבר ירד מהיתרה.</p>
+<figure><img src="/blog/takeprofit-ibkr/step-22.jpg" alt="מסך Thank You באינטראקטיב - ההפקדה מ-Wise נשלחה, עם מספרי ההעברה מוסתרים" loading="lazy" /></figure>
+
+<h3><span class="n">20</span>בודקים את הסטטוס באינטראקטיב</h3>
+<p>ב<strong>העברות ותשלומים</strong> ← <span class="en">Transaction Status &amp; History</span> ההפקדה מופיעה בסטטוס <span class="en">Pending</span> עד שהיא מתקבלת בחשבון.</p>
+<figure><img src="/blog/takeprofit-ibkr/step-23.jpg" alt="Transaction Status & History באינטראקטיב - הפקדה מ-Wise בסטטוס Pending" loading="lazy" /></figure>
+
+<div class="box"><strong>סיכום</strong>
+  <ol>
+    <li><strong>Wise:</strong> פותחים פרטי חשבון דולרי, עם מסמך לאימות כתובת.</li>
+    <li><strong>טייק פרופיט ← Wise:</strong> <span class="en">Wallet</span> ← <span class="en">Proceed</span> ← <span class="en">Wise</span> ← <span class="en">Bank Account</span> עם פרטי החשבון הדולרי.</li>
+    <li><strong>Wise ← אינטראקטיב:</strong> <span class="en">Transfer Funds</span> ← <span class="en">Deposit Funds</span> ← <span class="en">USD</span> ← <span class="en">Transfer from Wise Balance</span> ← אישור ב-Wise.</li>
+  </ol>
+</div>
+
+<div class="cta">
+  <h2>מחפשים חברת מימון?</h2>
+  <p>ב-AntarTrade תמצאו <a href="/comparison">השוואה בין חברות המימון</a>, <a href="https://journal.antartrade.co.il" target="_blank" rel="noopener">יומן מסחר חינמי</a>, והנחות על מבחנים עם הקוד <span class="code">ANTAR</span>.</p>
+</div>
+
+<p class="tax"><strong>חשוב לדעת:</strong> המדריך עוסק בצד הטכני של ההעברה בלבד. העברה לחשבון השקעות אינה מבטלת חבות מס או חובת דיווח, ככל שקיימות.</p>
+
+<p class="disc">המדריך מבוסס על תהליך אישי שביצעתי, והוא מובא למטרות מידע והדרכה בלבד. אין לראות בו ייעוץ פיננסי, ייעוץ השקעות, ייעוץ מס או ייעוץ משפטי. האפשרויות, העמלות, זמני הטיפול ותנאי השימוש בשירותי Take Profit Trader, Wise ו-Interactive Brokers עשויים להשתנות ותלויים בנסיבות ובזכאות של כל משתמש. לפני ביצוע העברה יש לבדוק את התנאים העדכניים מול הגופים הרלוונטיים ולוודא שהפעולה מותרת ומתאימה לחשבונות שלכם. האחריות לבדיקת פרטי ההעברה, ההשלכות והחובות החלות על המשתמש היא של המשתמש.</p>
+</article>
+    </div>
+  </body>
+</html>

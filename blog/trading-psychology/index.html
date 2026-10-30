@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Microsoft Clarity מנוהל דרך שכבת המדידה המרכזית (src/lib/analytics/clarity.ts) ונטען רק לאחר הסכמה -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" sizes="32x32" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" sizes="16x16" href="/favicon.ico" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>הצד המנטלי במסחר: למה רוב הסוחרים מפסידים | AntarTrade</title>
+    <meta data-rh="true" name="description" content="למה בדמו כולם מרוויחים ובלייב מפסידים, מה עושים אחרי הפסד גדול ואחרי רווח גדול, למה עקביות היא החוק הכי חשוב, ומתי לקום מהכיסא. מתוך הפרק המנטלי בקורס של נועם ענתר.">
+
+    <!-- Open Graph Meta Tags -->
+    <meta data-rh="true" property="og:title" content="הצד המנטלי במסחר: למה רוב הסוחרים מפסידים | AntarTrade">
+    <meta data-rh="true" property="og:description" content="למה בדמו כולם מרוויחים ובלייב מפסידים, מה עושים אחרי הפסד גדול ואחרי רווח גדול, למה עקביות היא החוק הכי חשוב, ומתי לקום מהכיסא. מתוך הפרק המנטלי בקורס של נועם ענתר.">
+    <meta data-rh="true" property="og:image" content="https://antartrade.co.il/images/blog/covers/trading-psychology.webp">
+    
+    
+    <meta data-rh="true" property="og:image:alt" content="הצד המנטלי במסחר: משמעת מול רגש">
+    <meta data-rh="true" property="og:type" content="website" />
+    <meta data-rh="true" property="og:site_name" content="AntarTrade" />
+    <meta data-rh="true" property="og:locale" content="he_IL" />
+
+    <!-- Twitter Cards Meta Tags -->
+    <meta data-rh="true" name="twitter:card" content="summary_large_image" />
+    <meta data-rh="true" name="twitter:title" content="הצד המנטלי במסחר: למה רוב הסוחרים מפסידים | AntarTrade">
+    <meta data-rh="true" name="twitter:description" content="למה בדמו כולם מרוויחים ובלייב מפסידים, מה עושים אחרי הפסד גדול ואחרי רווח גדול, למה עקביות היא החוק הכי חשוב, ומתי לקום מהכיסא. מתוך הפרק המנטלי בקורס של נועם ענתר.">
+    <meta data-rh="true" name="twitter:image" content="https://antartrade.co.il/images/blog/covers/trading-psychology.webp">
+    <meta data-rh="true" name="twitter:image:alt" content="הצד המנטלי במסחר: משמעת מול רגש">
+
+    <!-- Additional Meta Tags -->
+    <meta name="author" content="AntarTrade" />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://i.ytimg.com" crossorigin />
+    <link rel="dns-prefetch" href="https://img.youtube.com" />
+    <link rel="dns-prefetch" href="https://www.youtube.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" rel="stylesheet" />
+    <!-- Preload LCP image (header logo) -->
+    <link rel="preload" as="image" href="/lovable-uploads/antartrade-logo-new.webp" fetchpriority="high" />
+    <!-- Critical inline CSS for instant LCP paint of hero H1 (replaced by React on hydration) -->
+    <style>
+      html,body{margin:0;padding:0;background:#0D2847;font-family:Heebo,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+      #root{min-height:100vh}
+      .lcp-hero{position:relative;background:linear-gradient(135deg,#0D2847 0%,#1f5470 50%,#17B3B1 100%);padding:96px 16px 64px;text-align:center;direction:rtl;overflow:hidden}
+      .lcp-hero-inner{max-width:1200px;margin:0 auto}
+      .lcp-hero h1{margin:0 0 24px;color:#fff;font-weight:700;line-height:1.15;font-size:32px}
+      .lcp-hero h1 .lcp-line{display:block}
+      .lcp-hero h1 .lcp-grad{background:linear-gradient(90deg,#22d3ee,#2dd4bf,#06b6d4);-webkit-background-clip:text;background-clip:text;color:transparent;margin-top:8px}
+      .lcp-hero p{margin:0 auto;color:rgba(255,255,255,.9);font-size:18px;max-width:56rem;line-height:1.6}
+      @media(min-width:768px){.lcp-hero{padding:128px 16px 96px}.lcp-hero h1{font-size:56px}.lcp-hero p{font-size:22px}}
+      @media(min-width:1024px){.lcp-hero h1{font-size:64px}.lcp-hero p{font-size:24px}}
+      html.no-lcp-hero .lcp-hero{display:none}
+    </style>
+    <script>
+      (function(){
+        var p = location.pathname;
+        if (p !== '/' && p !== '/index.html') {
+          document.documentElement.classList.add('no-lcp-hero');
+        }
+      })();
+    </script>
+    <!-- Stale-deploy recovery: if hashed JS chunks referenced by a cached index.html
+         are gone (404 / "Importing a module script failed"), reload once bypassing cache. -->
+    <script>
+      (function(){
+        var KEY = '__chunk_reload_at';
+        function reloadOnce(){
+          try {
+            var last = Number(sessionStorage.getItem(KEY) || 0);
+            if (Date.now() - last < 20000) return; // avoid reload loops
+            sessionStorage.setItem(KEY, String(Date.now()));
+          } catch(e){}
+          var u = location.pathname + (location.search ? location.search + '&' : '?') + '_r=' + Date.now() + location.hash;
+          location.replace(u);
+        }
+        // Resource-level failures (module script / preload) bubble only in capture phase
+        window.addEventListener('error', function(e){
+          var t = e && e.target;
+          if (t && t !== window && (t.tagName === 'SCRIPT' || t.tagName === 'LINK')) { reloadOnce(); return; }
+          var m = e && e.message;
+          if (m && (m.indexOf('Importing a module script failed') > -1 ||
+                    m.indexOf('Failed to fetch dynamically imported module') > -1 ||
+                    m.indexOf('error loading dynamically imported module') > -1)) reloadOnce();
+        }, true);
+        window.addEventListener('unhandledrejection', function(e){
+          var m = e && e.reason && (e.reason.message || String(e.reason));
+          if (m && (m.indexOf('Importing a module script failed') > -1 ||
+                    m.indexOf('Failed to fetch dynamically imported module') > -1 ||
+                    m.indexOf('error loading dynamically imported module') > -1)) reloadOnce();
+        });
+      })();
+    </script>
+
+    <!-- Meta Pixel מנוהל כעת דרך שכבת המדידה המרכזית (src/lib/analytics) ונטען רק לאחר הסכמה -->
+    <script type="module" crossorigin src="/assets/index-Dg5hPVd3.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/markdown-vendor-OEs9TPKd.js">
+    <link rel="modulepreload" crossorigin href="/assets/react-vendor-Cc7L66Bm.js">
+    <link rel="modulepreload" crossorigin href="/assets/query-vendor-BLCEqCQa.js">
+    <link rel="modulepreload" crossorigin href="/assets/supabase-vendor-D7Xp04Ua.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-Bg6w7v_G.css">
+    <meta data-rh="true" property="og:url" content="https://antartrade.co.il/blog/trading-psychology">
+    <link data-rh="true" rel="canonical" href="https://antartrade.co.il/blog/trading-psychology">
+  </head>
+  <body>
+    <noscript>
+      <img
+        height="1"
+        width="1"
+        style="display:none"
+        src="https://www.facebook.com/tr?id=25761708513493694&ev=PageView&noscript=1"
+      />
+      <div
+        style="max-width:900px;margin:0 auto;padding:40px 20px;font-family:Heebo,sans-serif;direction:rtl;text-align:right;"
+      >
+        <h1>AntarTrade – השוואת חברות מימון למסחר 2026</h1>
+        <p>
+          אתר ההשוואות המוביל בישראל לחברות מימון לסוחרים 2026 – ניתוחים אישיים, קודי הנחה בלעדיים ותוכן מקצועי מאת נועם
+          ענתר.
+        </p>
+        <h2>חברות מימון</h2>
+        <ul>
+          <li>
+            <a href="/top-step">TopStep – סקירה מלאה, חוקים ומחירים</a> – חברת המימון הגדולה בעולם עם מעל 10 שנות
+            פעילות. מגוון גדלי חשבונות, ללא כלל עקביות, ומשיכה ראשונה כבר ביום 5.
+          </li>
+          <li>
+            <a href="/apex">Apex Trader Funding – סקירה מלאה, חוקים ומחירים</a> – חברת מימון פופולרית עם מבחן שלב אחד,
+            ללא כלל עקביות, ואפשרות למספר חשבונות במקביל.
+          </li>
+          <li>
+            <a href="/bulenox">Bulenox – סקירה מלאה, חוקים ומחירים</a> – חברת מימון עם מחירים תחרותיים ומבחן שלב אחד.
+            תומכת ב-NinjaTrader ו-Rithmic.
+          </li>
+          <li>
+            <a href="/take-profit">TakeProfit Trader – סקירה מלאה, חוקים ומחירים</a> – חברת מימון עם גישה ייחודית,
+            מחירים נמוכים, ותמיכה מצוינת בעברית.
+          </li>
+          <li>
+            <a href="/lucid">Lucid Trader – סקירה מלאה, חוקים ומחירים</a> – חברת מימון ישראלית עם תמיכה בעברית, מחירים
+            תחרותיים, וממשק ידידותי.
+          </li>
+          <li>
+            <a href="/alpha-futures">Alpha Futures – סקירה מלאה, חוקים ומחירים</a> – חברת מימון חדשה עם תנאים תחרותיים
+            ומבחן שלב אחד.
+          </li>
+        </ul>
+        <h2>השוואה בין חברות</h2>
+        <ul>
+          <li>
+            <a href="/comparison">טבלת השוואה מקיפה בין כל חברות המימון</a> – השוואה מפורטת של מחירים, חוקים, תנאי משיכה
+            ועוד.
+          </li>
+        </ul>
+        <h2>מדריכים וכלים</h2>
+        <ul>
+          <li>
+            <a href="/atas-guide">מדריך ATAS (אטאס) – ניתוח זרימת פקודות</a> – מדריך מקיף לשימוש בפלטפורמת ATAS לניתוח
+            Order Flow, גרפי Footprint ומפות חום.
+          </li>
+          <li>
+            <a href="/bookmap-guide">מדריך Bookmap (בוקמאפ)</a> – מדריך לשימוש ב-Bookmap לניתוח עומק שוק ו-Order Flow
+            בזמן אמת.
+          </li>
+          <li>
+            <a href="/tradezella-guide">מדריך TradeZella – יומן מסחר</a> – מדריך מקיף לשימוש ב-TradeZella לניהול יומן
+            מסחר, ניתוח ביצועים ושיפור אסטרטגיות.
+          </li>
+          <li>
+            <a href="/replikanto-guide">מדריך Replikanto – העתקת עסקאות</a> – מדריך לשימוש ב-Replikanto להעתקת עסקאות
+            בין חשבונות מרובים ב-NinjaTrader.
+          </li>
+          <li>
+            <a href="/tradesyncer-guide">מדריך TradeSyncer – העתקת עסקאות מ-TradingView</a> – מדריך לחיבור TradingView
+            לחשבונות מימון באמצעות TradeSyncer.
+          </li>
+          <li>
+            <a href="/trading-tools">מרכז כלי מסחר ומדריכים</a> – כל הכלים, הפלטפורמות והמדריכים למסחר בחוזים עתידיים.
+          </li>
+          <li><a href="/economic-calendar">לוח שנה כלכלי</a> – לוח אירועים כלכליים בזמן אמת עם הסברים בעברית.</li>
+        </ul>
+        <h2>קורסים</h2>
+        <ul>
+          <li>
+            <a href="/free-course">קורס מסחר בחוזים עתידיים – חינם</a> – קורס מקיף למתחילים הכולל שיעורי וידאו, חומרי
+            לימוד ותרגול.
+          </li>
+          <li><a href="/full-course">קורס מתקדם למסחר בחוזים עתידיים</a> – קורס מתקדם עם ליווי אישי ותוכן בלעדי.</li>
+        </ul>
+        <h2>מידע נוסף</h2>
+        <ul>
+          <li><a href="/about">אודות AntarTrade</a></li>
+          <li><a href="/promotions">מבצעים והנחות</a></li>
+          <li><a href="/matching-quiz">שאלון התאמה – איזו חברת מימון מתאימה לך?</a></li>
+          <li><a href="/faq">שאלות ותשובות</a></li>
+          <li><a href="/contact">צור קשר</a></li>
+        </ul>
+      </div>
+    </noscript>
+    <div id="root">
+      <style>.pr-body{max-width:860px;margin:0 auto;padding:120px 20px 64px;color:#e8eef5;line-height:1.7;font-size:18px;direction:rtl;text-align:right}.pr-body h1{font-size:40px;line-height:1.15;margin:16px 0}.pr-body h2{font-size:28px;margin:40px 0 12px}.pr-body h3{font-size:21px;margin:24px 0 8px}.pr-body a{color:#7dc6ff}.pr-body img{max-width:100%;height:auto}.pr-body table{border-collapse:collapse;width:100%}.pr-body td,.pr-body th{border:1px solid #33415a;padding:6px 10px}.pr-body nav{font-size:15px;color:#9fb0c6}.pr-body dt{font-weight:700;margin-top:16px}.pr-body dd{margin:4px 0 0}</style><article class="pr-body"><nav aria-label="פירורי לחם"><a href="/">דף הבית</a> / <a href="/blog">בלוג</a> / הצד המנטלי במסחר: למה רוב הסוחרים מפסידים (ואיך לא להיות אחד מהם)</nav><h1>הצד המנטלי במסחר: למה רוב הסוחרים מפסידים (ואיך לא להיות אחד מהם)</h1><p>נכתב על ידי <a href="/about">נועם ענתר</a>, סוחר חוזים עתידיים ומייסד AntarTrade</p>
+<p class="lead">אני תמיד אומר שהמנטלי הוא 90% מהמסחר. את הכלים הטכניים אפשר ללמוד בכמה שיעורים: לנתח גרף, למתוח קווים, למצוא תמיכות והתנגדויות. אבל מה שמפריד בין סוחר שמרוויח לסוחר שמפסיד הוא כמעט תמיד הראש, לא הגרף.</p>
+
+<h2>משל הקוף: למה רוב הסוחרים מפסידים</h2>
+<p>תחשבו על קוף שלוחץ על כפתור קנייה או מכירה בנקודה אקראית. מה הסיכוי שלו לצדוק? בערך 50%. המחיר או עולה או יורד.</p>
+<p>אז איך זה שלקוף יש חצי סיכוי, ורוב בני האדם, חכמים ככל שיהיו, לא מצליחים במסחר? התשובה: <strong>רגשות</strong>. אנחנו מערבים פחד, תאוות בצע, רצון להחזיר הפסד ופחד לאבד רווח. הרגשות האלה הופכים סיכוי של 50/50 להרבה פחות.</p>
+
+<h2>למה בדמו כולנו אלופי העולם</h2>
+<p>בדמו כולם מרוויחים. נכנסים, שמים יעד וסטופ, הולכים, וחוזרים לרווח. בלייב, על אותו גרף, עם אותן פקודות ואותם מספרים, פתאום הכול משתנה. מרגישים שמישהו "מזיז את הגרף" בדיוק לסטופ שלנו.</p>
+<p>הגרף לא השתנה. <strong>ההבדל היחיד בין דמו לחשבון אמיתי הוא בראש.</strong> בדמו לא כואב להפסיד, ולכן אנחנו פועלים לפי התוכנית. בלייב נכנסים הפחד ותאוות הבצע, ואיתם הטעויות.</p>
+<p>ועוד משהו שכדאי לזכור: הפסד של 700 דולר כואב יותר ממה שרווח של 1,000 דולר משמח. הכאב הזה הוא מה שגורם לנו לזוז סטופים, להחזיק הפסדים ולסגור רווחים מוקדם מדי.</p>
+
+<h3>איך עוברים מדמו לחשבון אמיתי</h3>
+<ul>
+<li><strong>מתחילים בכמות הכי קטנה שיש,</strong> למשל חוזה מיקרו אחד, ומרגישים איך זה משפיע עליכם.</li>
+<li><strong>גם בדמו סוחרים בכמויות אמיתיות.</strong> אין טעם לתרגל עם 10 חוזים בדמו ואז לסחור עם אחד בלייב.</li>
+<li><strong>תמיד יעד וסטופ,</strong> גם לעסקה וגם ליום כולו.</li>
+<li><strong>אם אתם לחוצים בתוך עסקה,</strong> כנראה שהכמות גדולה מדי. מורידים כמות.</li>
+<li><strong>מצלמים את עצמכם סוחרים.</strong> ככה התחלתי להעלות סרטונים ליוטיוב. כשצופים אחר כך, רואים על הפנים בדיוק מתי נכנס הלחץ.</li>
+</ul>
+
+<h2>הבעיה היא לא ההפסד, אלא מה שעשיתם אחריו</h2>
+<p>הפסד הוא חלק מהסטטיסטיקה. אם אתם מפסידים עסקה אחת מכל שלוש, אין סיבה להתבאס מהפסד אחד. כנראה שהעסקה הבאה תרוויח. אבל זה נכון רק כשעובדים לפי התוכנית.</p>
+<p>הבעיה מתחילה אחרי ההפסד: רוצים להחזיר אותו, מגדילים כמויות, נכנסים לעסקאות סתם, עולים לאפס, יורדים שוב, ובסוף שורפים את החשבון. כולנו היינו שם.</p>
+<div class="box"><strong>הניצחון או הכישלון הם לא ההפסד עצמו</strong>הם איך התנהגתם אחריו. מי שאמר "תודה, שוק, ניפגש מחר" ניצח. מי שניסה לנקום בשוק, גם אם החזיר את הכסף באותו יום, ישרוף בפעם הבאה.</div>
+<h3>מה עושים אחרי הפסד גדול</h3>
+<ol>
+<li><strong>מפסיקים לסחור באותו רגע.</strong> סוגרים את המחשב, גם אם נראה לכם שתחזירו הכול.</li>
+<li><strong>אחרי הפסקה,</strong> שעה או שעתיים, מנתחים מה קרה: האם יצאתם בסטופ לפי התוכנית, או שהייתה טעות מנטלית (חיזוק הפסד, אובר טריידינג, ניסיון להחזיר)?</li>
+<li><strong>אפשר לקחת גם את יום המחר חופש.</strong> זה בסדר.</li>
+<li><strong>חוזרים בכמויות קטנות</strong> מהרגיל, ונותנים לביטחון לחזור בהדרגה.</li>
+</ol>
+<p>למה כל כך קשה להפסיק? כי חבל על הזמן: עבדתם שלושה ימים, ושרפתם הכול ביום אחד. אבל עדיף להגיע למשיכה שבוע מאוחר יותר מאשר לשרוף את החשבון.</p>
+
+<h2>גם לרווח צריך לדעת להתנהג</h2>
+<p>אחרי רווח גדול אנחנו גם לא כשירים להמשיך לסחור. קורה אחד משני דברים: או שנכנסים באגרסיביות ("כבר הרווחנו אלף, בואו נרוויח עוד"), או שכל עסקה נעשית בפחד לאבד את הרווח. במקרה השני, הרווח של 800 הופך למינוס 200, מנסים להחזיר, ושורפים.</p>
+<ul>
+<li><strong>יעד רווח יומי:</strong> כשמגיעים אליו, או קרוב אליו, עוצרים. לא מחפשים את ה-50 דולר האחרונים.</li>
+<li><strong>גודל עסקה קבוע:</strong> לא מגדילים כמות אחרי רווחים, וגם לא אחרי הפסדים.</li>
+<li><strong>הרווחתם? סיימו מוקדם.</strong> עדיף לסיים יום בהרגשה טובה. להפסיד רווח כואב יותר מהפסד רגיל.</li>
+</ul>
+
+<h2>עקביות: החוק הכי חשוב</h2>
+<p>עקביות פירושה לעשות את אותו הדבר כל יום. אם אתם יודעים להרוויח 400–500 דולר ביום, תעשו את זה היום, מחר ומחרתיים. גם להפסיד באותו סדר גודל זה בסדר. מה שלא בסדר: יום אחד להרוויח אלף, יום אחר להפסיד ארבעת אלפים.</p>
+<p>תחשבו על זה: 300 דולר ביום נראה מעט, כשהפוטנציאל הוא אלפיים. אבל 300 דולר במשך עשרה ימי מסחר הם 3,000 דולר, ואפשר להכפיל את זה בכמה חשבונות. <strong>מסחר הוא לא ריצת 50 מטר, הוא מרתון.</strong> זה גם בדיוק מה ש<a href="/academy/glossary#trading-consistency">חוק העקביות</a> של חברות המימון רוצה לראות.</p>
+<h3>איך גדלים</h3>
+<ol>
+<li>מתחילים בחשבון אחד ובכמות קטנה.</li>
+<li>מגיעים למשיכה בצורה עקבית.</li>
+<li>רק אז מגדילים, בהדרגה: לשניים או שלושה חשבונות, אחר כך לארבעה, חמישה, שמונה. העתקת עסקאות בין חשבונות נעשית עם תוכנת <span class="en">Copy Trade</span>.</li>
+</ol>
+<p>מי שקופץ מחשבון אחד לעשרים מרגיש את הלחץ בכל עסקה. גדילה הדרגתית שומרת על הראש.</p>
+
+<h2>הפסקות: מתי לקום מהכיסא</h2>
+<p>אשתי אומרת לי שהיא יודעת שאני מפסיד לפי חריקת הכיסא: אני מתחיל לזוז בחוסר נוחות. הגוף תמיד מאותת לפני הראש. הסימנים:</p>
+<ul>
+<li>זזים בחוסר נוחות על הכיסא.</li>
+<li>מחפשים עסקה בכוח, גם כשהגרף לא נותן.</li>
+<li>חורגים מהשיטה ("אולי בכל זאת אכנס כאן").</li>
+<li>אחרי הכניסה שואלים את עצמכם: "למה נכנסתי לעסקה הזאת?"</li>
+</ul>
+<p>כשזה קורה, <strong>קמים.</strong> הגרף לא בורח. עשר דקות, קפה, אוויר, ובלי טלפון. כשחוזרים, מנתחים את הגרף מחדש כאילו מתחילים יום חדש. ומי שלא מצליח לזהות את הרגע, קובע הפסקות יזומות: כל חצי שעה, ואחרי כל עסקה מפסידה.</p>
+
+<h2>לא לסחור בלי הכנסה נוספת</h2>
+<p>אני מקבל הרבה פניות מאנשים שעזבו את העבודה כדי להתמקד במסחר. זו טעות. מסחר הוא מקצוע, וכמו כל מקצוע לוקח זמן ללמוד אותו. מי שחייב את המשיכה כדי לשלם חשבונות לא יגיע אליה, כי הלחץ הכספי הורס את ההחלטות. תסחרו בלב שקט, עם הכנסה מסודרת מהצד.</p>
+
+<h2>הכלים שעוזרים לשמור על הראש</h2>
+<ul>
+<li><a href="/blog/trading-plan">תוכנית מסחר</a> כתובה, שלא משנים באמצע יום.</li>
+<li><a href="/blog/overtrading">להכיר את האובר טריידינג</a> ולעצור אותו בזמן.</li>
+<li><a href="https://journal.antartrade.co.il" target="_blank" rel="noopener">יומן מסחר</a> שבו מסמנים גם טעויות מנטליות, ולא רק עסקאות. בסוף החודש רואים איפה נופלים הכי הרבה, ומשפרים דבר אחד בכל פעם.</li>
+</ul>
+
+<div class="cta"><h2>רוצים ללמוד את זה לעומק?</h2><p>הפרק המנטלי הוא חלק מהקורס המלא שלי, יחד עם ניהול סיכונים, אסטרטגיות ואורדר פלואו. <a href="/full-course">לפרטים על הקורס המלא</a>.</p></div>
+</article>
+    </div>
+  </body>
+</html>

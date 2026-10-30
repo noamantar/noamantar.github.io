@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Microsoft Clarity מנוהל דרך שכבת המדידה המרכזית (src/lib/analytics/clarity.ts) ונטען רק לאחר הסכמה -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" sizes="32x32" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" sizes="16x16" href="/favicon.ico" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Take Profit Trader - המדריך המלא לטייק פרופיט | AntarTrade</title>
+    <meta data-rh="true" name="description" content="המדריך המלא ל־Take Profit Trader: שלב המבחן, חשבונות PRO ו־PRO+, חוקי המסחר, מגבלות ההפסד, משיכות רווחים, פלטפורמות וקודי הנחה מעודכנים.">
+
+    <!-- Open Graph Meta Tags -->
+    <meta data-rh="true" property="og:title" content="Take Profit Trader - המדריך המלא לטייק פרופיט | AntarTrade">
+    <meta data-rh="true" property="og:description" content="המדריך המלא ל־Take Profit Trader: שלב המבחן, חשבונות PRO ו־PRO+, חוקי המסחר, מגבלות ההפסד, משיכות רווחים, פלטפורמות וקודי הנחה מעודכנים.">
+    <meta data-rh="true" property="og:image" content="https://antartrade.co.il/images/blog/covers/take-profit-trader-guide.webp">
+    
+    
+    <meta data-rh="true" property="og:image:alt" content="מדריך Take Profit Trader 2026">
+    <meta data-rh="true" property="og:type" content="website" />
+    <meta data-rh="true" property="og:site_name" content="AntarTrade" />
+    <meta data-rh="true" property="og:locale" content="he_IL" />
+
+    <!-- Twitter Cards Meta Tags -->
+    <meta data-rh="true" name="twitter:card" content="summary_large_image" />
+    <meta data-rh="true" name="twitter:title" content="Take Profit Trader - המדריך המלא לטייק פרופיט | AntarTrade">
+    <meta data-rh="true" name="twitter:description" content="המדריך המלא ל־Take Profit Trader: שלב המבחן, חשבונות PRO ו־PRO+, חוקי המסחר, מגבלות ההפסד, משיכות רווחים, פלטפורמות וקודי הנחה מעודכנים.">
+    <meta data-rh="true" name="twitter:image" content="https://antartrade.co.il/images/blog/covers/take-profit-trader-guide.webp">
+    <meta data-rh="true" name="twitter:image:alt" content="מדריך Take Profit Trader 2026">
+
+    <!-- Additional Meta Tags -->
+    <meta name="author" content="AntarTrade" />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://i.ytimg.com" crossorigin />
+    <link rel="dns-prefetch" href="https://img.youtube.com" />
+    <link rel="dns-prefetch" href="https://www.youtube.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" rel="stylesheet" />
+    <!-- Preload LCP image (header logo) -->
+    <link rel="preload" as="image" href="/lovable-uploads/antartrade-logo-new.webp" fetchpriority="high" />
+    <!-- Critical inline CSS for instant LCP paint of hero H1 (replaced by React on hydration) -->
+    <style>
+      html,body{margin:0;padding:0;background:#0D2847;font-family:Heebo,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+      #root{min-height:100vh}
+      .lcp-hero{position:relative;background:linear-gradient(135deg,#0D2847 0%,#1f5470 50%,#17B3B1 100%);padding:96px 16px 64px;text-align:center;direction:rtl;overflow:hidden}
+      .lcp-hero-inner{max-width:1200px;margin:0 auto}
+      .lcp-hero h1{margin:0 0 24px;color:#fff;font-weight:700;line-height:1.15;font-size:32px}
+      .lcp-hero h1 .lcp-line{display:block}
+      .lcp-hero h1 .lcp-grad{background:linear-gradient(90deg,#22d3ee,#2dd4bf,#06b6d4);-webkit-background-clip:text;background-clip:text;color:transparent;margin-top:8px}
+      .lcp-hero p{margin:0 auto;color:rgba(255,255,255,.9);font-size:18px;max-width:56rem;line-height:1.6}
+      @media(min-width:768px){.lcp-hero{padding:128px 16px 96px}.lcp-hero h1{font-size:56px}.lcp-hero p{font-size:22px}}
+      @media(min-width:1024px){.lcp-hero h1{font-size:64px}.lcp-hero p{font-size:24px}}
+      html.no-lcp-hero .lcp-hero{display:none}
+    </style>
+    <script>
+      (function(){
+        var p = location.pathname;
+        if (p !== '/' && p !== '/index.html') {
+          document.documentElement.classList.add('no-lcp-hero');
+        }
+      })();
+    </script>
+    <!-- Stale-deploy recovery: if hashed JS chunks referenced by a cached index.html
+         are gone (404 / "Importing a module script failed"), reload once bypassing cache. -->
+    <script>
+      (function(){
+        var KEY = '__chunk_reload_at';
+        function reloadOnce(){
+          try {
+            var last = Number(sessionStorage.getItem(KEY) || 0);
+            if (Date.now() - last < 20000) return; // avoid reload loops
+            sessionStorage.setItem(KEY, String(Date.now()));
+          } catch(e){}
+          var u = location.pathname + (location.search ? location.search + '&' : '?') + '_r=' + Date.now() + location.hash;
+          location.replace(u);
+        }
+        // Resource-level failures (module script / preload) bubble only in capture phase
+        window.addEventListener('error', function(e){
+          var t = e && e.target;
+          if (t && t !== window && (t.tagName === 'SCRIPT' || t.tagName === 'LINK')) { reloadOnce(); return; }
+          var m = e && e.message;
+          if (m && (m.indexOf('Importing a module script failed') > -1 ||
+                    m.indexOf('Failed to fetch dynamically imported module') > -1 ||
+                    m.indexOf('error loading dynamically imported module') > -1)) reloadOnce();
+        }, true);
+        window.addEventListener('unhandledrejection', function(e){
+          var m = e && e.reason && (e.reason.message || String(e.reason));
+          if (m && (m.indexOf('Importing a module script failed') > -1 ||
+                    m.indexOf('Failed to fetch dynamically imported module') > -1 ||
+                    m.indexOf('error loading dynamically imported module') > -1)) reloadOnce();
+        });
+      })();
+    </script>
+
+    <!-- Meta Pixel מנוהל כעת דרך שכבת המדידה המרכזית (src/lib/analytics) ונטען רק לאחר הסכמה -->
+    <script type="module" crossorigin src="/assets/index-Dg5hPVd3.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/markdown-vendor-OEs9TPKd.js">
+    <link rel="modulepreload" crossorigin href="/assets/react-vendor-Cc7L66Bm.js">
+    <link rel="modulepreload" crossorigin href="/assets/query-vendor-BLCEqCQa.js">
+    <link rel="modulepreload" crossorigin href="/assets/supabase-vendor-D7Xp04Ua.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-Bg6w7v_G.css">
+    <meta data-rh="true" property="og:url" content="https://antartrade.co.il/blog/take-profit-trader-guide">
+    <link data-rh="true" rel="canonical" href="https://antartrade.co.il/blog/take-profit-trader-guide">
+  </head>
+  <body>
+    <noscript>
+      <img
+        height="1"
+        width="1"
+        style="display:none"
+        src="https://www.facebook.com/tr?id=25761708513493694&ev=PageView&noscript=1"
+      />
+      <div
+        style="max-width:900px;margin:0 auto;padding:40px 20px;font-family:Heebo,sans-serif;direction:rtl;text-align:right;"
+      >
+        <h1>AntarTrade – השוואת חברות מימון למסחר 2026</h1>
+        <p>
+          אתר ההשוואות המוביל בישראל לחברות מימון לסוחרים 2026 – ניתוחים אישיים, קודי הנחה בלעדיים ותוכן מקצועי מאת נועם
+          ענתר.
+        </p>
+        <h2>חברות מימון</h2>
+        <ul>
+          <li>
+            <a href="/top-step">TopStep – סקירה מלאה, חוקים ומחירים</a> – חברת המימון הגדולה בעולם עם מעל 10 שנות
+            פעילות. מגוון גדלי חשבונות, ללא כלל עקביות, ומשיכה ראשונה כבר ביום 5.
+          </li>
+          <li>
+            <a href="/apex">Apex Trader Funding – סקירה מלאה, חוקים ומחירים</a> – חברת מימון פופולרית עם מבחן שלב אחד,
+            ללא כלל עקביות, ואפשרות למספר חשבונות במקביל.
+          </li>
+          <li>
+            <a href="/bulenox">Bulenox – סקירה מלאה, חוקים ומחירים</a> – חברת מימון עם מחירים תחרותיים ומבחן שלב אחד.
+            תומכת ב-NinjaTrader ו-Rithmic.
+          </li>
+          <li>
+            <a href="/take-profit">TakeProfit Trader – סקירה מלאה, חוקים ומחירים</a> – חברת מימון עם גישה ייחודית,
+            מחירים נמוכים, ותמיכה מצוינת בעברית.
+          </li>
+          <li>
+            <a href="/lucid">Lucid Trader – סקירה מלאה, חוקים ומחירים</a> – חברת מימון ישראלית עם תמיכה בעברית, מחירים
+            תחרותיים, וממשק ידידותי.
+          </li>
+          <li>
+            <a href="/alpha-futures">Alpha Futures – סקירה מלאה, חוקים ומחירים</a> – חברת מימון חדשה עם תנאים תחרותיים
+            ומבחן שלב אחד.
+          </li>
+        </ul>
+        <h2>השוואה בין חברות</h2>
+        <ul>
+          <li>
+            <a href="/comparison">טבלת השוואה מקיפה בין כל חברות המימון</a> – השוואה מפורטת של מחירים, חוקים, תנאי משיכה
+            ועוד.
+          </li>
+        </ul>
+        <h2>מדריכים וכלים</h2>
+        <ul>
+          <li>
+            <a href="/atas-guide">מדריך ATAS (אטאס) – ניתוח זרימת פקודות</a> – מדריך מקיף לשימוש בפלטפורמת ATAS לניתוח
+            Order Flow, גרפי Footprint ומפות חום.
+          </li>
+          <li>
+            <a href="/bookmap-guide">מדריך Bookmap (בוקמאפ)</a> – מדריך לשימוש ב-Bookmap לניתוח עומק שוק ו-Order Flow
+            בזמן אמת.
+          </li>
+          <li>
+            <a href="/tradezella-guide">מדריך TradeZella – יומן מסחר</a> – מדריך מקיף לשימוש ב-TradeZella לניהול יומן
+            מסחר, ניתוח ביצועים ושיפור אסטרטגיות.
+          </li>
+          <li>
+            <a href="/replikanto-guide">מדריך Replikanto – העתקת עסקאות</a> – מדריך לשימוש ב-Replikanto להעתקת עסקאות
+            בין חשבונות מרובים ב-NinjaTrader.
+          </li>
+          <li>
+            <a href="/tradesyncer-guide">מדריך TradeSyncer – העתקת עסקאות מ-TradingView</a> – מדריך לחיבור TradingView
+            לחשבונות מימון באמצעות TradeSyncer.
+          </li>
+          <li>
+            <a href="/trading-tools">מרכז כלי מסחר ומדריכים</a> – כל הכלים, הפלטפורמות והמדריכים למסחר בחוזים עתידיים.
+          </li>
+          <li><a href="/economic-calendar">לוח שנה כלכלי</a> – לוח אירועים כלכליים בזמן אמת עם הסברים בעברית.</li>
+        </ul>
+        <h2>קורסים</h2>
+        <ul>
+          <li>
+            <a href="/free-course">קורס מסחר בחוזים עתידיים – חינם</a> – קורס מקיף למתחילים הכולל שיעורי וידאו, חומרי
+            לימוד ותרגול.
+          </li>
+          <li><a href="/full-course">קורס מתקדם למסחר בחוזים עתידיים</a> – קורס מתקדם עם ליווי אישי ותוכן בלעדי.</li>
+        </ul>
+        <h2>מידע נוסף</h2>
+        <ul>
+          <li><a href="/about">אודות AntarTrade</a></li>
+          <li><a href="/promotions">מבצעים והנחות</a></li>
+          <li><a href="/matching-quiz">שאלון התאמה – איזו חברת מימון מתאימה לך?</a></li>
+          <li><a href="/faq">שאלות ותשובות</a></li>
+          <li><a href="/contact">צור קשר</a></li>
+        </ul>
+      </div>
+    </noscript>
+    <div id="root">
+      <style>.pr-body{max-width:860px;margin:0 auto;padding:120px 20px 64px;color:#e8eef5;line-height:1.7;font-size:18px;direction:rtl;text-align:right}.pr-body h1{font-size:40px;line-height:1.15;margin:16px 0}.pr-body h2{font-size:28px;margin:40px 0 12px}.pr-body h3{font-size:21px;margin:24px 0 8px}.pr-body a{color:#7dc6ff}.pr-body img{max-width:100%;height:auto}.pr-body table{border-collapse:collapse;width:100%}.pr-body td,.pr-body th{border:1px solid #33415a;padding:6px 10px}.pr-body nav{font-size:15px;color:#9fb0c6}.pr-body dt{font-weight:700;margin-top:16px}.pr-body dd{margin:4px 0 0}</style><article class="pr-body"><nav aria-label="פירורי לחם"><a href="/">דף הבית</a> / <a href="/blog">בלוג</a> / Take Profit Trader - המדריך המלא לטייק פרופיט טריידר (2026)</nav><h1>Take Profit Trader - המדריך המלא לטייק פרופיט טריידר (2026)</h1><p>נכתב על ידי <a href="/about">נועם ענתר</a>, סוחר חוזים עתידיים ומייסד AntarTrade</p><p>חברת Take Profit Trader (TPT) היא חברת מימון לסוחרים (Prop Firm) המתמחה במסחר בחוזים עתידיים (Futures). החברה מאפשרת לסוחרים להוכיח את יכולות המסחר וניהול הסיכונים שלהם באמצעות מבחן הערכה (Test), ובהמשך להתקדם לחשבון PRO, שבו ניתן לצבור רווחים ולהגיש בקשות משיכה בהתאם לכללי החברה.</p><p>מודל הפעילות של Take Profit Trader מבוסס על מסחר בסביבת סימולציה בשלב המבחן ובחשבון PRO. הסוחר נדרש לעמוד ביעד רווח ובמגבלות הסיכון שנקבעו מראש, ולאחר מעבר מוצלח של המבחן ניתן להתקדם לחשבון PRO. בהמשך, סוחרים מתאימים עשויים לעבור לחשבון PRO+, שבו מתבצע מסחר בכסף אמיתי.</p><h2 id="overview">Take Profit Trader</h2><p>תוכנית המימון של Take Profit Trader כוללת שלושה שלבים מרכזיים:</p><ul><li>Test: מבחן הערכה בסביבת מסחר מדומה.</li><li>PRO: חשבון ממומן בסימולציה המאפשר משיכות רווחים בכפוף לתנאי החברה.</li><li>PRO+: חשבון מסחר חי, שהמעבר אליו מותנה בבחינת ביצועי הסוחר ובהחלטת החברה.</li></ul><p>החברה מציעה מספר גדלי חשבון, שלכל אחד מהם מוגדרים יעד רווח, מגבלת הפסד ומספר חוזים מקסימלי. התשלום עבור שלב המבחן מבוסס על מנוי חודשי מתחדש, אשר מסתיים באופן אוטומטי לאחר מעבר מוצלח של המבחן.</p><h2 id="how-it-works">איך המודל עובד?</h2><p>בקצרה: בחירת חשבון ← מבחן (Test) ← חשבון ממומן בסימולציה (PRO) ← משיכות רווחים (Payouts) ← אפשרות מעבר לחשבון מסחר חי (PRO+).</p><p>הסוחר בוחר גודל חשבון ומתחיל במבחן Test, שבו עליו להגיע ליעד הרווח ולעמוד בדרישות העקביות, ימי המסחר ומגבלות הסיכון של החברה. לאחר מעבר מוצלח של המבחן והשלמת תהליך ההפעלה, ניתן להתקדם לחשבון PRO.</p><p>בחשבון PRO המסחר ממשיך להתבצע בסביבת סימולציה, אך הסוחר יכול לצבור רווחים ולהגיש בקשות משיכה בהתאם לתנאי החברה. בהמשך, סוחרים מתאימים עשויים לקבל הזמנה לעבור לחשבון PRO+, שבו המסחר מתבצע בשוק האמיתי.</p><p>המעבר ל־PRO+ אינו אוטומטי או מובטח. החברה בוחנת את ביצועי הסוחר, ניהול הסיכונים, העקביות ומשמעת המסחר שלו, וההחלטה הסופית נתונה לשיקול דעתה.</p><h2 id="evaluation">שלב המבחן</h2><p>מבחן של Take Profit Trader מתבצע בסביבת מסחר מדומה ונועד לבחון את יכולות המסחר וניהול הסיכונים של הסוחר. כדי לעבור את המבחן יש להגיע ליעד הרווח, לעמוד בדרישות העקביות וימי המסחר ולשמור על מגבלות החשבון.</p><h3>יעד הרווח (Profit Target)</h3><p>יעד הרווח נקבע בהתאם לגודל החשבון שנבחר. מעבר המבחן מחייב עמידה ביעד לצד יתר כללי המסחר של החברה.</p><h3>מגבלת ההפסד המרבית (Maximum Trailing Drawdown)</h3><p>בשלב המבחן פועל מנגנון End-of-Day (EOD) Trailing Drawdown.</p><p>רף ההפסד מתעדכן לפי יתרת החשבון הגבוהה ביותר בסיום יום מסחר. הוא עולה בעקבות צבירת רווחים ואינו יורד בעקבות הפסדים. כאשר הרף מגיע ליתרת החשבון ההתחלתית, הוא מתקבע ואינו ממשיך לעלות.</p><p>חשוב: אף שהרף מתעדכן בסיום היום, הוא נאכף בזמן אמת. הגעה אליו במהלך המסחר, גם בעקבות הפסדים בעסקאות פתוחות, גורמת לכישלון המבחן.</p><h3>כלל העקביות (Consistency)</h3><p>כלל העקביות מגביל את חלקו של יום המסחר הרווחי ביותר מתוך הרווח הכולל בחשבון.</p><p>אם הסוחר מגיע ליעד הרווח אך אינו עומד בדרישת העקביות, המבחן אינו נכשל. במקום זאת, עליו להמשיך לצבור רווחים עד לעמידה בדרישה. יעד הרווח הנדרש עשוי להתעדכן בהתאם לביצועיו.</p><h3>ימי מסחר מינימליים</h3><p>Take Profit Trader דורשת מספר מינימלי של ימי מסחר פעילים לצורך מעבר המבחן. יום מסחר נחשב לפעיל כאשר בוצעה בו לפחות עסקה אחת.</p><p>הגעה ליעד הרווח לפני השלמת מספר הימים הנדרש אינה מספיקה למעבר המבחן. יש להשלים גם את דרישת ימי המסחר.</p><h3>מגבלת חוזים (Maximum Position Size)</h3><p>מספר החוזים המקסימלי נקבע בהתאם לגודל החשבון. חריגה ממגבלת הפוזיציה המותרת מהווה הפרה של כללי החברה.</p><h3>שעות מסחר ומכשירים מותרים</h3><p>המסחר מוגבל למכשירים ולשעות שאושרו על ידי Take Profit Trader. יש לסגור פוזיציות בהתאם לשעות המסחר המוגדרות, ואין להחזיק עסקאות פתוחות בין סשנים.</p><h3>תשלום ומשך המבחן</h3><p>המבחן פועל במנוי חודשי מתחדש, ללא מגבלת זמן קבועה להשלמתו כל עוד המנוי פעיל.</p><p>לאחר מעבר מוצלח של המבחן, המנוי מתבטל אוטומטית. במקרה של הפרת כללי המבחן, המנוי אינו מתבטל אוטומטית ויש לבטלו באופן יזום כדי למנוע חיובים נוספים.</p><h3>איפוס מבחן (Reset)</h3><p>ניתן לאפס את חשבון המבחן בהתאם למדיניות החברה. האיפוס מאפשר להתחיל מחדש עם תנאי החשבון המקוריים, כרוך בתשלום ואינו משנה את מועד חידוש המנוי.</p><h2 id="pro">מה קורה אחרי שעוברים את המבחן?</h2><p>לאחר מעבר מוצלח של מבחן, הסוחר יכול להפעיל חשבון ממומן מסוג PRO. המסחר בחשבון זה ממשיך להתבצע בסביבת סימולציה, אך ניתן לצבור רווחים ולהגיש בקשות משיכה בהתאם לתנאי החברה.</p><h3>הפעלת חשבון PRO</h3><p>לאחר אישור מעבר המבחן, הסוחר נדרש להשלים את תהליך ההפעלה באזור האישי, הכולל חתימה על מסמכי החברה ותשלום דמי הפעלה, אלא אם קיימת זכאות לפטור במסגרת הטבה או קרדיט.</p><p>לאחר הפעלת החשבון אין דמי מנוי חודשיים מתחדשים.</p><h3>מה משתנה לאחר מעבר המבחן?</h3><ul><li>יעד הרווח: אין עוד יעד רווח קבוע לצורך מעבר שלב. במקום זאת, חלים תנאי הזכאות למשיכות.</li><li>מגבלת הפסד מרבית (Drawdown): בחשבון PRO חל מנגנון Intraday Trailing Drawdown, בניגוד למנגנון EOD בשלב המבחן.</li><li>כלל העקביות: דרישת העקביות של שלב המבחן אינה חלה על משיכות מחשבון PRO.</li><li>מגבלת חוזים: מספר החוזים המותר נקבע לפי גודל החשבון, ללא תוכנית Scaling המבוססת על צבירת רווחים.</li></ul><h3>מנגנון ה־Intraday Drawdown</h3><p>בחשבון PRO, רף ההפסד מתעדכן בזמן אמת בהתאם לשיא יתרת החשבון, כולל רווחים פתוחים שטרם מומשו. הרף יכול לעלות בעקבות רווחים, אך אינו יורד בעקבות הפסדים. כאשר הוא מגיע ליתרת החשבון ההתחלתית, הוא מתקבע ואינו ממשיך לעלות.</p><p>הגעה לרף ההפסד בכל שלב, גם במהלך עסקה פתוחה, גורמת לסגירת החשבון.</p><h3>מהו Buffer בחשבון PRO?</h3><p>Buffer הוא מרווח רווחים שהסוחר נדרש לצבור בחשבון לפני שיוכל למשוך רווחים באופן רגיל. גובהו נקבע בהתאם למגבלת ההפסד המרבית של החשבון.</p><p>לאחר צבירת ה־Buffer, ניתן לבקש משיכה מהרווחים שמעליו, בהתאם לחלוקת הרווחים שקבעה החברה. חשוב להבחין בין האפשרות להגיש בקשת משיכה כבר ביום המסחר הראשון לבין הדרישה לצבור תחילה את ה־Buffer.</p><p>החברה מאפשרת גם משיכה חלקית מתוך ה־Buffer לאחר סגירת החשבון, בהתאם למדיניות המשיכות שלה.</p><h3>ניהול חשבונות PRO</h3><p>ניתן להחזיק מספר חשבונות ממומנים פעילים במקביל, בכפוף למגבלות החברה.</p><p>כדי לשמור על חשבון PRO פעיל, יש לעמוד גם בדרישת פעילות מסחר תקופתית ובכללי ניהול הסיכונים של החברה.</p><h2 id="pro-plus">חשבון המשך ומעבר ל־Live ב־Take Profit Trader</h2><p>לאחר תקופת מסחר בחשבון PRO, הסוחר עשוי לקבל הזמנה לעבור לחשבון PRO+, שבו המסחר מתבצע בשוק האמיתי באמצעות הון החברה.</p><p>המעבר אינו אוטומטי או מובטח. Take Profit Trader בוחנת את ביצועי הסוחר לאורך זמן, לרבות ניהול הסיכונים, העקביות, אופן ביצוע העסקאות ומשמעת המסחר. ההחלטה הסופית נתונה לשיקול דעתה של החברה.</p><h3>כיצד מתבצע המעבר ל־PRO+?</h3><p>סוחר שנבחר למעבר מקבל הזמנה רשמית מהחברה ונדרש להשלים את תהליך ההצטרפות, לרבות מסמכים והסכמים מול הברוקר.</p><p>לאחר השלמת המעבר, חשבון PRO מוקפא, וחלק מהרווחים שנצברו בו נשמרים כיתרה מוקפאת בהתאם למדיניות החברה. יתרת הרווחים שמעבר לסכום זה ניתנת למשיכה בכפוף לתנאי החלוקה של חשבון PRO.</p><p>במקרה של סגירת חשבון PRO+ עם יתרה שלילית, החברה עשויה לקזז את ההפסד מהרווחים שהוקפאו בחשבון PRO, בהתאם למדיניותה.</p><h3>כיצד פועל חשבון PRO+?</h3><p>חשבון PRO+ מתחיל ביתרת מסחר אפס, עם מסגרת הפסד שנקבעת בהתאם לחשבון המקורי. בניגוד לחשבון PRO, שבו חל Intraday Trailing Drawdown, בחשבון PRO+ פועל מנגנון End-of-Day (EOD) Drawdown.</p><p>רף ההפסד מתעדכן בהתאם לרווחים שנצברו בסיום יום המסחר, אך נאכף גם במהלך היום, כולל הפסדים בעסקאות פתוחות. כאשר הרף מגיע ליתרת האפס, הוא מתקבע.</p><h3>מגבלות וכללים מיוחדים</h3><ul><li>פעילות מסחר: נדרשת פעילות מסחר תקופתית כדי לשמור על החשבון פעיל.</li><li>חדשות כלכליות: יש לסגור פוזיציות ולבטל פקודות פתוחות סביב אירועי חדשות שהחברה אוסרת לסחור במהלכם.</li><li>פוזיציות נגדיות: אסור להחזיק פוזיציות בכיוונים מנוגדים באותו מכשיר או במכשירים בעלי קשר הדוק.</li><li>מגבלות שוק: יש להימנע מהחזקת פוזיציות כאשר השוק מגיע למגבלות המחיר שנקבעו בבורסה.</li><li>מגבלת חשבונות: ניתן להחזיק מספר מוגבל של חשבונות ממומנים פעילים, בהתאם למדיניות החברה.</li></ul><p>הפרת כללים מסוימים עלולה להוביל לסגירת החשבון.</p><h3>חשבון PRO+ Development</h3><p>Take Profit Trader מפעילה גם חשבון מסחר חי מסוג PRO+ Development, המיועד לסוחרים שהחברה בוחרת לשלב במסגרת ניהול סיכונים מוגבלת יותר. בחשבון זה עשויות לחול מגבלות חוזים והפסד מחמירות יותר ביחס לחשבון PRO+ רגיל, בהתאם למדיניות החברה.</p><h3>משיכות מחשבון PRO+</h3><p>בחשבון PRO+ אין דרישת Buffer למשיכת רווחים, וחל מנגנון חלוקת רווחים שונה מזה של חשבון PRO. פירוט תנאי המשיכה, חלוקת הרווחים והטיפול ביתרות במקרה של סגירת החשבון יופיע בפרק המשיכות.</p><h2 id="payouts">משיכות רווחים (Payouts) ב־Take Profit Trader</h2><p>Take Profit Trader מאפשרת לסוחרים להגיש בקשות למשיכת רווחים מחשבונות PRO ו־PRO+, בכפוף לתנאי הזכאות ולמדיניות החברה. תנאי המשיכה משתנים בהתאם לסוג החשבון, בעיקר בדרישת ה־Buffer ובחלוקת הרווחים.</p><h3>משיכות מחשבון PRO</h3><p>בחשבון PRO ניתן לבקש משיכת רווחים כבר מיום המסחר הראשון, ללא דרישה לצבירת מספר מינימלי של ימי מסחר רווחיים. עם זאת, יש לצבור תחילה את ה־Buffer הנדרש.</p><p>ה־Buffer שווה למגבלת ההפסד המרבית של החשבון. לאחר צבירתו, ניתן למשוך רווחים בהתאם לחלוקת הרווחים של החברה, תוך שמירה על ה־Buffer בחשבון.</p><p>החברה מאפשרת להגיש בקשות משיכה מדי יום, כל עוד קיימים רווחים הזמינים למשיכה והחשבון עומד בתנאים.</p><h3>מה קורה ל־Buffer כאשר חשבון PRO נסגר?</h3><p>במקרה של סגירת חשבון PRO, החברה מאפשרת למשוך חלק מה־Buffer שנצבר, בהתאם למדיניות חלוקת הרווחים שלה.</p><p>חשוב להבחין בין רווחים הזמינים למשיכה במהלך פעילות החשבון לבין הסכום שניתן לקבל מתוך ה־Buffer לאחר סגירתו.</p><ul><li><a href="/blog/takeprofit-buffer-withdrawal">איך מושכים כסף מהבאפר בטייק פרופיט</a></li></ul><h3>משיכות מחשבון PRO+</h3><p>בחשבון PRO+ אין דרישת Buffer למשיכת רווחים, וחלוקת הרווחים לטובת הסוחר שונה מזו של חשבון PRO. המשיכות מתבצעות מתוך הרווחים הזמינים בחשבון המסחר החי, בכפוף לכללי החברה ולמגבלות החשבון.</p><h3>עמלות ומגבלות משיכה</h3><p>החברה אינה גובה עמלת משיכה מהארנק כאשר סכום הבקשה עולה על הרף שנקבע במדיניות. במשיכות קטנות יותר נגבית עמלה, וייתכנו עמלות נוספות מצד ספק התשלום.</p><ul><li><a href="/blog/takeprofit-to-interactive-brokers-via-wise">מדריך משיכה מטייק פרופיט לאינטראקטיב דרך Wise</a></li></ul><h2 id="platforms">פלטפורמות מסחר וחיבורים ב־Take Profit Trader</h2><p>Take Profit Trader מאפשרת לסוחרים לבחור מבין מגוון פלטפורמות למסחר בחוזים עתידיים, באמצעות שני ספקי נתונים מרכזיים: CQG ו־Rithmic.</p><p>בחירת ספק הנתונים מתבצעת בעת ההצטרפות, והיא משפיעה על הפלטפורמות שבהן ניתן להשתמש. לפני רכישת חשבון חשוב לבדוק שהפלטפורמה שבה מתכוונים לסחור נתמכת בחיבור המוצע.</p><ul><li>Rithmic: חיבור המאפשר להשתמש בפלטפורמות מסחר תואמות, ובהן Quantower, Bookmap, MotiveWave, Jigsaw, R|Trader Pro, MultiCharts ו־ATAS, ופלטפורמות נוספות המופיעות ברשימה הרשמית של החברה.</li><li>CQG: חיבור המשמש פלטפורמות כגון Tradovate, NinjaTrader ו־TradingView.</li></ul><h3>מעבר בין פלטפורמות</h3><p>ניתן לעבור בין פלטפורמות התומכות באותו ספק נתונים במהלך תקופת המנוי, ללא צורך באישור מיוחד מהחברה. המעבר מתבצע באמצעות פרטי החיבור המופיעים באזור האישי ובהתאם להוראות ההתחברות של הפלטפורמה הרצויה.</p><p>חשוב לדעת שבחיבור Rithmic קיימות מגבלות על התחברות למספר פלטפורמות במקביל, בעוד שבחשבונות Test ו־PRO המבוססים על CQG ניתן להתחבר לשתי פלטפורמות במקביל.</p><h2 id="key-points">מאפיינים ונקודות שחשוב להכיר ב־Take Profit Trader</h2><h3>מאפיינים מרכזיים</h3><ul><li>מבחן ללא הגבלת זמן קבועה: ניתן להמשיך במבחן כל עוד המנוי פעיל.</li><li>משיכות רווחים: ניתן להגיש בקשות משיכה מחשבון PRO מדי יום, לאחר צבירת ה־Buffer הנדרש.</li><li>ללא כלל עקביות בחשבון PRO: דרישת העקביות חלה בשלב המבחן, אך אינה חלה על משיכות מהחשבון הממומן.</li><li>מגוון פלטפורמות: החברה תומכת בפלטפורמות מסחר שונות באמצעות חיבורי CQG ו־Rithmic.</li><li>ניהול חשבונות במקביל: ניתן להחזיק מספר חשבונות PRO פעילים, בכפוף למגבלות החברה.</li></ul><h3>כללים ומגבלות שחשוב להכיר</h3><ul><li>מנוי חודשי מתחדש: מבחן כרוך בחיוב חודשי כל עוד המנוי פעיל. כישלון במבחן אינו מבטל את המנוי אוטומטית.</li><li>דמי הפעלה: מעבר לחשבון PRO כרוך בתשלום הפעלה, אלא אם קיימת זכאות לפטור או לקרדיט.</li><li>מנגנון Drawdown: בשלב המבחן חל EOD Drawdown, ואילו בחשבון PRO חל Intraday Drawdown המתחשב גם ברווחים פתוחים.</li><li>דרישת Buffer: משיכות רגילות מחשבון PRO מחייבות צבירת רווחים מעל ה־Buffer שנקבע לחשבון.</li><li>מגבלות מסחר: החברה אוסרת מסחר אוטומטי ופוזיציות נגדיות, ובחשבונות PRO ו־PRO+ חלות הגבלות על מסחר בזמן חדשות כלכליות מסוימות.</li><li>פעילות בחשבון: חשבונות PRO ו־PRO+ מחייבים פעילות מסחר תקופתית בהתאם למדיניות החברה.</li></ul><h2 id="getting-started">איך מתחילים לסחור ב־Take Profit Trader?</h2><ol><li>הרשמה לאתר: נכנסים לאתר הרשמי של Take Profit Trader ויוצרים חשבון משתמש.</li><li>בחירת חשבון מבחן: בוחרים את גודל חשבון ה־Test ואת ספק החיבור המתאים, משלימים את הרכישה ומקבלים את פרטי ההתחברות.</li><li>חיבור לפלטפורמת המסחר: מתחברים לפלטפורמה נתמכת באמצעות CQG או Rithmic, בהתאם לספק שנבחר.</li><li>מעבר המבחן: סוחרים בחשבון הסימולציה ופועלים להשגת יעד הרווח, תוך עמידה בכלל העקביות, בדרישת ימי המסחר ובמגבלות הסיכון.</li><li>הפעלת חשבון PRO: לאחר מעבר המבחן והשלמת תהליך האישור, מפעילים את חשבון PRO בהתאם לתנאי החברה ולדרישות התשלום.</li><li>מסחר ומשיכת רווחים: סוחרים בחשבון PRO, צוברים את ה־Buffer הנדרש ומגישים בקשות למשיכת רווחים בהתאם למדיניות החברה.</li></ol><h2 id="related">מדריכים קשורים</h2><ul><li><a href="/take-profit">עמוד Take Profit Trader באתר</a></li><li><a href="/blog/takeprofit-buffer-withdrawal">משיכה מהבאפר</a></li><li><a href="/blog/takeprofit-to-interactive-brokers-via-wise">משיכה דרך Wise</a></li></ul><h2>שאלות נפוצות</h2><h3>מהם סוגי החשבונות הקיימים בחברת טייק פרופיט?</h3><p>החברה מציעה שלושה שלבים מרכזיים: Test - חשבון מבחן בסימולציה; PRO - חשבון ממומן בסימולציה המאפשר משיכת רווחים; ו־PRO+ - חשבון למסחר בכסף אמיתי, שהמעבר אליו מתבצע לפי החלטת החברה.</p><h3>איך מחושב הפסד מקסימלי (Drawdown) בטייק פרופיט?</h3><p>בשלב המבחן חל EOD Trailing Drawdown, המתעדכן לפי יתרת סוף היום. בחשבון PRO חל Intraday Trailing Drawdown, המתחשב גם ברווחים פתוחים בזמן אמת. בחשבון PRO+ חל מנגנון EOD. חריגה ממגבלת ההפסד עלולה להביא לסגירת החשבון.</p><h3>מהם חוקי העקביות (Consistency Rules) בטייק פרופיט?</h3><p>בשלב המבחן נדרש פיזור רווחים בין ימי המסחר, כך שהיום הרווחי ביותר לא יהווה חלק גדול מדי מסך הרווחים. נדרש גם מספר מינימלי של ימי מסחר. בחשבון PRO אין כלל עקביות למשיכות.</p><h3>איך עובדות משיכות הרווחים (Payouts) לחשבון הבנק?</h3><p>לאחר עמידה בתנאי המשיכה, הכספים מועברים מחשבון PRO או PRO+ לארנק האישי (TPT Wallet). משם ניתן לבקש תשלום באמצעות Plaid לבנקים אמריקאיים, או באמצעות Wise ו־PayPal, בהתאם לזמינות השירות. זמן קבלת הכסף משתנה לפי אמצעי התשלום.</p><h3>האם מותר לסחור בזמן פרסום חדשות כלכליות?</h3><p>בשלב המבחן מותר לסחור בזמן חדשות. בחשבונות PRO ו־PRO+ חלות הגבלות סביב פרסומים מסוימים, ובהם FOMC, NFP ו־CPI. במהלך חלונות הזמן האסורים אין להחזיק פוזיציות או פקודות פעילות.</p><h3>האם מותר לפתוח פוזיציות נגדיות (Hedging) או להשתמש בבוטים?</h3><p>לא. החברה אוסרת החזקת פוזיציות בכיוונים מנוגדים באותו מכשיר או במכשירים קשורים, גם בין חשבונות שונים. בנוסף, מסחר באמצעות בוטים ומערכות אוטומטיות אסור, והעסקאות נדרשות להתבצע ידנית.</p><h3>כמה חשבונות מותר לנהל במקביל בטייק פרופיט?</h3><p>ניתן להחזיק מספר בלתי מוגבל של חשבונות Test, אך מספר חשבונות PRO ו־PRO+ הפעילים מוגבל. קיימת גם מגבלה נפרדת על הפעלת מבחנים שעברו בהצלחה בתקופה מוגדרת.</p><h3>באילו פלטפורמות מסחר טייק פרופיט תומכת?</h3><p>החברה תומכת בפלטפורמות כגון TradingView, Tradovate, NinjaTrader, Quantower, Bookmap ו־R|Trader, באמצעות ספקי החיבור CQG ו־Rithmic. זמינות הפלטפורמות ועלויות הרישוי משתנות בהתאם לספק ולפלטפורמה.</p><h3>האם יש קוד הנחה (Promo Code) מומלץ להרשמה לטייק פרופיט?</h3><p>מבצעים וקודי הנחה עשויים להשתנות מעת לעת. מומלץ לבדוק את ההטבות המעודכנות בעמוד החברה באתר AntarTrade ולוודא שההנחה חלה לפני השלמת הרכישה.</p></article>
+    </div>
+  </body>
+</html>

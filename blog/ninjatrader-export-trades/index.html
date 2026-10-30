@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Microsoft Clarity מנוהל דרך שכבת המדידה המרכזית (src/lib/analytics/clarity.ts) ונטען רק לאחר הסכמה -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" sizes="32x32" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" sizes="16x16" href="/favicon.ico" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>איך מייצאים עסקאות מנינג׳ה טריידר (ריתמיק) ליומן המסחר | AntarTrade</title>
+    <meta data-rh="true" name="description" content="מדריך קצר עם צילומי מסך: ייצוא עסקאות מנינג׳ה טריידר וריתמיק דרך Trade Performance, וייבוא הקובץ ליומן המסחר החינמי של AntarTrade.">
+
+    <!-- Open Graph Meta Tags -->
+    <meta data-rh="true" property="og:title" content="איך מייצאים עסקאות מנינג׳ה טריידר (ריתמיק) ליומן המסחר | AntarTrade">
+    <meta data-rh="true" property="og:description" content="מדריך קצר עם צילומי מסך: ייצוא עסקאות מנינג׳ה טריידר וריתמיק דרך Trade Performance, וייבוא הקובץ ליומן המסחר החינמי של AntarTrade.">
+    <meta data-rh="true" property="og:image" content="https://antartrade.co.il/images/blog/covers/ninjatrader-export-trades.webp">
+    
+    
+    <meta data-rh="true" property="og:image:alt" content="ייצוא עסקאות מנינג'ה טריידר ליומן המסחר">
+    <meta data-rh="true" property="og:type" content="website" />
+    <meta data-rh="true" property="og:site_name" content="AntarTrade" />
+    <meta data-rh="true" property="og:locale" content="he_IL" />
+
+    <!-- Twitter Cards Meta Tags -->
+    <meta data-rh="true" name="twitter:card" content="summary_large_image" />
+    <meta data-rh="true" name="twitter:title" content="איך מייצאים עסקאות מנינג׳ה טריידר (ריתמיק) ליומן המסחר | AntarTrade">
+    <meta data-rh="true" name="twitter:description" content="מדריך קצר עם צילומי מסך: ייצוא עסקאות מנינג׳ה טריידר וריתמיק דרך Trade Performance, וייבוא הקובץ ליומן המסחר החינמי של AntarTrade.">
+    <meta data-rh="true" name="twitter:image" content="https://antartrade.co.il/images/blog/covers/ninjatrader-export-trades.webp">
+    <meta data-rh="true" name="twitter:image:alt" content="ייצוא עסקאות מנינג'ה טריידר ליומן המסחר">
+
+    <!-- Additional Meta Tags -->
+    <meta name="author" content="AntarTrade" />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://i.ytimg.com" crossorigin />
+    <link rel="dns-prefetch" href="https://img.youtube.com" />
+    <link rel="dns-prefetch" href="https://www.youtube.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" rel="stylesheet" />
+    <!-- Preload LCP image (header logo) -->
+    <link rel="preload" as="image" href="/lovable-uploads/antartrade-logo-new.webp" fetchpriority="high" />
+    <!-- Critical inline CSS for instant LCP paint of hero H1 (replaced by React on hydration) -->
+    <style>
+      html,body{margin:0;padding:0;background:#0D2847;font-family:Heebo,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+      #root{min-height:100vh}
+      .lcp-hero{position:relative;background:linear-gradient(135deg,#0D2847 0%,#1f5470 50%,#17B3B1 100%);padding:96px 16px 64px;text-align:center;direction:rtl;overflow:hidden}
+      .lcp-hero-inner{max-width:1200px;margin:0 auto}
+      .lcp-hero h1{margin:0 0 24px;color:#fff;font-weight:700;line-height:1.15;font-size:32px}
+      .lcp-hero h1 .lcp-line{display:block}
+      .lcp-hero h1 .lcp-grad{background:linear-gradient(90deg,#22d3ee,#2dd4bf,#06b6d4);-webkit-background-clip:text;background-clip:text;color:transparent;margin-top:8px}
+      .lcp-hero p{margin:0 auto;color:rgba(255,255,255,.9);font-size:18px;max-width:56rem;line-height:1.6}
+      @media(min-width:768px){.lcp-hero{padding:128px 16px 96px}.lcp-hero h1{font-size:56px}.lcp-hero p{font-size:22px}}
+      @media(min-width:1024px){.lcp-hero h1{font-size:64px}.lcp-hero p{font-size:24px}}
+      html.no-lcp-hero .lcp-hero{display:none}
+    </style>
+    <script>
+      (function(){
+        var p = location.pathname;
+        if (p !== '/' && p !== '/index.html') {
+          document.documentElement.classList.add('no-lcp-hero');
+        }
+      })();
+    </script>
+    <!-- Stale-deploy recovery: if hashed JS chunks referenced by a cached index.html
+         are gone (404 / "Importing a module script failed"), reload once bypassing cache. -->
+    <script>
+      (function(){
+        var KEY = '__chunk_reload_at';
+        function reloadOnce(){
+          try {
+            var last = Number(sessionStorage.getItem(KEY) || 0);
+            if (Date.now() - last < 20000) return; // avoid reload loops
+            sessionStorage.setItem(KEY, String(Date.now()));
+          } catch(e){}
+          var u = location.pathname + (location.search ? location.search + '&' : '?') + '_r=' + Date.now() + location.hash;
+          location.replace(u);
+        }
+        // Resource-level failures (module script / preload) bubble only in capture phase
+        window.addEventListener('error', function(e){
+          var t = e && e.target;
+          if (t && t !== window && (t.tagName === 'SCRIPT' || t.tagName === 'LINK')) { reloadOnce(); return; }
+          var m = e && e.message;
+          if (m && (m.indexOf('Importing a module script failed') > -1 ||
+                    m.indexOf('Failed to fetch dynamically imported module') > -1 ||
+                    m.indexOf('error loading dynamically imported module') > -1)) reloadOnce();
+        }, true);
+        window.addEventListener('unhandledrejection', function(e){
+          var m = e && e.reason && (e.reason.message || String(e.reason));
+          if (m && (m.indexOf('Importing a module script failed') > -1 ||
+                    m.indexOf('Failed to fetch dynamically imported module') > -1 ||
+                    m.indexOf('error loading dynamically imported module') > -1)) reloadOnce();
+        });
+      })();
+    </script>
+
+    <!-- Meta Pixel מנוהל כעת דרך שכבת המדידה המרכזית (src/lib/analytics) ונטען רק לאחר הסכמה -->
+    <script type="module" crossorigin src="/assets/index-Dg5hPVd3.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/markdown-vendor-OEs9TPKd.js">
+    <link rel="modulepreload" crossorigin href="/assets/react-vendor-Cc7L66Bm.js">
+    <link rel="modulepreload" crossorigin href="/assets/query-vendor-BLCEqCQa.js">
+    <link rel="modulepreload" crossorigin href="/assets/supabase-vendor-D7Xp04Ua.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-Bg6w7v_G.css">
+    <meta data-rh="true" property="og:url" content="https://antartrade.co.il/blog/ninjatrader-export-trades">
+    <link data-rh="true" rel="canonical" href="https://antartrade.co.il/blog/ninjatrader-export-trades">
+  </head>
+  <body>
+    <noscript>
+      <img
+        height="1"
+        width="1"
+        style="display:none"
+        src="https://www.facebook.com/tr?id=25761708513493694&ev=PageView&noscript=1"
+      />
+      <div
+        style="max-width:900px;margin:0 auto;padding:40px 20px;font-family:Heebo,sans-serif;direction:rtl;text-align:right;"
+      >
+        <h1>AntarTrade – השוואת חברות מימון למסחר 2026</h1>
+        <p>
+          אתר ההשוואות המוביל בישראל לחברות מימון לסוחרים 2026 – ניתוחים אישיים, קודי הנחה בלעדיים ותוכן מקצועי מאת נועם
+          ענתר.
+        </p>
+        <h2>חברות מימון</h2>
+        <ul>
+          <li>
+            <a href="/top-step">TopStep – סקירה מלאה, חוקים ומחירים</a> – חברת המימון הגדולה בעולם עם מעל 10 שנות
+            פעילות. מגוון גדלי חשבונות, ללא כלל עקביות, ומשיכה ראשונה כבר ביום 5.
+          </li>
+          <li>
+            <a href="/apex">Apex Trader Funding – סקירה מלאה, חוקים ומחירים</a> – חברת מימון פופולרית עם מבחן שלב אחד,
+            ללא כלל עקביות, ואפשרות למספר חשבונות במקביל.
+          </li>
+          <li>
+            <a href="/bulenox">Bulenox – סקירה מלאה, חוקים ומחירים</a> – חברת מימון עם מחירים תחרותיים ומבחן שלב אחד.
+            תומכת ב-NinjaTrader ו-Rithmic.
+          </li>
+          <li>
+            <a href="/take-profit">TakeProfit Trader – סקירה מלאה, חוקים ומחירים</a> – חברת מימון עם גישה ייחודית,
+            מחירים נמוכים, ותמיכה מצוינת בעברית.
+          </li>
+          <li>
+            <a href="/lucid">Lucid Trader – סקירה מלאה, חוקים ומחירים</a> – חברת מימון ישראלית עם תמיכה בעברית, מחירים
+            תחרותיים, וממשק ידידותי.
+          </li>
+          <li>
+            <a href="/alpha-futures">Alpha Futures – סקירה מלאה, חוקים ומחירים</a> – חברת מימון חדשה עם תנאים תחרותיים
+            ומבחן שלב אחד.
+          </li>
+        </ul>
+        <h2>השוואה בין חברות</h2>
+        <ul>
+          <li>
+            <a href="/comparison">טבלת השוואה מקיפה בין כל חברות המימון</a> – השוואה מפורטת של מחירים, חוקים, תנאי משיכה
+            ועוד.
+          </li>
+        </ul>
+        <h2>מדריכים וכלים</h2>
+        <ul>
+          <li>
+            <a href="/atas-guide">מדריך ATAS (אטאס) – ניתוח זרימת פקודות</a> – מדריך מקיף לשימוש בפלטפורמת ATAS לניתוח
+            Order Flow, גרפי Footprint ומפות חום.
+          </li>
+          <li>
+            <a href="/bookmap-guide">מדריך Bookmap (בוקמאפ)</a> – מדריך לשימוש ב-Bookmap לניתוח עומק שוק ו-Order Flow
+            בזמן אמת.
+          </li>
+          <li>
+            <a href="/tradezella-guide">מדריך TradeZella – יומן מסחר</a> – מדריך מקיף לשימוש ב-TradeZella לניהול יומן
+            מסחר, ניתוח ביצועים ושיפור אסטרטגיות.
+          </li>
+          <li>
+            <a href="/replikanto-guide">מדריך Replikanto – העתקת עסקאות</a> – מדריך לשימוש ב-Replikanto להעתקת עסקאות
+            בין חשבונות מרובים ב-NinjaTrader.
+          </li>
+          <li>
+            <a href="/tradesyncer-guide">מדריך TradeSyncer – העתקת עסקאות מ-TradingView</a> – מדריך לחיבור TradingView
+            לחשבונות מימון באמצעות TradeSyncer.
+          </li>
+          <li>
+            <a href="/trading-tools">מרכז כלי מסחר ומדריכים</a> – כל הכלים, הפלטפורמות והמדריכים למסחר בחוזים עתידיים.
+          </li>
+          <li><a href="/economic-calendar">לוח שנה כלכלי</a> – לוח אירועים כלכליים בזמן אמת עם הסברים בעברית.</li>
+        </ul>
+        <h2>קורסים</h2>
+        <ul>
+          <li>
+            <a href="/free-course">קורס מסחר בחוזים עתידיים – חינם</a> – קורס מקיף למתחילים הכולל שיעורי וידאו, חומרי
+            לימוד ותרגול.
+          </li>
+          <li><a href="/full-course">קורס מתקדם למסחר בחוזים עתידיים</a> – קורס מתקדם עם ליווי אישי ותוכן בלעדי.</li>
+        </ul>
+        <h2>מידע נוסף</h2>
+        <ul>
+          <li><a href="/about">אודות AntarTrade</a></li>
+          <li><a href="/promotions">מבצעים והנחות</a></li>
+          <li><a href="/matching-quiz">שאלון התאמה – איזו חברת מימון מתאימה לך?</a></li>
+          <li><a href="/faq">שאלות ותשובות</a></li>
+          <li><a href="/contact">צור קשר</a></li>
+        </ul>
+      </div>
+    </noscript>
+    <div id="root">
+      <style>.pr-body{max-width:860px;margin:0 auto;padding:120px 20px 64px;color:#e8eef5;line-height:1.7;font-size:18px;direction:rtl;text-align:right}.pr-body h1{font-size:40px;line-height:1.15;margin:16px 0}.pr-body h2{font-size:28px;margin:40px 0 12px}.pr-body h3{font-size:21px;margin:24px 0 8px}.pr-body a{color:#7dc6ff}.pr-body img{max-width:100%;height:auto}.pr-body table{border-collapse:collapse;width:100%}.pr-body td,.pr-body th{border:1px solid #33415a;padding:6px 10px}.pr-body nav{font-size:15px;color:#9fb0c6}.pr-body dt{font-weight:700;margin-top:16px}.pr-body dd{margin:4px 0 0}</style><article class="pr-body"><nav aria-label="פירורי לחם"><a href="/">דף הבית</a> / <a href="/blog">בלוג</a> / איך מייצאים עסקאות מנינג'ה טריידר (ריתמיק) ליומן המסחר</nav><h1>איך מייצאים עסקאות מנינג'ה טריידר (ריתמיק) ליומן המסחר</h1><p>נכתב על ידי <a href="/about">נועם ענתר</a>, סוחר חוזים עתידיים ומייסד AntarTrade</p>
+<p class="lead">סוחרים דרך ריתמיק עם נינג'ה טריידר? ככה מוציאים את כל העסקאות מנינג'ה בקובץ אחד ומכניסים אותן ליומן המסחר החינמי של AntarTrade. כל התהליך לוקח בערך דקה וחצי, ואפשר לעשות אותו פעם בשבוע.</p>
+
+<div class="video" data-embed="youtube"><iframe src="https://www.youtube-nocookie.com/embed/4WhiJ96GtTI" title="איך מייצאים עסקאות מנינג'ה ריתמיק ליומן המסחר" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+<p class="xlink">עוד לא מכירים את היומן? <a href="/blog/trading-journal-guide" data-link="journal-guide">למדריך המלא ליומן המסחר</a></p>
+
+<h2>חלק 1: ייצוא העסקאות מנינג'ה טריידר</h2>
+
+<h3><span class="n">1</span>פותחים את Trade Performance</h3>
+<p>מתחברים בנינג'ה טריידר לחשבון שממנו רוצים לייצא (בסרטון, חשבון של בולנוקס דרך ריתמיק). בחלון הראשי לוחצים <span class="en">New</span> ובוחרים <span class="en">Trade Performance</span>.</p>
+<figure class="narrow"><img src="https://antartrade.co.il/__l5e/assets-v1/6aaa851e-af90-4f8b-99be-61499597ab60/ninja-01-menu.jpg" alt="תפריט New בנינג'ה טריידר עם האפשרות Trade Performance" loading="lazy" /></figure>
+
+<h3><span class="n">2</span>בוחרים Executions, חשבונות ותאריכים</h3>
+<p>ב-<span class="en">Display</span> בוחרים <span class="en">Executions</span>. בלחיצה על סמל הפילטר בוחרים מאילו חשבונות לקחת את העסקאות (חשבון מבחן, חשבון מאסטר וכו'), ולמעלה בוחרים את טווח התאריכים, למשל מתחילת החודש.</p>
+<figure><img src="https://antartrade.co.il/__l5e/assets-v1/691413b1-dc4e-45f6-bb31-305231dd0b25/ninja-02-filters.jpg" alt="חלון Trade Performance בנינג'ה טריידר עם Executions, פילטר החשבונות וטווח התאריכים" loading="lazy" /><figcaption>שמות החשבונות מוסתרים בתמונה.</figcaption></figure>
+
+<h3><span class="n">3</span>מייצאים לקובץ</h3>
+<p>לוחצים קליק ימני על אחת השורות בטבלה (לא משנה איזו) ובוחרים <span class="en">Export...</span>. שומרים את הקובץ במחשב.</p>
+<figure><img src="https://antartrade.co.il/__l5e/assets-v1/f23cd528-9571-4e3f-8349-024ba3141e49/ninja-03-export.jpg" alt="תפריט הקליק הימני בטבלת Executions בנינג'ה טריידר עם האפשרות Export" loading="lazy" /></figure>
+<figure><img src="https://antartrade.co.il/__l5e/assets-v1/20f99854-6990-4671-b789-b0df68a6dbe7/ninja-04-save.jpg" alt="חלון השמירה של קובץ הייצוא מנינג'ה טריידר" loading="lazy" /></figure>
+
+<h2>חלק 2: ייבוא הקובץ ליומן המסחר</h2>
+
+<h3><span class="n">4</span>עסקה חדשה, ייבוא מקובץ, NinjaTrader</h3>
+<p>ביומן המסחר נכנסים ל"עסקה חדשה", עוברים ללשונית "ייבוא מקובץ", בוחרים <span class="en">NinjaTrader</span> ומעלים את הקובץ ששמרתם.</p>
+<figure><img src="https://antartrade.co.il/__l5e/assets-v1/c5b4bacd-fe82-49c7-9689-11aa6c6f31aa/import-source.jpg" alt="מסך ייבוא מקובץ ביומן המסחר עם בחירת מקור הייבוא" loading="lazy" /></figure>
+
+<h3><span class="n">5</span>משייכים כל חשבון ריתמיק לחשבון ביומן</h3>
+<p>היומן מציג את החשבונות שנמצאו בקובץ, וכל אחד מהם צריך להיות משויך לחשבון ביומן. בדרך כלל השיוך נעשה כמעט אוטומטית.</p>
+<ul>
+  <li><strong>החשבון כבר קיים ביומן:</strong> בוחרים אותו ב"בחר חשבון".</li>
+  <li><strong>חשבון חדש:</strong> לוחצים "+ חדש", בוחרים שם ויתרת פתיחה (למשל 50,000$ או 150,000$) ולוחצים "צור חשבון".</li>
+</ul>
+<figure><img src="https://antartrade.co.il/__l5e/assets-v1/80c53e1b-2fc2-41fe-8a65-05c36b0a6ff5/ninja-05-assign.jpg" alt="שלב שיוך חשבונות Rithmic לחשבונות ביומן המסחר" loading="lazy" /><figcaption>מספרי החשבונות מוסתרים בתמונה.</figcaption></figure>
+<figure class="narrow"><img src="https://antartrade.co.il/__l5e/assets-v1/002d9511-2729-4633-8f4f-27de5ffffd6a/ninja-06-new-account.jpg" alt="חלון יצירת חשבון חדש ביומן עם שם החשבון ויתרת פתיחה" loading="lazy" /></figure>
+
+<h3><span class="n">6</span>תצוגה מקדימה וייבוא</h3>
+<p>לוחצים "המשך לתצוגה מקדימה", עוברים על העסקאות, גוללים עד הסוף ולוחצים "ייבא". זהו, העסקאות ביומן.</p>
+<figure><img src="https://antartrade.co.il/__l5e/assets-v1/b2b51798-466c-4784-9db6-f55f9662a000/ninja-07-done.jpg" alt="הודעת סיום: העסקאות יובאו בהצלחה ליומן המסחר" loading="lazy" /></figure>
+<p>מכאן אפשר לעבור ליומן העסקאות, לסנן אותן לפי מה שרוצים, ולהוסיף לכל עסקה דירוג, אסטרטגיה ותג רגשי.</p>
+
+<div class="cta">
+  <h2>היומן חינמי</h2>
+  <p>נכנסים ל<a href="https://journal.antartrade.co.il" data-link="journal">יומן המסחר של AntarTrade</a> ומתחילים לתעד. ואם אתם קונים מבחן בחברת מימון, הקוד <span class="code">ANTAR</span> נותן את ההנחה הגבוהה ביותר.</p>
+</div>
+
+<p class="disc">המדריך מובא למטרות מידע והדרכה בלבד. הממשקים של נינג'ה טריידר ושל היומן עשויים להשתנות עם הזמן.</p>
+</article>
+    </div>
+  </body>
+</html>

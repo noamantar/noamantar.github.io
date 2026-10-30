@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Microsoft Clarity מנוהל דרך שכבת המדידה המרכזית (src/lib/analytics/clarity.ts) ונטען רק לאחר הסכמה -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" sizes="32x32" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" sizes="16x16" href="/favicon.ico" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>איך לשפר את הרווחיות בעזרת יומן מסחר: בונים סטטיסטיקה מ-1:1 | AntarTrade</title>
+    <meta data-rh="true" name="description" content="שיטה פשוטה לשיפור הסטטיסטיקה במסחר: סוחרים ב-1:1, מנתחים ביומן לונג מול שורט, ימים ועסקאות ביום, ובודקים במחשבון סיכויי מעבר אם כדאי לעבור ל-1:1.5.">
+
+    <!-- Open Graph Meta Tags -->
+    <meta data-rh="true" property="og:title" content="איך לשפר את הרווחיות בעזרת יומן מסחר: בונים סטטיסטיקה מ-1:1 | AntarTrade">
+    <meta data-rh="true" property="og:description" content="שיטה פשוטה לשיפור הסטטיסטיקה במסחר: סוחרים ב-1:1, מנתחים ביומן לונג מול שורט, ימים ועסקאות ביום, ובודקים במחשבון סיכויי מעבר אם כדאי לעבור ל-1:1.5.">
+    <meta data-rh="true" property="og:image" content="https://antartrade.co.il/images/blog/covers/journal-statistics-1-to-1.webp">
+    
+    
+    <meta data-rh="true" property="og:image:alt" content="בונים סטטיסטיקה מ-1:1 עם יומן המסחר">
+    <meta data-rh="true" property="og:type" content="website" />
+    <meta data-rh="true" property="og:site_name" content="AntarTrade" />
+    <meta data-rh="true" property="og:locale" content="he_IL" />
+
+    <!-- Twitter Cards Meta Tags -->
+    <meta data-rh="true" name="twitter:card" content="summary_large_image" />
+    <meta data-rh="true" name="twitter:title" content="איך לשפר את הרווחיות בעזרת יומן מסחר: בונים סטטיסטיקה מ-1:1 | AntarTrade">
+    <meta data-rh="true" name="twitter:description" content="שיטה פשוטה לשיפור הסטטיסטיקה במסחר: סוחרים ב-1:1, מנתחים ביומן לונג מול שורט, ימים ועסקאות ביום, ובודקים במחשבון סיכויי מעבר אם כדאי לעבור ל-1:1.5.">
+    <meta data-rh="true" name="twitter:image" content="https://antartrade.co.il/images/blog/covers/journal-statistics-1-to-1.webp">
+    <meta data-rh="true" name="twitter:image:alt" content="בונים סטטיסטיקה מ-1:1 עם יומן המסחר">
+
+    <!-- Additional Meta Tags -->
+    <meta name="author" content="AntarTrade" />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://i.ytimg.com" crossorigin />
+    <link rel="dns-prefetch" href="https://img.youtube.com" />
+    <link rel="dns-prefetch" href="https://www.youtube.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" rel="stylesheet" />
+    <!-- Preload LCP image (header logo) -->
+    <link rel="preload" as="image" href="/lovable-uploads/antartrade-logo-new.webp" fetchpriority="high" />
+    <!-- Critical inline CSS for instant LCP paint of hero H1 (replaced by React on hydration) -->
+    <style>
+      html,body{margin:0;padding:0;background:#0D2847;font-family:Heebo,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+      #root{min-height:100vh}
+      .lcp-hero{position:relative;background:linear-gradient(135deg,#0D2847 0%,#1f5470 50%,#17B3B1 100%);padding:96px 16px 64px;text-align:center;direction:rtl;overflow:hidden}
+      .lcp-hero-inner{max-width:1200px;margin:0 auto}
+      .lcp-hero h1{margin:0 0 24px;color:#fff;font-weight:700;line-height:1.15;font-size:32px}
+      .lcp-hero h1 .lcp-line{display:block}
+      .lcp-hero h1 .lcp-grad{background:linear-gradient(90deg,#22d3ee,#2dd4bf,#06b6d4);-webkit-background-clip:text;background-clip:text;color:transparent;margin-top:8px}
+      .lcp-hero p{margin:0 auto;color:rgba(255,255,255,.9);font-size:18px;max-width:56rem;line-height:1.6}
+      @media(min-width:768px){.lcp-hero{padding:128px 16px 96px}.lcp-hero h1{font-size:56px}.lcp-hero p{font-size:22px}}
+      @media(min-width:1024px){.lcp-hero h1{font-size:64px}.lcp-hero p{font-size:24px}}
+      html.no-lcp-hero .lcp-hero{display:none}
+    </style>
+    <script>
+      (function(){
+        var p = location.pathname;
+        if (p !== '/' && p !== '/index.html') {
+          document.documentElement.classList.add('no-lcp-hero');
+        }
+      })();
+    </script>
+    <!-- Stale-deploy recovery: if hashed JS chunks referenced by a cached index.html
+         are gone (404 / "Importing a module script failed"), reload once bypassing cache. -->
+    <script>
+      (function(){
+        var KEY = '__chunk_reload_at';
+        function reloadOnce(){
+          try {
+            var last = Number(sessionStorage.getItem(KEY) || 0);
+            if (Date.now() - last < 20000) return; // avoid reload loops
+            sessionStorage.setItem(KEY, String(Date.now()));
+          } catch(e){}
+          var u = location.pathname + (location.search ? location.search + '&' : '?') + '_r=' + Date.now() + location.hash;
+          location.replace(u);
+        }
+        // Resource-level failures (module script / preload) bubble only in capture phase
+        window.addEventListener('error', function(e){
+          var t = e && e.target;
+          if (t && t !== window && (t.tagName === 'SCRIPT' || t.tagName === 'LINK')) { reloadOnce(); return; }
+          var m = e && e.message;
+          if (m && (m.indexOf('Importing a module script failed') > -1 ||
+                    m.indexOf('Failed to fetch dynamically imported module') > -1 ||
+                    m.indexOf('error loading dynamically imported module') > -1)) reloadOnce();
+        }, true);
+        window.addEventListener('unhandledrejection', function(e){
+          var m = e && e.reason && (e.reason.message || String(e.reason));
+          if (m && (m.indexOf('Importing a module script failed') > -1 ||
+                    m.indexOf('Failed to fetch dynamically imported module') > -1 ||
+                    m.indexOf('error loading dynamically imported module') > -1)) reloadOnce();
+        });
+      })();
+    </script>
+
+    <!-- Meta Pixel מנוהל כעת דרך שכבת המדידה המרכזית (src/lib/analytics) ונטען רק לאחר הסכמה -->
+    <script type="module" crossorigin src="/assets/index-Dg5hPVd3.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/markdown-vendor-OEs9TPKd.js">
+    <link rel="modulepreload" crossorigin href="/assets/react-vendor-Cc7L66Bm.js">
+    <link rel="modulepreload" crossorigin href="/assets/query-vendor-BLCEqCQa.js">
+    <link rel="modulepreload" crossorigin href="/assets/supabase-vendor-D7Xp04Ua.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-Bg6w7v_G.css">
+    <meta data-rh="true" property="og:url" content="https://antartrade.co.il/blog/journal-statistics-1-to-1">
+    <link data-rh="true" rel="canonical" href="https://antartrade.co.il/blog/journal-statistics-1-to-1">
+  </head>
+  <body>
+    <noscript>
+      <img
+        height="1"
+        width="1"
+        style="display:none"
+        src="https://www.facebook.com/tr?id=25761708513493694&ev=PageView&noscript=1"
+      />
+      <div
+        style="max-width:900px;margin:0 auto;padding:40px 20px;font-family:Heebo,sans-serif;direction:rtl;text-align:right;"
+      >
+        <h1>AntarTrade – השוואת חברות מימון למסחר 2026</h1>
+        <p>
+          אתר ההשוואות המוביל בישראל לחברות מימון לסוחרים 2026 – ניתוחים אישיים, קודי הנחה בלעדיים ותוכן מקצועי מאת נועם
+          ענתר.
+        </p>
+        <h2>חברות מימון</h2>
+        <ul>
+          <li>
+            <a href="/top-step">TopStep – סקירה מלאה, חוקים ומחירים</a> – חברת המימון הגדולה בעולם עם מעל 10 שנות
+            פעילות. מגוון גדלי חשבונות, ללא כלל עקביות, ומשיכה ראשונה כבר ביום 5.
+          </li>
+          <li>
+            <a href="/apex">Apex Trader Funding – סקירה מלאה, חוקים ומחירים</a> – חברת מימון פופולרית עם מבחן שלב אחד,
+            ללא כלל עקביות, ואפשרות למספר חשבונות במקביל.
+          </li>
+          <li>
+            <a href="/bulenox">Bulenox – סקירה מלאה, חוקים ומחירים</a> – חברת מימון עם מחירים תחרותיים ומבחן שלב אחד.
+            תומכת ב-NinjaTrader ו-Rithmic.
+          </li>
+          <li>
+            <a href="/take-profit">TakeProfit Trader – סקירה מלאה, חוקים ומחירים</a> – חברת מימון עם גישה ייחודית,
+            מחירים נמוכים, ותמיכה מצוינת בעברית.
+          </li>
+          <li>
+            <a href="/lucid">Lucid Trader – סקירה מלאה, חוקים ומחירים</a> – חברת מימון ישראלית עם תמיכה בעברית, מחירים
+            תחרותיים, וממשק ידידותי.
+          </li>
+          <li>
+            <a href="/alpha-futures">Alpha Futures – סקירה מלאה, חוקים ומחירים</a> – חברת מימון חדשה עם תנאים תחרותיים
+            ומבחן שלב אחד.
+          </li>
+        </ul>
+        <h2>השוואה בין חברות</h2>
+        <ul>
+          <li>
+            <a href="/comparison">טבלת השוואה מקיפה בין כל חברות המימון</a> – השוואה מפורטת של מחירים, חוקים, תנאי משיכה
+            ועוד.
+          </li>
+        </ul>
+        <h2>מדריכים וכלים</h2>
+        <ul>
+          <li>
+            <a href="/atas-guide">מדריך ATAS (אטאס) – ניתוח זרימת פקודות</a> – מדריך מקיף לשימוש בפלטפורמת ATAS לניתוח
+            Order Flow, גרפי Footprint ומפות חום.
+          </li>
+          <li>
+            <a href="/bookmap-guide">מדריך Bookmap (בוקמאפ)</a> – מדריך לשימוש ב-Bookmap לניתוח עומק שוק ו-Order Flow
+            בזמן אמת.
+          </li>
+          <li>
+            <a href="/tradezella-guide">מדריך TradeZella – יומן מסחר</a> – מדריך מקיף לשימוש ב-TradeZella לניהול יומן
+            מסחר, ניתוח ביצועים ושיפור אסטרטגיות.
+          </li>
+          <li>
+            <a href="/replikanto-guide">מדריך Replikanto – העתקת עסקאות</a> – מדריך לשימוש ב-Replikanto להעתקת עסקאות
+            בין חשבונות מרובים ב-NinjaTrader.
+          </li>
+          <li>
+            <a href="/tradesyncer-guide">מדריך TradeSyncer – העתקת עסקאות מ-TradingView</a> – מדריך לחיבור TradingView
+            לחשבונות מימון באמצעות TradeSyncer.
+          </li>
+          <li>
+            <a href="/trading-tools">מרכז כלי מסחר ומדריכים</a> – כל הכלים, הפלטפורמות והמדריכים למסחר בחוזים עתידיים.
+          </li>
+          <li><a href="/economic-calendar">לוח שנה כלכלי</a> – לוח אירועים כלכליים בזמן אמת עם הסברים בעברית.</li>
+        </ul>
+        <h2>קורסים</h2>
+        <ul>
+          <li>
+            <a href="/free-course">קורס מסחר בחוזים עתידיים – חינם</a> – קורס מקיף למתחילים הכולל שיעורי וידאו, חומרי
+            לימוד ותרגול.
+          </li>
+          <li><a href="/full-course">קורס מתקדם למסחר בחוזים עתידיים</a> – קורס מתקדם עם ליווי אישי ותוכן בלעדי.</li>
+        </ul>
+        <h2>מידע נוסף</h2>
+        <ul>
+          <li><a href="/about">אודות AntarTrade</a></li>
+          <li><a href="/promotions">מבצעים והנחות</a></li>
+          <li><a href="/matching-quiz">שאלון התאמה – איזו חברת מימון מתאימה לך?</a></li>
+          <li><a href="/faq">שאלות ותשובות</a></li>
+          <li><a href="/contact">צור קשר</a></li>
+        </ul>
+      </div>
+    </noscript>
+    <div id="root">
+      <style>.pr-body{max-width:860px;margin:0 auto;padding:120px 20px 64px;color:#e8eef5;line-height:1.7;font-size:18px;direction:rtl;text-align:right}.pr-body h1{font-size:40px;line-height:1.15;margin:16px 0}.pr-body h2{font-size:28px;margin:40px 0 12px}.pr-body h3{font-size:21px;margin:24px 0 8px}.pr-body a{color:#7dc6ff}.pr-body img{max-width:100%;height:auto}.pr-body table{border-collapse:collapse;width:100%}.pr-body td,.pr-body th{border:1px solid #33415a;padding:6px 10px}.pr-body nav{font-size:15px;color:#9fb0c6}.pr-body dt{font-weight:700;margin-top:16px}.pr-body dd{margin:4px 0 0}</style><article class="pr-body"><nav aria-label="פירורי לחם"><a href="/">דף הבית</a> / <a href="/blog">בלוג</a> / איך לשפר את הרווחיות שלכם בעזרת יומן מסחר: בונים סטטיסטיקה מ-1:1</nav><h1>איך לשפר את הרווחיות שלכם בעזרת יומן מסחר: בונים סטטיסטיקה מ-1:1</h1><p>נכתב על ידי <a href="/about">נועם ענתר</a>, סוחר חוזים עתידיים ומייסד AntarTrade</p>
+<p class="lead">מסחר הוא משחק סטטיסטי. ככל שתבינו את הסטטיסטיקה שלכם ותשפרו אותה, כך תצליחו יותר. במאמר הזה אני מראה שיטה פשוטה: מתחילים לסחור ב-1:1, בונים סטטיסטיקה ביומן מסחר, ולפי התוצאות יודעים בדיוק מה לשפר. נעבור על שני תרחישים אמיתיים מהיומן, ובסוף נבדוק במחשבון אם כדאי לכם לשנות את יחס הסיכוי לסיכון.</p>
+
+<div class="video" data-embed="youtube"><iframe src="https://www.youtube-nocookie.com/embed/mwsNFbgKJxA" title="איך לשפר את הרווחיות שלכם בעזרת יומן מסחר" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+<div class="toc"><strong>במאמר:</strong>
+<ol>
+  <li>למה מתחילים ב-1:1</li>
+  <li>תרחיש 1: פחות מ-50% הצלחה</li>
+  <li>תרחיש 2: יותר מ-50% הצלחה</li>
+  <li>פוטנציאל העסקה: האם כדאי לעבור ל-1:1.5?</li>
+  <li>בודקים במחשבון סיכויי מעבר</li>
+  <li>סיכום: השיטה בשלושה צעדים</li>
+</ol></div>
+
+<!-- 1 -->
+<h2>למה מתחילים ב-1:1</h2>
+<p>קודם כל, מה זה יחס סיכוי לסיכון:</p>
+<ul>
+  <li><strong>1:1:</strong> מסכנים 300$ כדי להרוויח 300$ (או 500 כדי להרוויח 500, הסכום לא משנה).</li>
+  <li><strong>1:2:</strong> מסכנים 500$ כדי להרוויח 1,000$.</li>
+  <li><strong>1:3:</strong> מסכנים 500$ כדי להרוויח 1,500$.</li>
+</ul>
+<p>ככל שהיעד רחוק יותר, אחוז ההצלחה יורד, אבל כל עסקה מצליחה שווה יותר. אז מאיפה מתחילים?</p>
+<p>ב-1:1 יש נקודת ייחוס ברורה: גם מי שלא יודע לסחור בכלל ופשוט לוחץ קנייה או מכירה, אמור לקבל בערך 50% הצלחה. או שהמחיר עולה, או שהוא יורד. (זה לא מדויק לגמרי, יש עמלות ולפעמים החלקות במחיר, אבל זה קו הבסיס.)</p>
+<div class="box"><strong>השיטה</strong>סוחרים חודש או חודשיים ב-1:1, עם סיכון קבוע לעסקה. אחרי התקופה בודקים ביומן:<br>
+<strong>פחות מ-50% הצלחה?</strong> יש משהו לשפר בכניסות, ביציאות או בהתנהלות.<br>
+<strong>יותר מ-50%?</strong> כדאי לבדוק אם אפשר להגדיל את היעד, למשל ל-1:1.5.<br>
+חודש הוא לא הרבה זמן לבניית סטטיסטיקה, אבל זה מספיק כדי להתחיל.</div>
+
+<!-- 2 -->
+<h2>תרחיש 1: פחות מ-50% הצלחה</h2>
+<p>ביומן יש לי חשבון לדוגמה עם 80 עסקאות בחודש אחד, כולן ב-1:1 עם סיכון של כ-300$. התוצאה: 45% הצלחה ומינוס 2,908$.</p>
+<figure><img src="https://antartrade.co.il/__l5e/assets-v1/26a63a75-7246-40f8-93b0-02d4ebb9ff45/s-01-scenario1.jpg" alt="דשבורד יומן המסחר לתרחיש 1: 80 עסקאות, 45% הצלחה, הפסד של 2,908$" loading="lazy" /><figcaption>בוחרים את החשבון בפילטר למעלה, והדשבורד מציג רק אותו.</figcaption></figure>
+<p>אם לוחץ אקראי אמור לקבל 50%, ואני מקבל 45%, אני עושה משהו לא נכון. בואו נחפש מה.</p>
+
+<h3>לונג מול שורט</h3>
+<p>במדדים המתקדמים רואים: בשורט רק 38% הצלחה (15 מתוך 39), ובלונג 51% (21 מתוך 41). המסקנה: אולי כדאי להתמקד בלונגים, ולפני כל שורט לבחון את העסקה פעמיים ולחפש כניסה טובה יותר.</p>
+
+<h3>ימים בשבוע</h3>
+<p>בפירוט לפי יום בשבוע אפשר לגלות, למשל, שביום שישי אתם כל הזמן מפסידים. אולי זה הלחץ של סוף השבוע. אם זה חוזר על עצמו, אולי עדיף פשוט לא לסחור ביום שישי.</p>
+<figure><img src="https://antartrade.co.il/__l5e/assets-v1/3855dd7f-50aa-474e-a82d-86ceefd6d3fc/s-02-days.jpg" alt="מדדים מתקדמים בתרחיש 1: הצלחה בשורט 38%, בלונג 51%, ופירוט לפי ימים בשבוע" loading="lazy" /></figure>
+
+<h3>לוח השנה: כמה עסקאות ביום?</h3>
+<p>בלוח השנה רואים מספר עסקאות ותוצאה לכל יום. בימים עם 2 עד 4 עסקאות התוצאות מעורבות. אבל בימים שבהם עשיתי 9 או 10 עסקאות, ההפסדים היו הגדולים ביותר: מינוס 1,260$ ב-10 עסקאות, ומינוס 1,570$ ב-9 עסקאות.</p>
+<figure><img src="https://antartrade.co.il/__l5e/assets-v1/9b35e08e-27d9-429b-af93-1101fa1bf461/s-03-calendar.jpg" alt="לוח השנה בתרחיש 1: ימים עם 9 ו-10 עסקאות מסומנים עם ההפסדים הגדולים ביותר" loading="lazy" /></figure>
+<p>המסקנה: אולי כדאי לעצור אחרי 3 עסקאות ביום. כל שיפור כזה מקרב אתכם מ-45% לכיוון 50% ומעלה.</p>
+
+<!-- 3 -->
+<h2>תרחיש 2: יותר מ-50% הצלחה</h2>
+<p>בתרחיש השני: אותן 80 עסקאות, אותו יחס 1:1, אותו סיכון של כ-300$. אבל הפעם 60% הצלחה, ורווח של 4,292$.</p>
+<figure><img src="https://antartrade.co.il/__l5e/assets-v1/95fb8f8d-16be-480e-943f-36e881812815/s-05-scenario2.jpg" alt="דשבורד יומן המסחר לתרחיש 2: 80 עסקאות, 60% הצלחה, רווח של 4,292$" loading="lazy" /></figure>
+<p>גם כאן כדאי לעבור על אותם כלים: לונג מול שורט, ימים ועסקאות ביום. אבל השאלה הגדולה בתרחיש הזה היא אחרת: האם להגדיל את היעד?</p>
+
+<!-- 4 -->
+<h2>פוטנציאל העסקה: האם כדאי לעבור ל-1:1.5?</h2>
+<p>כדי לענות על זה צריך לדעת לאן המחיר הגיע אחרי שיצאתם מהעסקה. בשביל זה יש ביומן שדות מיוחדים בהוספת עסקה:</p>
+<ul>
+  <li><strong>המחיר הגבוה והנמוך ביותר בעסקה:</strong> נכנסתם ב-100, המחיר ירד עד 90, עלה עד 140, ובסוף יצאתם ב-120. כך אתם יודעים שיכולתם לצאת ב-140.</li>
+  <li><strong>פוטנציאל העסקה עד הסטופ:</strong> לאן המחיר הגיע עד שפגע בסטופ המקורי, גם אחרי שיצאתם. נניח שהסטופ היה ב-80, ואחרי היציאה המחיר עלה עד 190 ורק אז ירד ל-80. רושמים 190, ומסמנים שהמחיר הגיע לסטופ המקורי. אם עד סוף הסשן או היום הוא לא הגיע לסטופ, מסמנים את זה במקום.</li>
+</ul>
+<div class="box"><strong>הטיפ שלי (נועם ענתר, כותב המאמר)</strong>כשאתם בונים סטטיסטיקה, אל תעשו הרבה עסקאות. עשו 2 עד 3 עסקאות ביום והכניסו אותן ליומן ידנית, גם אם יש לכם סנכרון אוטומטי. ככה אתם מכירים כל עסקה ועסקה.</div>
+<p>אחרי שהכנסתם את הנתונים, היומן מראה לאילו יעדים העסקאות היו מגיעות לפני הסטופ. בתרחיש 2:</p>
+<figure><img src="https://antartrade.co.il/__l5e/assets-v1/8b35ef9d-52e9-4bff-9f85-05a1e8308528/s-06-potential2.jpg" alt="פוטנציאל העסקאות בתרחיש 2: 60% הגיעו ל-1R, 50% ל-1.5R, 30% ל-2R" loading="lazy" /></figure>
+<ul>
+  <li><strong>60%</strong> מהעסקאות הגיעו ל-1R, וזה אחוז ההצלחה בפועל.</li>
+  <li><strong>50%</strong> הגיעו ל-1.5R.</li>
+  <li><strong>30%</strong> הגיעו ל-2R (24 מתוך 80).</li>
+  <li>רק <strong>5%</strong> הגיעו ל-4R.</li>
+</ul>
+<p>לשם השוואה, בתרחיש 1 רק 11.3% מהעסקאות הגיעו ל-1.5R, ואף עסקה לא הגיעה ל-2R. שם אין טעם להגדיל את היעד, צריך קודם לשפר את אחוז ההצלחה.</p>
+<figure><img src="https://antartrade.co.il/__l5e/assets-v1/66611a3d-0068-4f6f-a56b-13fb08d09b96/s-04-potential1.jpg" alt="פוטנציאל העסקאות בתרחיש 1: 45% הגיעו ל-1R ו-11.3% ל-1.5R" loading="lazy" /></figure>
+
+<!-- 5 -->
+<h2>בודקים במחשבון סיכויי מעבר</h2>
+<p>אז בתרחיש 2, מה עדיף: 1:1 עם 60% הצלחה, או 1:1.5 עם 50%? בשביל זה יש באתר <a href="/calculators" data-link="calculators">מחשבון סיכויי מעבר</a> (כלי מסחר ← מחשבונים).</p>
+<p>מזינים את נתוני החשבון: גודל חשבון 50,000$, יעד רווח 3,000$, Drawdown של 2,000$, סיכון לעסקה 300$, יחס 1:1, 60% הצלחה וסטופ סוף יום.</p>
+<figure><img src="https://antartrade.co.il/__l5e/assets-v1/845d9322-c3fa-464b-ad91-750f5c8c234d/s-07-calc.jpg" alt="מחשבון סיכויי מעבר: 1:1 עם 60% הצלחה, 84.4% סיכוי להגיע ליעד" loading="lazy" /></figure>
+<p>התוצאה: <strong>84.4%</strong> סיכוי להגיע ליעד לפני שהחשבון נפסל, ובממוצע בערך 40 עסקאות.</p>
+<p>מתחת המחשבון מראה כמה כל שינוי קטן משפיע:</p>
+<figure><img src="https://antartrade.co.il/__l5e/assets-v1/42f48634-f89f-4a34-b05f-0b9b33468902/s-08-calc-compare.jpg" alt="השוואה במחשבון: איך אחוז ההצלחה והסיכון לעסקה משנים את הסיכוי לעבור" loading="lazy" /></figure>
+<ul>
+  <li><strong>אחוז ההצלחה:</strong> ב-55% הסיכוי יורד ל-60% בלבד, וב-65% הוא עולה ל-95.4%. חמישה אחוזים בהצלחה עושים הבדל עצום.</li>
+  <li><strong>הסיכון לעסקה:</strong> ב-225$ במקום 300$ הסיכוי עולה ל-90.2%. זה לוקח יותר עסקאות, אבל הסיכוי לעבור גבוה יותר.</li>
+</ul>
+<p>ועכשיו מחליפים ל-1:1.5 עם 50% הצלחה, כמו שראינו בפוטנציאל של תרחיש 2:</p>
+<figure><img src="https://antartrade.co.il/__l5e/assets-v1/e60d8a7b-2f1c-410d-a02c-b82a295b5319/s-09-calc-1-1.5.jpg" alt="מחשבון סיכויי מעבר: 1:1.5 עם 50% הצלחה, 77.7% סיכוי להגיע ליעד" loading="lazy" /></figure>
+<p>ההשוואה לא חד-משמעית, וזה בדיוק העניין:</p>
+<ul>
+  <li><strong>סיכוי להגיע ליעד לפני פסילה:</strong> 77.7% ב-1:1.5, מול 84.4% ב-1:1. ב-1:1 יש פחות סיכוי לשרוף את החשבון בדרך.</li>
+  <li><strong>רווח צפוי לעסקה:</strong> 75$+ ב-1:1.5, מול 60$+ ב-1:1. לאורך זמן, 1:1.5 מכניס יותר כסף על כל עסקה.</li>
+  <li><strong>מהירות:</strong> ב-1:1.5 מגיעים ליעד בממוצע בכ-30 עסקאות, מול כ-40 ב-1:1.</li>
+</ul>
+<p>אז מה עדיף? תלוי במטרה. במבחן, כשהעיקר הוא לעבור בלי לשרוף את החשבון, הסיכוי לעבור חשוב יותר. בחשבון ממומן שאתם מושכים ממנו לאורך זמן, הרווח הצפוי לעסקה מקבל משקל גדול יותר. המחשבון לא מחליט בשבילכם, הוא נותן לכם את המספרים כדי שתחליטו לפי הנתונים שלכם.</p>
+<div class="box warn"><strong>שימו לב</strong>המחשבון הוא מודל הסתברותי. הוא מניח אחוז הצלחה ויחס קבועים, ולא יכול לחזות תוצאות עתידיות. החוקים המדויקים של ה-Drawdown משתנים בין חברות המימון, אז בדקו את החוקים של החברה שלכם.</div>
+
+<!-- 6 -->
+<h2>סיכום: השיטה בשלושה צעדים</h2>
+<ol>
+  <li><strong>סוחרים ב-1:1</strong> לפחות חודש, עם סיכון קבוע, ומכניסים כל עסקה ל<a href="/blog/trading-journal-guide" data-link="journal-guide">יומן המסחר</a>, כולל המחיר הכי טוב עד הסטופ.</li>
+  <li><strong>מתחת ל-50%?</strong> מחפשים ביומן מה לשפר: לונג מול שורט, ימים בשבוע, מספר העסקאות ביום.</li>
+  <li><strong>מעל 50%?</strong> בודקים בפוטנציאל העסקה כמה עסקאות מגיעות ל-1.5R ול-2R, ומשווים במחשבון סיכויי מעבר את הסיכוי לעבור, את הרווח הצפוי לעסקה ואת מספר העסקאות, לפי המטרה שלכם.</li>
+</ol>
+
+<div class="cta">
+  <h2>מתחילים לבנות סטטיסטיקה</h2>
+  <p>היומן חינמי ב-<a href="https://journal.antartrade.co.il" data-link="journal">AntarTrade</a>, וגם <a href="/calculators" data-link="calculators">המחשבונים</a>. ואם אתם קונים מבחן בחברת מימון, הקוד <span class="code">ANTAR</span> נותן את ההנחה הגבוהה ביותר.</p>
+</div>
+
+<p class="disc">המאמר מובא למטרות מידע ולימוד בלבד ואינו מהווה ייעוץ השקעות. הנתונים בתרחישים הם נתוני המחשה, ותוצאות המחשבון הן מודל הסתברותי ולא תחזית. מסחר בחוזים עתידיים כרוך בסיכון גבוה.</p>
+</article>
+    </div>
+  </body>
+</html>
