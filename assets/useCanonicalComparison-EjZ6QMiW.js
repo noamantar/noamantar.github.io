@@ -1,0 +1,1 @@
+import{u as s}from"./query-vendor-BLCEqCQa.js";import{D as o,s as i}from"./index-C4y79njA.js";import{d as r,f as e}from"./fetch-CfM_OnGN.js";const u=()=>s({queryKey:["canonical-comparison"],queryFn:async()=>r(await e(i)).filter(a=>o(a.firmKey)),staleTime:5*60*1e3});export{u};
