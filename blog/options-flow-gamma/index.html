@@ -38,9 +38,12 @@
     <link rel="preconnect" href="https://i.ytimg.com" crossorigin />
     <link rel="dns-prefetch" href="https://img.youtube.com" />
     <link rel="dns-prefetch" href="https://www.youtube.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" rel="stylesheet" />
-    <!-- Preload LCP image (header logo) -->
-    <link rel="preload" as="image" href="/lovable-uploads/antartrade-logo-new.webp" fetchpriority="high" />
+    <!-- Heebo is only the fallback behind Fb Reforma (and swaps in anyway), so it loads without holding up the first paint -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" rel="stylesheet" /></noscript>
+    <!-- the design's own font (base.css), fetched with the page instead of after the code runs -->
+    <link rel="preload" as="font" type="font/woff2" href="/home-new/fonts/FbReforma-Regular.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/home-new/fonts/FbReforma-Medium.woff2" crossorigin />
     <!-- Critical inline CSS for instant LCP paint of hero H1 (replaced by React on hydration).
          It draws the new homepage hero's first frame (dark ground, the same title in the same place), so the page doesn't flash another design. -->
     <style>
@@ -59,6 +62,15 @@
         var p = location.pathname;
         if (p !== '/' && p !== '/index.html') {
           document.documentElement.classList.add('no-lcp-hero');
+        }
+        // a foreign address with no prerendered file of its own (a 404, a page not translated yet) gets
+        // this Hebrew file: it reads left to right, without the Hebrew homepage title, from the first paint.
+        // The languages are FOREIGN_LOCALES in src/i18n/config.ts (the i18n test keeps them equal).
+        var foreign = p.match(/^\/(en)(\/|$)/);
+        if (foreign && document.documentElement.lang === 'he') {
+          document.documentElement.lang = foreign[1];
+          document.documentElement.dir = 'ltr';
+          document.title = 'AntarTrade';
         }
       })();
     </script>
@@ -95,14 +107,20 @@
     </script>
 
     <!-- Meta Pixel מנוהל כעת דרך שכבת המדידה המרכזית (src/lib/analytics) ונטען רק לאחר הסכמה -->
-    <script type="module" crossorigin src="/assets/index-CFqXh43W.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/markdown-vendor-C8kRH1kE.js">
-    <link rel="modulepreload" crossorigin href="/assets/react-vendor-DRMcaBf5.js">
-    <link rel="modulepreload" crossorigin href="/assets/query-vendor-DhLg6-SN.js">
-    <link rel="modulepreload" crossorigin href="/assets/supabase-vendor-BjAP5gaE.js">
-    <link rel="stylesheet" crossorigin href="/assets/index-B1hmK-DU.css">
+    <script type="module" crossorigin src="/assets/index-CM-V3N5-.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-vendor-xAhqJu7B.js">
+    <link rel="modulepreload" crossorigin href="/assets/query-vendor-iefLz-8z.js">
+    <link rel="modulepreload" crossorigin href="/assets/supabase-vendor-DW0Ocl7u.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-CWOh4V4Z.css">
     <meta data-rh="true" property="og:url" content="https://antartrade.co.il/blog/options-flow-gamma">
     <link data-rh="true" rel="canonical" href="https://antartrade.co.il/blog/options-flow-gamma">
+    <link rel="modulepreload" crossorigin href="/assets/ArticleNew-BZaZJ8zA.js">
+    <link rel="modulepreload" crossorigin href="/assets/SEOHead-CVGFAcvu.js">
+    <link rel="modulepreload" crossorigin href="/assets/author-BugWeuLX.js">
+    <link rel="modulepreload" crossorigin href="/assets/ui-BGbHnmGN.js">
+    <link rel="preload" as="style" crossorigin href="/assets/firm-new-BS7v2L2J.css">
+    <link rel="preload" as="style" crossorigin href="/assets/article-new-mxkhYOwE.css">
+    <link rel="preload" as="style" crossorigin href="/assets/index-CWOh4V4Z.css">
   </head>
   <body>
     <noscript>
@@ -115,97 +133,69 @@
       <div
         style="max-width:900px;margin:0 auto;padding:40px 20px;font-family:Heebo,sans-serif;direction:rtl;text-align:right;"
       >
-        <h1>AntarTrade – השוואת חברות מימון למסחר 2026</h1>
+        <h1>AntarTrade – השוואת חברות מימון ונוסטרו לסוחרים 2026</h1>
         <p>
           אתר ההשוואות המוביל בישראל לחברות מימון לסוחרים 2026 – ניתוחים אישיים, קודי הנחה בלעדיים ותוכן מקצועי מאת נועם
           ענתר.
         </p>
+        <h2>השוואת חברות ומבצעים</h2>
+        <ul>
+          <li>
+            <a href="/comparison">השוואת חברות מימון ונוסטרו</a> – מחירים, חוקים ותנאי משיכה של כל החברות בטבלה אחת.
+          </li>
+          <li><a href="/promotions">מבצעים וקודי הנחה</a> – כל המבצעים הפעילים וקוד ההנחה ANTAR.</li>
+          <li><a href="/matching-quiz">שאלון התאמה</a> – איזו חברת מימון מתאימה לך.</li>
+          <li><a href="/comparison/head-to-head">דו-קרב חברות</a> – שתי חברות ראש בראש.</li>
+        </ul>
         <h2>חברות מימון</h2>
         <ul>
-          <li>
-            <a href="/top-step">TopStep – סקירה מלאה, חוקים ומחירים</a> – חברת המימון הגדולה בעולם עם מעל 10 שנות
-            פעילות. מגוון גדלי חשבונות, ללא כלל עקביות, ומשיכה ראשונה כבר ביום 5.
-          </li>
-          <li>
-            <a href="/apex">Apex Trader Funding – סקירה מלאה, חוקים ומחירים</a> – חברת מימון פופולרית עם מבחן שלב אחד,
-            ללא כלל עקביות, ואפשרות למספר חשבונות במקביל.
-          </li>
-          <li>
-            <a href="/bulenox">Bulenox – סקירה מלאה, חוקים ומחירים</a> – חברת מימון עם מחירים תחרותיים ומבחן שלב אחד.
-            תומכת ב-NinjaTrader ו-Rithmic.
-          </li>
-          <li>
-            <a href="/take-profit">TakeProfit Trader – סקירה מלאה, חוקים ומחירים</a> – חברת מימון עם גישה ייחודית,
-            מחירים נמוכים, ותמיכה מצוינת בעברית.
-          </li>
-          <li>
-            <a href="/lucid">Lucid Trader – סקירה מלאה, חוקים ומחירים</a> – חברת מימון ישראלית עם תמיכה בעברית, מחירים
-            תחרותיים, וממשק ידידותי.
-          </li>
-          <li>
-            <a href="/alpha-futures">Alpha Futures – סקירה מלאה, חוקים ומחירים</a> – חברת מימון חדשה עם תנאים תחרותיים
-            ומבחן שלב אחד.
-          </li>
+          <li><a href="/take-profit">טייק פרופיט (TakeProfit Trader)</a> – סקירה, חוקים, משיכות וקוד הנחה.</li>
+          <li><a href="/lucid">לוסיד טריידינג (Lucid Trading)</a> – סקירה, מסלולים, חוקים וקוד הנחה.</li>
+          <li><a href="/apex">אפקס (Apex Trader Funding)</a> – סקירה, חוקים וקוד הנחה.</li>
+          <li><a href="/top-step">טופסטפ (TopStep)</a> – סקירה, חשבונות, חוקים ומשיכות.</li>
+          <li><a href="/bulenox">בולנוקס (Bulenox)</a> – סקירה, חשבונות, חוקים וקוד הנחה.</li>
+          <li><a href="/funded-next">פאנדד נקסט (FundedNext Futures)</a> – סקירה, חשבונות, חוקים ומבצעים.</li>
+          <li><a href="/ftmo">FTMO Futures</a> – סקירה, חוקים, מחירים ומשיכות.</li>
         </ul>
-        <h2>השוואה בין חברות</h2>
+        <h2>האקדמיה</h2>
         <ul>
-          <li>
-            <a href="/comparison">טבלת השוואה מקיפה בין כל חברות המימון</a> – השוואה מפורטת של מחירים, חוקים, תנאי משיכה
-            ועוד.
-          </li>
+          <li><a href="/academy">האקדמיה של AntarTrade</a> – קורסים, סרטונים, מאמרים וכלים למסחר בעברית.</li>
+          <li><a href="/blog/tik-nostro">מה זה תיק נוסטרו</a> – המדריך המלא לסחור על הון של חברות מימון.</li>
+          <li><a href="/blog">מאמרים ומדריכים</a></li>
+          <li><a href="/calculators">מחשבונים לסוחרים</a></li>
+          <li><a href="/academy/glossary">מילון מושגים</a></li>
+          <li><a href="/economic-calendar">יומן הודעות כלכליות</a></li>
+          <li><a href="/courses">קורסים</a></li>
         </ul>
-        <h2>מדריכים וכלים</h2>
+        <h2>פלטפורמות וכלים</h2>
         <ul>
-          <li>
-            <a href="/atas-guide">מדריך ATAS (אטאס) – ניתוח זרימת פקודות</a> – מדריך מקיף לשימוש בפלטפורמת ATAS לניתוח
-            Order Flow, גרפי Footprint ומפות חום.
-          </li>
-          <li>
-            <a href="/bookmap-guide">מדריך Bookmap (בוקמאפ)</a> – מדריך לשימוש ב-Bookmap לניתוח עומק שוק ו-Order Flow
-            בזמן אמת.
-          </li>
-          <li>
-            <a href="/tradezella-guide">מדריך TradeZella – יומן מסחר</a> – מדריך מקיף לשימוש ב-TradeZella לניהול יומן
-            מסחר, ניתוח ביצועים ושיפור אסטרטגיות.
-          </li>
-          <li>
-            <a href="/replikanto-guide">מדריך Replikanto – העתקת עסקאות</a> – מדריך לשימוש ב-Replikanto להעתקת עסקאות
-            בין חשבונות מרובים ב-NinjaTrader.
-          </li>
-          <li>
-            <a href="/tradesyncer-guide">מדריך TradeSyncer – העתקת עסקאות מ-TradingView</a> – מדריך לחיבור TradingView
-            לחשבונות מימון באמצעות TradeSyncer.
-          </li>
-          <li>
-            <a href="/trading-tools">מרכז כלי מסחר ומדריכים</a> – כל הכלים, הפלטפורמות והמדריכים למסחר בחוזים עתידיים.
-          </li>
-          <li><a href="/economic-calendar">לוח שנה כלכלי</a> – לוח אירועים כלכליים בזמן אמת עם הסברים בעברית.</li>
-        </ul>
-        <h2>קורסים</h2>
-        <ul>
-          <li>
-            <a href="/free-course">קורס מסחר בחוזים עתידיים – חינם</a> – קורס מקיף למתחילים הכולל שיעורי וידאו, חומרי
-            לימוד ותרגול.
-          </li>
-          <li><a href="/full-course">קורס מתקדם למסחר בחוזים עתידיים</a> – קורס מתקדם עם ליווי אישי ותוכן בלעדי.</li>
+          <li><a href="/platforms">כל הפלטפורמות והכלים</a></li>
+          <li><a href="/ninjatrader-guide">NinjaTrader</a></li>
+          <li><a href="/atas-guide">ATAS</a></li>
+          <li><a href="/bookmap-guide">Bookmap</a></li>
+          <li><a href="/tradezella-guide">TradeZella</a></li>
         </ul>
         <h2>מידע נוסף</h2>
         <ul>
-          <li><a href="/about">אודות AntarTrade</a></li>
-          <li><a href="/promotions">מבצעים והנחות</a></li>
-          <li><a href="/matching-quiz">שאלון התאמה – איזו חברת מימון מתאימה לך?</a></li>
+          <li><a href="/about">אודות נועם ענתר</a></li>
           <li><a href="/faq">שאלות ותשובות</a></li>
           <li><a href="/contact">צור קשר</a></li>
         </ul>
       </div>
     </noscript>
     <div id="root">
-      <style>.pr-body{max-width:860px;margin:0 auto;padding:120px 20px 64px;color:#e8eef5;line-height:1.7;font-size:18px;direction:rtl;text-align:right}.pr-body h1{font-size:40px;line-height:1.15;margin:16px 0}.pr-body h2{font-size:28px;margin:40px 0 12px}.pr-body h3{font-size:21px;margin:24px 0 8px}.pr-body a{color:#7dc6ff}.pr-body img{max-width:100%;height:auto}.pr-body table{border-collapse:collapse;width:100%}.pr-body td,.pr-body th{border:1px solid #33415a;padding:6px 10px}.pr-body nav{font-size:15px;color:#9fb0c6}.pr-body dt{font-weight:700;margin-top:16px}.pr-body dd{margin:4px 0 0}</style><article class="pr-body"><nav aria-label="פירורי לחם"><a href="/">דף הבית</a> / <a href="/blog">בלוג</a> / זרימת האופציות: איך שוק האופציות מזיז את הנאסדק שלכם</nav><h1>זרימת האופציות: איך שוק האופציות מזיז את הנאסדק שלכם</h1><p>נכתב על ידי <a href="/about">נועם ענתר</a>, סוחר חוזים עתידיים ומייסד AntarTrade</p>
+      <style>html:has(.pr-body),body:has(.pr-body){background:#12161f;overflow-x:hidden}.pr-body{max-width:860px;margin:0 auto;padding:120px 20px 64px;box-sizing:border-box;color:#e8eef5;line-height:1.7;font-size:18px;direction:rtl;text-align:right;overflow-wrap:anywhere}.pr-body h1,.pr-body h2,.pr-body h3{color:inherit}.pr-body h1{font-size:40px;line-height:1.15;margin:16px 0}.pr-body h2{font-size:28px;margin:40px 0 12px}.pr-body h3{font-size:21px;margin:24px 0 8px}.pr-body a{color:#7dc6ff}.pr-body img{max-width:100%;height:auto}.pr-body table{border-collapse:collapse;display:block;max-width:100%;overflow-x:auto}.pr-body td,.pr-body th{border:1px solid #33415a;padding:6px 10px}.pr-body nav{font-size:15px;color:#9fb0c6}.pr-body dt{font-weight:700;margin-top:16px}.pr-body dd{margin:4px 0 0}</style><article class="pr-body"><nav aria-label="פירורי לחם"><a href="/">דף הבית</a> / <a href="/blog">בלוג</a> / זרימת האופציות: איך שוק האופציות מזיז את הנאסדק שלכם</nav><h1>זרימת האופציות: איך שוק האופציות מזיז את הנאסדק שלכם</h1><p>נכתב על ידי <a href="/about">נועם ענתר</a>, סוחר חוזים עתידיים ומייסד AntarTrade</p>
 <p class="lead">גם אם אתם לא סוחרים באופציה אחת, שוק האופציות מזיז לכם את הגרף כל יום. במאמר הזה נבין איך, מאפס, בלי נוסחאות: מה זו אופציה, מי מוכר לכם אותה, מה זה דלתא וגמא, ולמה השאלה ״מי מחזיק את האופציה״ קובעת אם השוק יזוז לאט או בחדות. בסוף מחכה לכם מפה אינטראקטיבית.</p>
 
+<div class="video" data-embed="youtube"><iframe src="https://www.youtube-nocookie.com/embed/UziSAV_ZBEA" title="זרימת אופציות: הכוח הנסתר שמזיז את הנאסדק" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+<p>מעדיפים לצפות? בסרטון אני מסביר את כל מה שבמאמר. המאמר עובר על אותם דברים בקצב רגוע יותר, ואפשר לחזור לכל חלק כמה פעמים שצריך. ואם משהו עדיין לא יושב, זה בסדר: התיאוריה מבלבלת יותר מהפרקטיקה.</p>
+
+<div class="box">שוק ההון הוא פאזל בלי סוף. כל פעם שמשלימים חתיכה, מתווספת עוד אחת. אורדר פלואו, אופשנס פלואו, כל כלי שתלמדו הוא מבורך, אבל יש דבר אחד שמשותף לכולם: בלי ניהול סיכונים נכון, שום חתיכה לא תעזור. קודם ניהול סיכונים, ורק אחר כך כל השאר.</div>
+<p>והטכנולוגיה עוזרת לראות את החתיכות: <a href="/bookmap-guide">Bookmap</a> מראה את הפקודות בספר, <a href="/atas-guide">ATAS</a> מראה את הווליום שבתוך כל נר ואת ה<a href="/blog/footprint-guide">פוטפרינט</a>, ו־<a href="/tradegex-guide">TradeGEX</a> מציג את רמות האופציות. זרימת האופציות היא החתיכה שנשלים כאן.</p>
+
 <h2>אופציה היא זכות, לא חובה</h2>
-<p>בואו נתחיל מדוגמה מהחיים. נגיד שאתם רוצים לקנות דירה, אבל עוד לא בטוחים. אתם משלמים למוכר <b>20 אלף שקל</b>, ובתמורה הוא שומר לכם מחיר של <b>2 מיליון</b> לשלושה חודשים.</p>
-<p>אם בשלושת החודשים האלה מחירי הדירות עלו, אתם קונים ב־2 מיליון ומרוויחים את ההפרש. אם המחירים ירדו, אתם פשוט מוותרים. ההפסד המקסימלי שלכם הוא 20 האלף ששילמתם. זו בדיוק אופציה: <b>זכות</b> לקנות או למכור במחיר קבוע, עד תאריך מסוים, ומשלמים עליה מראש. התשלום הזה נקרא <b>פרמיה</b>.</p>
+<p>בואו נתחיל מדוגמה מהחיים. נגיד שאתם רוצים לקנות דירה, אבל עוד לא בטוחים. אתם משלמים למוכר <b>20 אלף שקל</b>, קצת כמו ביטוח, ובתמורה הוא שומר לכם מחיר של <b>2 מיליון</b> לשלושה חודשים.</p>
+<p>אם בשלושת החודשים האלה הדירה עלתה ל־2.5 מיליון, אתם קונים אותה ב־2 מיליון, ובסך הכל שילמתם 2 מיליון ו־20 אלף. אם היא ירדה למיליון וחצי, אתם פשוט מוותרים. ההפסד המקסימלי שלכם הוא 20 האלף ששילמתם. זו בדיוק אופציה: <b>זכות</b> לקנות או למכור במחיר קבוע, עד תאריך מסוים, ומשלמים עליה מראש. התשלום הזה נקרא <b>פרמיה</b>.</p>
 <p>והמחיר שנעלתם, ה־2 מיליון, נקרא <b>סטרייק</b>, מחיר המימוש. זו המילה הכי חשובה במאמר, תזכרו אותה.</p>
 <p>יש שני סוגים: <b>קול</b> היא הזכות לקנות, והיא מרוויחה כשהשוק עולה. <b>פוט</b> היא הזכות למכור, והיא מרוויחה כשהשוק יורד. מעכשיו, כחול זה קול וכתום זה פוט.</p>
 <figure class="ox-fig">
@@ -226,13 +216,13 @@
 </figure>
 
 <h2>מי מוכר לכם את האופציות</h2>
-<p>כשאתם קונים אופציה, מישהו צריך למכור לכם אותה. ברוב המקרים זה <b>עושה השוק</b>: חברות ענק שתמיד עומדות בצד השני. קניתם, הם מכרו. מכרתם, הם קנו.</p>
-<p>שימו לב, הכיוון בכלל לא מעניין אותם. הם לא רוצים להמר אם הנאסדק יעלה או ירד. הם מרוויחים מהמרווח בין מחיר הקנייה למחיר המכירה, כמו חלפן כספים. אז מה הם עושים? <b>מגדרים</b>. נגיד שעושה השוק מכר לכם קולים. אם השוק יעלה, הוא מפסיד עליהם. אז הוא קונה חוזים עתידיים על הנאסדק. עכשיו אם השוק עולה, על הקולים הוא מפסיד, על החוזים הוא מרוויח, וזה מתקזז.</p>
+<p>כשאתם קונים אופציה, מישהו צריך למכור לכם אותה. ברוב המקרים זה <b>עושה השוק</b>: חברות ענק שתמיד עומדות בצד השני ומספקות נזילות. קניתם, הם מכרו. מכרתם, הם קנו.</p>
+<p>שימו לב, הכיוון בכלל לא מעניין אותם. הם לא רוצים להמר אם הנאסדק יעלה או ירד. הם מרוויחים מהמרווח בין מחיר הקנייה למחיר המכירה (ה־Bid וה־Ask), כמו חלפן כספים. אז מה הם עושים? <b>מגדרים</b>. נגיד שעושה השוק מכר לכם קולים. אם השוק יעלה, הוא מפסיד עליהם. אז הוא קונה חוזים עתידיים על הנאסדק. עכשיו אם השוק עולה, על הקולים הוא מפסיד, על החוזים הוא מרוויח, וזה מתקזז.</p>
 <div class="box">הגידור לא אומר שהוא מרוויח פעמיים. הוא אומר שהוא לא חשוף לכיוון. וכאן השאלה הגדולה: כמה חוזים בדיוק הוא צריך לקנות?</div>
 
 <h2>דלתא: כמה חוזים צריך עכשיו</h2>
 <p>התשובה היא <b>דלתא</b>. דלתא אומרת כמה חוזים כל אופציה ״שווה״, ובאופן גס, מה הסיכוי שלה לסיים ברווח. היא מספר בין 0 ל־1, והיא קיימת מהרגע הראשון, גם כשהמחיר עוד רחוק מהסטרייק.</p>
-<p>סתם דוגמה: עושה השוק מכר 100 קולים בסטרייק 20,200, כשהנאסדק נמצא ב־20,000 ונשאר שבוע לפקיעה. הדלתא כבר בערך 0.4, כלומר 100 הקולים שמכר שווים נגדו כמו 40 חוזים. אז הוא קונה 40 חוזים מיד.</p>
+<p>סתם דוגמה: עושה השוק מכר 100 קולים בסטרייק 20,200, כשהנאסדק נמצא ב־20,000 ונשאר שבוע לפקיעה. הדלתא כבר בערך 0.4, כלומר 100 הקולים שמכר שווים נגדו כמו 40 חוזים. אז הוא קונה 40 חוזים מיד (100 כפול 0.4). אם הקולים יעלו, הוא יפסיד עליהם וירוויח על החוזים, ויישאר על אפס.</p>
 <table class="rules">
   <thead><tr><th>הנאסדק</th><th>דלתא</th><th>כמה חוזים צריך</th><th>מה הוא עושה</th></tr></thead>
   <tbody>
@@ -243,7 +233,7 @@
   </tbody>
 </table>
 <p>כל פעם שהשוק עולה, הדלתא עולה, והוא קונה עוד. השוק יורד, הדלתא יורדת, והוא מוכר בחזרה. בפועל זה לא קופץ במדרגות של 10: הדלתא משתנה קצת עם כל נקודה, והוא מתאזן במנות. והקנייה והמכירה האלה, של עושי שוק ענקיים, הן מה שמזיז לנו את הגרף.</p>
-<p class="disc">המספרים בקירוב, לאופציה עם שבוע לפקיעה.</p>
+<p class="disc">המספרים בקירוב, לאופציה עם שבוע לפקיעה. בשוק האמיתי מדובר בכמויות גדולות פי כמה וכמה.</p>
 
 <h2>גמא: כמה מהר הדלתא משתנה</h2>
 <p>הדלתא אומרת כמה חוזים צריך עכשיו. <b>גמא</b> אומרת כמה מהר המספר הזה ישתנה. הכי קל להבין את זה עם ציונים.</p>
@@ -253,6 +243,7 @@
   <div class="gr hot"><span class="s">55</span><span class="d">כל שאלה מכריעה</span></div>
   <div class="gr"><span class="s">20</span><span class="d">נכשל בכל מקרה</span></div>
 </div>
+<p>בשפת האופציות, התלמיד עם 90 הוא אופציה ״בתוך הכסף״: הדלתא שלה כמעט 1, והיא כמעט לא זזה. התלמיד עם 20 הוא אופציה ״מחוץ לכסף״, למשל קול בסטרייק 20,500 כשהנאסדק ב־19,000 ונשארו יומיים: הדלתא כמעט 0, וגם היא לא זזה. רק אצל ה־55 הדלתא משתגעת, ועושה השוק צריך לקנות ולמכור כל הזמן.</p>
 <p>בתרגום לשוק: ציון העובר הוא הסטרייק, הציון שלכם הוא המחיר, והשאלה האחרונה היא יום הפקיעה. לכן הגמא בשיא כשהמחיר קרוב לסטרייק, וממש לפני הפקיעה. ביום האחרון, תזוזה של 100 נקודות יכולה להזיז את הדלתא מ־0.5 ל־0.67. כשנשאר חודש, אותה תזוזה מזיזה אותה רק ל־0.53.</p>
 <h3>אז למה זה חשוב לסוחר יומי?</h3>
 <p>כי במסחר יומי יש פקיעה של אופציות כל יום. יש המון אופציות יומיות, והן תמיד בשאלה האחרונה. הגמא שלהן גבוהה, הדלתא קופצת מהר מכאן ולכאן, ועושי השוק צריכים לגדר כל הזמן. כל הגידור הזה קורה בתוך יום המסחר שלנו, ולכן אנחנו חייבים לשים לב אליו.</p>
@@ -263,7 +254,7 @@
 <h3>גמא חיובית: בלם</h3>
 <p>נגיד שעושה השוק קנה 100 קולים, והדלתא 0.5. עכשיו הקולים שלו שווים כמו 50 חוזים בלונג, והוא לא רוצה להיות חשוף, אז באותו רגע הוא <b>מוכר 50 חוזים</b> ונמצא על אפס.</p>
 <p>המחיר מתחיל לעלות, והדלתא עולה ל־0.6. הקולים שלו שווים עכשיו 60 חוזים, והוא מכר רק 50. אז הוא <b>מוכר עוד 10</b>. השוק ממשיך לעלות, הוא מוכר עוד. המחיר יורד והדלתא יורדת ל־0.4? עכשיו הוא צריך רק 40, אז הוא <b>קונה 10</b> בחזרה.</p>
-<p>כל פעם שהשוק עולה הוא מוכר, וכל פעם שהשוק יורד הוא קונה. הוא הולך נגד התנועה, ולכן הוא משמש בלם: השוק עדיין יכול לעלות ולרדת, אבל התנועות איטיות ומתונות יותר, ופריצות ושבירות נוטות להיבלם.</p>
+<p>וזה לא שיקול דעת. הוא לא ״רוצה״ למכור, הוא <b>חייב</b>, כי הוא לא מוכן להיות חשוף להפסדים. כל פעם שהשוק עולה הוא מוכר, וכל פעם שהשוק יורד הוא קונה. הוא הולך נגד התנועה, ולכן הוא משמש בלם: השוק עדיין יכול לעלות ולרדת, אבל התנועות איטיות ומתונות יותר, ופריצות ושבירות נוטות להיבלם.</p>
 <h3>גמא שלילית: גז</h3>
 <p>עכשיו הפוך. עושה השוק <b>מכר</b> 100 קולים. הקולים שמכר שווים נגדו כמו 50 חוזים בשורט, אז כדי להיות מגודר הוא <b>קונה 50 חוזים</b>.</p>
 <p>המחיר עולה, הדלתא עולה ל־0.6, והוא צריך <b>לקנות עוד 10</b>. כלומר השוק עולה, והוא קונה ומתדלק את העלייה. השוק יורד, והוא מוכר ומתדלק את הירידה. זוכרים את הדוגמה בטבלת הדלתא? זה בדיוק זה. הוא רודף אחרי המחיר, ולכן בגמא שלילית התנועות חדות וארוכות.</p>
@@ -272,47 +263,20 @@
   <div class="g"><span class="t">גז · גמא שלילית</span><p>עושה השוק <b>מכר</b> אופציות</p><p>השוק עולה ↑ הוא קונה<br>השוק יורד ↓ הוא מוכר</p><p class="c">תנועות חדות וארוכות</p></div>
 </div>
 <div class="box">הכלל הכי פשוט לזכור: מה שהאופציה נותנת לו, הוא עושה הפוך בחוזים. קנה קולים, הוא בלונג, אז הוא מוכר חוזים. מכר קולים, הוא בשורט, אז הוא קונה חוזים.</div>
+<p>וכמובן, זו נטייה ולא חוק טבע. גם בבלם השוק יכול לעלות, פשוט לאט יותר, ויש עוד גורמים שמשפיעים, כמו מדד הפחד (VIX).</p>
 
 <h2>אפס הגמא: איפה הבלם הופך לגז</h2>
 <p>בשוק האמיתי יש אופציות בכל סטרייק, חלק עושי השוק קנו וחלק מכרו. אם מחשבים את הגמא שלהם בכל מחיר, מקבלים נקודה אחת שבה הסך הכל מתחלף מחיובי לשלילי. זו <b>נקודת ההיפוך</b>, אפס הגמא, או בשמה באנגלית <span class="en">gamma flip</span>.</p>
 <p>מעליה עושי השוק בבלם, והשוק נוטה לנוע לאט. מתחתיה הם בגז, והתנועות נוטות להיות חדות וארוכות. אז כשאנחנו באזור בלם, יורדים למטה ושוברים את נקודת ההיפוך, שם מתחילות התנועות הגדולות.</p>
 <div class="box warn">חשוב: אפס הגמא לא אומר <b>לאן</b> השוק ילך. הוא אומר <b>איך</b> הוא ילך. את הכיוון מאשרים בזמן אמת, בזרימת הפקודות. והנקודה הזו זזה מיום ליום, ולכן צריך מפה עדכנית.</div>
 
-<h2 id="gamma-map">מפת הגמא</h2>
-<p class="lead">אני יודע שזה מבלבל בהתחלה, ולכן הכנתי לכם מפה. תשחקו איתה: בחרו מקרה, הזיזו את המחיר, ותראו מה עושה השוק עושה. כל המספרים כאן לדוגמה בלבד.</p>
-<h3>מי מחזיק את האופציה</h3>
-<p>עושה השוק תמיד בצד ההפוך של הציבור. לכן לא משנה אם מדובר בקול או בפוט, משנה רק מי מחזיק את האופציה.</p>
-<div class="ox-chain">
-  <div class="lane g">
-    <div class="step">הציבור <b>קונה</b> אופציות</div><div class="arrow">↓</div>
-    <div class="step">עושה השוק <b>מכר</b> אותן</div><div class="arrow">↓</div>
-    <div class="step">גמא <b>שלילית</b></div><div class="arrow">↓</div>
-    <div class="step">השוק עולה: קונה · יורד: מוכר</div>
-    <div class="end">גז · מאיץ את התנועה</div>
-  </div>
-  <div class="lane b">
-    <div class="step">הציבור <b>מוכר</b> אופציות</div><div class="arrow">↓</div>
-    <div class="step">עושה השוק <b>קנה</b> אותן</div><div class="arrow">↓</div>
-    <div class="step">גמא <b>חיובית</b></div><div class="arrow">↓</div>
-    <div class="step">השוק עולה: מוכר · יורד: קונה</div>
-    <div class="end">בלם · מרסן את התנועה</div>
-  </div>
-</div>
-<h3>ארבעת המקרים, צעד אחר צעד</h3>
-<div data-widget="gamma-cases"></div>
-<h3>רמות הגמא על הגרף</h3>
-<p>בשוק האמיתי כל ארבעת המקרים קורים בבת אחת, בכל סטרייק. כלי כמו TradeGEX סוכם את כולם ומסמן על הגרף איפה הבלם הכי חזק, איפה הגז הכי חזק, ואיפה המצב מתהפך. הזיזו את המחיר:</p>
-<div data-widget="gamma-ladder"></div>
-<div class="ox-defs">
-  <div><b>קיר קולים</b><p>הסטרייק עם הכי הרבה גמא בצד הקולים, לרוב מעל המחיר. מתנהג לעיתים קרובות כמו <b>התנגדות</b>.</p></div>
-  <div><b>אפס גמא, נקודת ההיפוך</b><p>המחיר שבו הסך הכל של הגמא מתחלף מחיובי לשלילי. מעליו בלם, מתחתיו גז. <b>הרמה הכי חשובה</b> להבנת אופי היום.</p></div>
-  <div><b>קיר פוטים</b><p>הסטרייק עם הכי הרבה גמא בצד הפוטים, לרוב מתחת למחיר. מתנהג לעיתים קרובות כמו <b>תמיכה</b>, אבל אם נשבר, הירידה עלולה להאיץ.</p></div>
-</div>
+<p>במפה כאן למטה אפשר לראות את כל זה בעיניים. בחרו אחד מארבעת המקרים, למשל הציבור קונה קול ועושה השוק מוכר אותה, ולחצו ״הנאסדק עולה״ או ״הנאסדק יורד״. תראו מה עושה השוק עושה בחוזים, ולמה זה בלם או גז. בחלק השני של המפה אפשר להזיז את מחיר הנאסדק ולראות איפה הוא עומד ביחס לקיר הקולים, לאפס הגמא ולקיר הפוטים.</p>
+<iframe id="gamma-map" class="an-embed" src="/gamma-map.html" title="מפת הגמא" loading="lazy"></iframe>
 <p>איך הרמות האלה נראות על גרף אמיתי של NQ ו־ES, תוכלו לראות ב<a href="/tradegex-guide">מדריך TradeGEX</a>.</p>
 
 <section class="cta">
   <h2>איפה רואים את זה בזמן אמת</h2>
-  <p>אני עובד עם <a href="https://tradegex.pro?via=noam" target="_blank" rel="noopener sponsored">TradeGEX</a>, פלטפורמה שמציגה את רמות הגמא, את נקודת ההיפוך ואת זרימת האופציות ישירות על גרף הנאסדק, ומתעדכנת לאורך היום. יש לי שיתוף פעולה איתם, ועם הקוד <span class="code">ANTAR</span> מקבלים 15 ימים נוספים על המנוי הראשון.</p>
+  <p>אני עובד עם <a href="https://tradegex.pro?via=noam" target="_blank" rel="noopener sponsored">TradeGEX</a>, פלטפורמה שמציגה את רמות הגמא, את נקודת ההיפוך ואת זרימת האופציות ישירות על גרף הנאסדק, ומתעדכנת לאורך היום. אני משלב אותה עם <a href="/atas-guide">ATAS</a>: הרמות אומרות לי איפה לשים לב, וזרימת הפקודות מאשרת מה באמת קורה. יש לי שיתוף פעולה איתם, ועם הקוד <span class="code">ANTAR</span> מקבלים 15 ימים נוספים על המנוי הראשון.</p>
 </section>
 <p class="disc">הרמות נותנות נטייה, לא ודאות. זרימת הפקודות היא מה שמאשר בזמן אמת אם התרחיש מתממש. אין באמור המלצה לביצוע עסקאות.</p>
 </article>

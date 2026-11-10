@@ -38,9 +38,12 @@
     <link rel="preconnect" href="https://i.ytimg.com" crossorigin />
     <link rel="dns-prefetch" href="https://img.youtube.com" />
     <link rel="dns-prefetch" href="https://www.youtube.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" rel="stylesheet" />
-    <!-- Preload LCP image (header logo) -->
-    <link rel="preload" as="image" href="/lovable-uploads/antartrade-logo-new.webp" fetchpriority="high" />
+    <!-- Heebo is only the fallback behind Fb Reforma (and swaps in anyway), so it loads without holding up the first paint -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" rel="stylesheet" /></noscript>
+    <!-- the design's own font (base.css), fetched with the page instead of after the code runs -->
+    <link rel="preload" as="font" type="font/woff2" href="/home-new/fonts/FbReforma-Regular.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/home-new/fonts/FbReforma-Medium.woff2" crossorigin />
     <!-- Critical inline CSS for instant LCP paint of hero H1 (replaced by React on hydration).
          It draws the new homepage hero's first frame (dark ground, the same title in the same place), so the page doesn't flash another design. -->
     <style>
@@ -59,6 +62,15 @@
         var p = location.pathname;
         if (p !== '/' && p !== '/index.html') {
           document.documentElement.classList.add('no-lcp-hero');
+        }
+        // a foreign address with no prerendered file of its own (a 404, a page not translated yet) gets
+        // this Hebrew file: it reads left to right, without the Hebrew homepage title, from the first paint.
+        // The languages are FOREIGN_LOCALES in src/i18n/config.ts (the i18n test keeps them equal).
+        var foreign = p.match(/^\/(en)(\/|$)/);
+        if (foreign && document.documentElement.lang === 'he') {
+          document.documentElement.lang = foreign[1];
+          document.documentElement.dir = 'ltr';
+          document.title = 'AntarTrade';
         }
       })();
     </script>
@@ -95,14 +107,29 @@
     </script>
 
     <!-- Meta Pixel מנוהל כעת דרך שכבת המדידה המרכזית (src/lib/analytics) ונטען רק לאחר הסכמה -->
-    <script type="module" crossorigin src="/assets/index-CFqXh43W.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/markdown-vendor-C8kRH1kE.js">
-    <link rel="modulepreload" crossorigin href="/assets/react-vendor-DRMcaBf5.js">
-    <link rel="modulepreload" crossorigin href="/assets/query-vendor-DhLg6-SN.js">
-    <link rel="modulepreload" crossorigin href="/assets/supabase-vendor-BjAP5gaE.js">
-    <link rel="stylesheet" crossorigin href="/assets/index-B1hmK-DU.css">
+    <script type="module" crossorigin src="/assets/index-CM-V3N5-.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-vendor-xAhqJu7B.js">
+    <link rel="modulepreload" crossorigin href="/assets/query-vendor-iefLz-8z.js">
+    <link rel="modulepreload" crossorigin href="/assets/supabase-vendor-DW0Ocl7u.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-CWOh4V4Z.css">
     <meta data-rh="true" property="og:url" content="https://antartrade.co.il/tradesyncer-guide">
     <link data-rh="true" rel="canonical" href="https://antartrade.co.il/tradesyncer-guide">
+    <link rel="modulepreload" crossorigin href="/assets/TradeSyncerGuideNew-Ddb-3gx3.js">
+    <link rel="modulepreload" crossorigin href="/assets/ui-BGbHnmGN.js">
+    <link rel="modulepreload" crossorigin href="/assets/ui-72tFE2Nh.js">
+    <link rel="modulepreload" crossorigin href="/assets/companyIcons-D-m_uiIX.js">
+    <link rel="modulepreload" crossorigin href="/assets/partnerLinks-DsRuYxId.js">
+    <link rel="modulepreload" crossorigin href="/assets/useToolPromotion-BdLyXTZp.js">
+    <link rel="modulepreload" crossorigin href="/assets/kit-CMAbYwGo.js">
+    <link rel="modulepreload" crossorigin href="/assets/SEOHead-CVGFAcvu.js">
+    <link rel="modulepreload" crossorigin href="/assets/tool-pricing-DHukM0lP.js">
+    <link rel="modulepreload" crossorigin href="/assets/toolPricingFormat-FVuyRTjt.js">
+    <link rel="modulepreload" crossorigin href="/assets/useMonitorCheck-BFuQwSoT.js">
+    <link rel="preload" as="style" crossorigin href="/assets/firm-new-BS7v2L2J.css">
+    <link rel="preload" as="style" crossorigin href="/assets/promotions-new-DO8TOHM4.css">
+    <link rel="preload" as="style" crossorigin href="/assets/platforms-new-CUu_han2.css">
+    <link rel="preload" as="style" crossorigin href="/assets/index-CWOh4V4Z.css">
+    <link rel="preload" as="style" crossorigin href="/assets/kit-BKUgoKfT.css">
   </head>
   <body>
     <noscript>
@@ -115,85 +142,51 @@
       <div
         style="max-width:900px;margin:0 auto;padding:40px 20px;font-family:Heebo,sans-serif;direction:rtl;text-align:right;"
       >
-        <h1>AntarTrade – השוואת חברות מימון למסחר 2026</h1>
+        <h1>AntarTrade – השוואת חברות מימון ונוסטרו לסוחרים 2026</h1>
         <p>
           אתר ההשוואות המוביל בישראל לחברות מימון לסוחרים 2026 – ניתוחים אישיים, קודי הנחה בלעדיים ותוכן מקצועי מאת נועם
           ענתר.
         </p>
+        <h2>השוואת חברות ומבצעים</h2>
+        <ul>
+          <li>
+            <a href="/comparison">השוואת חברות מימון ונוסטרו</a> – מחירים, חוקים ותנאי משיכה של כל החברות בטבלה אחת.
+          </li>
+          <li><a href="/promotions">מבצעים וקודי הנחה</a> – כל המבצעים הפעילים וקוד ההנחה ANTAR.</li>
+          <li><a href="/matching-quiz">שאלון התאמה</a> – איזו חברת מימון מתאימה לך.</li>
+          <li><a href="/comparison/head-to-head">דו-קרב חברות</a> – שתי חברות ראש בראש.</li>
+        </ul>
         <h2>חברות מימון</h2>
         <ul>
-          <li>
-            <a href="/top-step">TopStep – סקירה מלאה, חוקים ומחירים</a> – חברת המימון הגדולה בעולם עם מעל 10 שנות
-            פעילות. מגוון גדלי חשבונות, ללא כלל עקביות, ומשיכה ראשונה כבר ביום 5.
-          </li>
-          <li>
-            <a href="/apex">Apex Trader Funding – סקירה מלאה, חוקים ומחירים</a> – חברת מימון פופולרית עם מבחן שלב אחד,
-            ללא כלל עקביות, ואפשרות למספר חשבונות במקביל.
-          </li>
-          <li>
-            <a href="/bulenox">Bulenox – סקירה מלאה, חוקים ומחירים</a> – חברת מימון עם מחירים תחרותיים ומבחן שלב אחד.
-            תומכת ב-NinjaTrader ו-Rithmic.
-          </li>
-          <li>
-            <a href="/take-profit">TakeProfit Trader – סקירה מלאה, חוקים ומחירים</a> – חברת מימון עם גישה ייחודית,
-            מחירים נמוכים, ותמיכה מצוינת בעברית.
-          </li>
-          <li>
-            <a href="/lucid">Lucid Trader – סקירה מלאה, חוקים ומחירים</a> – חברת מימון ישראלית עם תמיכה בעברית, מחירים
-            תחרותיים, וממשק ידידותי.
-          </li>
-          <li>
-            <a href="/alpha-futures">Alpha Futures – סקירה מלאה, חוקים ומחירים</a> – חברת מימון חדשה עם תנאים תחרותיים
-            ומבחן שלב אחד.
-          </li>
+          <li><a href="/take-profit">טייק פרופיט (TakeProfit Trader)</a> – סקירה, חוקים, משיכות וקוד הנחה.</li>
+          <li><a href="/lucid">לוסיד טריידינג (Lucid Trading)</a> – סקירה, מסלולים, חוקים וקוד הנחה.</li>
+          <li><a href="/apex">אפקס (Apex Trader Funding)</a> – סקירה, חוקים וקוד הנחה.</li>
+          <li><a href="/top-step">טופסטפ (TopStep)</a> – סקירה, חשבונות, חוקים ומשיכות.</li>
+          <li><a href="/bulenox">בולנוקס (Bulenox)</a> – סקירה, חשבונות, חוקים וקוד הנחה.</li>
+          <li><a href="/funded-next">פאנדד נקסט (FundedNext Futures)</a> – סקירה, חשבונות, חוקים ומבצעים.</li>
+          <li><a href="/ftmo">FTMO Futures</a> – סקירה, חוקים, מחירים ומשיכות.</li>
         </ul>
-        <h2>השוואה בין חברות</h2>
+        <h2>האקדמיה</h2>
         <ul>
-          <li>
-            <a href="/comparison">טבלת השוואה מקיפה בין כל חברות המימון</a> – השוואה מפורטת של מחירים, חוקים, תנאי משיכה
-            ועוד.
-          </li>
+          <li><a href="/academy">האקדמיה של AntarTrade</a> – קורסים, סרטונים, מאמרים וכלים למסחר בעברית.</li>
+          <li><a href="/blog/tik-nostro">מה זה תיק נוסטרו</a> – המדריך המלא לסחור על הון של חברות מימון.</li>
+          <li><a href="/blog">מאמרים ומדריכים</a></li>
+          <li><a href="/calculators">מחשבונים לסוחרים</a></li>
+          <li><a href="/academy/glossary">מילון מושגים</a></li>
+          <li><a href="/economic-calendar">יומן הודעות כלכליות</a></li>
+          <li><a href="/courses">קורסים</a></li>
         </ul>
-        <h2>מדריכים וכלים</h2>
+        <h2>פלטפורמות וכלים</h2>
         <ul>
-          <li>
-            <a href="/atas-guide">מדריך ATAS (אטאס) – ניתוח זרימת פקודות</a> – מדריך מקיף לשימוש בפלטפורמת ATAS לניתוח
-            Order Flow, גרפי Footprint ומפות חום.
-          </li>
-          <li>
-            <a href="/bookmap-guide">מדריך Bookmap (בוקמאפ)</a> – מדריך לשימוש ב-Bookmap לניתוח עומק שוק ו-Order Flow
-            בזמן אמת.
-          </li>
-          <li>
-            <a href="/tradezella-guide">מדריך TradeZella – יומן מסחר</a> – מדריך מקיף לשימוש ב-TradeZella לניהול יומן
-            מסחר, ניתוח ביצועים ושיפור אסטרטגיות.
-          </li>
-          <li>
-            <a href="/replikanto-guide">מדריך Replikanto – העתקת עסקאות</a> – מדריך לשימוש ב-Replikanto להעתקת עסקאות
-            בין חשבונות מרובים ב-NinjaTrader.
-          </li>
-          <li>
-            <a href="/tradesyncer-guide">מדריך TradeSyncer – העתקת עסקאות מ-TradingView</a> – מדריך לחיבור TradingView
-            לחשבונות מימון באמצעות TradeSyncer.
-          </li>
-          <li>
-            <a href="/trading-tools">מרכז כלי מסחר ומדריכים</a> – כל הכלים, הפלטפורמות והמדריכים למסחר בחוזים עתידיים.
-          </li>
-          <li><a href="/economic-calendar">לוח שנה כלכלי</a> – לוח אירועים כלכליים בזמן אמת עם הסברים בעברית.</li>
-        </ul>
-        <h2>קורסים</h2>
-        <ul>
-          <li>
-            <a href="/free-course">קורס מסחר בחוזים עתידיים – חינם</a> – קורס מקיף למתחילים הכולל שיעורי וידאו, חומרי
-            לימוד ותרגול.
-          </li>
-          <li><a href="/full-course">קורס מתקדם למסחר בחוזים עתידיים</a> – קורס מתקדם עם ליווי אישי ותוכן בלעדי.</li>
+          <li><a href="/platforms">כל הפלטפורמות והכלים</a></li>
+          <li><a href="/ninjatrader-guide">NinjaTrader</a></li>
+          <li><a href="/atas-guide">ATAS</a></li>
+          <li><a href="/bookmap-guide">Bookmap</a></li>
+          <li><a href="/tradezella-guide">TradeZella</a></li>
         </ul>
         <h2>מידע נוסף</h2>
         <ul>
-          <li><a href="/about">אודות AntarTrade</a></li>
-          <li><a href="/promotions">מבצעים והנחות</a></li>
-          <li><a href="/matching-quiz">שאלון התאמה – איזו חברת מימון מתאימה לך?</a></li>
+          <li><a href="/about">אודות נועם ענתר</a></li>
           <li><a href="/faq">שאלות ותשובות</a></li>
           <li><a href="/contact">צור קשר</a></li>
         </ul>

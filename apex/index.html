@@ -8,12 +8,12 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Apex Trader Funding (אפקס) סקירה 2026 – חוקים וקוד הנחה</title>
-    <meta data-rh="true" name="description" content="אפקס טריידר פאנדינג (Apex Trader Funding) 2026 – השוואת חשבונות Rithmic/Tradovate, עלויות מבחנים, כללי מסחר וקוד הנחה ANTAR. המבחנים הזולים בשוק.">
+    <title>אפקס (Apex Trader Funding) – קוד הנחה ANTAR, חוקים וסקירה 2026</title>
+    <meta data-rh="true" name="description" content="לפני שקונים מבחן באפקס: קוד ANTAR מוריד את המחיר. השוואת חשבונות Rithmic ו-Tradovate, מחירי מבחנים, כללי מסחר ומשיכות 2026, בסקירה של נועם ענתר.">
 
     <!-- Open Graph Meta Tags -->
-    <meta data-rh="true" property="og:title" content="Apex Trader Funding (אפקס) סקירה 2026 – חוקים וקוד הנחה">
-    <meta data-rh="true" property="og:description" content="אפקס טריידר פאנדינג (Apex Trader Funding) 2026 – השוואת חשבונות Rithmic/Tradovate, עלויות מבחנים, כללי מסחר וקוד הנחה ANTAR. המבחנים הזולים בשוק.">
+    <meta data-rh="true" property="og:title" content="אפקס – סקירה 2026, חוקים וקוד הנחה | Apex Trader Funding">
+    <meta data-rh="true" property="og:description" content="לפני שקונים מבחן באפקס: קוד ANTAR מוריד את המחיר. השוואת חשבונות Rithmic ו-Tradovate, מחירי מבחנים, כללי מסחר ומשיכות 2026, בסקירה של נועם ענתר.">
     <meta data-rh="true" property="og:image" content="https://antartrade.co.il/og-images/new/firm-apex.jpg">
     <meta data-rh="true" property="og:image:width" content="1200">
     <meta data-rh="true" property="og:image:height" content="630">
@@ -24,8 +24,8 @@
 
     <!-- Twitter Cards Meta Tags -->
     <meta data-rh="true" name="twitter:card" content="summary_large_image" />
-    <meta data-rh="true" name="twitter:title" content="Apex Trader Funding (אפקס) סקירה 2026 – חוקים וקוד הנחה">
-    <meta data-rh="true" name="twitter:description" content="אפקס טריידר פאנדינג (Apex Trader Funding) 2026 – השוואת חשבונות Rithmic/Tradovate, עלויות מבחנים, כללי מסחר וקוד הנחה ANTAR. המבחנים הזולים בשוק.">
+    <meta data-rh="true" name="twitter:title" content="אפקס – סקירה 2026, חוקים וקוד הנחה | Apex Trader Funding">
+    <meta data-rh="true" name="twitter:description" content="לפני שקונים מבחן באפקס: קוד ANTAR מוריד את המחיר. השוואת חשבונות Rithmic ו-Tradovate, מחירי מבחנים, כללי מסחר ומשיכות 2026, בסקירה של נועם ענתר.">
     <meta data-rh="true" name="twitter:image" content="https://antartrade.co.il/og-images/new/firm-apex.jpg">
     <meta data-rh="true" name="twitter:image:alt" content="Apex Trader Funding">
 
@@ -38,9 +38,12 @@
     <link rel="preconnect" href="https://i.ytimg.com" crossorigin />
     <link rel="dns-prefetch" href="https://img.youtube.com" />
     <link rel="dns-prefetch" href="https://www.youtube.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" rel="stylesheet" />
-    <!-- Preload LCP image (header logo) -->
-    <link rel="preload" as="image" href="/lovable-uploads/antartrade-logo-new.webp" fetchpriority="high" />
+    <!-- Heebo is only the fallback behind Fb Reforma (and swaps in anyway), so it loads without holding up the first paint -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" rel="stylesheet" /></noscript>
+    <!-- the design's own font (base.css), fetched with the page instead of after the code runs -->
+    <link rel="preload" as="font" type="font/woff2" href="/home-new/fonts/FbReforma-Regular.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/home-new/fonts/FbReforma-Medium.woff2" crossorigin />
     <!-- Critical inline CSS for instant LCP paint of hero H1 (replaced by React on hydration).
          It draws the new homepage hero's first frame (dark ground, the same title in the same place), so the page doesn't flash another design. -->
     <style>
@@ -59,6 +62,15 @@
         var p = location.pathname;
         if (p !== '/' && p !== '/index.html') {
           document.documentElement.classList.add('no-lcp-hero');
+        }
+        // a foreign address with no prerendered file of its own (a 404, a page not translated yet) gets
+        // this Hebrew file: it reads left to right, without the Hebrew homepage title, from the first paint.
+        // The languages are FOREIGN_LOCALES in src/i18n/config.ts (the i18n test keeps them equal).
+        var foreign = p.match(/^\/(en)(\/|$)/);
+        if (foreign && document.documentElement.lang === 'he') {
+          document.documentElement.lang = foreign[1];
+          document.documentElement.dir = 'ltr';
+          document.title = 'AntarTrade';
         }
       })();
     </script>
@@ -95,14 +107,89 @@
     </script>
 
     <!-- Meta Pixel מנוהל כעת דרך שכבת המדידה המרכזית (src/lib/analytics) ונטען רק לאחר הסכמה -->
-    <script type="module" crossorigin src="/assets/index-CFqXh43W.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/markdown-vendor-C8kRH1kE.js">
-    <link rel="modulepreload" crossorigin href="/assets/react-vendor-DRMcaBf5.js">
-    <link rel="modulepreload" crossorigin href="/assets/query-vendor-DhLg6-SN.js">
-    <link rel="modulepreload" crossorigin href="/assets/supabase-vendor-BjAP5gaE.js">
-    <link rel="stylesheet" crossorigin href="/assets/index-B1hmK-DU.css">
+    <script type="module" crossorigin src="/assets/index-CM-V3N5-.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-vendor-xAhqJu7B.js">
+    <link rel="modulepreload" crossorigin href="/assets/query-vendor-iefLz-8z.js">
+    <link rel="modulepreload" crossorigin href="/assets/supabase-vendor-DW0Ocl7u.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-CWOh4V4Z.css">
     <meta data-rh="true" property="og:url" content="https://antartrade.co.il/apex">
     <link data-rh="true" rel="canonical" href="https://antartrade.co.il/apex">
+    <link rel="modulepreload" crossorigin href="/assets/ApexNew-Bww6G5Go.js">
+    <link rel="modulepreload" crossorigin href="/assets/SEOHead-CVGFAcvu.js">
+    <link rel="modulepreload" crossorigin href="/assets/NotFound-DuS9xH-B.js">
+    <link rel="modulepreload" crossorigin href="/assets/Header-06XPzUpo.js">
+    <link rel="modulepreload" crossorigin href="/assets/useCanonicalFirmPageData-BC5pylGP.js">
+    <link rel="modulepreload" crossorigin href="/assets/useCanonicalFirmRules-2wOk_-iq.js">
+    <link rel="modulepreload" crossorigin href="/assets/tieredRuleFormat-Ce4XlkHX.js">
+    <link rel="modulepreload" crossorigin href="/assets/payoutStandard-DfQNmVcj.js">
+    <link rel="modulepreload" crossorigin href="/assets/fetch-C8WajeON.js">
+    <link rel="modulepreload" crossorigin href="/assets/canonicalRules-yhGyuGJm.js">
+    <link rel="modulepreload" crossorigin href="/assets/products-CPPrr9Az.js">
+    <link rel="modulepreload" crossorigin href="/assets/payoutSelectedFirst-DxiqNmtu.js">
+    <link rel="modulepreload" crossorigin href="/assets/payoutPlainLanguage-CCLa1IXs.js">
+    <link rel="modulepreload" crossorigin href="/assets/AccountCatalogCarousel-D6dFOZ7X.js">
+    <link rel="modulepreload" crossorigin href="/assets/trackSummaryRegistry-Dz3P_U6j.js">
+    <link rel="modulepreload" crossorigin href="/assets/index-BVvSs3wn.js">
+    <link rel="modulepreload" crossorigin href="/assets/useIntersectionObserver-DSH7vrcN.js">
+    <link rel="modulepreload" crossorigin href="/assets/use-mobile-Bxpkyd_4.js">
+    <link rel="modulepreload" crossorigin href="/assets/wallet-B1oDsbsb.js">
+    <link rel="modulepreload" crossorigin href="/assets/CompareView-BJkpzFlO.js">
+    <link rel="modulepreload" crossorigin href="/assets/switch-CDzWUzgN.js">
+    <link rel="modulepreload" crossorigin href="/assets/index-CAFpbxuf.js">
+    <link rel="modulepreload" crossorigin href="/assets/FactValue-Kx6JDzKH.js">
+    <link rel="modulepreload" crossorigin href="/assets/useCanonicalComparison-zPs2Ajqq.js">
+    <link rel="modulepreload" crossorigin href="/assets/evaluationCardStandard-tKfyyGpX.js">
+    <link rel="modulepreload" crossorigin href="/assets/info-Cj6OQ_nj.js">
+    <link rel="modulepreload" crossorigin href="/assets/dialog-CH3ddjUf.js">
+    <link rel="modulepreload" crossorigin href="/assets/index-qGRoS8L7.js">
+    <link rel="modulepreload" crossorigin href="/assets/chevron-down-BINT2q_X.js">
+    <link rel="modulepreload" crossorigin href="/assets/lightbulb-Bc_MLhjz.js">
+    <link rel="modulepreload" crossorigin href="/assets/companyIcons-D-m_uiIX.js">
+    <link rel="modulepreload" crossorigin href="/assets/sparkles-Com4n3m2.js">
+    <link rel="modulepreload" crossorigin href="/assets/repeat-BHAY3C1A.js">
+    <link rel="modulepreload" crossorigin href="/assets/clock-CPZQPnSf.js">
+    <link rel="modulepreload" crossorigin href="/assets/percent-C4p64ghg.js">
+    <link rel="modulepreload" crossorigin href="/assets/play-CR_j4D1h.js">
+    <link rel="modulepreload" crossorigin href="/assets/triangle-alert-BHzFJ0J4.js">
+    <link rel="modulepreload" crossorigin href="/assets/circle-help-BNL45gvD.js">
+    <link rel="modulepreload" crossorigin href="/assets/calendar-days-Br-3GviR.js">
+    <link rel="modulepreload" crossorigin href="/assets/filters-DYbR_De5.js">
+    <link rel="modulepreload" crossorigin href="/assets/git-compare-C1P00-5y.js">
+    <link rel="modulepreload" crossorigin href="/assets/monitor-sAQRtm6T.js">
+    <link rel="modulepreload" crossorigin href="/assets/chevron-up-DAXjtAae.js">
+    <link rel="modulepreload" crossorigin href="/assets/badge-percent-Cv9uNyEj.js">
+    <link rel="modulepreload" crossorigin href="/assets/rotate-ccw-DTls-a_y.js">
+    <link rel="modulepreload" crossorigin href="/assets/external-link-Coi57wYy.js">
+    <link rel="modulepreload" crossorigin href="/assets/chevron-left-D72jwMNh.js">
+    <link rel="modulepreload" crossorigin href="/assets/useExternalRating-DffohQVo.js">
+    <link rel="modulepreload" crossorigin href="/assets/useFirmUpdates-D2KWXgfi.js">
+    <link rel="modulepreload" crossorigin href="/assets/firmUpdates-DN9rTqKp.js">
+    <link rel="modulepreload" crossorigin href="/assets/partnerLinks-DsRuYxId.js">
+    <link rel="modulepreload" crossorigin href="/assets/derivedRuleValues-Doyg_K06.js">
+    <link rel="modulepreload" crossorigin href="/assets/takeProfitCanonical-Mx4B0APl.js">
+    <link rel="modulepreload" crossorigin href="/assets/useLucidCanonicalProduct-DtJwZfjR.js">
+    <link rel="modulepreload" crossorigin href="/assets/LucidDirectAccountCatalog-Ee83O_0C.js">
+    <link rel="modulepreload" crossorigin href="/assets/TopstepAccountsSection-eSjoFDZQ.js">
+    <link rel="modulepreload" crossorigin href="/assets/button-CzEkH7vt.js">
+    <link rel="modulepreload" crossorigin href="/assets/payoutBulenoxMomentum-CY0JReIL.js">
+    <link rel="modulepreload" crossorigin href="/assets/FundedNextFlexAccountCatalog-IaRSOb5z.js">
+    <link rel="modulepreload" crossorigin href="/assets/tabs-Dl80QgmR.js">
+    <link rel="modulepreload" crossorigin href="/assets/index-vmTDOUmY.js">
+    <link rel="modulepreload" crossorigin href="/assets/index-Ba0LObUC.js">
+    <link rel="modulepreload" crossorigin href="/assets/calendar-clock-BWf6GKA_.js">
+    <link rel="modulepreload" crossorigin href="/assets/payoutTakeProfit-ZYS3sb7d.js">
+    <link rel="modulepreload" crossorigin href="/assets/opinions-CBJ3lYbE.js">
+    <link rel="modulepreload" crossorigin href="/assets/payoutQualifyingCycle-C-Usztry.js">
+    <link rel="modulepreload" crossorigin href="/assets/useToolPromotion-BdLyXTZp.js">
+    <link rel="modulepreload" crossorigin href="/assets/ui-BGbHnmGN.js">
+    <link rel="modulepreload" crossorigin href="/assets/useMonitorCheck-BFuQwSoT.js">
+    <link rel="modulepreload" crossorigin href="/assets/PageNav-Nga_lA1c.js">
+    <link rel="modulepreload" crossorigin href="/assets/index-B2WdsOss.js">
+    <link rel="modulepreload" crossorigin href="/assets/CompareTable-B-f3jaDs.js">
+    <link rel="modulepreload" crossorigin href="/assets/ui-72tFE2Nh.js">
+    <link rel="modulepreload" crossorigin href="/assets/SeoAccountVariantsBlock-Z99Cf2PR.js">
+    <link rel="preload" as="style" crossorigin href="/assets/firm-new-BS7v2L2J.css">
+    <link rel="preload" as="style" crossorigin href="/assets/index-CWOh4V4Z.css">
   </head>
   <body>
     <noscript>
@@ -115,92 +202,58 @@
       <div
         style="max-width:900px;margin:0 auto;padding:40px 20px;font-family:Heebo,sans-serif;direction:rtl;text-align:right;"
       >
-        <h1>AntarTrade – השוואת חברות מימון למסחר 2026</h1>
+        <h1>AntarTrade – השוואת חברות מימון ונוסטרו לסוחרים 2026</h1>
         <p>
           אתר ההשוואות המוביל בישראל לחברות מימון לסוחרים 2026 – ניתוחים אישיים, קודי הנחה בלעדיים ותוכן מקצועי מאת נועם
           ענתר.
         </p>
+        <h2>השוואת חברות ומבצעים</h2>
+        <ul>
+          <li>
+            <a href="/comparison">השוואת חברות מימון ונוסטרו</a> – מחירים, חוקים ותנאי משיכה של כל החברות בטבלה אחת.
+          </li>
+          <li><a href="/promotions">מבצעים וקודי הנחה</a> – כל המבצעים הפעילים וקוד ההנחה ANTAR.</li>
+          <li><a href="/matching-quiz">שאלון התאמה</a> – איזו חברת מימון מתאימה לך.</li>
+          <li><a href="/comparison/head-to-head">דו-קרב חברות</a> – שתי חברות ראש בראש.</li>
+        </ul>
         <h2>חברות מימון</h2>
         <ul>
-          <li>
-            <a href="/top-step">TopStep – סקירה מלאה, חוקים ומחירים</a> – חברת המימון הגדולה בעולם עם מעל 10 שנות
-            פעילות. מגוון גדלי חשבונות, ללא כלל עקביות, ומשיכה ראשונה כבר ביום 5.
-          </li>
-          <li>
-            <a href="/apex">Apex Trader Funding – סקירה מלאה, חוקים ומחירים</a> – חברת מימון פופולרית עם מבחן שלב אחד,
-            ללא כלל עקביות, ואפשרות למספר חשבונות במקביל.
-          </li>
-          <li>
-            <a href="/bulenox">Bulenox – סקירה מלאה, חוקים ומחירים</a> – חברת מימון עם מחירים תחרותיים ומבחן שלב אחד.
-            תומכת ב-NinjaTrader ו-Rithmic.
-          </li>
-          <li>
-            <a href="/take-profit">TakeProfit Trader – סקירה מלאה, חוקים ומחירים</a> – חברת מימון עם גישה ייחודית,
-            מחירים נמוכים, ותמיכה מצוינת בעברית.
-          </li>
-          <li>
-            <a href="/lucid">Lucid Trader – סקירה מלאה, חוקים ומחירים</a> – חברת מימון ישראלית עם תמיכה בעברית, מחירים
-            תחרותיים, וממשק ידידותי.
-          </li>
-          <li>
-            <a href="/alpha-futures">Alpha Futures – סקירה מלאה, חוקים ומחירים</a> – חברת מימון חדשה עם תנאים תחרותיים
-            ומבחן שלב אחד.
-          </li>
+          <li><a href="/take-profit">טייק פרופיט (TakeProfit Trader)</a> – סקירה, חוקים, משיכות וקוד הנחה.</li>
+          <li><a href="/lucid">לוסיד טריידינג (Lucid Trading)</a> – סקירה, מסלולים, חוקים וקוד הנחה.</li>
+          <li><a href="/apex">אפקס (Apex Trader Funding)</a> – סקירה, חוקים וקוד הנחה.</li>
+          <li><a href="/top-step">טופסטפ (TopStep)</a> – סקירה, חשבונות, חוקים ומשיכות.</li>
+          <li><a href="/bulenox">בולנוקס (Bulenox)</a> – סקירה, חשבונות, חוקים וקוד הנחה.</li>
+          <li><a href="/funded-next">פאנדד נקסט (FundedNext Futures)</a> – סקירה, חשבונות, חוקים ומבצעים.</li>
+          <li><a href="/ftmo">FTMO Futures</a> – סקירה, חוקים, מחירים ומשיכות.</li>
         </ul>
-        <h2>השוואה בין חברות</h2>
+        <h2>האקדמיה</h2>
         <ul>
-          <li>
-            <a href="/comparison">טבלת השוואה מקיפה בין כל חברות המימון</a> – השוואה מפורטת של מחירים, חוקים, תנאי משיכה
-            ועוד.
-          </li>
+          <li><a href="/academy">האקדמיה של AntarTrade</a> – קורסים, סרטונים, מאמרים וכלים למסחר בעברית.</li>
+          <li><a href="/blog/tik-nostro">מה זה תיק נוסטרו</a> – המדריך המלא לסחור על הון של חברות מימון.</li>
+          <li><a href="/blog">מאמרים ומדריכים</a></li>
+          <li><a href="/calculators">מחשבונים לסוחרים</a></li>
+          <li><a href="/academy/glossary">מילון מושגים</a></li>
+          <li><a href="/economic-calendar">יומן הודעות כלכליות</a></li>
+          <li><a href="/courses">קורסים</a></li>
         </ul>
-        <h2>מדריכים וכלים</h2>
+        <h2>פלטפורמות וכלים</h2>
         <ul>
-          <li>
-            <a href="/atas-guide">מדריך ATAS (אטאס) – ניתוח זרימת פקודות</a> – מדריך מקיף לשימוש בפלטפורמת ATAS לניתוח
-            Order Flow, גרפי Footprint ומפות חום.
-          </li>
-          <li>
-            <a href="/bookmap-guide">מדריך Bookmap (בוקמאפ)</a> – מדריך לשימוש ב-Bookmap לניתוח עומק שוק ו-Order Flow
-            בזמן אמת.
-          </li>
-          <li>
-            <a href="/tradezella-guide">מדריך TradeZella – יומן מסחר</a> – מדריך מקיף לשימוש ב-TradeZella לניהול יומן
-            מסחר, ניתוח ביצועים ושיפור אסטרטגיות.
-          </li>
-          <li>
-            <a href="/replikanto-guide">מדריך Replikanto – העתקת עסקאות</a> – מדריך לשימוש ב-Replikanto להעתקת עסקאות
-            בין חשבונות מרובים ב-NinjaTrader.
-          </li>
-          <li>
-            <a href="/tradesyncer-guide">מדריך TradeSyncer – העתקת עסקאות מ-TradingView</a> – מדריך לחיבור TradingView
-            לחשבונות מימון באמצעות TradeSyncer.
-          </li>
-          <li>
-            <a href="/trading-tools">מרכז כלי מסחר ומדריכים</a> – כל הכלים, הפלטפורמות והמדריכים למסחר בחוזים עתידיים.
-          </li>
-          <li><a href="/economic-calendar">לוח שנה כלכלי</a> – לוח אירועים כלכליים בזמן אמת עם הסברים בעברית.</li>
-        </ul>
-        <h2>קורסים</h2>
-        <ul>
-          <li>
-            <a href="/free-course">קורס מסחר בחוזים עתידיים – חינם</a> – קורס מקיף למתחילים הכולל שיעורי וידאו, חומרי
-            לימוד ותרגול.
-          </li>
-          <li><a href="/full-course">קורס מתקדם למסחר בחוזים עתידיים</a> – קורס מתקדם עם ליווי אישי ותוכן בלעדי.</li>
+          <li><a href="/platforms">כל הפלטפורמות והכלים</a></li>
+          <li><a href="/ninjatrader-guide">NinjaTrader</a></li>
+          <li><a href="/atas-guide">ATAS</a></li>
+          <li><a href="/bookmap-guide">Bookmap</a></li>
+          <li><a href="/tradezella-guide">TradeZella</a></li>
         </ul>
         <h2>מידע נוסף</h2>
         <ul>
-          <li><a href="/about">אודות AntarTrade</a></li>
-          <li><a href="/promotions">מבצעים והנחות</a></li>
-          <li><a href="/matching-quiz">שאלון התאמה – איזו חברת מימון מתאימה לך?</a></li>
+          <li><a href="/about">אודות נועם ענתר</a></li>
           <li><a href="/faq">שאלות ותשובות</a></li>
           <li><a href="/contact">צור קשר</a></li>
         </ul>
       </div>
     </noscript>
     <div id="root">
-      <style>.pr-body{max-width:860px;margin:0 auto;padding:120px 20px 64px;color:#e8eef5;line-height:1.7;font-size:18px;direction:rtl;text-align:right}.pr-body h1{font-size:40px;line-height:1.15;margin:16px 0}.pr-body h2{font-size:28px;margin:40px 0 12px}.pr-body h3{font-size:21px;margin:24px 0 8px}.pr-body a{color:#7dc6ff}.pr-body img{max-width:100%;height:auto}.pr-body table{border-collapse:collapse;width:100%}.pr-body td,.pr-body th{border:1px solid #33415a;padding:6px 10px}.pr-body nav{font-size:15px;color:#9fb0c6}.pr-body dt{font-weight:700;margin-top:16px}.pr-body dd{margin:4px 0 0}</style><article class="pr-body"><nav aria-label="פירורי לחם"><a href="/">דף הבית</a> / <a href="/comparison">השוואת חברות</a> / Apex</nav><h1>Apex</h1><p>קוד הנחה: <strong>ANTAR</strong>. <a href="/promotions">כל המבצעים</a></p><h2>Apex EOD</h2><h3>Apex EOD - במילים פשוטות</h3><ul><li>זמין בגדלים 25K, 50K, 100K ו-150K</li><li>סטופ נגרר סוף יום גם במבחן וגם בחשבון הממומן</li><li>אפשר לעבור את המבחן ביום מסחר אחד</li><li>אפשר לבחור מסלול עם דמי הפעלה לאחר המעבר או מסלול ללא דמי הפעלה</li><li>בחשבון הממומן חל חוק עקביות של 50%</li><li>לפני משיכה נדרשים 5 ימי מסחר מזכים</li><li>אפשר למשוך מעל הבאפר, עם מינימום משיכה של $500</li><li>100% מהרווחים נשארים לסוחר</li><li>לאחר 6 משיכות החשבון נסגר</li><li>קיימת מגבלת הפסד יומית</li></ul><ol><li>עוברים את המבחן, אפשר גם ביום אחד</li><li>מפעילים חשבון ממומן לפי מסלול הרכישה שנבחר</li><li>צוברים 5 ימי מסחר מזכים</li><li>מושכים את הרווח שמעל הבאפר, בכפוף לתנאי המשיכה</li></ol><p>גובה הסטופ, מגבלת ההפסד היומית, הבאפר, מספר החוזים ותנאי היום המזכה משתנים לפי גודל החשבון.</p><table><thead><tr><th>חשבון</th><th>עלות מבחן</th><th>יעד מעבר</th><th>סטופ מקסימלי</th><th>סוג הסטופ</th><th>מגבלת הפסד יומית</th><th>חוק עקביות</th><th>חלוקת רווחים</th></tr></thead><tbody><tr><td>25K</td><td>$49</td><td>$26,500</td><td>$1,000</td><td>סוף יום (EOD)</td><td>$500</td><td>אין</td><td>100% לסוחר</td></tr><tr><td>50K</td><td>$59</td><td>$53,000</td><td>$2,000</td><td>סוף יום (EOD)</td><td>$1,000</td><td>אין</td><td>100% לסוחר</td></tr><tr><td>100K</td><td>$119</td><td>$106,000</td><td>$3,000</td><td>סוף יום (EOD)</td><td>$1,500</td><td>אין</td><td>100% לסוחר</td></tr><tr><td>150K</td><td>$219</td><td>$159,000</td><td>$4,000</td><td>סוף יום (EOD)</td><td>$2,000</td><td>אין</td><td>100% לסוחר</td></tr></tbody></table><p>פלטפורמות: ATAS Orderflow Trading, Bookmap, EdgeProX, Finamark, Jigsaw Daytradr, MotiveWave, NinjaTrader, Quantower, R Trader Pro, Sierra Chart, TradingView, VolFix, WealthCharts, Tradovate</p><h2>Apex Intraday</h2><h3>Apex Intraday - במילים פשוטות</h3><ul><li>זמין בגדלים 25K, 50K, 100K ו-150K</li><li>סטופ נגרר תוך יומי גם במבחן וגם בחשבון הממומן</li><li>אפשר לעבור את המבחן ביום מסחר אחד</li><li>אפשר לבחור מסלול עם דמי הפעלה לאחר המעבר או מסלול ללא דמי הפעלה</li><li>בחשבון הממומן חל חוק עקביות של 50%</li><li>לפני משיכה נדרשים 5 ימי מסחר מזכים</li><li>אפשר למשוך מעל הבאפר, עם מינימום משיכה של $500</li><li>100% מהרווחים נשארים לסוחר</li><li>לאחר 6 משיכות החשבון נסגר</li></ul><ol><li>עוברים את המבחן, אפשר גם ביום אחד</li><li>מפעילים חשבון ממומן לפי מסלול הרכישה שבחרתם</li><li>צוברים 5 ימי מסחר מזכים</li><li>מושכים את הרווח שמעל הבאפר, בכפוף לתנאי המשיכה</li></ol><p>גובה הסטופ, הבאפר, מספר החוזים ותנאי היום המזכה משתנים לפי גודל החשבון.</p><table><thead><tr><th>חשבון</th><th>עלות מבחן</th><th>יעד מעבר</th><th>סטופ מקסימלי</th><th>סוג הסטופ</th><th>מגבלת הפסד יומית</th><th>חוק עקביות</th><th>חלוקת רווחים</th></tr></thead><tbody><tr><td>25K</td><td>$16.70</td><td>$26,500</td><td>$1,000</td><td>תוך יומי (Intraday)</td><td>אין</td><td>אין</td><td>100% לסוחר</td></tr><tr><td>50K</td><td>$24.90</td><td>$53,000</td><td>$2,000</td><td>תוך יומי (Intraday)</td><td>אין</td><td>אין</td><td>100% לסוחר</td></tr><tr><td>100K</td><td>$79</td><td>$106,000</td><td>$3,000</td><td>תוך יומי (Intraday)</td><td>אין</td><td>אין</td><td>100% לסוחר</td></tr><tr><td>150K</td><td>$119</td><td>$159,000</td><td>$4,000</td><td>תוך יומי (Intraday)</td><td>אין</td><td>אין</td><td>100% לסוחר</td></tr></tbody></table><p>פלטפורמות: ATAS Orderflow Trading, Bookmap, EdgeProX, Finamark, Jigsaw Daytradr, MotiveWave, NinjaTrader, Quantower, R Trader Pro, Sierra Chart, TradingView, VolFix, WealthCharts, Tradovate</p><h2>Apex Legacy</h2><h3>Apex Legacy - במילים פשוטות</h3><ul><li>זמין בגדלים 25K, 50K, 100K, 150K, 250K ו-300K</li><li>סטופ נגרר</li><li>אין מגבלת הפסד יומית</li><li>עוברים לחשבון ממומן ומשלמים דמי הפעלה חד-פעמיים</li><li>לפני משיכה נדרשים לפחות 8 ימי מסחר</li><li>לפחות 5 מתוך 8 הימים צריכים להיות ברווח של $50 ומעלה</li><li>בשלוש המשיכות הראשונות צריך לעמוד בבאפר, שמחושב כגובה הסטופ ועוד $100</li><li>מינימום משיכה הוא $500</li><li>יש חוק עקביות של 30% עד המשיכה השישית או מעבר לחשבון לייב</li><li>בחמש המשיכות הראשונות קיימת תקרת משיכה לפי גודל החשבון, ומהמשיכה השישית אין תקרה</li><li>חלוקת הרווחים היא 100% לסוחר על $25,000 הראשונים שנמשכו מכל חשבון, ולאחר מכן 90%</li></ul><ol><li>עוברים את המבחן</li><li>מפעילים את החשבון הממומן</li><li>צוברים 8 ימי מסחר, מהם לפחות 5 ימים עם $50 רווח ומעלה</li><li>עומדים בבאפר, בחוק העקביות ובתקרת המשיכה ומבקשים משיכה</li></ol><p>גובה הסטופ, הבאפר, תקרת המשיכה ודמי ההפעלה משתנים לפי גודל החשבון.</p><table><thead><tr><th>חשבון</th><th>עלות מבחן</th><th>יעד מעבר</th><th>סטופ מקסימלי</th><th>סוג הסטופ</th><th>מגבלת הפסד יומית</th><th>חוק עקביות</th><th>חלוקת רווחים</th></tr></thead><tbody><tr><td>25K</td><td>$17.70</td><td>$26,500</td><td>$1,500</td><td>תוך יומי (Intraday)</td><td>אין</td><td>אין</td><td>100% עד $25K, לאחר מכן 90%</td></tr><tr><td>50K</td><td>$19.70</td><td>$53,000</td><td>$2,500</td><td>תוך יומי (Intraday)</td><td>אין</td><td>אין</td><td>100% עד $25K, לאחר מכן 90%</td></tr><tr><td>100K</td><td>$21</td><td>$106,000</td><td>$3,000</td><td>תוך יומי (Intraday)</td><td>אין</td><td>אין</td><td>100% עד $25K, לאחר מכן 90%</td></tr><tr><td>150K</td><td>$59.70</td><td>$159,000</td><td>$5,000</td><td>תוך יומי (Intraday)</td><td>אין</td><td>אין</td><td>100% עד $25K, לאחר מכן 90%</td></tr><tr><td>250K</td><td>$21</td><td>$265,000</td><td>$6,500</td><td>תוך יומי (Intraday)</td><td>אין</td><td>אין</td><td>100% עד $25K, לאחר מכן 90%</td></tr><tr><td>300K</td><td>$21</td><td>$320,000</td><td>$7,500</td><td>תוך יומי (Intraday)</td><td>אין</td><td>אין</td><td>100% עד $25K, לאחר מכן 90%</td></tr></tbody></table><p>פלטפורמות: ATAS Orderflow Trading, Bookmap, EdgeProX, Finamark, Jigsaw Daytradr, MotiveWave, NinjaTrader, Quantower, R Trader Pro, Sierra Chart, TradingView, VolFix, WealthCharts, Tradovate</p><h2>שאלות נפוצות</h2><h3>איך עובד שלב המבחן (Evaluation) באפקס?</h3><p>אפקס השיקה לאחרונה תוכניות מבחן חדשות ללא דמי מנוי מתחדשים. כאשר אתם רוכשים מבחן, אתם מקבלים גישה ל-30 ימים קלנדריים רצופים כדי לעמוד ביעד הרווח. אם לא הגעתם ליעד, או שהגעתם להפסד המקסימלי (Drawdown), החשבון נסגר לצמיתות ולא יחויב מחדש.</p><h3>איך מחושב ההפסד המקסימלי (Drawdown) באפקס?</h3><p>באפקס קיימים כיום שני סוגים של חשבונות לבחירתכם, וההפסד המקסימלי מחושב בהם בצורה שונה:
+      <style>html:has(.pr-body),body:has(.pr-body){background:#12161f;overflow-x:hidden}.pr-body{max-width:860px;margin:0 auto;padding:120px 20px 64px;box-sizing:border-box;color:#e8eef5;line-height:1.7;font-size:18px;direction:rtl;text-align:right;overflow-wrap:anywhere}.pr-body h1,.pr-body h2,.pr-body h3{color:inherit}.pr-body h1{font-size:40px;line-height:1.15;margin:16px 0}.pr-body h2{font-size:28px;margin:40px 0 12px}.pr-body h3{font-size:21px;margin:24px 0 8px}.pr-body a{color:#7dc6ff}.pr-body img{max-width:100%;height:auto}.pr-body table{border-collapse:collapse;display:block;max-width:100%;overflow-x:auto}.pr-body td,.pr-body th{border:1px solid #33415a;padding:6px 10px}.pr-body nav{font-size:15px;color:#9fb0c6}.pr-body dt{font-weight:700;margin-top:16px}.pr-body dd{margin:4px 0 0}</style><article class="pr-body"><nav aria-label="פירורי לחם"><a href="/">דף הבית</a> / <a href="/comparison">השוואת חברות</a> / Apex</nav><h1>Apex</h1><p>קוד הנחה: <strong>ANTAR</strong>. <a href="/promotions">כל המבצעים</a></p><h2>Apex EOD</h2><h3>Apex EOD - במילים פשוטות</h3><ul><li>זמין בגדלים 25K, 50K, 100K ו-150K</li><li>סטופ נגרר סוף יום גם במבחן וגם בחשבון הממומן</li><li>אפשר לעבור את המבחן ביום מסחר אחד</li><li>אפשר לבחור מסלול עם דמי הפעלה לאחר המעבר או מסלול ללא דמי הפעלה</li><li>בחשבון הממומן חל חוק עקביות של 50%</li><li>לפני משיכה נדרשים 5 ימי מסחר מזכים</li><li>אפשר למשוך מעל הבאפר, עם מינימום משיכה של $500</li><li>100% מהרווחים נשארים לסוחר</li><li>לאחר 6 משיכות החשבון נסגר</li><li>קיימת מגבלת הפסד יומית</li></ul><ol><li>עוברים את המבחן, אפשר גם ביום אחד</li><li>מפעילים חשבון ממומן לפי מסלול הרכישה שנבחר</li><li>צוברים 5 ימי מסחר מזכים</li><li>מושכים את הרווח שמעל הבאפר, בכפוף לתנאי המשיכה</li></ol><p>גובה הסטופ, מגבלת ההפסד היומית, הבאפר, מספר החוזים ותנאי היום המזכה משתנים לפי גודל החשבון.</p><table><thead><tr><th>חשבון</th><th>עלות מבחן</th><th>יעד מעבר</th><th>סטופ מקסימלי</th><th>סוג הסטופ</th><th>מגבלת הפסד יומית</th><th>חוק עקביות</th><th>חלוקת רווחים</th></tr></thead><tbody><tr><td>25K</td><td>$49</td><td>$26,500</td><td>$1,000</td><td>סוף יום (EOD)</td><td>$500</td><td>אין</td><td>100% לסוחר</td></tr><tr><td>50K</td><td>$59</td><td>$53,000</td><td>$2,000</td><td>סוף יום (EOD)</td><td>$1,000</td><td>אין</td><td>100% לסוחר</td></tr><tr><td>100K</td><td>$119</td><td>$106,000</td><td>$3,000</td><td>סוף יום (EOD)</td><td>$1,500</td><td>אין</td><td>100% לסוחר</td></tr><tr><td>150K</td><td>$219</td><td>$159,000</td><td>$4,000</td><td>סוף יום (EOD)</td><td>$2,000</td><td>אין</td><td>100% לסוחר</td></tr></tbody></table><p>פלטפורמות: ATAS Orderflow Trading, Bookmap, EdgeProX, Finamark, Jigsaw Daytradr, MotiveWave, NinjaTrader, Quantower, R Trader Pro, Sierra Chart, TradingView, VolFix, WealthCharts, Tradovate</p><h2>Apex Intraday</h2><h3>Apex Intraday - במילים פשוטות</h3><ul><li>זמין בגדלים 25K, 50K, 100K ו-150K</li><li>סטופ נגרר תוך יומי גם במבחן וגם בחשבון הממומן</li><li>אפשר לעבור את המבחן ביום מסחר אחד</li><li>אפשר לבחור מסלול עם דמי הפעלה לאחר המעבר או מסלול ללא דמי הפעלה</li><li>בחשבון הממומן חל חוק עקביות של 50%</li><li>לפני משיכה נדרשים 5 ימי מסחר מזכים</li><li>אפשר למשוך מעל הבאפר, עם מינימום משיכה של $500</li><li>100% מהרווחים נשארים לסוחר</li><li>לאחר 6 משיכות החשבון נסגר</li></ul><ol><li>עוברים את המבחן, אפשר גם ביום אחד</li><li>מפעילים חשבון ממומן לפי מסלול הרכישה שבחרתם</li><li>צוברים 5 ימי מסחר מזכים</li><li>מושכים את הרווח שמעל הבאפר, בכפוף לתנאי המשיכה</li></ol><p>גובה הסטופ, הבאפר, מספר החוזים ותנאי היום המזכה משתנים לפי גודל החשבון.</p><table><thead><tr><th>חשבון</th><th>עלות מבחן</th><th>יעד מעבר</th><th>סטופ מקסימלי</th><th>סוג הסטופ</th><th>מגבלת הפסד יומית</th><th>חוק עקביות</th><th>חלוקת רווחים</th></tr></thead><tbody><tr><td>25K</td><td>$16.70</td><td>$26,500</td><td>$1,000</td><td>תוך יומי (Intraday)</td><td>אין</td><td>אין</td><td>100% לסוחר</td></tr><tr><td>50K</td><td>$24.90</td><td>$53,000</td><td>$2,000</td><td>תוך יומי (Intraday)</td><td>אין</td><td>אין</td><td>100% לסוחר</td></tr><tr><td>100K</td><td>$79</td><td>$106,000</td><td>$3,000</td><td>תוך יומי (Intraday)</td><td>אין</td><td>אין</td><td>100% לסוחר</td></tr><tr><td>150K</td><td>$119</td><td>$159,000</td><td>$4,000</td><td>תוך יומי (Intraday)</td><td>אין</td><td>אין</td><td>100% לסוחר</td></tr></tbody></table><p>פלטפורמות: ATAS Orderflow Trading, Bookmap, EdgeProX, Finamark, Jigsaw Daytradr, MotiveWave, NinjaTrader, Quantower, R Trader Pro, Sierra Chart, TradingView, VolFix, WealthCharts, Tradovate</p><h2>Apex Legacy</h2><h3>Apex Legacy - במילים פשוטות</h3><ul><li>זמין בגדלים 25K, 50K, 100K, 150K, 250K ו-300K</li><li>סטופ נגרר</li><li>אין מגבלת הפסד יומית</li><li>עוברים לחשבון ממומן ומשלמים דמי הפעלה חד-פעמיים</li><li>לפני משיכה נדרשים לפחות 8 ימי מסחר</li><li>לפחות 5 מתוך 8 הימים צריכים להיות ברווח של $50 ומעלה</li><li>בשלוש המשיכות הראשונות צריך לעמוד בבאפר, שמחושב כגובה הסטופ ועוד $100</li><li>מינימום משיכה הוא $500</li><li>יש חוק עקביות של 30% עד המשיכה השישית או מעבר לחשבון לייב</li><li>בחמש המשיכות הראשונות קיימת תקרת משיכה לפי גודל החשבון, ומהמשיכה השישית אין תקרה</li><li>חלוקת הרווחים היא 100% לסוחר על $25,000 הראשונים שנמשכו מכל חשבון, ולאחר מכן 90%</li></ul><ol><li>עוברים את המבחן</li><li>מפעילים את החשבון הממומן</li><li>צוברים 8 ימי מסחר, מהם לפחות 5 ימים עם $50 רווח ומעלה</li><li>עומדים בבאפר, בחוק העקביות ובתקרת המשיכה ומבקשים משיכה</li></ol><p>גובה הסטופ, הבאפר, תקרת המשיכה ודמי ההפעלה משתנים לפי גודל החשבון.</p><table><thead><tr><th>חשבון</th><th>עלות מבחן</th><th>יעד מעבר</th><th>סטופ מקסימלי</th><th>סוג הסטופ</th><th>מגבלת הפסד יומית</th><th>חוק עקביות</th><th>חלוקת רווחים</th></tr></thead><tbody><tr><td>25K</td><td>$17.70</td><td>$26,500</td><td>$1,500</td><td>תוך יומי (Intraday)</td><td>אין</td><td>אין</td><td>100% עד $25K, לאחר מכן 90%</td></tr><tr><td>50K</td><td>$19.70</td><td>$53,000</td><td>$2,500</td><td>תוך יומי (Intraday)</td><td>אין</td><td>אין</td><td>100% עד $25K, לאחר מכן 90%</td></tr><tr><td>100K</td><td>$39.70</td><td>$106,000</td><td>$3,000</td><td>תוך יומי (Intraday)</td><td>אין</td><td>אין</td><td>100% עד $25K, לאחר מכן 90%</td></tr><tr><td>150K</td><td>$59.70</td><td>$159,000</td><td>$5,000</td><td>תוך יומי (Intraday)</td><td>אין</td><td>אין</td><td>100% עד $25K, לאחר מכן 90%</td></tr><tr><td>250K</td><td>$69.70</td><td>$265,000</td><td>$6,500</td><td>תוך יומי (Intraday)</td><td>אין</td><td>אין</td><td>100% עד $25K, לאחר מכן 90%</td></tr><tr><td>300K</td><td>$79.70</td><td>$320,000</td><td>$7,500</td><td>תוך יומי (Intraday)</td><td>אין</td><td>אין</td><td>100% עד $25K, לאחר מכן 90%</td></tr></tbody></table><p>פלטפורמות: ATAS Orderflow Trading, Bookmap, EdgeProX, Finamark, Jigsaw Daytradr, MotiveWave, NinjaTrader, Quantower, R Trader Pro, Sierra Chart, TradingView, VolFix, WealthCharts, Tradovate</p><h2>שאלות נפוצות</h2><h3>איך עובד שלב המבחן (Evaluation) באפקס?</h3><p>אפקס השיקה לאחרונה תוכניות מבחן חדשות ללא דמי מנוי מתחדשים. כאשר אתם רוכשים מבחן, אתם מקבלים גישה ל-30 ימים קלנדריים רצופים כדי לעמוד ביעד הרווח. אם לא הגעתם ליעד, או שהגעתם להפסד המקסימלי (Drawdown), החשבון נסגר לצמיתות ולא יחויב מחדש.</p><h3>איך מחושב ההפסד המקסימלי (Drawdown) באפקס?</h3><p>באפקס קיימים כיום שני סוגים של חשבונות לבחירתכם, וההפסד המקסימלי מחושב בהם בצורה שונה:
 
 מסלול סוף-יום (End-of-Day / EOD): במסלול זה אין עקיבה תוך-יומית אחרי הרווח שלכם. מגבלת ההפסד מחושבת אך ורק בסוף יום המסחר (שעת סגירת השוק) ועוקבת אחרי יתרת הסגירה הגבוהה ביותר שלכם. היתרון העצום במסלול זה (בשלב החשבון הממומן - PA), הוא שברגע שרף ההפסד המקסימלי מגיע לנקודת הפתיחה של החשבון פלוס 100$, הוא &quot;קופא&quot; וננעל לנצח ולא יעלה יותר.
 

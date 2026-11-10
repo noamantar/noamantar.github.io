@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Microsoft Clarity מנוהל דרך שכבת המדידה המרכזית (src/lib/analytics/clarity.ts) ונטען רק לאחר הסכמה -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" sizes="any" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>מדריך TradingView בעברית: איך משתמשים בטריידינג ויו | AntarTrade</title>
+    <meta data-rh="true" name="description" content="מדריך כתוב לטריידינג ויו, עם צילומי מסך: רשימת מעקב, התראות, הגדרות גרף, הפעלה חוזרת, אינדיקטורים, כלי ציור, כלי עסקת לונג שמחשב כמות, וחשבון דמו.">
+
+    <!-- Open Graph Meta Tags -->
+    <meta data-rh="true" property="og:title" content="מדריך TradingView בעברית: איך משתמשים בטריידינג ויו | AntarTrade">
+    <meta data-rh="true" property="og:description" content="מדריך כתוב לטריידינג ויו, עם צילומי מסך: רשימת מעקב, התראות, הגדרות גרף, הפעלה חוזרת, אינדיקטורים, כלי ציור, כלי עסקת לונג שמחשב כמות, וחשבון דמו.">
+    <meta data-rh="true" property="og:image" content="https://antartrade.co.il/images/blog/covers/tradingview-tutorial.webp">
+    
+    
+    <meta data-rh="true" property="og:image:alt" content="מדריך TradingView בעברית, אזור אחר אזור">
+    <meta data-rh="true" property="og:type" content="website" />
+    <meta data-rh="true" property="og:site_name" content="AntarTrade" />
+    <meta data-rh="true" property="og:locale" content="he_IL" />
+
+    <!-- Twitter Cards Meta Tags -->
+    <meta data-rh="true" name="twitter:card" content="summary_large_image" />
+    <meta data-rh="true" name="twitter:title" content="מדריך TradingView בעברית: איך משתמשים בטריידינג ויו | AntarTrade">
+    <meta data-rh="true" name="twitter:description" content="מדריך כתוב לטריידינג ויו, עם צילומי מסך: רשימת מעקב, התראות, הגדרות גרף, הפעלה חוזרת, אינדיקטורים, כלי ציור, כלי עסקת לונג שמחשב כמות, וחשבון דמו.">
+    <meta data-rh="true" name="twitter:image" content="https://antartrade.co.il/images/blog/covers/tradingview-tutorial.webp">
+    <meta data-rh="true" name="twitter:image:alt" content="מדריך TradingView בעברית, אזור אחר אזור">
+
+    <!-- Additional Meta Tags -->
+    <meta name="author" content="AntarTrade" />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://i.ytimg.com" crossorigin />
+    <link rel="dns-prefetch" href="https://img.youtube.com" />
+    <link rel="dns-prefetch" href="https://www.youtube.com" />
+    <!-- Heebo is only the fallback behind Fb Reforma (and swaps in anyway), so it loads without holding up the first paint -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" rel="stylesheet" /></noscript>
+    <!-- the design's own font (base.css), fetched with the page instead of after the code runs -->
+    <link rel="preload" as="font" type="font/woff2" href="/home-new/fonts/FbReforma-Regular.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/home-new/fonts/FbReforma-Medium.woff2" crossorigin />
+    <!-- Critical inline CSS for instant LCP paint of hero H1 (replaced by React on hydration).
+         It draws the new homepage hero's first frame (dark ground, the same title in the same place), so the page doesn't flash another design. -->
+    <style>
+      html,body{margin:0;padding:0;background:#12161f;font-family:"Fb Reforma",Heebo,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+      #root{min-height:100vh}
+      .lcp-hero{position:relative;min-height:100vh;box-sizing:border-box;background:#12161f;padding:92px 16px 64px;text-align:right;direction:rtl;overflow:hidden}
+      .lcp-hero-inner{width:min(1171px,100%);margin:0 auto}
+      .lcp-hero h1{margin:0;font-weight:400;max-width:310px;background:linear-gradient(90deg,#61b1f2 0%,#fff 78.365%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+      .lcp-hero h1 .lcp-line{display:block;font-size:44px;line-height:1.05}
+      .lcp-hero h1 .lcp-sub{font-size:28px;line-height:1.3;margin-top:6px}
+      @media(min-width:761px){.lcp-hero{padding-top:92px}.lcp-hero h1{max-width:560px}.lcp-hero h1 .lcp-line{font-size:74px;line-height:.92}.lcp-hero h1 .lcp-sub{font-size:44px;line-height:1.1;margin-top:14px}}
+      html.no-lcp-hero .lcp-hero{display:none}
+    </style>
+    <script>
+      (function(){
+        var p = location.pathname;
+        if (p !== '/' && p !== '/index.html') {
+          document.documentElement.classList.add('no-lcp-hero');
+        }
+        // a foreign address with no prerendered file of its own (a 404, a page not translated yet) gets
+        // this Hebrew file: it reads left to right, without the Hebrew homepage title, from the first paint.
+        // The languages are FOREIGN_LOCALES in src/i18n/config.ts (the i18n test keeps them equal).
+        var foreign = p.match(/^\/(en)(\/|$)/);
+        if (foreign && document.documentElement.lang === 'he') {
+          document.documentElement.lang = foreign[1];
+          document.documentElement.dir = 'ltr';
+          document.title = 'AntarTrade';
+        }
+      })();
+    </script>
+    <!-- Stale-deploy recovery: if hashed JS chunks referenced by a cached index.html
+         are gone (404 / "Importing a module script failed"), reload once bypassing cache. -->
+    <script>
+      (function(){
+        var KEY = '__chunk_reload_at';
+        function reloadOnce(){
+          try {
+            var last = Number(sessionStorage.getItem(KEY) || 0);
+            if (Date.now() - last < 20000) return; // avoid reload loops
+            sessionStorage.setItem(KEY, String(Date.now()));
+          } catch(e){}
+          var u = location.pathname + (location.search ? location.search + '&' : '?') + '_r=' + Date.now() + location.hash;
+          location.replace(u);
+        }
+        // Resource-level failures (module script / preload) bubble only in capture phase
+        window.addEventListener('error', function(e){
+          var t = e && e.target;
+          if (t && t !== window && (t.tagName === 'SCRIPT' || t.tagName === 'LINK')) { reloadOnce(); return; }
+          var m = e && e.message;
+          if (m && (m.indexOf('Importing a module script failed') > -1 ||
+                    m.indexOf('Failed to fetch dynamically imported module') > -1 ||
+                    m.indexOf('error loading dynamically imported module') > -1)) reloadOnce();
+        }, true);
+        window.addEventListener('unhandledrejection', function(e){
+          var m = e && e.reason && (e.reason.message || String(e.reason));
+          if (m && (m.indexOf('Importing a module script failed') > -1 ||
+                    m.indexOf('Failed to fetch dynamically imported module') > -1 ||
+                    m.indexOf('error loading dynamically imported module') > -1)) reloadOnce();
+        });
+      })();
+    </script>
+
+    <!-- Meta Pixel מנוהל כעת דרך שכבת המדידה המרכזית (src/lib/analytics) ונטען רק לאחר הסכמה -->
+    <script type="module" crossorigin src="/assets/index-CM-V3N5-.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-vendor-xAhqJu7B.js">
+    <link rel="modulepreload" crossorigin href="/assets/query-vendor-iefLz-8z.js">
+    <link rel="modulepreload" crossorigin href="/assets/supabase-vendor-DW0Ocl7u.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-CWOh4V4Z.css">
+    <meta data-rh="true" property="og:url" content="https://antartrade.co.il/blog/tradingview-tutorial">
+    <link data-rh="true" rel="canonical" href="https://antartrade.co.il/blog/tradingview-tutorial">
+    <link rel="modulepreload" crossorigin href="/assets/ArticleNew-BZaZJ8zA.js">
+    <link rel="modulepreload" crossorigin href="/assets/SEOHead-CVGFAcvu.js">
+    <link rel="modulepreload" crossorigin href="/assets/author-BugWeuLX.js">
+    <link rel="modulepreload" crossorigin href="/assets/ui-BGbHnmGN.js">
+    <link rel="preload" as="style" crossorigin href="/assets/firm-new-BS7v2L2J.css">
+    <link rel="preload" as="style" crossorigin href="/assets/article-new-mxkhYOwE.css">
+    <link rel="preload" as="style" crossorigin href="/assets/index-CWOh4V4Z.css">
+  </head>
+  <body>
+    <noscript>
+      <img
+        height="1"
+        width="1"
+        style="display:none"
+        src="https://www.facebook.com/tr?id=25761708513493694&ev=PageView&noscript=1"
+      />
+      <div
+        style="max-width:900px;margin:0 auto;padding:40px 20px;font-family:Heebo,sans-serif;direction:rtl;text-align:right;"
+      >
+        <h1>AntarTrade – השוואת חברות מימון ונוסטרו לסוחרים 2026</h1>
+        <p>
+          אתר ההשוואות המוביל בישראל לחברות מימון לסוחרים 2026 – ניתוחים אישיים, קודי הנחה בלעדיים ותוכן מקצועי מאת נועם
+          ענתר.
+        </p>
+        <h2>השוואת חברות ומבצעים</h2>
+        <ul>
+          <li>
+            <a href="/comparison">השוואת חברות מימון ונוסטרו</a> – מחירים, חוקים ותנאי משיכה של כל החברות בטבלה אחת.
+          </li>
+          <li><a href="/promotions">מבצעים וקודי הנחה</a> – כל המבצעים הפעילים וקוד ההנחה ANTAR.</li>
+          <li><a href="/matching-quiz">שאלון התאמה</a> – איזו חברת מימון מתאימה לך.</li>
+          <li><a href="/comparison/head-to-head">דו-קרב חברות</a> – שתי חברות ראש בראש.</li>
+        </ul>
+        <h2>חברות מימון</h2>
+        <ul>
+          <li><a href="/take-profit">טייק פרופיט (TakeProfit Trader)</a> – סקירה, חוקים, משיכות וקוד הנחה.</li>
+          <li><a href="/lucid">לוסיד טריידינג (Lucid Trading)</a> – סקירה, מסלולים, חוקים וקוד הנחה.</li>
+          <li><a href="/apex">אפקס (Apex Trader Funding)</a> – סקירה, חוקים וקוד הנחה.</li>
+          <li><a href="/top-step">טופסטפ (TopStep)</a> – סקירה, חשבונות, חוקים ומשיכות.</li>
+          <li><a href="/bulenox">בולנוקס (Bulenox)</a> – סקירה, חשבונות, חוקים וקוד הנחה.</li>
+          <li><a href="/funded-next">פאנדד נקסט (FundedNext Futures)</a> – סקירה, חשבונות, חוקים ומבצעים.</li>
+          <li><a href="/ftmo">FTMO Futures</a> – סקירה, חוקים, מחירים ומשיכות.</li>
+        </ul>
+        <h2>האקדמיה</h2>
+        <ul>
+          <li><a href="/academy">האקדמיה של AntarTrade</a> – קורסים, סרטונים, מאמרים וכלים למסחר בעברית.</li>
+          <li><a href="/blog/tik-nostro">מה זה תיק נוסטרו</a> – המדריך המלא לסחור על הון של חברות מימון.</li>
+          <li><a href="/blog">מאמרים ומדריכים</a></li>
+          <li><a href="/calculators">מחשבונים לסוחרים</a></li>
+          <li><a href="/academy/glossary">מילון מושגים</a></li>
+          <li><a href="/economic-calendar">יומן הודעות כלכליות</a></li>
+          <li><a href="/courses">קורסים</a></li>
+        </ul>
+        <h2>פלטפורמות וכלים</h2>
+        <ul>
+          <li><a href="/platforms">כל הפלטפורמות והכלים</a></li>
+          <li><a href="/ninjatrader-guide">NinjaTrader</a></li>
+          <li><a href="/atas-guide">ATAS</a></li>
+          <li><a href="/bookmap-guide">Bookmap</a></li>
+          <li><a href="/tradezella-guide">TradeZella</a></li>
+        </ul>
+        <h2>מידע נוסף</h2>
+        <ul>
+          <li><a href="/about">אודות נועם ענתר</a></li>
+          <li><a href="/faq">שאלות ותשובות</a></li>
+          <li><a href="/contact">צור קשר</a></li>
+        </ul>
+      </div>
+    </noscript>
+    <div id="root">
+      <style>html:has(.pr-body),body:has(.pr-body){background:#12161f;overflow-x:hidden}.pr-body{max-width:860px;margin:0 auto;padding:120px 20px 64px;box-sizing:border-box;color:#e8eef5;line-height:1.7;font-size:18px;direction:rtl;text-align:right;overflow-wrap:anywhere}.pr-body h1,.pr-body h2,.pr-body h3{color:inherit}.pr-body h1{font-size:40px;line-height:1.15;margin:16px 0}.pr-body h2{font-size:28px;margin:40px 0 12px}.pr-body h3{font-size:21px;margin:24px 0 8px}.pr-body a{color:#7dc6ff}.pr-body img{max-width:100%;height:auto}.pr-body table{border-collapse:collapse;display:block;max-width:100%;overflow-x:auto}.pr-body td,.pr-body th{border:1px solid #33415a;padding:6px 10px}.pr-body nav{font-size:15px;color:#9fb0c6}.pr-body dt{font-weight:700;margin-top:16px}.pr-body dd{margin:4px 0 0}</style><article class="pr-body"><nav aria-label="פירורי לחם"><a href="/">דף הבית</a> / <a href="/blog">בלוג</a> / מדריך TradingView בעברית: איך משתמשים בטריידינג ויו, אזור אחרי אזור</nav><h1>מדריך TradingView בעברית: איך משתמשים בטריידינג ויו, אזור אחרי אזור</h1><p>נכתב על ידי <a href="/about">נועם ענתר</a>, סוחר חוזים עתידיים ומייסד AntarTrade</p>
+<p class="lead"><span class="en">TradingView</span> (טריידינג ויו) היא תוכנת הגרפים הכי פופולרית בעולם, ולדעתי גם הכי טובה. יש בה הכול: גרפים, אינדיקטורים, רשימות מעקב, התראות, נתונים פונדמנטליים, חשבון דמו ואפילו מסחר. במדריך הזה אעבור איתכם על התוכנה לפי אזורים במסך: הצד הימני, הסרגל העליון, סרגל הכלים השמאלי והחלק התחתון. ככה תדעו בדיוק איפה נמצא כל דבר.</p>
+
+<div class="video" data-embed="vimeo"><iframe src="https://player.vimeo.com/video/1077207443?badge=0&autopause=0" title="מדריך לטריידינג וויו" loading="lazy" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" allowfullscreen></iframe></div>
+
+<div class="box"><strong>🎬 מעדיפים בווידאו?</strong>זה סרטון ההדרכה המלא שלי (29 דקות), וכל מה שבמדריך הכתוב מופיע בו. למטה הכול מסודר לפי אזורי המסך, עם צילומי מסך. המסלולים, החיבור של חשבון מחברת מימון והשאלות הנפוצות נמצאים ב<a href="/tradingview-guide">עמוד TradingView באתר</a>.</div>
+
+<h2>הרשמה: חינם או בתשלום?</h2>
+<p>אני אישית ממליץ להיות מנוי, אבל זו לא חובה. <strong>יש גרסה חינמית,</strong> פשוט חסרים בה הרבה דברים, ויש בה המון פרסומות שמאוד מעצבנות. אפשר להתחיל בחינם, ואם תראו שאתם בתחום ואוהבים את זה, לשדרג.</p>
+<ul>
+<li>נכנסים דרך <a href="https://il.tradingview.com/pricing/?aff_id=164368" target="_blank" rel="noopener sponsored">קישור ההרשמה שלנו</a>, לוחצים על הצטרפות ונרשמים, למשל עם מייל. מגיע מייל עם קישור לאימות החשבון.</li>
+<li>בוחרים מסלול. במסלולים בתשלום יש <strong>ניסיון של 30 יום.</strong> צריך להכניס טלפון ופרטי אשראי, ואם בסוף לא רוצים לשלם, מבטלים לפני החיוב.</li>
+<li>אחרי ההתחברות, יורדים למטה בעמוד הראשי ולוחצים על הכפתור שפותח <strong>גרף במסך מלא.</strong> משם מתחיל כל מה שבמדריך.</li>
+</ul>
+<div class="box tool"><strong>🎁 הטבה למי שנרשם דרכנו</strong>מי שנרשם דרך <a href="https://il.tradingview.com/pricing/?aff_id=164368" target="_blank" rel="noopener sponsored">הקישור שלנו</a> מקבל <strong>15 דולר הנחה על התוכנית הבאה,</strong> אחרי הקנייה הראשונה. ההנחה לא חלה על הקנייה הראשונה עצמה. ואם הקנייה נעשית דרך הקישור, זה גם תומך באתר, בלי עלות נוספת בשבילכם.<a class="btn" href="https://il.tradingview.com/pricing/?aff_id=164368" target="_blank" rel="noopener sponsored">להרשמה ל-TradingView</a></div>
+
+<h2>הגדרות ראשונות: תפריט הפרופיל</h2>
+<p>בפינה השמאלית העליונה יש עיגול עם האות הראשונה של השם שלכם. לוחצים עליו, ושם שלוש הגדרות שכדאי לסדר כבר בהתחלה:</p>
+<ul>
+<li><strong>מצב כהה:</strong> כהה או בהיר, מה שנוח לכם. אני אישית אוהב כהה.</li>
+<li><strong>לוח שרטוטים:</strong> להציג או להסתיר אותו.</li>
+<li><strong>שפה:</strong> אפשר לבחור עברית. כל המדריך הזה מצולם בעברית.</li>
+</ul>
+<figure><img src="/blog/tradingview/tv-profile-menu.jpg" alt="תפריט הפרופיל בטריידינג ויו: מצב כהה, לוח שרטוטים ושפה" loading="lazy" /></figure>
+
+<h3>איך מחפשים מניה או חוזה</h3>
+<p>בשורת החיפוש בסרגל העליון רושמים את מה שמחפשים, למשל טסלה. יש גם דרך מהירה יותר: <strong>פשוט עומדים על הגרף ומתחילים להקליד,</strong> למשל "אפל". חלון החיפוש נפתח לבד, ולא צריך ללחוץ על שום דבר.</p>
+
+<h2>הצד הימני: רשימת מעקב, נתונים והתראות</h2>
+<h3>רשימת מעקב (<span class="en">Watchlist</span>)</h3>
+<p>בסרגל האייקונים הימני פותחים את רשימת המעקב, ויוצרים רשימה חדשה עם שם משלכם. מוסיפים סימבולים בלחיצה על <strong>הוסף סימול</strong>, חיפוש ולחיצה על הפלוס.</p>
+<p>כדי לעשות סדר, מוסיפים <strong>מקטעים</strong> ונותנים להם שמות: למשל מקטע "טכנולוגיה" עם אפל, מקטע "שבבים" עם אינטל ואנבידיה, ומקטע "חברות תעופה" עם אמריקן איירליינס. ליד כל סימבול רואים מחיר אחרון, שינוי ושינוי באחוזים. בשלוש הנקודות אפשר לבחור עמודות נוספות, כמו ווליום.</p>
+<figure><img src="/blog/tradingview/tv-watchlist.jpg" alt="רשימת מעקב בטריידינג ויו עם מקטעים: טכנולוגיה ושבבים" loading="lazy" /></figure>
+
+<h3>נתונים פונדמנטליים</h3>
+<p>כשעומדים על סימבול ברשימה, אפשר למשוך את החלק התחתון של הפאנל למעלה, ולראות <a href="/blog/technical-vs-fundamental-analysis">נתונים פונדמנטליים</a>: הכנסות, רווחים, דיבידנדים, דוחות וסטטיסטיקות. בלחיצה על "עוד מידע" מקבלים תמונה מלאה על החברה. אם זה לא מעניין אתכם, פשוט מורידים את זה למטה, וזה מתחבא.</p>
+<figure><img src="/blog/tradingview/tv-fundamentals.jpg" alt="נתונים פונדמנטליים על מניית אינטל בפאנל הימני של טריידינג ויו" loading="lazy" /></figure>
+
+<h3>התראות (<span class="en">Alerts</span>)</h3>
+<p>האייקון של השעון המעורר בצד הימני מציג את כל ההתראות שלכם. הדרך הכי מהירה להוסיף התראה: עומדים עם העכבר על המחיר שרוצים, למשל 22, לוחצים על <strong>הפלוס שליד סקאלת המחיר,</strong> ובוחרים "הוסף התראה".</p>
+<p>בלחיצה כפולה על ההתראה בוחרים את התנאי: המחיר (או ממוצע נע, או כל דבר אחר) חוצה כלפי מעלה, כלפי מטה, נכנס לטווח וכן הלאה. אפשר לבחור אם ההתראה תופעל <strong>פעם אחת או בכל פעם</strong> שזה קורה, ואיך לקבל אותה: מייל, צליל או הודעה באפליקציה. התראה שכבר לא צריכים, פשוט מוחקים.</p>
+<figure><img src="/blog/tradingview/tv-alert.jpg" alt="חלון עריכת התראה בטריידינג ויו: בחירת תנאי כמו חוצה, חוצה כלפי מעלה או נכנס לטווח" loading="lazy" /></figure>
+
+<h2>הסרגל העליון</h2>
+<h3>שיתוף, צילום מסך ומסך מלא</h3>
+<ul>
+<li><strong>פרסום רעיון:</strong> אם ניתחתם משהו מיוחד, אפשר לפרסם אותו לקהילה.</li>
+<li><strong>צילום מסך (המצלמה):</strong> הורדה כתמונה, העתקת התמונה, העתקת קישור, או ציוץ ישר ל-<span class="en">X</span>. נוח כשרוצים לשלוח למישהו ניתוח.</li>
+<li><strong>מסך מלא:</strong> מגדיל ומקטין את המסך.</li>
+</ul>
+
+<h3>הגדרות הגרף</h3>
+<p>מגיעים להגדרות מהגלגל בסרגל, או בדרך מהירה יותר: <strong>לחיצה כפולה על הנרות.</strong> מה כדאי להכיר שם:</p>
+<ul>
+<li><strong>צבעי הנרות:</strong> לא חייב אדום וירוק. אפשר שחור ולבן, כחול, צהוב, מה שבא לכם.</li>
+<li><strong>שעות מסחר:</strong> רגילות, או מורחבות, כלומר כולל הפרי-מרקט והאפטר-מרקט.</li>
+<li><strong>סימן מים:</strong> הכיתוב הגדול ברקע, למשל "INTC, 5". אפשר להוריד אותו או לשנות לו שקיפות.</li>
+<li><strong>תבנית:</strong> למטה בחלון אפשר לשמור את ההגדרות שלכם בשם, או לחזור לברירת המחדל.</li>
+</ul>
+<figure><img src="/blog/tradingview/tv-chart-settings.jpg" alt="הגדרות הגרף בטריידינג ויו: צבעי גוף, גבולות ופתילים של הנרות, ושעות מסחר" loading="lazy" /></figure>
+<figure><img src="/blog/tradingview/tv-settings-appearance.jpg" alt="הגדרות מראה בטריידינג ויו: רקע, קווי רשת וסימן מים" loading="lazy" /></figure>
+
+<h3>שמירה אוטומטית ופריסה של כמה גרפים</h3>
+<p>אפשר לבחור שהתוכנה <strong>תשמור אוטומטית</strong> כל שינוי שאתם עושים בגרף. בכפתור הפריסה מחלקים את המסך לכמה גרפים, למשל אינטל משמאל ואנבידיה מימין, שתי חברות מאותו סקטור, כדי להשוות ביניהן. יש הרבה סוגי פריסות, ובכל אחת אפשר להוסיף עוד גרפים.</p>
+
+<h3>הפעלה חוזרת (<span class="en">Replay</span>): לתרגל על העבר</h3>
+<p>זה אחד הכלים הכי שימושיים לתרגול. לוחצים על <strong>הפעלה חוזרת,</strong> בוחרים נקודה בעבר, והגרף "נמחק" מאותה נקודה. עכשיו אפשר להתקדם נר אחרי נר ולבדוק מה חשבתם שיקרה, או ללחוץ <span class="en">Play</span> ולתת לו לרוץ לבד, במהירות שבוחרים (פי 3, פי 5, פי 7).</p>
+<p>הכי טוב: בזמן ההפעלה החוזרת אפשר גם <strong>לקנות ולמכור.</strong> בוחרים כמות, לוחצים קנייה (או מכירה לשורט), מציבים סטופ ויעד, ורואים את הרווח וההפסד בזמן אמת, כאילו זה קורה עכשיו. ככה עושים <a href="/academy/glossary#market-replay">בקטסט ידני</a>. כדי לצאת מההפעלה החוזרת לוחצים על ה-<span class="en">X</span>, והגרף חוזר להווה.</p>
+<figure><img src="/blog/tradingview/tv-layout-replay.jpg" alt="פריסה של שני גרפים בטריידינג ויו, אינטל ואנבידיה, עם הפעלה חוזרת" loading="lazy" /></figure>
+
+<h3>אינדיקטורים</h3>
+<p>בכפתור האינדיקטורים מחפשים את מה שרוצים, למשל <span class="en">EMA 20</span> או ווליום, ולוחצים כדי להוסיף לגרף. אינדיקטור שאתם משתמשים בו הרבה, מסמנים <strong>בכוכב,</strong> והוא יופיע במועדפים. יש גם <strong>תבניות אינדיקטורים,</strong> כדי לשמור קבוצה של אינדיקטורים שאתם אוהבים.</p>
+<figure><img src="/blog/tradingview/tv-indicators.jpg" alt="חלון האינדיקטורים בטריידינג ויו עם רשימת המועדפים" loading="lazy" /></figure>
+<p>יש אינדיקטורים שמופיעים בחלון נפרד מתחת לגרף, כמו <span class="en">MFI</span>, ואותם מוחקים מלמטה. ויש כאלה שמופיעים על הגרף עצמו, כמו ממוצעים נעים, ואז הם רשומים בפינה השמאלית העליונה. ליד כל אחד יש <strong>עין</strong> להסתרה, הגדרות (או לחיצה כפולה על האינדיקטור) ומחיקה. טיפ: אינדיקטור שאתם לא צריכים כרגע אבל משתמשים בו הרבה, עדיף להסתיר ולא למחוק. ככה הוא נשאר זמין.</p>
+<figure><img src="/blog/tradingview/tv-indicator-legend.jpg" alt="רשימת האינדיקטורים על הגרף בטריידינג ויו, עם כפתורי הסתרה, הגדרות ומחיקה" loading="lazy" /></figure>
+
+<h3>סוג הגרף, טווחי זמן ותזוזה על הגרף</h3>
+<ul>
+<li><strong>סוג הגרף:</strong> קו, נרות ועוד. אני משתמש בעיקר בגרף קו ובגרף <a href="/academy/glossary#candlestick-chart">נרות</a>.</li>
+<li><strong>טווח זמן (אינטרוול):</strong> כמה זמן מייצג כל נר: דקה, 5 דקות, 30 דקות, שעה, יום.</li>
+<li><strong>תזוזה:</strong> גוררים את הגרף עם העכבר, ומותחים את הסקאלות של הזמן (למטה) ושל המחיר (בצד). אם הכול התבלגן, <strong>לחיצה כפולה על סקאלת המחיר</strong> מחזירה את הגרף למצב רגיל.</li>
+</ul>
+
+<h3>השוואה בין שני סימבולים</h3>
+<p>בכפתור ההשוואה (הפלוס) מוסיפים סימבול נוסף לאותו גרף. למשל, משווים את החוזה של ה-<span class="en">S&amp;P 500</span> (<span class="en">ES</span>) לחוזה של הנאסד"ק (<span class="en">NQ</span>). כדאי להעביר לגרף קו כדי שיהיה נוח. בתקופה שבצילום, הנאסד"ק ירד 6.73% וה-<span class="en">ES</span> ירד 5.73%, כלומר ה-<span class="en">ES</span> היה חזק יותר. המספרים משתנים לפי התקופה שמוצגת על המסך. בלחיצה ימנית על הסקאלה אפשר לבחור תצוגה באחוזים, צמוד ל-100 או לוגריתמית. על ההבדלים בין שני החוזים האלה כתבתי במאמר <a href="/blog/tik-nostro">מה זה תיק נוסטרו</a>.</p>
+<figure><img src="/blog/tradingview/tv-compare.jpg" alt="השוואה בין חוזה ה-ES לחוזה ה-NQ בטריידינג ויו, בגרף קו באחוזים" loading="lazy" /></figure>
+
+<h2>סרגל הכלים השמאלי: כלי ציור ותכנון עסקאות</h2>
+<h3>סמן העכבר</h3>
+<p>הכלי הראשון בסרגל הוא סוג הסמן: צלב, נקודה, או <strong>הדגמה.</strong> אני אוהב את ההדגמה: מחזיקים את <span class="en">Alt</span> במקלדת ומציירים על הגרף, וברגע שעוזבים, הציור נמחק לבד. מצוין כשמסבירים למישהו משהו על הגרף.</p>
+
+<h3>קווים, מגנט ומועדפים</h3>
+<p>בכלי הקווים יש <a href="/academy/glossary#trendline">קו מגמה</a>, קרן, קו אופקי, ערוץ מקביל ועוד. מותחים קו מנקודה לנקודה.</p>
+<ul>
+<li><strong>מגנט:</strong> מצמיד את הקו לנקודות הפתיחה, הסגירה והקיצון של הנרות. אני לא אוהב את זה, אני מעדיף יד חופשית, אבל שתדעו שזה קיים.</li>
+<li><strong>מועדפים:</strong> כל כלי שאתם אוהבים, מסמנים בכוכב, והוא מתווסף לסרגל מועדפים קטן. את הסרגל הזה אפשר לגרור לאן שרוצים על הגרף, וככה הכלים שלכם תמיד בשלוף.</li>
+</ul>
+<figure><img src="/blog/tradingview/tv-lines-menu.jpg" alt="תפריט הקווים בסרגל הכלים של טריידינג ויו: קו מגמה, קרן, קו אופקי וערוצים" loading="lazy" /></figure>
+<p>בהמשך הסרגל יש עוד כלים, כמו <strong>פיבונאצ'י,</strong> ותבניות כמו ראש וכתפיים, גלי אליוט ומחזורים. עברו עליהם ותראו מה אתם מכירים. כדי למחוק את כל השרטוטים בבת אחת, לוחצים על <strong>הפח</strong> בתחתית הסרגל, ובוחרים אם למחוק את השרטוטים, את האינדיקטורים או את שניהם.</p>
+<figure><img src="/blog/tradingview/tv-fib.jpg" alt="קווי מגמה ופיבונאצ'י על גרף החוזה של ה-S&amp;P 500 בטריידינג ויו" loading="lazy" /></figure>
+
+<h3>עסקת לונג ועסקת שורט: הכלי שמחשב לכם כמות</h3>
+<p>זה כלי מאוד מאוד חשוב. בתפריט "כלי חיזוי ומדידה" יש <strong>עסקת לונג</strong> ו<strong>עסקת שורט.</strong> מסמנים על הגרף את הכניסה, איפה יהיה הסטופ ואיפה היעד, והכלי מראה כמה נקודות (או דולרים) יש ליעד ולסטופ, ואת <a href="/academy/glossary#risk-reward-ratio">יחס הסיכוי-סיכון</a>.</p>
+<figure><img src="/blog/tradingview/tv-tools-menu.jpg" alt="תפריט כלי חיזוי ומדידה בטריידינג ויו: עסקת לונג, עסקת שורט ופרופיל ווליום" loading="lazy" /></figure>
+<p>החלק הכי שימושי: בלחיצה כפולה על הכלי מגדירים <strong>גודל חשבון וכמה אתם רוצים לסכן,</strong> בדולרים או באחוזים מהתיק. למשל, לסכן 500 דולר בעסקה. הכלי מחשב לבד <strong>כמה לקנות</strong> לפי מרחק הסטופ. כשמזיזים את הסטופ, הכמות משתנה: סטופ רחוק יותר, פחות יחידות. ככה תמיד מפסידים בסטופ בדיוק את הסכום שתכננתם.</p>
+<figure><img src="/blog/tradingview/tv-position-settings.jpg" alt="הגדרות עסקת לונג בטריידינג ויו: גודל חשבון, סיכון בדולרים, מחיר כניסה, רמת רווח ורמת סטופ" loading="lazy" /></figure>
+<p>אגב, עדיף שתלמדו לחשב את זה גם לבד, וזה בדיוק מה שעושה <a href="/calculators/position-size">מחשבון גודל הפוזיציה</a> באתר. וכאן הכלי הזה מתחבר מצוין להפעלה חוזרת: מסמנים עסקה, מכניסים את הכמות שהכלי נתן, ונותנים לגרף לרוץ ולבדוק מה היה קורה.</p>
+<figure><img src="/blog/tradingview/tv-replay-trade.jpg" alt="עסקת לונג מסומנת על הגרף בזמן הפעלה חוזרת בטריידינג ויו, עם כפתורי קנייה ומכירה בתחתית" loading="lazy" /></figure>
+
+<h3>חצים, צורות, טקסט ותבניות</h3>
+<p>יש אינסוף דברים לסמן: חצים, מלבן, משולש, אליפסה ו<strong>נתיב</strong> (מסמנים נקודה אחרי נקודה, ולחיצה כפולה מסיימת). אפשר להוסיף טקסט והערות, ולשנות לכל צורה צבע, גודל ומסגרת בלחיצה כפולה.</p>
+<p><strong>טיפ שאני משתמש בו:</strong> אני מסמן גאפים במלבן עם טקסט "גאפ". אחרי שעיצבתי אותו פעם אחת, אני שומר אותו <strong>כתבנית</strong> ("שמור בשם" בחלון ההגדרות). בפעם הבאה מסמנים מלבן, בוחרים את התבנית, והעיצוב מגיע אוטומטית. באותו חלון יש גם <strong>הרחב ימינה,</strong> שמותח את המלבן עד המחיר הנוכחי.</p>
+<figure><img src="/blog/tradingview/tv-shape-settings.jpg" alt="חלון הגדרות של מלבן בטריידינג ויו: צבע גבול ורקע, הרחב ימינה ושמירה כתבנית" loading="lazy" /></figure>
+<figure><img src="/blog/tradingview/tv-drawings.jpg" alt="דוגמה לשרטוטים על הגרף בטריידינג ויו: חץ, נתיב, מלבנים עם טקסט ועסקה מסומנת" loading="lazy" /></figure>
+<ul>
+<li><strong>אימוג'ים:</strong> אפשר להוסיף גם, למי שרוצה.</li>
+<li><strong>סרגל מדידה:</strong> מודד כמה המחיר זז, באחוזים, בנרות ובזמן. קיצור: מחזיקים <span class="en">Shift</span> וגוררים על הגרף.</li>
+<li><strong>זכוכית מגדלת:</strong> לזום על אזור מסוים.</li>
+</ul>
+
+<h2>החלק התחתון: סורק, אסטרטגיות וחשבון דמו</h2>
+<h3>סורק מניות</h3>
+<p>בתחתית המסך יש <strong>סורק מניות.</strong> אם הוא נפתח נמוך מדי, מושכים אותו למעלה. אפשר לסנן כמעט לפי כל דבר, למשל מניות לפי ביצועים בחצי השנה האחרונה, או דיבידנדים. הסורק ברמה מאוד גבוהה, אבל אני אישית יותר משתמש בסורקים של <span class="en">Finviz</span>.</p>
+<figure><img src="/blog/tradingview/tv-screener.jpg" alt="סורק המניות בתחתית המסך של טריידינג ויו" loading="lazy" /></figure>
+
+<h3>עורך <span class="en">Pine</span> ופאנל הפעלה חוזרת</h3>
+<p>בעורך ה-<span class="en">Pine</span> בונים אינדיקטורים ואסטרטגיות בקוד, ובוחנים אסטרטגיה על העבר בצורה אוטומטית, בלי לעבור נר אחרי נר. ופאנל ההפעלה החוזרת הוא אותו כלי שראינו קודם בסרגל העליון.</p>
+
+<h3>לוח מסחר וחשבון דמו (<span class="en">Paper Trading</span>)</h3>
+<p>בלוח המסחר מתחברים לברוקר, למשל <span class="en">Interactive Brokers</span>, וסוחרים ישר מהגרף. יש שם רשימה של כל הברוקרים שעובדים עם TradingView. מי שסוחר בחשבון של חברת מימון, יכול להתחבר דרך <span class="en">Tradovate</span>. הסבר מלא על זה יש ב<a href="/tradingview-guide">עמוד TradingView</a>.</p>
+<p>ויש גם <strong>חשבון דמו,</strong> שחשוב מאוד לתרגול. לוחצים על <span class="en">Paper Trading</span> ויוצרים חשבון חדש:</p>
+<ol>
+<li>נותנים לו שם, למשל "הדרכה".</li>
+<li>בוחרים כמה כסף יהיה בו. <strong>אני ממליץ על סכום אמיתי למה שיש לכם.</strong> אם אתם מתכננים לעבוד עם 10,000 דולר, פתחו חשבון של 10,000.</li>
+<li>אפשר לבחור שהוא יחשב גם עמלות, כדי שיהיה מציאותי.</li>
+</ol>
+<p>בחשבון רואים את היתרה, רווח והפסד ממומש ולא ממומש (כלומר כמה כבר סגרתם, וכמה עדיין פתוח בתוך עסקה), מרג'ין, את כל הפקודות, ההיסטוריה ויומן המסחר. ואם הפסדתם ורוצים להתחיל מחדש, מאפסים את החשבון בהגדרות.</p>
+<figure><img src="/blog/tradingview/tv-paper-account.jpg" alt="חשבון דמו בלוח המסחר של טריידינג ויו: יתרה, רווח והפסד ממומש ולא ממומש, ופוזיציות" loading="lazy" /></figure>
+
+<h3>איך שמים פקודה בדמו, עם סטופ ויעד</h3>
+<p>לוחצים על הפלוס שליד סקאלת המחיר, בגובה שרוצים, ובוחרים פקודת קנייה. בוחרים כמות, מציבים סטופ ויעד, והחלון מראה <strong>כמה תפסידו אם הסטופ ייתפס, וכמה תרוויחו ביעד.</strong> אפשר גם לקנות ולמכור מכפתורי הקנייה והמכירה למעלה, אבל לי יותר נוח עם הפלוס. על סוגי הפקודות עצמן, מרקט, לימיט וסטופ, כתבתי במאמר <a href="/blog/order-types">סוגי פקודות מסחר</a>.</p>
+<p><strong>ככה אני משלב את הכלים:</strong> בחשבון של 10,000 דולר אני לא רוצה להפסיד יותר מ-300 דולר בעסקה. אני מסמן את העסקה בכלי של עסקת הלונג, עם סיכון של 300 דולר, והוא אומר לי לקנות 172 יחידות. עכשיו אני שם פקודה בדמו עם אותה כמות, אותו סטופ ואותו יעד. אם הסטופ ייתפס, אפסיד 300 דולר בדיוק כמו שתכננתי.</p>
+<figure><img src="/blog/tradingview/tv-demo-order.jpg" alt="פקודה בחשבון הדמו של טריידינג ויו עם סטופ ויעד, מעל עסקת לונג מסומנת" loading="lazy" /></figure>
+<p>תתרגלו בדמו, ותיקחו את זה ברצינות. זה הכלי הכי טוב שיש כדי ללמוד מסחר בלי לסכן כסף.</p>
+
+<div class="cta"><h2>מה הלאה?</h2><p>עוד לא נרשמתם? דרך <a href="https://il.tradingview.com/pricing/?aff_id=164368" target="_blank" rel="noopener sponsored">הקישור שלנו</a> מקבלים 15 דולר הנחה על התוכנית הבאה, אחרי הקנייה הראשונה. את סרטון ההדרכה המלא, המסלולים והחיבור לחברות מימון תמצאו ב<a href="/tradingview-guide">עמוד TradingView</a>. ומי שמתחיל מאפס, יכול ללמוד את הבסיס ב<a href="/free-course">קורס המבוא החינמי</a>: נרות, <a href="/blog/long-short">לונג ושורט</a> ופקודות מסחר.</p></div>
+</article>
+    </div>
+  </body>
+</html>
