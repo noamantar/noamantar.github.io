@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Microsoft Clarity מנוהל דרך שכבת המדידה המרכזית (src/lib/analytics/clarity.ts) ונטען רק לאחר הסכמה -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" sizes="any" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>התקנת טמפלייט ו-Workspace ב-ATAS צעד אחר צעד | AntarTrade</title>
+    <meta data-rh="true" name="description" content="מדריך התקנה עם צילומי מסך לטמפלייט ול-Workspace של AntarTrade ב-ATAS: חילוץ ה-ZIP, ייבוא בכפתור Import, טעינת ה-Workspace לשני מסכים, והורדה חינמית.">
+
+    <!-- Open Graph Meta Tags -->
+    <meta data-rh="true" property="og:title" content="התקנת טמפלייט ו-Workspace ב-ATAS צעד אחר צעד | AntarTrade">
+    <meta data-rh="true" property="og:description" content="מדריך התקנה עם צילומי מסך לטמפלייט ול-Workspace של AntarTrade ב-ATAS: חילוץ ה-ZIP, ייבוא בכפתור Import, טעינת ה-Workspace לשני מסכים, והורדה חינמית.">
+    <meta data-rh="true" property="og:image" content="https://antartrade.co.il/images/blog/covers/atas-template-install.webp">
+    
+    
+    <meta data-rh="true" property="og:image:alt" content="גרף NQ ב-ATAS עם הטמפלייט של AntarTrade">
+    <meta data-rh="true" property="og:type" content="website" />
+    <meta data-rh="true" property="og:site_name" content="AntarTrade" />
+    <meta data-rh="true" property="og:locale" content="he_IL" />
+
+    <!-- Twitter Cards Meta Tags -->
+    <meta data-rh="true" name="twitter:card" content="summary_large_image" />
+    <meta data-rh="true" name="twitter:title" content="התקנת טמפלייט ו-Workspace ב-ATAS צעד אחר צעד | AntarTrade">
+    <meta data-rh="true" name="twitter:description" content="מדריך התקנה עם צילומי מסך לטמפלייט ול-Workspace של AntarTrade ב-ATAS: חילוץ ה-ZIP, ייבוא בכפתור Import, טעינת ה-Workspace לשני מסכים, והורדה חינמית.">
+    <meta data-rh="true" name="twitter:image" content="https://antartrade.co.il/images/blog/covers/atas-template-install.webp">
+    <meta data-rh="true" name="twitter:image:alt" content="גרף NQ ב-ATAS עם הטמפלייט של AntarTrade">
+
+    <!-- Additional Meta Tags -->
+    <meta name="author" content="AntarTrade" />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://i.ytimg.com" crossorigin />
+    <link rel="dns-prefetch" href="https://img.youtube.com" />
+    <link rel="dns-prefetch" href="https://www.youtube.com" />
+    <!-- Heebo is only the fallback behind Fb Reforma (and swaps in anyway), so it loads without holding up the first paint -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" rel="stylesheet" /></noscript>
+    <!-- the design's own font (base.css), fetched with the page instead of after the code runs -->
+    <link rel="preload" as="font" type="font/woff2" href="/home-new/fonts/FbReforma-Regular.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/home-new/fonts/FbReforma-Medium.woff2" crossorigin />
+    <!-- Critical inline CSS for instant LCP paint of hero H1 (replaced by React on hydration).
+         It draws the new homepage hero's first frame (dark ground, the same title in the same place), so the page doesn't flash another design. -->
+    <style>
+      html,body{margin:0;padding:0;background:#12161f;font-family:"Fb Reforma",Heebo,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+      #root{min-height:100vh}
+      .lcp-hero{position:relative;min-height:100vh;box-sizing:border-box;background:#12161f;padding:92px 16px 64px;text-align:right;direction:rtl;overflow:hidden}
+      .lcp-hero-inner{width:min(1171px,100%);margin:0 auto}
+      .lcp-hero h1{margin:0;font-weight:400;max-width:310px;background:linear-gradient(90deg,#61b1f2 0%,#fff 78.365%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+      .lcp-hero h1 .lcp-line{display:block;font-size:44px;line-height:1.05}
+      .lcp-hero h1 .lcp-sub{font-size:28px;line-height:1.3;margin-top:6px}
+      @media(min-width:761px){.lcp-hero{padding-top:92px}.lcp-hero h1{max-width:560px}.lcp-hero h1 .lcp-line{font-size:74px;line-height:.92}.lcp-hero h1 .lcp-sub{font-size:44px;line-height:1.1;margin-top:14px}}
+      html.no-lcp-hero .lcp-hero{display:none}
+    </style>
+    <script>
+      (function(){
+        var p = location.pathname;
+        if (p !== '/' && p !== '/index.html') {
+          document.documentElement.classList.add('no-lcp-hero');
+        }
+        // a foreign address with no prerendered file of its own (a 404, a page not translated yet) gets
+        // this Hebrew file: it reads left to right, without the Hebrew homepage title, from the first paint.
+        // The languages are FOREIGN_LOCALES in src/i18n/config.ts (the i18n test keeps them equal).
+        var foreign = p.match(/^\/(en)(\/|$)/);
+        if (foreign && document.documentElement.lang === 'he') {
+          document.documentElement.lang = foreign[1];
+          document.documentElement.dir = 'ltr';
+          document.title = 'AntarTrade';
+        }
+      })();
+    </script>
+    <!-- Stale-deploy recovery: if hashed JS chunks referenced by a cached index.html
+         are gone (404 / "Importing a module script failed"), reload once bypassing cache. -->
+    <script>
+      (function(){
+        var KEY = '__chunk_reload_at';
+        function reloadOnce(){
+          try {
+            var last = Number(sessionStorage.getItem(KEY) || 0);
+            if (Date.now() - last < 20000) return; // avoid reload loops
+            sessionStorage.setItem(KEY, String(Date.now()));
+          } catch(e){}
+          var u = location.pathname + (location.search ? location.search + '&' : '?') + '_r=' + Date.now() + location.hash;
+          location.replace(u);
+        }
+        // Resource-level failures (module script / preload) bubble only in capture phase
+        window.addEventListener('error', function(e){
+          var t = e && e.target;
+          if (t && t !== window && (t.tagName === 'SCRIPT' || t.tagName === 'LINK')) { reloadOnce(); return; }
+          var m = e && e.message;
+          if (m && (m.indexOf('Importing a module script failed') > -1 ||
+                    m.indexOf('Failed to fetch dynamically imported module') > -1 ||
+                    m.indexOf('error loading dynamically imported module') > -1)) reloadOnce();
+        }, true);
+        window.addEventListener('unhandledrejection', function(e){
+          var m = e && e.reason && (e.reason.message || String(e.reason));
+          if (m && (m.indexOf('Importing a module script failed') > -1 ||
+                    m.indexOf('Failed to fetch dynamically imported module') > -1 ||
+                    m.indexOf('error loading dynamically imported module') > -1)) reloadOnce();
+        });
+      })();
+    </script>
+
+    <!-- Meta Pixel מנוהל כעת דרך שכבת המדידה המרכזית (src/lib/analytics) ונטען רק לאחר הסכמה -->
+    <script type="module" crossorigin src="/assets/index-D68BnfkV.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-vendor-xAhqJu7B.js">
+    <link rel="modulepreload" crossorigin href="/assets/query-vendor-iefLz-8z.js">
+    <link rel="modulepreload" crossorigin href="/assets/supabase-vendor-DW0Ocl7u.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-DgFdmHIc.css">
+    <link rel="modulepreload" crossorigin href="/assets/HomeNew-Xdkb300-.js">
+    <link rel="modulepreload" crossorigin href="/assets/SEOHead-C6MhvbBM.js">
+    <link rel="modulepreload" crossorigin href="/assets/Community-CGqn3zcE.js">
+    <link rel="modulepreload" crossorigin href="/assets/Slots-g77hvavO.js">
+    <link rel="modulepreload" crossorigin href="/assets/useCanonicalComparison-82hVbQZH.js">
+    <link rel="modulepreload" crossorigin href="/assets/fetch-CH1GdQpR.js">
+    <link rel="modulepreload" crossorigin href="/assets/canonicalRules-yhGyuGJm.js">
+    <link rel="modulepreload" crossorigin href="/assets/products-WejJvjdw.js">
+    <link rel="modulepreload" crossorigin href="/assets/evaluationCardStandard-tKfyyGpX.js">
+    <link rel="modulepreload" crossorigin href="/assets/companySummary-C7i5WxdK.js">
+    <link rel="modulepreload" crossorigin href="/assets/filters-DYbR_De5.js">
+    <link rel="modulepreload" crossorigin href="/assets/headToHead-Dc4nZDet.js">
+    <link rel="modulepreload" crossorigin href="/assets/headToHeadAdvantage-Bm5kSE2q.js">
+    <link rel="modulepreload" crossorigin href="/assets/useToolPromotion-B36MpWbm.js">
+    <link rel="modulepreload" crossorigin href="/assets/academyContent-9jFzJtqK.js">
+    <link rel="modulepreload" crossorigin href="/assets/videos-CLDOKnje.js">
+    <link rel="modulepreload" crossorigin href="/assets/partnerLinks-Dq8OMvz2.js">
+    <link rel="modulepreload" crossorigin href="/assets/bookmap-logo-DVyC8KOZ.js">
+    <link rel="modulepreload" crossorigin href="/assets/atas-logo-full-DbSPwLYc.js">
+    <link rel="modulepreload" crossorigin href="/assets/deepcharts-logo-BYa0Bf-H.js">
+    <link rel="modulepreload" crossorigin href="/assets/tradesyncer-icon-CPIKvf7Z.js">
+    <link rel="modulepreload" crossorigin href="/assets/wise-logo-wPKhv01q.js">
+    <link rel="modulepreload" crossorigin href="/assets/graduation-cap-B0lc4vdm.js">
+    <link rel="modulepreload" crossorigin href="/assets/book-open-Bul04yqJ.js">
+    <link rel="modulepreload" crossorigin href="/assets/chart-no-axes-combined-pnZPLK3E.js">
+    <link rel="modulepreload" crossorigin href="/assets/notebook-pen-DfRfyWcU.js">
+    <link rel="modulepreload" crossorigin href="/assets/calculator-CYOpFqpG.js">
+    <link rel="modulepreload" crossorigin href="/assets/scale-CIFqyr5I.js">
+    <link rel="modulepreload" crossorigin href="/assets/calendar-days-c5tOF4Cm.js">
+    <link rel="modulepreload" crossorigin href="/assets/usePartnerBenefit-DkYsCLrh.js">
+    <link rel="preload" as="style" crossorigin href="/assets/HomeNew-CDzzjVTX.css">
+    <link rel="preload" as="style" crossorigin href="/assets/index-DgFdmHIc.css">
+    <link rel="preload" as="style" crossorigin href="/assets/Community-rmM6TMB2.css">
+    <link rel="preload" as="image" href="/home-new/img/hero-trader-steel.jpg" fetchpriority="high" />
+    <meta data-rh="true" property="og:url" content="https://antartrade.co.il/blog/atas-template-install">
+    <link data-rh="true" rel="canonical" href="https://antartrade.co.il/blog/atas-template-install">
+  </head>
+  <body>
+    <noscript>
+      <div
+        style="max-width:900px;margin:0 auto;padding:40px 20px;font-family:Heebo,sans-serif;direction:rtl;text-align:right;"
+      >
+        <h1>AntarTrade – השוואת חברות מימון ונוסטרו לסוחרים 2026</h1>
+        <p>
+          אתר ההשוואות המוביל בישראל לחברות מימון לסוחרים 2026 – ניתוחים אישיים, קודי הנחה בלעדיים ותוכן מקצועי מאת נועם
+          ענתר.
+        </p>
+        <h2>השוואת חברות ומבצעים</h2>
+        <ul>
+          <li>
+            <a href="/comparison">השוואת חברות מימון ונוסטרו</a> – מחירים, חוקים ותנאי משיכה של כל החברות בטבלה אחת.
+          </li>
+          <li><a href="/promotions">מבצעים וקודי הנחה</a> – כל המבצעים הפעילים וקוד ההנחה ANTAR.</li>
+          <li><a href="/matching-quiz">שאלון התאמה</a> – איזו חברת מימון מתאימה לך.</li>
+          <li><a href="/comparison/head-to-head">דו-קרב חברות</a> – שתי חברות ראש בראש.</li>
+        </ul>
+        <h2>חברות מימון</h2>
+        <ul>
+          <li><a href="/take-profit">טייק פרופיט (TakeProfit Trader)</a> – סקירה, חוקים, משיכות וקוד הנחה.</li>
+          <li><a href="/lucid">לוסיד טריידינג (Lucid Trading)</a> – סקירה, מסלולים, חוקים וקוד הנחה.</li>
+          <li><a href="/apex">אפקס (Apex Trader Funding)</a> – סקירה, חוקים וקוד הנחה.</li>
+          <li><a href="/top-step">טופסטפ (TopStep)</a> – סקירה, חשבונות, חוקים ומשיכות.</li>
+          <li><a href="/bulenox">בולנוקס (Bulenox)</a> – סקירה, חשבונות, חוקים וקוד הנחה.</li>
+          <li><a href="/funded-next">פאנדד נקסט (FundedNext Futures)</a> – סקירה, חשבונות, חוקים ומבצעים.</li>
+          <li><a href="/ftmo">FTMO Futures</a> – סקירה, חוקים, מחירים ומשיכות.</li>
+        </ul>
+        <h2>האקדמיה</h2>
+        <ul>
+          <li><a href="/academy">האקדמיה של AntarTrade</a> – קורסים, סרטונים, מאמרים וכלים למסחר בעברית.</li>
+          <li><a href="/blog/tik-nostro">מה זה תיק נוסטרו</a> – המדריך המלא לסחור על הון של חברות מימון.</li>
+          <li><a href="/blog">מאמרים ומדריכים</a></li>
+          <li><a href="/calculators">מחשבונים לסוחרים</a></li>
+          <li><a href="/academy/glossary">מילון מושגים</a></li>
+          <li><a href="/economic-calendar">יומן הודעות כלכליות</a></li>
+          <li><a href="/courses">קורסים</a></li>
+        </ul>
+        <h2>פלטפורמות וכלים</h2>
+        <ul>
+          <li><a href="/platforms">כל הפלטפורמות והכלים</a></li>
+          <li><a href="/ninjatrader-guide">NinjaTrader</a></li>
+          <li><a href="/atas-guide">ATAS</a></li>
+          <li><a href="/bookmap-guide">Bookmap</a></li>
+          <li><a href="/tradezella-guide">TradeZella</a></li>
+        </ul>
+        <h2>מידע נוסף</h2>
+        <ul>
+          <li><a href="/about">אודות נועם ענתר</a></li>
+          <li><a href="/faq">שאלות ותשובות</a></li>
+          <li><a href="/contact">צור קשר</a></li>
+        </ul>
+      </div>
+    </noscript>
+    <div id="root">
+      <style>html:has(.pr-body),body:has(.pr-body){background:#12161f;overflow-x:hidden}.pr-body{max-width:860px;margin:0 auto;padding:120px 20px 64px;box-sizing:border-box;color:#e8eef5;line-height:1.7;font-size:18px;direction:rtl;text-align:right;overflow-wrap:anywhere}.pr-body h1,.pr-body h2,.pr-body h3{color:inherit}.pr-body h1{font-size:40px;line-height:1.15;margin:16px 0}.pr-body h2{font-size:28px;margin:40px 0 12px}.pr-body h3{font-size:21px;margin:24px 0 8px}.pr-body a{color:#7dc6ff}.pr-body img{max-width:100%;height:auto}.pr-body table{border-collapse:collapse;display:block;max-width:100%;overflow-x:auto}.pr-body td,.pr-body th{border:1px solid #33415a;padding:6px 10px}.pr-body nav{font-size:15px;color:#9fb0c6}.pr-body dt{font-weight:700;margin-top:16px}.pr-body dd{margin:4px 0 0}</style><article class="pr-body"><nav aria-label="פירורי לחם"><a href="/">דף הבית</a> / <a href="/blog">בלוג</a> / איך מתקינים טמפלייט ו-Workspace ב-ATAS: מדריך עם צילומי מסך</nav><h1>איך מתקינים טמפלייט ו-Workspace ב-ATAS: מדריך עם צילומי מסך</h1><p>נכתב על ידי <a href="/about">נועם ענתר</a>, סוחר חוזים עתידיים ומייסד AntarTrade</p>
+<p class="xlink">רוצים לדעת קודם מה זה ATAS, כמה הוא עולה ואיך מחברים אליו חשבון מימון? <a href="/atas-guide" data-link="atas-guide">לדף ATAS המלא</a></p>
+
+<p>בניתי ב-<span class="en">ATAS</span> את סביבת העבודה שאני עובד איתה כל יום, בצבעים של <span class="en">AntarTrade</span>, ואפשר להוריד אותה בחינם. במדריך הזה אני מראה צעד אחר צעד איך מתקינים אותה: גם את הטמפלייט לגרף וגם את ה-<span class="en">Workspace</span> המלא לשני מסכים. ההתקנה כולה נעשית מתוך <span class="en">ATAS</span>, בכפתור <span class="en">Import</span>, בלי לחפש תיקיות במחשב.</p>
+
+<!--an-embed-->
+
+<div class="box"><strong>מה ההבדל בין טמפלייט ל-Workspace?</strong><span class="en">Template</span> (קובץ <span class="en">CTS</span>) קובע איך נראה גרף אחד: הצבעים, הפוטפרינט והאינדיקטורים. הוא מתאים לכל מסך, וטוענים אותו על כל גרף. <span class="en">Workspace</span> (קובץ <span class="en">WS</span>) שומר את כל סביבת העבודה: אילו חלונות פתוחים, איפה כל אחד יושב, הטאבים וה-<span class="en">Heatmap</span>. ה-<span class="en">Workspace</span> שלי בנוי לשני מסכים.</div>
+
+<ol class="toc">
+  <li><strong>לפני שמתחילים: מחלצים את ה-ZIP</strong></li>
+  <li><strong>התקנת הטמפלייט</strong></li>
+  <li><strong>התקנת ה-Workspace</strong></li>
+  <li><strong>אחרי ההתקנה</strong></li>
+</ol>
+
+<!-- ============ PART 1 ============ -->
+<h2>חלק 1: לפני שמתחילים, מחלצים את ה-ZIP</h2>
+<p>הקובץ שהורדתם נמצא בתיקיית ההורדות (<span class="en">Downloads</span>). לוחצים עליו לחיצה ימנית ובוחרים "חלץ הכל" (<span class="en">Extract All</span>). נוצרת תיקייה עם הקבצים:</p>
+<ul>
+  <li><span class="en">AntarTrade.cts</span>: הטמפלייט לגרף.</li>
+  <li><span class="en">AntarTrade Options.cts</span>: אותו טמפלייט, עם רמות האופציות (<span class="en">Call Wall</span>, <span class="en">Put Wall</span> ו-<span class="en">Max Pain</span>).</li>
+  <li><span class="en">AntarTrade.ws</span>: ה-<span class="en">Workspace</span>, רק בחבילת ה-<span class="en">Workspace</span>.</li>
+  <li>הוראות התקנה קצרות בעברית.</li>
+</ul>
+<div class="box warn"><strong>בלי החילוץ הקובץ לא יופיע</strong>חלון ה-<span class="en">Import</span> של <span class="en">ATAS</span> מציג רק קבצים רגילים, ולא רואה קבצים שנמצאים בתוך ZIP. אם פתחתם את חלון ה-<span class="en">Import</span> והקובץ לא שם, כנראה שעוד לא חילצתם אותו.</div>
+
+<!-- ============ PART 2 ============ -->
+<h2>חלק 2: התקנת הטמפלייט</h2>
+
+<h3><span class="n">1</span>פותחים את הגדרות הגרף</h3>
+<p>פותחים ב-<span class="en">ATAS</span> את הגרף שרוצים, לוחצים עליו לחיצה ימנית, ובתחתית התפריט בוחרים <span class="en">Settings</span>.</p>
+<figure><img src="/guides-new/atas/atas-chart-menu-marked.webp" alt="התפריט של לחיצה ימנית על גרף ב-ATAS, עם Settings בתחתית" loading="lazy" /></figure>
+
+<h3><span class="n">2</span>מייבאים את הקובץ</h3>
+<p>בחלון <span class="en">Chart settings</span> עוברים ללשונית <span class="en">Templates</span> ולוחצים <span class="en">Import</span>. נכנסים לתיקייה שחילצתם ובוחרים <span class="en">AntarTrade.cts</span>. אם יש לכם חבילת <span class="en">Pro</span> או <span class="en">Ultra</span> ואתם רוצים את רמות האופציות, בוחרים <span class="en">AntarTrade Options.cts</span>. אפשר לייבא את שניהם. בתמונה המספרים מראים את הסדר: 1 הלשונית <span class="en">Templates</span>, 2 הכפתור <span class="en">Import</span>, ו-3 הכפתור <span class="en">Apply</span> מהשלב הבא.</p>
+<figure><img src="/guides-new/atas/atas-template-import-marked.webp" alt="לשונית Templates בהגדרות הגרף ב-ATAS, עם הכפתור Import" loading="lazy" /></figure>
+
+<h3><span class="n">3</span>מסמנים ולוחצים Apply</h3>
+<p>הטמפלייט מופיע ברשימה. מסמנים אותו ולוחצים <span class="en">Apply</span>, והגרף מתעדכן. מעכשיו הטמפלייט זמין בכל גרף, באותה לשונית.</p>
+
+<!-- ============ PART 3 ============ -->
+<h2>חלק 3: התקנת ה-Workspace</h2>
+
+<h3><span class="n">1</span>פותחים את חלון ה-Workspaces</h3>
+<p>בסרגל העליון של החלון הראשי של <span class="en">ATAS</span> לוחצים על <span class="en">Workspaces</span>.</p>
+<figure><img src="/guides-new/atas/atas-workspaces-button-marked.webp" alt="הסרגל העליון של ATAS עם הכפתור Workspaces" loading="lazy" /></figure>
+
+<h3><span class="n">2</span>מייבאים ופותחים</h3>
+<p>נפתח חלון עם רשימת סביבות העבודה שלכם. לוחצים <span class="en">Import</span> ובוחרים את <span class="en">AntarTrade.ws</span>. הוא מופיע ברשימה: מסמנים אותו ולוחצים <span class="en">Load</span>. בתמונה: 1 הכפתור <span class="en">Import</span>, ו-2 הכפתור <span class="en">Load</span>.</p>
+<figure><img src="/guides-new/atas/atas-workspaces-import-marked.webp" alt="חלון Workspaces ב-ATAS עם הכפתורים Import ו-Load" loading="lazy" /></figure>
+<div class="box"><strong>הסידור הקודם שלכם נשמר</strong>כשטוענים <span class="en">Workspace</span> חדש, <span class="en">ATAS</span> שואל אם לשמור את הנוכחי. משאירים מסומן <span class="en">Save current workspace</span>, ואפשר לחזור אליו מאותו חלון בכל רגע.</div>
+
+<h3><span class="n">3</span>ככה זה נראה</h3>
+<p>במסך אחד גרף <span class="en">NQ</span> גדול עם טאבים למטה ל-<span class="en">ES</span>, ל-<span class="en">MNQ</span> ול-<span class="en">NQ</span> רבע שעה. במסך השני <span class="en">NQ</span> דקה, <span class="en">ES</span>, <span class="en">Heatmap</span>, <span class="en">Smart Tape</span> וטאב החשבונות.</p>
+<figure><img src="/guides-new/atas/atas-workspace-left.webp" alt="המסך הראשון ב-Workspace של AntarTrade: גרף NQ חמש דקות עם טאבים" loading="lazy" /></figure>
+<figure><img src="/guides-new/atas/atas-workspace-right.webp" alt="המסך השני ב-Workspace של AntarTrade: NQ דקה, Heatmap, ES ו-Smart Tape" loading="lazy" /></figure>
+<div class="box warn"><strong>בנוי לשני מסכים</strong>ה-<span class="en">Workspace</span> בנוי לשני מסכים ברזולוציה 2560×1440 (<span class="en">QHD</span>), כשהמסך השני נמצא משמאל לראשי, והגדלת התצוגה של <span class="en">Windows</span> על 100%. על מסכים אחרים הוא ייפתח, אבל תצטרכו לסדר את החלונות פעם אחת ולשמור. אם חלון נפתח מחוץ למסך, לוחצים עליו בשורת המשימות ואז <span class="en">Win + Shift</span> וחץ.</div>
+
+<!-- ============ PART 4 ============ -->
+<h2>חלק 4: אחרי ההתקנה</h2>
+
+<h3>מדליקים ומכבים אינדיקטורים</h3>
+<p>בפינה השמאלית העליונה של כל גרף יש רשימת אינדיקטורים מקופלת. לוחצים על החץ כדי לפתוח אותה, ועל העין ליד אינדיקטור כדי להסתיר או להציג אותו. האימבלנסים (<span class="en">Stacked Imbalance</span>) כבויים כברירת מחדל, כדי שהגרף ייפתח נקי. בתמונה: 1 החץ שפותח את הרשימה, ו-2 העין שמסתירה או מציגה אינדיקטור.</p>
+<figure><img src="/guides-new/atas/atas-indicator-list-marked.webp" alt="רשימת האינדיקטורים בגרף ATAS עם הטמפלייט של AntarTrade" loading="lazy" /></figure>
+
+<h3>איזו חבילה של ATAS צריך</h3>
+<p>הטמפלייט וה-<span class="en">Workspace</span> בנויים לחבילות <span class="en">Pro</span> ו-<span class="en">Ultra</span>. ב-<span class="en">Start</span> אפשר עד 3 אינדיקטורים לגרף וב-<span class="en">Plus</span> עד 6, וחוץ מזה, לפי עמוד המחירים של <span class="en">ATAS</span>, בשתי החבילות האלה נתוני החוזים העתידיים מגיעים בעיכוב של 15 דקות, ואי אפשר לחבר נתוני זמן אמת או <span class="en">Rithmic</span>. כלומר, למסחר בחוזים עתידיים הן לא מתאימות.</p>
+
+<h3>רמות האופציות</h3>
+<p>רמות האופציות (<span class="en">Call Wall</span>, <span class="en">Put Wall</span> ו-<span class="en">Max Pain</span>) דורשות חבילת <span class="en">Pro</span> או <span class="en">Ultra</span> של <span class="en">ATAS</span>, וחיבור <span class="en">Rithmic</span> או <span class="en">Interactive Brokers</span>. בלי זה שאר הגרף עובד כרגיל.</p>
+
+<h3>גרף בלי נתונים</h3>
+<p>אם גרף לא מציג נתונים, בוחרים מחדש את החוזה ואת חיבור הנתונים שלכם בראש הגרף. ה-<span class="en">Workspace</span> נבנה על החיבור שלי, ואצלכם החיבור יכול להיקרא אחרת.</p>
+
+<div class="cta">
+  <h2>עוד לא הורדתם?</h2>
+  <p>הטמפלייט וה-<span class="en">Workspace</span> נמצאים בראש המדריך הזה ובדף <a href="/atas-guide#template" data-link="atas-guide">ATAS</a>, בחינם למשתמשים רשומים. שם תמצאו גם את המחירים העדכניים של <span class="en">ATAS</span> וקוד הנחה.</p>
+</div>
+
+<p class="disc">המדריך מובא למטרות מידע והדרכה בלבד ואינו מהווה ייעוץ השקעות. הממשק של ATAS עשוי להשתנות בגרסאות הבאות.</p>
+</article>
+    </div>
+  </body>
+</html>

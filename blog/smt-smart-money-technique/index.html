@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Microsoft Clarity מנוהל דרך שכבת המדידה המרכזית (src/lib/analytics/clarity.ts) ונטען רק לאחר הסכמה -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" sizes="any" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SMT (Smart Money Technique): חוסר קורלציה בין NQ ל-ES | AntarTrade</title>
+    <meta data-rh="true" name="description" content="מה זה SMT ואיך מזהים אותו בין הנאסדק ל-S&amp;P 500: SMT לעליות ולירידות, בגרף דקה, 15 דקות ושעתי, בין רבעים ובין סשנים. מאמר אורח של טל פרטוק מ-Boiler Room, עם צילומי מסך מסומנים.">
+
+    <!-- Open Graph Meta Tags -->
+    <meta data-rh="true" property="og:title" content="איך מזהים SMT בין הנאסדק ל-S&amp;P 500 | AntarTrade">
+    <meta data-rh="true" property="og:description" content="מה זה SMT ואיך מזהים אותו בין הנאסדק ל-S&amp;P 500: SMT לעליות ולירידות, בגרף דקה, 15 דקות ושעתי, בין רבעים ובין סשנים. מאמר אורח של טל פרטוק מ-Boiler Room, עם צילומי מסך מסומנים.">
+    <meta data-rh="true" property="og:image" content="https://antartrade.co.il/images/blog/covers/smt-smart-money-technique.webp">
+    
+    
+    <meta data-rh="true" property="og:image:alt" content="SMT: כשהנאסדק וה-S&amp;P 500 מפסיקים לזוז יחד">
+    <meta data-rh="true" property="og:type" content="website" />
+    <meta data-rh="true" property="og:site_name" content="AntarTrade" />
+    <meta data-rh="true" property="og:locale" content="he_IL" />
+
+    <!-- Twitter Cards Meta Tags -->
+    <meta data-rh="true" name="twitter:card" content="summary_large_image" />
+    <meta data-rh="true" name="twitter:title" content="איך מזהים SMT בין הנאסדק ל-S&amp;P 500 | AntarTrade">
+    <meta data-rh="true" name="twitter:description" content="מה זה SMT ואיך מזהים אותו בין הנאסדק ל-S&amp;P 500: SMT לעליות ולירידות, בגרף דקה, 15 דקות ושעתי, בין רבעים ובין סשנים. מאמר אורח של טל פרטוק מ-Boiler Room, עם צילומי מסך מסומנים.">
+    <meta data-rh="true" name="twitter:image" content="https://antartrade.co.il/images/blog/covers/smt-smart-money-technique.webp">
+    <meta data-rh="true" name="twitter:image:alt" content="SMT: כשהנאסדק וה-S&amp;P 500 מפסיקים לזוז יחד">
+
+    <!-- Additional Meta Tags -->
+    <meta name="author" content="AntarTrade" />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://i.ytimg.com" crossorigin />
+    <link rel="dns-prefetch" href="https://img.youtube.com" />
+    <link rel="dns-prefetch" href="https://www.youtube.com" />
+    <!-- Heebo is only the fallback behind Fb Reforma (and swaps in anyway), so it loads without holding up the first paint -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" rel="stylesheet" /></noscript>
+    <!-- the design's own font (base.css), fetched with the page instead of after the code runs -->
+    <link rel="preload" as="font" type="font/woff2" href="/home-new/fonts/FbReforma-Regular.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/home-new/fonts/FbReforma-Medium.woff2" crossorigin />
+    <!-- Critical inline CSS for instant LCP paint of hero H1 (replaced by React on hydration).
+         It draws the new homepage hero's first frame (dark ground, the same title in the same place), so the page doesn't flash another design. -->
+    <style>
+      html,body{margin:0;padding:0;background:#12161f;font-family:"Fb Reforma",Heebo,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+      #root{min-height:100vh}
+      .lcp-hero{position:relative;min-height:100vh;box-sizing:border-box;background:#12161f;padding:92px 16px 64px;text-align:right;direction:rtl;overflow:hidden}
+      .lcp-hero-inner{width:min(1171px,100%);margin:0 auto}
+      .lcp-hero h1{margin:0;font-weight:400;max-width:310px;background:linear-gradient(90deg,#61b1f2 0%,#fff 78.365%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+      .lcp-hero h1 .lcp-line{display:block;font-size:44px;line-height:1.05}
+      .lcp-hero h1 .lcp-sub{font-size:28px;line-height:1.3;margin-top:6px}
+      @media(min-width:761px){.lcp-hero{padding-top:92px}.lcp-hero h1{max-width:560px}.lcp-hero h1 .lcp-line{font-size:74px;line-height:.92}.lcp-hero h1 .lcp-sub{font-size:44px;line-height:1.1;margin-top:14px}}
+      html.no-lcp-hero .lcp-hero{display:none}
+    </style>
+    <script>
+      (function(){
+        var p = location.pathname;
+        if (p !== '/' && p !== '/index.html') {
+          document.documentElement.classList.add('no-lcp-hero');
+        }
+        // a foreign address with no prerendered file of its own (a 404, a page not translated yet) gets
+        // this Hebrew file: it reads left to right, without the Hebrew homepage title, from the first paint.
+        // The languages are FOREIGN_LOCALES in src/i18n/config.ts (the i18n test keeps them equal).
+        var foreign = p.match(/^\/(en)(\/|$)/);
+        if (foreign && document.documentElement.lang === 'he') {
+          document.documentElement.lang = foreign[1];
+          document.documentElement.dir = 'ltr';
+          document.title = 'AntarTrade';
+        }
+      })();
+    </script>
+    <!-- Stale-deploy recovery: if hashed JS chunks referenced by a cached index.html
+         are gone (404 / "Importing a module script failed"), reload once bypassing cache. -->
+    <script>
+      (function(){
+        var KEY = '__chunk_reload_at';
+        function reloadOnce(){
+          try {
+            var last = Number(sessionStorage.getItem(KEY) || 0);
+            if (Date.now() - last < 20000) return; // avoid reload loops
+            sessionStorage.setItem(KEY, String(Date.now()));
+          } catch(e){}
+          var u = location.pathname + (location.search ? location.search + '&' : '?') + '_r=' + Date.now() + location.hash;
+          location.replace(u);
+        }
+        // Resource-level failures (module script / preload) bubble only in capture phase
+        window.addEventListener('error', function(e){
+          var t = e && e.target;
+          if (t && t !== window && (t.tagName === 'SCRIPT' || t.tagName === 'LINK')) { reloadOnce(); return; }
+          var m = e && e.message;
+          if (m && (m.indexOf('Importing a module script failed') > -1 ||
+                    m.indexOf('Failed to fetch dynamically imported module') > -1 ||
+                    m.indexOf('error loading dynamically imported module') > -1)) reloadOnce();
+        }, true);
+        window.addEventListener('unhandledrejection', function(e){
+          var m = e && e.reason && (e.reason.message || String(e.reason));
+          if (m && (m.indexOf('Importing a module script failed') > -1 ||
+                    m.indexOf('Failed to fetch dynamically imported module') > -1 ||
+                    m.indexOf('error loading dynamically imported module') > -1)) reloadOnce();
+        });
+      })();
+    </script>
+
+    <!-- Meta Pixel מנוהל כעת דרך שכבת המדידה המרכזית (src/lib/analytics) ונטען רק לאחר הסכמה -->
+    <script type="module" crossorigin src="/assets/index-D68BnfkV.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-vendor-xAhqJu7B.js">
+    <link rel="modulepreload" crossorigin href="/assets/query-vendor-iefLz-8z.js">
+    <link rel="modulepreload" crossorigin href="/assets/supabase-vendor-DW0Ocl7u.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-DgFdmHIc.css">
+    <link rel="modulepreload" crossorigin href="/assets/HomeNew-Xdkb300-.js">
+    <link rel="modulepreload" crossorigin href="/assets/SEOHead-C6MhvbBM.js">
+    <link rel="modulepreload" crossorigin href="/assets/Community-CGqn3zcE.js">
+    <link rel="modulepreload" crossorigin href="/assets/Slots-g77hvavO.js">
+    <link rel="modulepreload" crossorigin href="/assets/useCanonicalComparison-82hVbQZH.js">
+    <link rel="modulepreload" crossorigin href="/assets/fetch-CH1GdQpR.js">
+    <link rel="modulepreload" crossorigin href="/assets/canonicalRules-yhGyuGJm.js">
+    <link rel="modulepreload" crossorigin href="/assets/products-WejJvjdw.js">
+    <link rel="modulepreload" crossorigin href="/assets/evaluationCardStandard-tKfyyGpX.js">
+    <link rel="modulepreload" crossorigin href="/assets/companySummary-C7i5WxdK.js">
+    <link rel="modulepreload" crossorigin href="/assets/filters-DYbR_De5.js">
+    <link rel="modulepreload" crossorigin href="/assets/headToHead-Dc4nZDet.js">
+    <link rel="modulepreload" crossorigin href="/assets/headToHeadAdvantage-Bm5kSE2q.js">
+    <link rel="modulepreload" crossorigin href="/assets/useToolPromotion-B36MpWbm.js">
+    <link rel="modulepreload" crossorigin href="/assets/academyContent-9jFzJtqK.js">
+    <link rel="modulepreload" crossorigin href="/assets/videos-CLDOKnje.js">
+    <link rel="modulepreload" crossorigin href="/assets/partnerLinks-Dq8OMvz2.js">
+    <link rel="modulepreload" crossorigin href="/assets/bookmap-logo-DVyC8KOZ.js">
+    <link rel="modulepreload" crossorigin href="/assets/atas-logo-full-DbSPwLYc.js">
+    <link rel="modulepreload" crossorigin href="/assets/deepcharts-logo-BYa0Bf-H.js">
+    <link rel="modulepreload" crossorigin href="/assets/tradesyncer-icon-CPIKvf7Z.js">
+    <link rel="modulepreload" crossorigin href="/assets/wise-logo-wPKhv01q.js">
+    <link rel="modulepreload" crossorigin href="/assets/graduation-cap-B0lc4vdm.js">
+    <link rel="modulepreload" crossorigin href="/assets/book-open-Bul04yqJ.js">
+    <link rel="modulepreload" crossorigin href="/assets/chart-no-axes-combined-pnZPLK3E.js">
+    <link rel="modulepreload" crossorigin href="/assets/notebook-pen-DfRfyWcU.js">
+    <link rel="modulepreload" crossorigin href="/assets/calculator-CYOpFqpG.js">
+    <link rel="modulepreload" crossorigin href="/assets/scale-CIFqyr5I.js">
+    <link rel="modulepreload" crossorigin href="/assets/calendar-days-c5tOF4Cm.js">
+    <link rel="modulepreload" crossorigin href="/assets/usePartnerBenefit-DkYsCLrh.js">
+    <link rel="preload" as="style" crossorigin href="/assets/HomeNew-CDzzjVTX.css">
+    <link rel="preload" as="style" crossorigin href="/assets/index-DgFdmHIc.css">
+    <link rel="preload" as="style" crossorigin href="/assets/Community-rmM6TMB2.css">
+    <link rel="preload" as="image" href="/home-new/img/hero-trader-steel.jpg" fetchpriority="high" />
+    <meta data-rh="true" property="og:url" content="https://antartrade.co.il/blog/smt-smart-money-technique">
+    <link data-rh="true" rel="canonical" href="https://antartrade.co.il/blog/smt-smart-money-technique">
+  </head>
+  <body>
+    <noscript>
+      <div
+        style="max-width:900px;margin:0 auto;padding:40px 20px;font-family:Heebo,sans-serif;direction:rtl;text-align:right;"
+      >
+        <h1>AntarTrade – השוואת חברות מימון ונוסטרו לסוחרים 2026</h1>
+        <p>
+          אתר ההשוואות המוביל בישראל לחברות מימון לסוחרים 2026 – ניתוחים אישיים, קודי הנחה בלעדיים ותוכן מקצועי מאת נועם
+          ענתר.
+        </p>
+        <h2>השוואת חברות ומבצעים</h2>
+        <ul>
+          <li>
+            <a href="/comparison">השוואת חברות מימון ונוסטרו</a> – מחירים, חוקים ותנאי משיכה של כל החברות בטבלה אחת.
+          </li>
+          <li><a href="/promotions">מבצעים וקודי הנחה</a> – כל המבצעים הפעילים וקוד ההנחה ANTAR.</li>
+          <li><a href="/matching-quiz">שאלון התאמה</a> – איזו חברת מימון מתאימה לך.</li>
+          <li><a href="/comparison/head-to-head">דו-קרב חברות</a> – שתי חברות ראש בראש.</li>
+        </ul>
+        <h2>חברות מימון</h2>
+        <ul>
+          <li><a href="/take-profit">טייק פרופיט (TakeProfit Trader)</a> – סקירה, חוקים, משיכות וקוד הנחה.</li>
+          <li><a href="/lucid">לוסיד טריידינג (Lucid Trading)</a> – סקירה, מסלולים, חוקים וקוד הנחה.</li>
+          <li><a href="/apex">אפקס (Apex Trader Funding)</a> – סקירה, חוקים וקוד הנחה.</li>
+          <li><a href="/top-step">טופסטפ (TopStep)</a> – סקירה, חשבונות, חוקים ומשיכות.</li>
+          <li><a href="/bulenox">בולנוקס (Bulenox)</a> – סקירה, חשבונות, חוקים וקוד הנחה.</li>
+          <li><a href="/funded-next">פאנדד נקסט (FundedNext Futures)</a> – סקירה, חשבונות, חוקים ומבצעים.</li>
+          <li><a href="/ftmo">FTMO Futures</a> – סקירה, חוקים, מחירים ומשיכות.</li>
+        </ul>
+        <h2>האקדמיה</h2>
+        <ul>
+          <li><a href="/academy">האקדמיה של AntarTrade</a> – קורסים, סרטונים, מאמרים וכלים למסחר בעברית.</li>
+          <li><a href="/blog/tik-nostro">מה זה תיק נוסטרו</a> – המדריך המלא לסחור על הון של חברות מימון.</li>
+          <li><a href="/blog">מאמרים ומדריכים</a></li>
+          <li><a href="/calculators">מחשבונים לסוחרים</a></li>
+          <li><a href="/academy/glossary">מילון מושגים</a></li>
+          <li><a href="/economic-calendar">יומן הודעות כלכליות</a></li>
+          <li><a href="/courses">קורסים</a></li>
+        </ul>
+        <h2>פלטפורמות וכלים</h2>
+        <ul>
+          <li><a href="/platforms">כל הפלטפורמות והכלים</a></li>
+          <li><a href="/ninjatrader-guide">NinjaTrader</a></li>
+          <li><a href="/atas-guide">ATAS</a></li>
+          <li><a href="/bookmap-guide">Bookmap</a></li>
+          <li><a href="/tradezella-guide">TradeZella</a></li>
+        </ul>
+        <h2>מידע נוסף</h2>
+        <ul>
+          <li><a href="/about">אודות נועם ענתר</a></li>
+          <li><a href="/faq">שאלות ותשובות</a></li>
+          <li><a href="/contact">צור קשר</a></li>
+        </ul>
+      </div>
+    </noscript>
+    <div id="root">
+      <style>html:has(.pr-body),body:has(.pr-body){background:#12161f;overflow-x:hidden}.pr-body{max-width:860px;margin:0 auto;padding:120px 20px 64px;box-sizing:border-box;color:#e8eef5;line-height:1.7;font-size:18px;direction:rtl;text-align:right;overflow-wrap:anywhere}.pr-body h1,.pr-body h2,.pr-body h3{color:inherit}.pr-body h1{font-size:40px;line-height:1.15;margin:16px 0}.pr-body h2{font-size:28px;margin:40px 0 12px}.pr-body h3{font-size:21px;margin:24px 0 8px}.pr-body a{color:#7dc6ff}.pr-body img{max-width:100%;height:auto}.pr-body table{border-collapse:collapse;display:block;max-width:100%;overflow-x:auto}.pr-body td,.pr-body th{border:1px solid #33415a;padding:6px 10px}.pr-body nav{font-size:15px;color:#9fb0c6}.pr-body dt{font-weight:700;margin-top:16px}.pr-body dd{margin:4px 0 0}</style><article class="pr-body"><nav aria-label="פירורי לחם"><a href="/">דף הבית</a> / <a href="/blog">בלוג</a> / SMT: איך לזהות היפוך כשהנאסדק וה-S&amp;P 500 מפסיקים לזוז יחד</nav><h1>SMT: איך לזהות היפוך כשהנאסדק וה-S&amp;P 500 מפסיקים לזוז יחד</h1><p>מאמר אורח מאת <a href="https://www.youtube.com/@BoilerRoom.Israel">טל פרטוק</a>, סוחר ומנטור ב-Boiler Room</p>
+<p class="lead">שני מדדים שאמורים לזוז יחד, ופתאום אחד מהם עושה שיא חדש והשני לא. זה SMT, ובעיניי זה אחד הסימנים הכי ברורים לכך שהשוק מתכונן להתהפך. במאמר הזה אני מראה איך מזהים אותו בין הנאסדק ל־<span class="en">S&amp;P 500</span>, בכל טווח זמן, ואיך מוצאים אותו גם בעזרת תורת הרבעים ובין סשנים.</p>
+
+<div class="box"><strong>מאמר אורח</strong>המאמר נכתב לפי השיעור של טל פרטוק מ־<span class="en">Boiler Room</span> ביוטיוב, ומתפרסם כאן באישורו. צילומי המסך לקוחים מהסרטון, והסימונים הצבעוניים נוספו כדי שיהיה קל לראות על מה מדובר.</div>
+
+<div class="video" data-embed="youtube"><iframe src="https://www.youtube-nocookie.com/embed/pxe10nxGZW4" title="איך להבין את השוק כמו המקצוענים? שיטת SMT" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+<h2>מה זה SMT</h2>
+<p><span class="en">SMT</span> (<span class="en">Smart Money Technique</span>) הוא חוסר קורלציה בין נכסים שאמורים לזוז אותו דבר. הנאסדק (<span class="en">NQ</span>) וה־<span class="en">S&amp;P 500</span> (<span class="en">ES</span>) הם הדוגמה הכי טובה: ברוב הזמן הם עולים ויורדים יחד. ברגע שאחד מהם פורץ שיא או שובר שפל, והשני לא מצליח לעשות את אותו הדבר, נוצר ביניהם פער. הפער הזה הוא ה־<span class="en">SMT</span>, וממנו אני מצפה לשינוי כיוון.</p>
+<p>יש שני סוגים:</p>
+<ul>
+  <li><strong><span class="en">SMT</span> לעליות</strong>: מדד אחד שובר את השפל הקודם, והשני לא שובר אותו. מכאן אני מצפה לעליות.</li>
+  <li><strong><span class="en">SMT</span> לירידות</strong>: מדד אחד פורץ את השיא הקודם, והשני לא פורץ אותו. מכאן אני מצפה לירידות.</li>
+</ul>
+<div class="box warn"><strong>SMT הוא אזור עניין, לא כניסה</strong>ברגע שנוצר <span class="en">SMT</span> אני יודע שאני נמצא באזור שמעניין אותי. הוא לא אומר לי מתי ואיפה בדיוק להיכנס. בשביל זה צריך סטאפ כניסה משלכם, ועליו לא מדובר במאמר הזה.</div>
+
+<h2>הדוגמה הכי פשוטה: SMT בגרף דקה</h2>
+<p>נתחיל מ־<span class="en">SMT</span> מקומי, או פנימי, בגרף של דקה. משמאל הנאסדק, מימין ה־<span class="en">S&amp;P 500</span>, באותן שעות בדיוק.</p>
+<figure><img src="/guides-new/smt/smt-local-1m.webp" alt="SMT לעליות בגרף דקה: בנאסדק השפל השני גבוה יותר, וב-S&amp;P 500 השפל השני נמוך יותר" loading="lazy" /></figure>
+<p>בנאסדק השפל השני גבוה מהשפל הראשון (המסגרת הירוקה משמאל). ב־<span class="en">S&amp;P 500</span>, באותם נרות בדיוק, קורה ההפך: השפל השני נמוך מהראשון (המסגרת האדומה מימין). אחד שבר את השפל והשני לא. זה <span class="en">SMT</span> לעליות, ואפשר לראות שמשם השוק עלה.</p>
+
+<h2>SMT לעליות ו־SMT לירידות</h2>
+<p>אותו רעיון עובד גם למעלה. הנה קטע אחד שבו קיבלנו את שני הסוגים, אחד אחרי השני:</p>
+<figure><img src="/guides-new/smt/smt-both-directions.webp" alt="SMT לירידות בשיאים ו-SMT לעליות בשפלים, בנאסדק וב-S&amp;P 500" loading="lazy" /></figure>
+<ul>
+  <li><strong>למעלה (באדום)</strong>: הנאסדק פרץ את השיא הקודם, וה־<span class="en">S&amp;P 500</span> לא פרץ אותו. זה <span class="en">SMT</span> לירידות, ומשם השוק ירד.</li>
+  <li><strong>למטה (בירוק)</strong>: ה־<span class="en">S&amp;P 500</span> שבר את השפל הקודם, והנאסדק לא שבר אותו. זה <span class="en">SMT</span> לעליות, ומשם השוק עלה.</li>
+</ul>
+<p>לא משנה איזה מדד פרץ ואיזה לא. מה שחשוב הוא שאחד עשה את זה והשני לא.</p>
+
+<h2>ככל שהטווח גבוה יותר, ה־SMT איכותי יותר</h2>
+<p>בגרף דקה ה־<span class="en">SMT</span> קטן ומהיר. ככל שעולים בטווח הזמן הוא נעשה ברור ואיכותי יותר, והעסקאות שיוצאות ממנו ארוכות יותר. מצד שני, גם הסטופ גדל בהתאם. את זה צריך לקחת בחשבון.</p>
+
+<h3>גרף של 15 דקות</h3>
+<figure><img src="/guides-new/smt/smt-15m.webp" alt="שני SMT לירידות ברצף בגרף 15 דקות, בנאסדק וב-S&amp;P 500" loading="lazy" /></figure>
+<p>כאן קיבלתי שני אישורים, אחד אחרי השני:</p>
+<ol>
+  <li>הנאסדק פרץ את השיא, וה־<span class="en">S&amp;P 500</span> לא פרץ אותו.</li>
+  <li>אחרי ירידה קטנה וחזרה למעלה, הפעם ה־<span class="en">S&amp;P 500</span> פרץ שיא, ממש בקטנה, והנאסדק לא.</li>
+</ol>
+<p>שני <span class="en">SMT</span> לירידות ברצף, וזה הוביל בסופו של דבר לירידות.</p>
+
+<h3>גרף שעתי</h3>
+<figure><img src="/guides-new/smt/smt-hourly.webp" alt="SMT לירידות בגרף שעתי: הנאסדק לא פרץ את השיא, ה-S&amp;P 500 פרץ, ואחריו ירידה של כ-1,500 נקודות" loading="lazy" /></figure>
+<p>בגרף השעתי הנאסדק התקרב מאוד לשיא הקודם, אבל לא פרץ אותו. ה־<span class="en">S&amp;P 500</span>, לעומת זאת, כן פרץ. זה <span class="en">SMT</span> לירידות, ומהאזור הזה יצא מהלך של כ־1,500 נקודות בנאסדק, שאת רובו הוא עשה ביום אחד. זה הכוח של <span class="en">SMT</span> בטווח גבוה, וזו גם הסיבה שהסטופ בעסקאות כאלה גדול יותר.</p>
+
+<h2>SMT בעזרת תורת הרבעים</h2>
+<p>דרך נוספת למצוא <span class="en">SMT</span> היא תורת הרבעים. היא מחלקת את יום המסחר, השבוע, החודש והשנה לארבעה חלקים. בגרף של 5 דקות, למשל, כל רבע מייצג רבע מיום המסחר. כשעולים לגרף שעתי ול־4 שעות, הרבעים כבר מייצגים ימים שלמים.</p>
+<p>כאן אני משווה בין רבעים: האם רבע אחד פרץ את השיא או שבר את השפל של הרבע שלפניו בנאסדק, ובאותו זמן לא עשה את זה ב־<span class="en">S&amp;P 500</span>.</p>
+<figure><img src="/guides-new/smt/smt-quarters.webp" alt="SMT לירידות בין רבעים: בנאסדק הרבע השני פרץ את שיא הרבע הראשון, וב-S&amp;P 500 לא" loading="lazy" /></figure>
+<p>בנאסדק הרבע השני של היום (במסגרת האדומה המקווקוות) פרץ למעלה את השיא של הרבע הראשון (במסגרת האפורה). ב־<span class="en">S&amp;P 500</span> הרבע השני לא הצליח לפרוץ את השיא של הראשון. זה <span class="en">SMT</span> לירידות בין רבעים, ואחריו הגיעה ירידה חדה ואגרסיבית.</p>
+<div class="box"><strong>רק נקודות קצה</strong>כשמשווים בין רבעים, מה שמעניין הוא השיא או השפל של הרבע כולו, כלומר נקודות הקצה שלו. שבירה של נקודה באמצע הרבע לא נחשבת.</div>
+<p>אפשר להשוות כך גם בין ה־<span class="en">S&amp;P 500</span> לדאו ג'ונס. אני פחות אוהב את זה, כי הדאו בדרך כלל לא זז בצורה מספיק נקייה וסימולטנית עם השניים האחרים.</p>
+
+<h2>SMT בין סשנים</h2>
+<p>הדרך האחרונה היא להשוות בין סשנים: טוקיו, לונדון וניו יורק. מחפשים מצב שבו סשן מסוים פורץ או שובר את הסשן שלפניו במדד אחד, ובמדד השני לא.</p>
+<figure><img src="/guides-new/smt/smt-sessions.webp" alt="SMT לעליות בין סשנים: בנאסדק לונדון שבר את שפל טוקיו, וב-S&amp;P 500 לא" loading="lazy" /></figure>
+<p>בנאסדק סשן לונדון שבר למטה את השפל של סשן טוקיו. ב־<span class="en">S&amp;P 500</span> סשן לונדון לא שבר אותו. זה <span class="en">SMT</span> לעליות בין סשנים, ומשם השוק עלה.</p>
+
+<h2>לסיכום</h2>
+<ul>
+  <li><span class="en">SMT</span> הוא פער בין שני מדדים שאמורים לזוז יחד: אחד פורץ או שובר, והשני לא.</li>
+  <li>שובר שפל רק באחד מהם: <span class="en">SMT</span> לעליות. פורץ שיא רק באחד מהם: <span class="en">SMT</span> לירידות.</li>
+  <li>אפשר למצוא אותו בכל טווח זמן. ככל שהטווח גבוה יותר, הוא איכותי יותר, אבל גם הסטופ גדול יותר.</li>
+  <li>חוץ מהשיאים והשפלים הרגילים, אפשר לחפש אותו בין רבעים ובין סשנים.</li>
+  <li>הוא מסמן אזור עניין. את הכניסה עצמה עושים עם סטאפ כניסה משלכם, ותמיד עם ניהול סיכונים.</li>
+</ul>
+
+<div class="box"><strong>על הכותב</strong>טל פרטוק הוא סוחר ומנטור ב־<span class="en">Boiler Room</span>, קהילת מסחר ישראלית. בערוץ היוטיוב שלהם יש עוד הרבה שיעורים: <a href="https://www.youtube.com/@BoilerRoom.Israel" target="_blank" rel="noopener">Boiler Room ביוטיוב</a>.</div>
+</article>
+    </div>
+  </body>
+</html>

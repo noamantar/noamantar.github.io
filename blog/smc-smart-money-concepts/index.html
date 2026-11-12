@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Microsoft Clarity מנוהל דרך שכבת המדידה המרכזית (src/lib/analytics/clarity.ts) ונטען רק לאחר הסכמה -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" sizes="any" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SMC (Smart Money Concepts) מאפס: Order Block, FVG, BOS ו-CHoCH | AntarTrade</title>
+    <meta data-rh="true" name="description" content="מדריך SMC בעברית: רלי, בייס ודרופ, מגמה ראשית ומשנית, BOS ו-CHoCH, אימבלנס (FVG), אורדר בלוק, Sweep, EQH ו-EQL, ואיך בונים עסקה על הנאסדק. מאמר אורח של טל פרטוק מ-Boiler Room, עם צילומי מסך מסומנים.">
+
+    <!-- Open Graph Meta Tags -->
+    <meta data-rh="true" property="og:title" content="מדריך SMC מאפס: אורדר בלוק, אימבלנס ושריפת סטופים | AntarTrade">
+    <meta data-rh="true" property="og:description" content="מדריך SMC בעברית: רלי, בייס ודרופ, מגמה ראשית ומשנית, BOS ו-CHoCH, אימבלנס (FVG), אורדר בלוק, Sweep, EQH ו-EQL, ואיך בונים עסקה על הנאסדק. מאמר אורח של טל פרטוק מ-Boiler Room, עם צילומי מסך מסומנים.">
+    <meta data-rh="true" property="og:image" content="https://antartrade.co.il/images/blog/covers/smc-smart-money-concepts.webp">
+    
+    
+    <meta data-rh="true" property="og:image:alt" content="SMC: לקרוא את הגרף דרך הפקודות והנזילות">
+    <meta data-rh="true" property="og:type" content="website" />
+    <meta data-rh="true" property="og:site_name" content="AntarTrade" />
+    <meta data-rh="true" property="og:locale" content="he_IL" />
+
+    <!-- Twitter Cards Meta Tags -->
+    <meta data-rh="true" name="twitter:card" content="summary_large_image" />
+    <meta data-rh="true" name="twitter:title" content="מדריך SMC מאפס: אורדר בלוק, אימבלנס ושריפת סטופים | AntarTrade">
+    <meta data-rh="true" name="twitter:description" content="מדריך SMC בעברית: רלי, בייס ודרופ, מגמה ראשית ומשנית, BOS ו-CHoCH, אימבלנס (FVG), אורדר בלוק, Sweep, EQH ו-EQL, ואיך בונים עסקה על הנאסדק. מאמר אורח של טל פרטוק מ-Boiler Room, עם צילומי מסך מסומנים.">
+    <meta data-rh="true" name="twitter:image" content="https://antartrade.co.il/images/blog/covers/smc-smart-money-concepts.webp">
+    <meta data-rh="true" name="twitter:image:alt" content="SMC: לקרוא את הגרף דרך הפקודות והנזילות">
+
+    <!-- Additional Meta Tags -->
+    <meta name="author" content="AntarTrade" />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://i.ytimg.com" crossorigin />
+    <link rel="dns-prefetch" href="https://img.youtube.com" />
+    <link rel="dns-prefetch" href="https://www.youtube.com" />
+    <!-- Heebo is only the fallback behind Fb Reforma (and swaps in anyway), so it loads without holding up the first paint -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" rel="stylesheet" /></noscript>
+    <!-- the design's own font (base.css), fetched with the page instead of after the code runs -->
+    <link rel="preload" as="font" type="font/woff2" href="/home-new/fonts/FbReforma-Regular.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/home-new/fonts/FbReforma-Medium.woff2" crossorigin />
+    <!-- Critical inline CSS for instant LCP paint of hero H1 (replaced by React on hydration).
+         It draws the new homepage hero's first frame (dark ground, the same title in the same place), so the page doesn't flash another design. -->
+    <style>
+      html,body{margin:0;padding:0;background:#12161f;font-family:"Fb Reforma",Heebo,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+      #root{min-height:100vh}
+      .lcp-hero{position:relative;min-height:100vh;box-sizing:border-box;background:#12161f;padding:92px 16px 64px;text-align:right;direction:rtl;overflow:hidden}
+      .lcp-hero-inner{width:min(1171px,100%);margin:0 auto}
+      .lcp-hero h1{margin:0;font-weight:400;max-width:310px;background:linear-gradient(90deg,#61b1f2 0%,#fff 78.365%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+      .lcp-hero h1 .lcp-line{display:block;font-size:44px;line-height:1.05}
+      .lcp-hero h1 .lcp-sub{font-size:28px;line-height:1.3;margin-top:6px}
+      @media(min-width:761px){.lcp-hero{padding-top:92px}.lcp-hero h1{max-width:560px}.lcp-hero h1 .lcp-line{font-size:74px;line-height:.92}.lcp-hero h1 .lcp-sub{font-size:44px;line-height:1.1;margin-top:14px}}
+      html.no-lcp-hero .lcp-hero{display:none}
+    </style>
+    <script>
+      (function(){
+        var p = location.pathname;
+        if (p !== '/' && p !== '/index.html') {
+          document.documentElement.classList.add('no-lcp-hero');
+        }
+        // a foreign address with no prerendered file of its own (a 404, a page not translated yet) gets
+        // this Hebrew file: it reads left to right, without the Hebrew homepage title, from the first paint.
+        // The languages are FOREIGN_LOCALES in src/i18n/config.ts (the i18n test keeps them equal).
+        var foreign = p.match(/^\/(en)(\/|$)/);
+        if (foreign && document.documentElement.lang === 'he') {
+          document.documentElement.lang = foreign[1];
+          document.documentElement.dir = 'ltr';
+          document.title = 'AntarTrade';
+        }
+      })();
+    </script>
+    <!-- Stale-deploy recovery: if hashed JS chunks referenced by a cached index.html
+         are gone (404 / "Importing a module script failed"), reload once bypassing cache. -->
+    <script>
+      (function(){
+        var KEY = '__chunk_reload_at';
+        function reloadOnce(){
+          try {
+            var last = Number(sessionStorage.getItem(KEY) || 0);
+            if (Date.now() - last < 20000) return; // avoid reload loops
+            sessionStorage.setItem(KEY, String(Date.now()));
+          } catch(e){}
+          var u = location.pathname + (location.search ? location.search + '&' : '?') + '_r=' + Date.now() + location.hash;
+          location.replace(u);
+        }
+        // Resource-level failures (module script / preload) bubble only in capture phase
+        window.addEventListener('error', function(e){
+          var t = e && e.target;
+          if (t && t !== window && (t.tagName === 'SCRIPT' || t.tagName === 'LINK')) { reloadOnce(); return; }
+          var m = e && e.message;
+          if (m && (m.indexOf('Importing a module script failed') > -1 ||
+                    m.indexOf('Failed to fetch dynamically imported module') > -1 ||
+                    m.indexOf('error loading dynamically imported module') > -1)) reloadOnce();
+        }, true);
+        window.addEventListener('unhandledrejection', function(e){
+          var m = e && e.reason && (e.reason.message || String(e.reason));
+          if (m && (m.indexOf('Importing a module script failed') > -1 ||
+                    m.indexOf('Failed to fetch dynamically imported module') > -1 ||
+                    m.indexOf('error loading dynamically imported module') > -1)) reloadOnce();
+        });
+      })();
+    </script>
+
+    <!-- Meta Pixel מנוהל כעת דרך שכבת המדידה המרכזית (src/lib/analytics) ונטען רק לאחר הסכמה -->
+    <script type="module" crossorigin src="/assets/index-D68BnfkV.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-vendor-xAhqJu7B.js">
+    <link rel="modulepreload" crossorigin href="/assets/query-vendor-iefLz-8z.js">
+    <link rel="modulepreload" crossorigin href="/assets/supabase-vendor-DW0Ocl7u.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-DgFdmHIc.css">
+    <link rel="modulepreload" crossorigin href="/assets/HomeNew-Xdkb300-.js">
+    <link rel="modulepreload" crossorigin href="/assets/SEOHead-C6MhvbBM.js">
+    <link rel="modulepreload" crossorigin href="/assets/Community-CGqn3zcE.js">
+    <link rel="modulepreload" crossorigin href="/assets/Slots-g77hvavO.js">
+    <link rel="modulepreload" crossorigin href="/assets/useCanonicalComparison-82hVbQZH.js">
+    <link rel="modulepreload" crossorigin href="/assets/fetch-CH1GdQpR.js">
+    <link rel="modulepreload" crossorigin href="/assets/canonicalRules-yhGyuGJm.js">
+    <link rel="modulepreload" crossorigin href="/assets/products-WejJvjdw.js">
+    <link rel="modulepreload" crossorigin href="/assets/evaluationCardStandard-tKfyyGpX.js">
+    <link rel="modulepreload" crossorigin href="/assets/companySummary-C7i5WxdK.js">
+    <link rel="modulepreload" crossorigin href="/assets/filters-DYbR_De5.js">
+    <link rel="modulepreload" crossorigin href="/assets/headToHead-Dc4nZDet.js">
+    <link rel="modulepreload" crossorigin href="/assets/headToHeadAdvantage-Bm5kSE2q.js">
+    <link rel="modulepreload" crossorigin href="/assets/useToolPromotion-B36MpWbm.js">
+    <link rel="modulepreload" crossorigin href="/assets/academyContent-9jFzJtqK.js">
+    <link rel="modulepreload" crossorigin href="/assets/videos-CLDOKnje.js">
+    <link rel="modulepreload" crossorigin href="/assets/partnerLinks-Dq8OMvz2.js">
+    <link rel="modulepreload" crossorigin href="/assets/bookmap-logo-DVyC8KOZ.js">
+    <link rel="modulepreload" crossorigin href="/assets/atas-logo-full-DbSPwLYc.js">
+    <link rel="modulepreload" crossorigin href="/assets/deepcharts-logo-BYa0Bf-H.js">
+    <link rel="modulepreload" crossorigin href="/assets/tradesyncer-icon-CPIKvf7Z.js">
+    <link rel="modulepreload" crossorigin href="/assets/wise-logo-wPKhv01q.js">
+    <link rel="modulepreload" crossorigin href="/assets/graduation-cap-B0lc4vdm.js">
+    <link rel="modulepreload" crossorigin href="/assets/book-open-Bul04yqJ.js">
+    <link rel="modulepreload" crossorigin href="/assets/chart-no-axes-combined-pnZPLK3E.js">
+    <link rel="modulepreload" crossorigin href="/assets/notebook-pen-DfRfyWcU.js">
+    <link rel="modulepreload" crossorigin href="/assets/calculator-CYOpFqpG.js">
+    <link rel="modulepreload" crossorigin href="/assets/scale-CIFqyr5I.js">
+    <link rel="modulepreload" crossorigin href="/assets/calendar-days-c5tOF4Cm.js">
+    <link rel="modulepreload" crossorigin href="/assets/usePartnerBenefit-DkYsCLrh.js">
+    <link rel="preload" as="style" crossorigin href="/assets/HomeNew-CDzzjVTX.css">
+    <link rel="preload" as="style" crossorigin href="/assets/index-DgFdmHIc.css">
+    <link rel="preload" as="style" crossorigin href="/assets/Community-rmM6TMB2.css">
+    <link rel="preload" as="image" href="/home-new/img/hero-trader-steel.jpg" fetchpriority="high" />
+    <meta data-rh="true" property="og:url" content="https://antartrade.co.il/blog/smc-smart-money-concepts">
+    <link data-rh="true" rel="canonical" href="https://antartrade.co.il/blog/smc-smart-money-concepts">
+  </head>
+  <body>
+    <noscript>
+      <div
+        style="max-width:900px;margin:0 auto;padding:40px 20px;font-family:Heebo,sans-serif;direction:rtl;text-align:right;"
+      >
+        <h1>AntarTrade – השוואת חברות מימון ונוסטרו לסוחרים 2026</h1>
+        <p>
+          אתר ההשוואות המוביל בישראל לחברות מימון לסוחרים 2026 – ניתוחים אישיים, קודי הנחה בלעדיים ותוכן מקצועי מאת נועם
+          ענתר.
+        </p>
+        <h2>השוואת חברות ומבצעים</h2>
+        <ul>
+          <li>
+            <a href="/comparison">השוואת חברות מימון ונוסטרו</a> – מחירים, חוקים ותנאי משיכה של כל החברות בטבלה אחת.
+          </li>
+          <li><a href="/promotions">מבצעים וקודי הנחה</a> – כל המבצעים הפעילים וקוד ההנחה ANTAR.</li>
+          <li><a href="/matching-quiz">שאלון התאמה</a> – איזו חברת מימון מתאימה לך.</li>
+          <li><a href="/comparison/head-to-head">דו-קרב חברות</a> – שתי חברות ראש בראש.</li>
+        </ul>
+        <h2>חברות מימון</h2>
+        <ul>
+          <li><a href="/take-profit">טייק פרופיט (TakeProfit Trader)</a> – סקירה, חוקים, משיכות וקוד הנחה.</li>
+          <li><a href="/lucid">לוסיד טריידינג (Lucid Trading)</a> – סקירה, מסלולים, חוקים וקוד הנחה.</li>
+          <li><a href="/apex">אפקס (Apex Trader Funding)</a> – סקירה, חוקים וקוד הנחה.</li>
+          <li><a href="/top-step">טופסטפ (TopStep)</a> – סקירה, חשבונות, חוקים ומשיכות.</li>
+          <li><a href="/bulenox">בולנוקס (Bulenox)</a> – סקירה, חשבונות, חוקים וקוד הנחה.</li>
+          <li><a href="/funded-next">פאנדד נקסט (FundedNext Futures)</a> – סקירה, חשבונות, חוקים ומבצעים.</li>
+          <li><a href="/ftmo">FTMO Futures</a> – סקירה, חוקים, מחירים ומשיכות.</li>
+        </ul>
+        <h2>האקדמיה</h2>
+        <ul>
+          <li><a href="/academy">האקדמיה של AntarTrade</a> – קורסים, סרטונים, מאמרים וכלים למסחר בעברית.</li>
+          <li><a href="/blog/tik-nostro">מה זה תיק נוסטרו</a> – המדריך המלא לסחור על הון של חברות מימון.</li>
+          <li><a href="/blog">מאמרים ומדריכים</a></li>
+          <li><a href="/calculators">מחשבונים לסוחרים</a></li>
+          <li><a href="/academy/glossary">מילון מושגים</a></li>
+          <li><a href="/economic-calendar">יומן הודעות כלכליות</a></li>
+          <li><a href="/courses">קורסים</a></li>
+        </ul>
+        <h2>פלטפורמות וכלים</h2>
+        <ul>
+          <li><a href="/platforms">כל הפלטפורמות והכלים</a></li>
+          <li><a href="/ninjatrader-guide">NinjaTrader</a></li>
+          <li><a href="/atas-guide">ATAS</a></li>
+          <li><a href="/bookmap-guide">Bookmap</a></li>
+          <li><a href="/tradezella-guide">TradeZella</a></li>
+        </ul>
+        <h2>מידע נוסף</h2>
+        <ul>
+          <li><a href="/about">אודות נועם ענתר</a></li>
+          <li><a href="/faq">שאלות ותשובות</a></li>
+          <li><a href="/contact">צור קשר</a></li>
+        </ul>
+      </div>
+    </noscript>
+    <div id="root">
+      <style>html:has(.pr-body),body:has(.pr-body){background:#12161f;overflow-x:hidden}.pr-body{max-width:860px;margin:0 auto;padding:120px 20px 64px;box-sizing:border-box;color:#e8eef5;line-height:1.7;font-size:18px;direction:rtl;text-align:right;overflow-wrap:anywhere}.pr-body h1,.pr-body h2,.pr-body h3{color:inherit}.pr-body h1{font-size:40px;line-height:1.15;margin:16px 0}.pr-body h2{font-size:28px;margin:40px 0 12px}.pr-body h3{font-size:21px;margin:24px 0 8px}.pr-body a{color:#7dc6ff}.pr-body img{max-width:100%;height:auto}.pr-body table{border-collapse:collapse;display:block;max-width:100%;overflow-x:auto}.pr-body td,.pr-body th{border:1px solid #33415a;padding:6px 10px}.pr-body nav{font-size:15px;color:#9fb0c6}.pr-body dt{font-weight:700;margin-top:16px}.pr-body dd{margin:4px 0 0}</style><article class="pr-body"><nav aria-label="פירורי לחם"><a href="/">דף הבית</a> / <a href="/blog">בלוג</a> / SMC מאפס: אורדר בלוק, אימבלנס ושריפת סטופים, ואיך סוחרים עם הכסף החכם</nav><h1>SMC מאפס: אורדר בלוק, אימבלנס ושריפת סטופים, ואיך סוחרים עם הכסף החכם</h1><p>מאמר אורח מאת <a href="https://www.youtube.com/@BoilerRoom.Israel">טל פרטוק</a>, סוחר ומנטור ב-Boiler Room</p>
+<p class="lead">SMC הוא שם מפוצץ לרעיון די פשוט: להבין איפה יושבות הפקודות בשוק, איפה הנזילות, ואיך הכסף הגדול משתמש בהן כדי להזיז את המחיר. בלי אינדיקטורים, רק הגרף ותנועת המחיר. במאמר הזה אני עובר על כל הבסיס, מאפס: איך השוק זז, מגמות, כל המושגים של SMC, ואיך זה נראה בעסקה אמיתית על הנאסדק.</p>
+
+<div class="box"><strong>מאמר אורח</strong>המאמר נכתב לפי השיעור של טל פרטוק מ־<span class="en">Boiler Room</span> ביוטיוב, ומתפרסם כאן באישורו. צילומי המסך לקוחים מהשיעור, והסימונים הצבעוניים נוספו כדי שיהיה קל לראות על מה מדובר.</div>
+
+<div class="video" data-embed="youtube"><iframe src="https://www.youtube-nocookie.com/embed/XDsTwqET940" title="SMC: מדריך מקיף לשיטת המסחר של הכסף החכם" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+<h2>איך השוק זז: רלי, בייס ודרופ</h2>
+<p>השוק זז רק בשלוש צורות: עלייה (<span class="en">Rally</span>), התבססות או דשדוש (<span class="en">Base</span>), וירידה (<span class="en">Drop</span>). והחוק פשוט: בין רלי לדרופ, או בין רלי לרלי נוסף, תמיד יש בייס.</p>
+<figure><img src="/guides-new/smc/smc-rally-base-drop.webp" alt="ציור של תנועות השוק: drop, base ו-rally לסירוגין" loading="lazy" /></figure>
+<p>מה קורה בבייס? איסוף או פיזור של סחורה. המוסדיים אוספים סחורה בדשדוש, יוצאים לתנועה, ואחריה מפזרים אותה. לכן מהבייס יכול לצאת גם המשך וגם היפוך, אבל אני תמיד יודע באיזה שלב בתהליך אני נמצא. בעולם של <span class="en">SMC</span> תשמעו גם קיצורים כמו <span class="en">RBR</span> (רלי, בייס, רלי), <span class="en">RBD</span> (רלי, בייס, דרופ), <span class="en">DBD</span> ו־<span class="en">DBR</span>.</p>
+
+<h2>מגמות: ראשית ומשנית</h2>
+<p>מגמת עלייה היא לפחות שני שיאים עולים (<span class="en">Higher High</span>) ושני שפלים עולים (<span class="en">Higher Low</span>). מגמת ירידה היא ההפך: שיאים ושפלים יורדים (<span class="en">Lower High</span>, <span class="en">Lower Low</span>). כשאין רצף כזה, אנחנו בדשדוש.</p>
+<figure><img src="/guides-new/smc/smc-trend.webp" alt="מגמת עלייה עם HH ו-HL לעומת מגמת ירידה עם LH ו-LL" loading="lazy" /></figure>
+<p>בתוך מגמה ראשית יש כמעט תמיד מגמה משנית: התיקון שרץ נגדה. את המגמה הראשית הכי נוח לזהות בגרף של 15 דקות, ואת המשנית בגרף של דקה. אפשר לסחור בשתיהן, אבל:</p>
+<ul>
+  <li><strong>עם המגמה הראשית</strong> הולכים למהלכים ארוכים. ככה אני מעדיף לסחור.</li>
+  <li><strong>עם המגמה המשנית</strong> עושים עסקאות מומנטום: קצרות, מהירות, מסוכנות יותר וקשות יותר לביצוע.</li>
+</ul>
+
+<h2>המושגים של SMC</h2>
+<p>לפני שנגיע לעסקאות, הנה המילון. לא צריך להיבהל מהשמות, לכל אחד מהם יש משמעות פשוטה.</p>
+
+<h3>BOS ו־CHoCH</h3>
+<ul>
+  <li><strong><span class="en">BOS</span> (<span class="en">Break of Structure</span>)</strong>: פריצה או שבירה עם כיוון המגמה. בעלייה, פריצה של השיא הקודם. בירידה, שבירה של השפל הקודם. המגמה ממשיכה.</li>
+  <li><strong><span class="en">CHoCH</span> (<span class="en">Change of Character</span>)</strong>: השבירה הראשונה נגד המגמה, זו ששינתה את אופי המגמה. בירידה, הפריצה הראשונה של שיא. בעלייה, השבירה הראשונה של שפל.</li>
+</ul>
+<figure><img src="/guides-new/smc/smc-bos-choch.webp" alt="ציור של מגמת ירידה עם BOS, שבירה למעלה שמסומנת CHoCH, ואחריה BOS בכיוון החדש" loading="lazy" /></figure>
+<p>שימו לב: כדי שזו תהיה שבירה, צריך סגירה של נר. זנב שעבר את הרמה לא נחשב.</p>
+
+<h3>אזורי ביקוש והיצע</h3>
+<p>תמיכה בגרף היא אזור ביקוש (<span class="en">Demand</span>), והתנגדות היא אזור היצע (<span class="en">Supply</span>). את שניהם מסיקים ישירות מתנועת הגרף. אזור ביקוש שממנו יצא <span class="en">BOS</span> הוא אזור טוב, ואזור שממנו יצא <span class="en">CHoCH</span> חזק עוד יותר.</p>
+
+<h3>אימבלנס (FVG)</h3>
+<p>אימבלנס, או <span class="en">Fair Value Gap</span>, הוא הפער בין הנר הראשון לנר השלישי במהלך חד: האזור שהנר השני עבר בו כל כך מהר, שהזנבות של הנר הראשון והשלישי לא נוגעים זה בזה. במהלך כזה הקונים והמוכרים לא היו שווים, והרבה פקודות פשוט לא קיבלו ביצוע.</p>
+<p>זו תנועה לא יעילה. בתנועה יעילה כל מי שרצה לקנות קנה וכל מי שרצה למכור מכר. בתנועה לא יעילה נשארים פערים, ולכן לאימבלנס יש כוח משיכה: יש אינטרס להחזיר את המחיר לשם כדי למלא את הפקודות שנשארו. ברוב המקרים האימבלנס ייסגר לפחות עד החצי שלו. ומי יצר אותו? בדרך כלל הציבור, שראה את השוק בורח ונכנס בפומו. המוסדיים לא יושבים באימבלנס. הם יושבים באזור שממנו המהלך יצא.</p>
+
+<h3>אורדר בלוק (OB)</h3>
+<p>אורדר בלוק הוא בלוק של פקודות. אזור ביקוש הופך לאורדר בלוק ברגע שיצא ממנו מהלך שיצר אימבלנס. רק מוסדי יכול לייצר כוח כזה, ולכן יש סיכוי טוב שנשארו שם פקודות שעוד לא מולאו, ושהמחיר יחזור אליהן.</p>
+<figure><img src="/guides-new/smc/smc-order-block.webp" alt="גרף 15 דקות של הנאסדק: CHoCH, אימבלנס ומתחתיו אורדר בלוק" loading="lazy" /></figure>
+<p>בדוגמה הזו המחיר שבר את מגמת הירידה (<span class="en">CHoCH</span>), יצא במהלך חד שהשאיר אימבלנס (בתכלת), והאורדר בלוק (בצהוב) הוא האזור שממנו המהלך יצא. אורדר בלוק שגרם ל־<span class="en">CHoCH</span> הוא האורדר בלוק החזק ביותר.</p>
+<p><strong>איך מסמנים אורדר בלוק:</strong></p>
+<ul>
+  <li>נר עם זנב אגרסיבי, גדול בהרבה מהגוף: מסמנים רק את הזנב. ככה העסקה מדויקת יותר.</li>
+  <li>נר קטן ביחס לתנועה, נר בלי זנב, או נר שהזנב והגוף שלו בערך באותו גודל: מסמנים את כל הנר, כדי לא לפספס עסקה בגלל כמה נקודות.</li>
+  <li>יש גם אורדר בלוק באמצע תנועה: נר תיקון קטן שהשיא שלו שווה לשיא הנר הקודם, והנר שאחריו לא יורד ממנו אלא פורץ ישר למעלה ויוצר אימבלנס בעצמו.</li>
+</ul>
+
+<h3>Sweep: שריפת סטופים</h3>
+<figure><img src="/guides-new/smc/smc-sweep.webp" alt="ציור של שריפת סטופים: זנב קצר מעל קו ההתנגדות ואחריו ירידה" loading="lazy" /></figure>
+<p>מעל התנגדות ברורה יושבים הרבה סטופים. סוחרים ראו את ההתנגדות, נכנסו לשורט עם סטופ קצר מעליה, וחיכו. המוסדי שרוצה לאסוף סחורה לשורט מעלה את המחיר בדיוק לשם. כל סטופ של שורט הוא בעצם פקודת קנייה, והמוסדי מוכר לתוך הקניות האלה. ככה הוא מקבל נזילות ויוצא לירידה מהנקודה הכי גבוהה. בגרף זה נראה כמו זנב גדול מעל ההתנגדות ונר שנסגר מתחתיה. אותו דבר עובד גם ללונג, מתחת לתמיכה.</p>
+
+<h3>EQH ו־EQL: גבוהים ונמוכים שווים</h3>
+<figure><img src="/guides-new/smc/smc-eqh.webp" alt="ציור של גבוהים שווים מתחת לאורדר בלוק, ואחריהם שריפת הסטופים וירידה" loading="lazy" /></figure>
+<p>גבוהים שווים (<span class="en">Equal Highs</span>) או נמוכים שווים (<span class="en">Equal Lows</span>), בהפרש של רבע או חצי נקודה בחוזים, הם הנדסה של המחיר. המוסדי מייצר רמה שנראית לכולם כמו התנגדות מושלמת, כדי שיהיה לו קל לשרוף את הסטופים שמעליה. אם אתם רואים <span class="en">EQH</span> או <span class="en">EQL</span> קרוב לאורדר בלוק, אל תיפלו בפח. חכו בסבלנות שהסטופים יישרפו, ורק אז הצטרפו למהלך ביחד עם המוסדי.</p>
+
+<h3>Mitigated ו־Unmitigated</h3>
+<p>אורדר בלוק או אימבלנס שהמחיר עוד לא חזר אליהם הם <span class="en">Unmitigated</span>, בתוליים. ברגע שהמחיר נגע בהם הם <span class="en">Mitigated</span>, והפקודות שישבו שם כבר מולאו. זו טעות נפוצה לחשוב שאורדר בלוק ממשיך לחיות אחרי שנגעו בו. הוא לא. האזור עדיין יכול להיות אזור נזילות מעניין, אבל כאורדר בלוק הוא כבר לא רלוונטי. ככל שאורדר בלוק בתולי, הוא איכותי יותר.</p>
+
+<h2>איך זה נראה בעסקה</h2>
+<p>הרעיון הכללי: נכנסים באורדר בלוק, שמים סטופ מעבר לאורדר בלוק, והיעד הוא סגירה של אימבלנס, אזור נזילות, או אורדר בלוק בצד השני. ככה אני בונה את זה:</p>
+<ol>
+  <li><strong>מזהים את המגמה הראשית</strong> בגרף של 15 דקות.</li>
+  <li><strong>מחפשים <span class="en">CHoCH</span></strong>, שינוי של אופי המגמה. זה המצב הכי טוב לעבוד איתו.</li>
+  <li><strong>מסמנים את האימבלנס</strong> שהמהלך השאיר, ואת האורדר בלוק שממנו הוא יצא.</li>
+  <li><strong>מחכים בסבלנות</strong> שהמחיר יחזור לאורדר בלוק.</li>
+  <li><strong>נכנסים בחצי העליון של האורדר בלוק</strong> (בשורט; בלונג, בחצי התחתון). אם האורדר בלוק קטן, נגיד 10 נקודות, לוקחים את כולו. חבל לפספס עסקה טובה בשביל לחסוך כמה נקודות.</li>
+  <li><strong>הסטופ מעבר לאורדר בלוק.</strong> אני מחכה לסגירה של נר דקה מעבר לאזור, כי לפעמים יש שם שריפת סטופים קטנה.</li>
+</ol>
+
+<h3>עסקת שורט ב־15 דקות</h3>
+<figure><img src="/guides-new/smc/smc-short-trade.webp" alt="גרף 15 דקות של הנאסדק: CHoCH למטה, אימבלנס, ואורדר בלוק למעלה שאליו המחיר חזר לפני הירידה" loading="lazy" /></figure>
+<p>המגמה העולה נשברה (<span class="en">CHoCH</span>), המהלך למטה השאיר אימבלנס, ומעליו חיכה האורדר בלוק. כשהמחיר חזר אליו, זה היה המקום לשורט, עם סטופ מעל האורדר בלוק. את היעד לוקחים מ־15 הדקות: אזור הנזילות הבא למטה.</p>
+
+<h3>עסקת לונג בגרף דקה</h3>
+<figure><img src="/guides-new/smc/smc-long-trade-1m.webp" alt="גרף דקה של הנאסדק: כניסה ללונג באורדר בלוק, סטופ מתחתיו ויעד בסגירת האימבלנס" loading="lazy" /></figure>
+<p>בגרף דקה רואים את האימבלנסים ואת האורדר בלוקים הכי מדויק, כי שם רואים מה באמת קרה בתוך כל נר של 15 דקות. כאן הכניסה הייתה בנגיעה באורדר בלוק, הסטופ מתחתיו, והיעד הוא סגירת האימבלנס למעלה, לפחות עד החצי שלו. כדאי לקחת את היעדים מגרף של 5 או 15 דקות, ולדייק את הכניסה בדקה.</p>
+
+<div class="box warn"><strong>אורדר בלוק עם אימבלנסים פתוחים מתחתיו</strong>אם מתחת לאורדר בלוק (בעסקת לונג) יש כמה אימבלנסים שעוד לא נסגרו, זו עסקה מסוכנת. לשוק יש אינטרס חזק לרדת ולסגור אותם, והאורדר בלוק יכול פשוט להישבר.</div>
+
+<h2>אישור אחד או שניים</h2>
+<p>בגרף של 5 או 15 דקות מספיק לי <span class="en">CHoCH</span> אחד כאישור. בגרף דקה אני רוצה שני אישורים: שבירה של השפל האחרון, ואז גם שבירה מלאה של השפל שאחריו.</p>
+<figure><img src="/guides-new/smc/smc-two-confirmations.webp" alt="ציור של שני CHoCH ברצף בגרף דקה לפני כניסה לשורט מהאורדר בלוק" loading="lazy" /></figure>
+<p>שני <span class="en">CHoCH</span> כאלה אומרים שהמגמה באמת התהפכה, ושהעסקה מהאורדר בלוק למעלה צפויה להיות איכותית. אם קיבלתם רק זנב מתחת לשפל ולא סגירה, אין לכם עדיין אישור.</p>
+
+<h2>סשנים ושעות מסוכנות</h2>
+<p>בחוזים עתידיים יש סשנים: אסיה, אירופה וארצות הברית. כדי להניע את השוק בפתיחה של סשן, המוסדיים צריכים שריפת סטופים, ולכן הפתיחות האלה מלאות בשריפות, לפעמים אגרסיביות מאוד. השעות המסוכנות, בשעון ישראל: 10:00 בבוקר, 15:30 ו־16:30. מי שעוד לא מנוסה, עדיף שיסחר בשעות הרגועות, בלי שריפות סטופים, ושם העסקאות מהאורדר בלוק נקיות יותר.</p>
+
+<h2>לסיכום</h2>
+<ul>
+  <li><span class="en">SMC</span> הוא הבנה של פקודות ונזילות: איפה יושבות הפקודות, ואיך המוסדיים משתמשים בהן. בלי אינדיקטורים.</li>
+  <li>השוק זז ברלי, בייס ודרופ. סוחרים עם המגמה הראשית למהלכים ארוכים.</li>
+  <li><span class="en">CHoCH</span> הוא שינוי מגמה, <span class="en">BOS</span> הוא המשך שלה. האורדר בלוק הכי חזק הוא זה שגרם ל־<span class="en">CHoCH</span>.</li>
+  <li>אימבלנס הוא מגנט למחיר. אורדר בלוק הוא המקום שממנו יצא המהלך. אחרי שנגעו בהם, הם כבר לא רלוונטיים.</li>
+  <li>גבוהים ונמוכים שווים ליד אורדר בלוק הם מלכודת. מחכים לשריפת הסטופים ומצטרפים אחריה.</li>
+  <li>בגרף דקה מחכים לשני אישורים. בגרף 5 ו־15 דקות מספיק אחד. ותמיד עם סטופ.</li>
+</ul>
+
+<div class="box"><strong>על הכותב</strong>טל פרטוק הוא סוחר ומנטור ב־<span class="en">Boiler Room</span>, קהילת מסחר ישראלית. בערוץ היוטיוב שלהם יש עוד הרבה שיעורים: <a href="https://www.youtube.com/@BoilerRoom.Israel" target="_blank" rel="noopener">Boiler Room ביוטיוב</a>. רוצים להמשיך מכאן? יש גם <a href="/blog/smt-smart-money-technique">מאמר על SMT</a>, הפער בין הנאסדק ל־<span class="en">S&amp;P 500</span>.</div>
+</article>
+    </div>
+  </body>
+</html>

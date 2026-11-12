@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Microsoft Clarity מנוהל דרך שכבת המדידה המרכזית (src/lib/analytics/clarity.ts) ונטען רק לאחר הסכמה -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" sizes="any" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ביאס ליום שישי מתוך האופציות על הנאסדק: Max Pain צעד אחר צעד | AntarTrade</title>
+    <meta data-rh="true" name="description" content="איך מוצאים את הביאס של יום שישי, יום הפקיעה של האופציות השבועיות על הנאסדק: Open Interest ב-Barchart, Max Pain והטווח הנוח למוסדיים. מאמר אורח של טל פרטוק מ-Boiler Room, עם צילומי מסך מסומנים.">
+
+    <!-- Open Graph Meta Tags -->
+    <meta data-rh="true" property="og:title" content="ביאס ליום שישי מתוך האופציות על הנאסדק: Max Pain צעד אחר צעד | AntarTrade">
+    <meta data-rh="true" property="og:description" content="איך מוצאים את הביאס של יום שישי, יום הפקיעה של האופציות השבועיות על הנאסדק: Open Interest ב-Barchart, Max Pain והטווח הנוח למוסדיים. מאמר אורח של טל פרטוק מ-Boiler Room, עם צילומי מסך מסומנים.">
+    <meta data-rh="true" property="og:image" content="https://antartrade.co.il/images/blog/covers/friday-options-bias.webp">
+    
+    
+    <meta data-rh="true" property="og:image:alt" content="הביאס של יום שישי: איך שוק האופציות מגלה איפה המוסדיים רוצים לסגור">
+    <meta data-rh="true" property="og:type" content="website" />
+    <meta data-rh="true" property="og:site_name" content="AntarTrade" />
+    <meta data-rh="true" property="og:locale" content="he_IL" />
+
+    <!-- Twitter Cards Meta Tags -->
+    <meta data-rh="true" name="twitter:card" content="summary_large_image" />
+    <meta data-rh="true" name="twitter:title" content="ביאס ליום שישי מתוך האופציות על הנאסדק: Max Pain צעד אחר צעד | AntarTrade">
+    <meta data-rh="true" name="twitter:description" content="איך מוצאים את הביאס של יום שישי, יום הפקיעה של האופציות השבועיות על הנאסדק: Open Interest ב-Barchart, Max Pain והטווח הנוח למוסדיים. מאמר אורח של טל פרטוק מ-Boiler Room, עם צילומי מסך מסומנים.">
+    <meta data-rh="true" name="twitter:image" content="https://antartrade.co.il/images/blog/covers/friday-options-bias.webp">
+    <meta data-rh="true" name="twitter:image:alt" content="הביאס של יום שישי: איך שוק האופציות מגלה איפה המוסדיים רוצים לסגור">
+
+    <!-- Additional Meta Tags -->
+    <meta name="author" content="AntarTrade" />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://i.ytimg.com" crossorigin />
+    <link rel="dns-prefetch" href="https://img.youtube.com" />
+    <link rel="dns-prefetch" href="https://www.youtube.com" />
+    <!-- Heebo is only the fallback behind Fb Reforma (and swaps in anyway), so it loads without holding up the first paint -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" rel="stylesheet" /></noscript>
+    <!-- the design's own font (base.css), fetched with the page instead of after the code runs -->
+    <link rel="preload" as="font" type="font/woff2" href="/home-new/fonts/FbReforma-Regular.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/home-new/fonts/FbReforma-Medium.woff2" crossorigin />
+    <!-- Critical inline CSS for instant LCP paint of hero H1 (replaced by React on hydration).
+         It draws the new homepage hero's first frame (dark ground, the same title in the same place), so the page doesn't flash another design. -->
+    <style>
+      html,body{margin:0;padding:0;background:#12161f;font-family:"Fb Reforma",Heebo,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+      #root{min-height:100vh}
+      .lcp-hero{position:relative;min-height:100vh;box-sizing:border-box;background:#12161f;padding:92px 16px 64px;text-align:right;direction:rtl;overflow:hidden}
+      .lcp-hero-inner{width:min(1171px,100%);margin:0 auto}
+      .lcp-hero h1{margin:0;font-weight:400;max-width:310px;background:linear-gradient(90deg,#61b1f2 0%,#fff 78.365%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+      .lcp-hero h1 .lcp-line{display:block;font-size:44px;line-height:1.05}
+      .lcp-hero h1 .lcp-sub{font-size:28px;line-height:1.3;margin-top:6px}
+      @media(min-width:761px){.lcp-hero{padding-top:92px}.lcp-hero h1{max-width:560px}.lcp-hero h1 .lcp-line{font-size:74px;line-height:.92}.lcp-hero h1 .lcp-sub{font-size:44px;line-height:1.1;margin-top:14px}}
+      html.no-lcp-hero .lcp-hero{display:none}
+    </style>
+    <script>
+      (function(){
+        var p = location.pathname;
+        if (p !== '/' && p !== '/index.html') {
+          document.documentElement.classList.add('no-lcp-hero');
+        }
+        // a foreign address with no prerendered file of its own (a 404, a page not translated yet) gets
+        // this Hebrew file: it reads left to right, without the Hebrew homepage title, from the first paint.
+        // The languages are FOREIGN_LOCALES in src/i18n/config.ts (the i18n test keeps them equal).
+        var foreign = p.match(/^\/(en)(\/|$)/);
+        if (foreign && document.documentElement.lang === 'he') {
+          document.documentElement.lang = foreign[1];
+          document.documentElement.dir = 'ltr';
+          document.title = 'AntarTrade';
+        }
+      })();
+    </script>
+    <!-- Stale-deploy recovery: if hashed JS chunks referenced by a cached index.html
+         are gone (404 / "Importing a module script failed"), reload once bypassing cache. -->
+    <script>
+      (function(){
+        var KEY = '__chunk_reload_at';
+        function reloadOnce(){
+          try {
+            var last = Number(sessionStorage.getItem(KEY) || 0);
+            if (Date.now() - last < 20000) return; // avoid reload loops
+            sessionStorage.setItem(KEY, String(Date.now()));
+          } catch(e){}
+          var u = location.pathname + (location.search ? location.search + '&' : '?') + '_r=' + Date.now() + location.hash;
+          location.replace(u);
+        }
+        // Resource-level failures (module script / preload) bubble only in capture phase
+        window.addEventListener('error', function(e){
+          var t = e && e.target;
+          if (t && t !== window && (t.tagName === 'SCRIPT' || t.tagName === 'LINK')) { reloadOnce(); return; }
+          var m = e && e.message;
+          if (m && (m.indexOf('Importing a module script failed') > -1 ||
+                    m.indexOf('Failed to fetch dynamically imported module') > -1 ||
+                    m.indexOf('error loading dynamically imported module') > -1)) reloadOnce();
+        }, true);
+        window.addEventListener('unhandledrejection', function(e){
+          var m = e && e.reason && (e.reason.message || String(e.reason));
+          if (m && (m.indexOf('Importing a module script failed') > -1 ||
+                    m.indexOf('Failed to fetch dynamically imported module') > -1 ||
+                    m.indexOf('error loading dynamically imported module') > -1)) reloadOnce();
+        });
+      })();
+    </script>
+
+    <!-- Meta Pixel מנוהל כעת דרך שכבת המדידה המרכזית (src/lib/analytics) ונטען רק לאחר הסכמה -->
+    <script type="module" crossorigin src="/assets/index-D68BnfkV.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-vendor-xAhqJu7B.js">
+    <link rel="modulepreload" crossorigin href="/assets/query-vendor-iefLz-8z.js">
+    <link rel="modulepreload" crossorigin href="/assets/supabase-vendor-DW0Ocl7u.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-DgFdmHIc.css">
+    <link rel="modulepreload" crossorigin href="/assets/HomeNew-Xdkb300-.js">
+    <link rel="modulepreload" crossorigin href="/assets/SEOHead-C6MhvbBM.js">
+    <link rel="modulepreload" crossorigin href="/assets/Community-CGqn3zcE.js">
+    <link rel="modulepreload" crossorigin href="/assets/Slots-g77hvavO.js">
+    <link rel="modulepreload" crossorigin href="/assets/useCanonicalComparison-82hVbQZH.js">
+    <link rel="modulepreload" crossorigin href="/assets/fetch-CH1GdQpR.js">
+    <link rel="modulepreload" crossorigin href="/assets/canonicalRules-yhGyuGJm.js">
+    <link rel="modulepreload" crossorigin href="/assets/products-WejJvjdw.js">
+    <link rel="modulepreload" crossorigin href="/assets/evaluationCardStandard-tKfyyGpX.js">
+    <link rel="modulepreload" crossorigin href="/assets/companySummary-C7i5WxdK.js">
+    <link rel="modulepreload" crossorigin href="/assets/filters-DYbR_De5.js">
+    <link rel="modulepreload" crossorigin href="/assets/headToHead-Dc4nZDet.js">
+    <link rel="modulepreload" crossorigin href="/assets/headToHeadAdvantage-Bm5kSE2q.js">
+    <link rel="modulepreload" crossorigin href="/assets/useToolPromotion-B36MpWbm.js">
+    <link rel="modulepreload" crossorigin href="/assets/academyContent-9jFzJtqK.js">
+    <link rel="modulepreload" crossorigin href="/assets/videos-CLDOKnje.js">
+    <link rel="modulepreload" crossorigin href="/assets/partnerLinks-Dq8OMvz2.js">
+    <link rel="modulepreload" crossorigin href="/assets/bookmap-logo-DVyC8KOZ.js">
+    <link rel="modulepreload" crossorigin href="/assets/atas-logo-full-DbSPwLYc.js">
+    <link rel="modulepreload" crossorigin href="/assets/deepcharts-logo-BYa0Bf-H.js">
+    <link rel="modulepreload" crossorigin href="/assets/tradesyncer-icon-CPIKvf7Z.js">
+    <link rel="modulepreload" crossorigin href="/assets/wise-logo-wPKhv01q.js">
+    <link rel="modulepreload" crossorigin href="/assets/graduation-cap-B0lc4vdm.js">
+    <link rel="modulepreload" crossorigin href="/assets/book-open-Bul04yqJ.js">
+    <link rel="modulepreload" crossorigin href="/assets/chart-no-axes-combined-pnZPLK3E.js">
+    <link rel="modulepreload" crossorigin href="/assets/notebook-pen-DfRfyWcU.js">
+    <link rel="modulepreload" crossorigin href="/assets/calculator-CYOpFqpG.js">
+    <link rel="modulepreload" crossorigin href="/assets/scale-CIFqyr5I.js">
+    <link rel="modulepreload" crossorigin href="/assets/calendar-days-c5tOF4Cm.js">
+    <link rel="modulepreload" crossorigin href="/assets/usePartnerBenefit-DkYsCLrh.js">
+    <link rel="preload" as="style" crossorigin href="/assets/HomeNew-CDzzjVTX.css">
+    <link rel="preload" as="style" crossorigin href="/assets/index-DgFdmHIc.css">
+    <link rel="preload" as="style" crossorigin href="/assets/Community-rmM6TMB2.css">
+    <link rel="preload" as="image" href="/home-new/img/hero-trader-steel.jpg" fetchpriority="high" />
+    <meta data-rh="true" property="og:url" content="https://antartrade.co.il/blog/friday-options-bias">
+    <link data-rh="true" rel="canonical" href="https://antartrade.co.il/blog/friday-options-bias">
+  </head>
+  <body>
+    <noscript>
+      <div
+        style="max-width:900px;margin:0 auto;padding:40px 20px;font-family:Heebo,sans-serif;direction:rtl;text-align:right;"
+      >
+        <h1>AntarTrade – השוואת חברות מימון ונוסטרו לסוחרים 2026</h1>
+        <p>
+          אתר ההשוואות המוביל בישראל לחברות מימון לסוחרים 2026 – ניתוחים אישיים, קודי הנחה בלעדיים ותוכן מקצועי מאת נועם
+          ענתר.
+        </p>
+        <h2>השוואת חברות ומבצעים</h2>
+        <ul>
+          <li>
+            <a href="/comparison">השוואת חברות מימון ונוסטרו</a> – מחירים, חוקים ותנאי משיכה של כל החברות בטבלה אחת.
+          </li>
+          <li><a href="/promotions">מבצעים וקודי הנחה</a> – כל המבצעים הפעילים וקוד ההנחה ANTAR.</li>
+          <li><a href="/matching-quiz">שאלון התאמה</a> – איזו חברת מימון מתאימה לך.</li>
+          <li><a href="/comparison/head-to-head">דו-קרב חברות</a> – שתי חברות ראש בראש.</li>
+        </ul>
+        <h2>חברות מימון</h2>
+        <ul>
+          <li><a href="/take-profit">טייק פרופיט (TakeProfit Trader)</a> – סקירה, חוקים, משיכות וקוד הנחה.</li>
+          <li><a href="/lucid">לוסיד טריידינג (Lucid Trading)</a> – סקירה, מסלולים, חוקים וקוד הנחה.</li>
+          <li><a href="/apex">אפקס (Apex Trader Funding)</a> – סקירה, חוקים וקוד הנחה.</li>
+          <li><a href="/top-step">טופסטפ (TopStep)</a> – סקירה, חשבונות, חוקים ומשיכות.</li>
+          <li><a href="/bulenox">בולנוקס (Bulenox)</a> – סקירה, חשבונות, חוקים וקוד הנחה.</li>
+          <li><a href="/funded-next">פאנדד נקסט (FundedNext Futures)</a> – סקירה, חשבונות, חוקים ומבצעים.</li>
+          <li><a href="/ftmo">FTMO Futures</a> – סקירה, חוקים, מחירים ומשיכות.</li>
+        </ul>
+        <h2>האקדמיה</h2>
+        <ul>
+          <li><a href="/academy">האקדמיה של AntarTrade</a> – קורסים, סרטונים, מאמרים וכלים למסחר בעברית.</li>
+          <li><a href="/blog/tik-nostro">מה זה תיק נוסטרו</a> – המדריך המלא לסחור על הון של חברות מימון.</li>
+          <li><a href="/blog">מאמרים ומדריכים</a></li>
+          <li><a href="/calculators">מחשבונים לסוחרים</a></li>
+          <li><a href="/academy/glossary">מילון מושגים</a></li>
+          <li><a href="/economic-calendar">יומן הודעות כלכליות</a></li>
+          <li><a href="/courses">קורסים</a></li>
+        </ul>
+        <h2>פלטפורמות וכלים</h2>
+        <ul>
+          <li><a href="/platforms">כל הפלטפורמות והכלים</a></li>
+          <li><a href="/ninjatrader-guide">NinjaTrader</a></li>
+          <li><a href="/atas-guide">ATAS</a></li>
+          <li><a href="/bookmap-guide">Bookmap</a></li>
+          <li><a href="/tradezella-guide">TradeZella</a></li>
+        </ul>
+        <h2>מידע נוסף</h2>
+        <ul>
+          <li><a href="/about">אודות נועם ענתר</a></li>
+          <li><a href="/faq">שאלות ותשובות</a></li>
+          <li><a href="/contact">צור קשר</a></li>
+        </ul>
+      </div>
+    </noscript>
+    <div id="root">
+      <style>html:has(.pr-body),body:has(.pr-body){background:#12161f;overflow-x:hidden}.pr-body{max-width:860px;margin:0 auto;padding:120px 20px 64px;box-sizing:border-box;color:#e8eef5;line-height:1.7;font-size:18px;direction:rtl;text-align:right;overflow-wrap:anywhere}.pr-body h1,.pr-body h2,.pr-body h3{color:inherit}.pr-body h1{font-size:40px;line-height:1.15;margin:16px 0}.pr-body h2{font-size:28px;margin:40px 0 12px}.pr-body h3{font-size:21px;margin:24px 0 8px}.pr-body a{color:#7dc6ff}.pr-body img{max-width:100%;height:auto}.pr-body table{border-collapse:collapse;display:block;max-width:100%;overflow-x:auto}.pr-body td,.pr-body th{border:1px solid #33415a;padding:6px 10px}.pr-body nav{font-size:15px;color:#9fb0c6}.pr-body dt{font-weight:700;margin-top:16px}.pr-body dd{margin:4px 0 0}</style><article class="pr-body"><nav aria-label="פירורי לחם"><a href="/">דף הבית</a> / <a href="/blog">בלוג</a> / הביאס של יום שישי: איך שוק האופציות מגלה לאן הנאסדק רוצה להיסגר</nav><h1>הביאס של יום שישי: איך שוק האופציות מגלה לאן הנאסדק רוצה להיסגר</h1><p>מאמר אורח מאת <a href="https://www.youtube.com/@BoilerRoom.Israel">טל פרטוק</a>, סוחר ומנטור ב-Boiler Room</p>
+<p class="lead">יום שישי הוא יום הפקיעה של האופציות השבועיות על הנאסדק, ובימים כאלה הניתוח הרגיל של הגרף כמעט לא עובד. במאמר הזה אני מראה איך אני מוצא את הביאס של יום שישי מתוך שוק האופציות: איפה הכסף הגדול רוצה שהשוק ייסגר, ואיך מגיעים לזה בכמה דקות, עם נתונים חינמיים.</p>
+
+<div class="box"><strong>מאמר אורח</strong>המאמר נכתב לפי השיעור של טל פרטוק מ־<span class="en">Boiler Room</span> ביוטיוב, ומתפרסם כאן באישורו. צילומי המסך לקוחים מהסרטון (הנתונים בהם מדצמבר 2025), והסימונים הצבעוניים נוספו כדי שיהיה קל לעקוב.</div>
+
+<div class="video" data-embed="youtube"><iframe src="https://www.youtube-nocookie.com/embed/z7xtSaWMiAM" title="מציאת ביאס בעזרת שוק האופציות: הצ'יטים של יום שישי" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+<h2>למה דווקא יום שישי</h2>
+<p>בכל יום שישי פוקעות אופציות שבועיות על החוזה העתידי של הנאסדק. שוק האופציות מלא בגופים מוסדיים, ומה שקורה בו משפיע ישירות על החוזים העתידיים. ביום הפקיעה יש מלחמה גדולה על המחיר: המוסדיים רוצים שהשוק ייסגר באזורים שנוחים להם. לכן ביום שישי, לא משנה איך תנתחו את הגרף, יש סיכוי טוב שתטעו, אם לא תסתכלו גם על האופציות.</p>
+<p>רוצים להבין קודם איך שוק האופציות מזיז את הנאסדק לאורך כל השבוע? יש על זה <a href="/blog/options-flow-gamma">מאמר מלא על זרימת האופציות</a>.</p>
+
+<h2>מי כותב את האופציות, ולמה זה חשוב</h2>
+<p>בשוק האופציות יש שני צדדים: הכותבים (המוכרים) והקונים. ההנחה שלי היא שרוב כתיבת האופציות נעשית על ידי מוסדיים. זו עסקה מסוכנת, שבחלק מהמקרים ההפסד בה לא מוגבל, וסוחר פרטי בדרך כלל לא ייקח על עצמו סיכון כזה.</p>
+<p>מי שכותב אופציה בעצם אומר: "אני מאמין שהמחיר לא ירד מתחת לרמה הזו", או "לא יעלה מעליה". דוגמה:</p>
+<ul>
+  <li>מוסדי כותב <strong>פוט</strong> על 23,000, כי הוא מאמין שהנאסדק לא יירד מתחת ל־23,000 עד סוף יום שישי.</li>
+  <li>אם השוק נסגר ביום שישי ב־22,900, הוא מפסיד 100 נקודות. בנאסדק כל נקודה שווה 20 דולר לחוזה, כלומר 2,000 דולר הפסד על כל אופציה.</li>
+  <li>אותו דבר בצד השני: מי שכותב <strong>קול</strong> על 23,200 מתחיל להפסיד על כל נקודה שהשוק עולה מעל 23,200.</li>
+</ul>
+<p>עכשיו נניח שבכל השוק יש 10 אופציות קול על 23,200 ו־10 אופציות פוט על 23,000. מבחינת המוסדי, כל סגירה בין 23,000 ל־23,200 מצוינת: הוא לא משלם כלום. אם השוק יורד מתחת ל־23,000, יש לו אינטרס לדחוף אותו חזרה למעלה. אם הוא עולה מעל 23,200, יש לו אינטרס לדחוף אותו חזרה למטה. ככה הם עובדים, ובטח ביום שישי, כדי שהאופציות שלהם יפקעו בדיוק איפה שהם רוצים.</p>
+
+<h2>שלב 1: מוצאים את הנתונים ב־Barchart</h2>
+<p>את כל הנתונים אפשר לקבל בחינם באתר <span class="en">Barchart</span>, בעמוד האופציות של החוזה העתידי על הנאסדק (<span class="en">Nasdaq 100 E-Mini</span>). אפשר לעשות את זה ביום שישי בבוקר, בצהריים, ואפילו כמה דקות לפני פתיחת המסחר. העיקר לעשות את זה ביום שישי עצמו.</p>
+<figure><img src="/guides-new/friday-bias/barchart-calls.webp" alt="עמוד האופציות של חוזה הנאסדק ב-Barchart, עם ההגדרות מסומנות במספרים" loading="lazy" /></figure>
+<ol>
+  <li><strong><span class="en">Options Type</span></strong>: בוחרים <span class="en">Friday Weekly Options</span>, האופציות השבועיות של יום שישי.</li>
+  <li><strong>שבוע הפקיעה</strong>: בוחרים את הפקיעה הקרובה ביותר. ביום שישי עצמו יהיה כתוב שנשארו 0 ימים לפקיעה. בצילום הזה, שצולם ביום ראשון, נשארו עוד 5 ימים.</li>
+  <li><strong><span class="en">Show All</span></strong>: חשוב מאוד. ברירת המחדל היא <span class="en">Near the Money</span>, שמציגה רק חלק מהסטרייקים. זו טעות נפוצה: בלי <span class="en">Show All</span> לא תראו את כל התמונה.</li>
+  <li><strong><span class="en">Open Int</span></strong>: לוחצים על הכותרת כדי למיין את הקולים לפי מספר החוזים הפתוחים, מהגדול לקטן.</li>
+  <li><strong><span class="en">download</span></strong>: מורידים את כל הנתונים לקובץ <span class="en">CSV</span>. נשתמש בו בשלב 3.</li>
+</ol>
+
+<h2>שלב 2: קוראים את הקולים והפוטים</h2>
+<p>כבר מהמיון אפשר ללמוד הרבה. בשורה המסומנת בצהוב רואים 3,007 אופציות קול פתוחות על 27,500. המשמעות: סגירה מעל 27,500 תהיה הפסד כואב מאוד למוסדיים, ולכן לפי הנתונים הסיכוי שנגיע לשם ביום שישי כמעט אפסי. גם ב־26,000 עד 26,300 יש כמויות גדולות של קולים.</p>
+<p>אותו דבר עושים בפוטים: יורדים לטבלה של ה־<span class="en">Puts</span> וממיינים גם אותה לפי <span class="en">Open Int</span>.</p>
+<figure><img src="/guides-new/friday-bias/barchart-puts.webp" alt="טבלת הפוטים ב-Barchart ממוינת לפי Open Interest, עם 23,000, 23,500 ו-24,000 מסומנים" loading="lazy" /></figure>
+<p>כאן הסטרייקים החשובים הם 23,000, 23,500 ו־24,000. ב־24,000 יש 393 חוזים, כלומר סגירה מתחת ל־24,000 כבר מתחילה להיות בעייתית מאוד למוסדיים, ולכן סביר להניח שלא נראה אותה ביום שישי.</p>
+<div class="box"><strong>שימושי גם באמצע השבוע</strong>הנתונים האלה עוזרים להבין לאורך כל השבוע לאן "מכוונים" את השוק. אבל ביום שישי, יום הפקיעה, הם הכי קריטיים.</div>
+
+<h2>שלב 3: מחשבים את ה־Max Pain</h2>
+<p>אני לא מתמטיקאי, ואין לי כוח לחשב ידנית מאות שורות. לכן אני מעביר את הנתונים ל־<span class="en">ChatGPT</span> עם פרומפט שהכנתי מראש:</p>
+<ul>
+  <li>פותחים את קובץ ה־<span class="en">CSV</span>, מעתיקים את השורות ומדביקים אותן בצ'אט. אל תעלו את הקובץ עצמו, תדביקו את השורות.</li>
+  <li>כשהוא שואל, מציינים על איזה חוזה מדובר, נאסדק או <span class="en">ES</span>, כי המכפיל שונה.</li>
+  <li>את הפרומפט המלא אפשר לקבל באינסטגרם של <span class="en">Boiler Room</span>: מגיבים "פרומפט" על הסרטון שמדבר על זה, והוא נשלח אליכם בהודעה.</li>
+</ul>
+<figure><img src="/guides-new/friday-bias/chatgpt-max-pain.webp" alt="התשובה של ChatGPT: Max Pain ב-25,575 וטווח נוח למוסדיים בין 25,500 ל-25,975" loading="lazy" /></figure>
+<p>התוצאה מתחלקת לשניים:</p>
+<ul>
+  <li><strong><span class="en">Max Pain</span></strong> (בצהוב): המחיר שבו הפקיעה הכי משתלמת לכותבי האופציות. במקרה הזה 25,575.</li>
+  <li><strong>הטווח הנוח</strong> (בתכלת): קשה לדייק את הפקיעה בדיוק לנקודה אחת, ולכן עובדים עם טווח. כאן גם בטווח של 95% וגם בטווח של 90% מהרווח המקסימלי יצא אותו טווח: בין 25,500 ל־25,975. זה האזור שאליו המוסדיים ירצו לדחוף את השוק לקראת הסגירה של יום שישי.</li>
+</ul>
+<p>חשוב: הצילום הזה נעשה ביום ראשון. כדי לקבל תמונה מדויקת, חוזרים על כל התהליך ביום שישי עצמו.</p>
+
+<h3>איך מחשבים Max Pain, אם רוצים לבדוק בעצמכם</h3>
+<p>הרעיון פשוט: לוקחים כל מחיר סגירה אפשרי, ומחשבים כמה כותבי האופציות יצטרכו לשלם אם השוק ייסגר שם. על כל קול שהסטרייק שלו מתחת למחיר הסגירה הם משלמים את ההפרש, ועל כל פוט שהסטרייק שלו מעל מחיר הסגירה גם. מכפילים בכמות החוזים הפתוחים ובמכפיל (20 דולר בנאסדק). המחיר שבו הסכום הכולל הכי נמוך הוא ה־<span class="en">Max Pain</span>. גם <span class="en">ChatGPT</span> טועה לפעמים, אז כדאי לבדוק שהמספר שקיבלתם הגיוני מול הטבלה.</p>
+
+<h2>זה עובד? ככה נראה יום שישי ביומן שלי</h2>
+<figure><img src="/guides-new/friday-bias/tradezella-friday.webp" alt="דוח ימי המסחר ביומן Tradezella של טל לשנת 2025: יום שישי הוא היום הכי רווחי, עם 78.49% הצלחה ב-271 עסקאות" loading="lazy" /></figure>
+<p>ביומן המסחר שלי, מתחילת 2025 ועד תחילת דצמבר, יום שישי הוא היום הכי רווחי שלי, וגם היום עם אחוז ההצלחה הכי גבוה: 78.49% ב־271 עסקאות. הסיבה, לדעתי, היא בדיוק זו: אני מבין את שוק האופציות, והוא עוזר לי לדייק את עצמי עוד יותר דווקא ביום הפקיעה.</p>
+<p>רוצים לבנות דוח כזה בעצמכם? יש לנו <a href="/blog/journal-statistics-1-to-1">מאמר על הסטטיסטיקות ביומן המסחר</a>.</p>
+
+<div class="box warn"><strong>חשוב לדעת</strong>ה־<span class="en">Max Pain</span> והטווח הנוח הם ביאס, לא הבטחה. ביום עם חדשות חזקות או תנועה חדה השוק יכול לסגור רחוק מהם. הם לא אומרים לכם מתי להיכנס לעסקה, והם לא מחליפים סטופ וניהול סיכונים. התוצאות של טל הן שלו, ולא מבטיחות תוצאות דומות למי שמשתמש בשיטה.</div>
+
+<h2>לסיכום</h2>
+<ol>
+  <li>ביום שישי נכנסים ל־<span class="en">Barchart</span>, לאופציות השבועיות של חוזה הנאסדק, ובוחרים את הפקיעה הקרובה ו־<span class="en">Show All</span>.</li>
+  <li>ממיינים את הקולים ואת הפוטים לפי <span class="en">Open Interest</span> ורואים איפה הכמויות הגדולות.</li>
+  <li>מורידים את הנתונים, מדביקים אותם ל־<span class="en">ChatGPT</span> עם הפרומפט, ומקבלים <span class="en">Max Pain</span> וטווח נוח.</li>
+  <li>הטווח הזה הוא הביאס של יום שישי: האזור שבו המוסדיים רוצים שהשוק ייסגר.</li>
+</ol>
+
+<div class="box"><strong>על הכותב</strong>טל פרטוק הוא סוחר ומנטור ב־<span class="en">Boiler Room</span>, קהילת מסחר ישראלית. בערוץ היוטיוב שלהם יש עוד הרבה שיעורים: <a href="https://www.youtube.com/@BoilerRoom.Israel" target="_blank" rel="noopener">Boiler Room ביוטיוב</a>.</div>
+</article>
+    </div>
+  </body>
+</html>
