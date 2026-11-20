@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Microsoft Clarity מנוהל דרך שכבת המדידה המרכזית (src/lib/analytics/clarity.ts) ונטען רק לאחר הסכמה -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" sizes="any" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Topstep - המדריך המלא לטופסטפ 2026 | AntarTrade</title>
+    <meta data-rh="true" name="description" content="המדריך המלא ל־Topstep: שלב המבחן (Trading Combine), חשבון XFA הממומן, מגבלות ההפסד, תנאי המשיכה, פלטפורמת TopstepX והמעבר לחשבון Live - עם נתונים חיים מהמאגר של האתר.">
+
+    <!-- Open Graph Meta Tags -->
+    <meta data-rh="true" property="og:title" content="המדריך המלא לטופסטפ לשנת 2026 | Topstep">
+    <meta data-rh="true" property="og:description" content="המדריך המלא ל־Topstep: שלב המבחן (Trading Combine), חשבון XFA הממומן, מגבלות ההפסד, תנאי המשיכה, פלטפורמת TopstepX והמעבר לחשבון Live - עם נתונים חיים מהמאגר של האתר.">
+    <meta data-rh="true" property="og:image" content="https://antartrade.co.il/images/blog/covers/topstep-guide.webp">
+    
+    
+    <meta data-rh="true" property="og:image:alt" content="המדריך המלא ל-Topstep 2026">
+    <meta data-rh="true" property="og:type" content="website" />
+    <meta data-rh="true" property="og:site_name" content="AntarTrade" />
+    <meta data-rh="true" property="og:locale" content="he_IL" />
+
+    <!-- Twitter Cards Meta Tags -->
+    <meta data-rh="true" name="twitter:card" content="summary_large_image" />
+    <meta data-rh="true" name="twitter:title" content="המדריך המלא לטופסטפ לשנת 2026 | Topstep">
+    <meta data-rh="true" name="twitter:description" content="המדריך המלא ל־Topstep: שלב המבחן (Trading Combine), חשבון XFA הממומן, מגבלות ההפסד, תנאי המשיכה, פלטפורמת TopstepX והמעבר לחשבון Live - עם נתונים חיים מהמאגר של האתר.">
+    <meta data-rh="true" name="twitter:image" content="https://antartrade.co.il/images/blog/covers/topstep-guide.webp">
+    <meta data-rh="true" name="twitter:image:alt" content="המדריך המלא ל-Topstep 2026">
+
+    <!-- Additional Meta Tags -->
+    <meta name="author" content="AntarTrade" />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://i.ytimg.com" crossorigin />
+    <link rel="dns-prefetch" href="https://img.youtube.com" />
+    <link rel="dns-prefetch" href="https://www.youtube.com" />
+    <!-- Heebo is only the fallback behind Fb Reforma (and swaps in anyway), so it loads without holding up the first paint -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" rel="stylesheet" /></noscript>
+    <!-- the design's own font (base.css), fetched with the page instead of after the code runs -->
+    <link rel="preload" as="font" type="font/woff2" href="/home-new/fonts/FbReforma-Regular.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/home-new/fonts/FbReforma-Medium.woff2" crossorigin />
+    <!-- Critical inline CSS for instant LCP paint of hero H1 (replaced by React on hydration).
+         It draws the new homepage hero's first frame (dark ground, the same title in the same place), so the page doesn't flash another design. -->
+    <style>
+      html,body{margin:0;padding:0;background:#12161f;font-family:"Fb Reforma",Heebo,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+      #root{min-height:100vh}
+      .lcp-hero{position:relative;min-height:100vh;box-sizing:border-box;background:#12161f;padding:92px 16px 64px;text-align:right;direction:rtl;overflow:hidden}
+      .lcp-hero-inner{width:min(1171px,100%);margin:0 auto}
+      .lcp-hero h1{margin:0;font-weight:400;max-width:310px;background:linear-gradient(90deg,#61b1f2 0%,#fff 78.365%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+      .lcp-hero h1 .lcp-line{display:block;font-size:44px;line-height:1.05}
+      .lcp-hero h1 .lcp-sub{font-size:28px;line-height:1.3;margin-top:6px}
+      @media(min-width:761px){.lcp-hero{padding-top:92px}.lcp-hero h1{max-width:560px}.lcp-hero h1 .lcp-line{font-size:74px;line-height:.92}.lcp-hero h1 .lcp-sub{font-size:44px;line-height:1.1;margin-top:14px}}
+      html.no-lcp-hero .lcp-hero{display:none}
+    </style>
+    <script>
+      (function(){
+        var p = location.pathname;
+        if (p !== '/' && p !== '/index.html') {
+          document.documentElement.classList.add('no-lcp-hero');
+        }
+        // a foreign address with no prerendered file of its own (a 404, a page not translated yet) gets
+        // this Hebrew file: it reads left to right, without the Hebrew homepage title, from the first paint.
+        // The languages are FOREIGN_LOCALES in src/i18n/config.ts (the i18n test keeps them equal).
+        var foreign = p.match(/^\/(en)(\/|$)/);
+        if (foreign && document.documentElement.lang === 'he') {
+          document.documentElement.lang = foreign[1];
+          document.documentElement.dir = 'ltr';
+          document.title = 'AntarTrade';
+        }
+      })();
+    </script>
+    <!-- Stale-deploy recovery: if hashed JS chunks referenced by a cached index.html
+         are gone (404 / "Importing a module script failed"), reload once bypassing cache. -->
+    <script>
+      (function(){
+        var KEY = '__chunk_reload_at';
+        function reloadOnce(){
+          try {
+            var last = Number(sessionStorage.getItem(KEY) || 0);
+            if (Date.now() - last < 20000) return; // avoid reload loops
+            sessionStorage.setItem(KEY, String(Date.now()));
+          } catch(e){}
+          var u = location.pathname + (location.search ? location.search + '&' : '?') + '_r=' + Date.now() + location.hash;
+          location.replace(u);
+        }
+        // Resource-level failures (module script / preload) bubble only in capture phase
+        window.addEventListener('error', function(e){
+          var t = e && e.target;
+          if (t && t !== window && (t.tagName === 'SCRIPT' || t.tagName === 'LINK')) { reloadOnce(); return; }
+          var m = e && e.message;
+          if (m && (m.indexOf('Importing a module script failed') > -1 ||
+                    m.indexOf('Failed to fetch dynamically imported module') > -1 ||
+                    m.indexOf('error loading dynamically imported module') > -1)) reloadOnce();
+        }, true);
+        window.addEventListener('unhandledrejection', function(e){
+          var m = e && e.reason && (e.reason.message || String(e.reason));
+          if (m && (m.indexOf('Importing a module script failed') > -1 ||
+                    m.indexOf('Failed to fetch dynamically imported module') > -1 ||
+                    m.indexOf('error loading dynamically imported module') > -1)) reloadOnce();
+        });
+      })();
+    </script>
+
+    <!-- Meta Pixel מנוהל כעת דרך שכבת המדידה המרכזית (src/lib/analytics) ונטען רק לאחר הסכמה -->
+    <script type="module" crossorigin src="/assets/index-BbGaeILm.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-vendor-xAhqJu7B.js">
+    <link rel="modulepreload" crossorigin href="/assets/query-vendor-iefLz-8z.js">
+    <link rel="modulepreload" crossorigin href="/assets/supabase-vendor-DW0Ocl7u.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-DgFdmHIc.css">
+    <meta data-rh="true" property="og:url" content="https://antartrade.co.il/blog/topstep-guide">
+    <link data-rh="true" rel="canonical" href="https://antartrade.co.il/blog/topstep-guide">
+    <link rel="modulepreload" crossorigin href="/assets/BlogArticlePage-BTYtCwvQ.js">
+    <link rel="modulepreload" crossorigin href="/assets/SEOHead-7iY2VWpq.js">
+    <link rel="modulepreload" crossorigin href="/assets/accordion-ZyBc22ID.js">
+    <link rel="modulepreload" crossorigin href="/assets/index-YGL4hG7K.js">
+    <link rel="modulepreload" crossorigin href="/assets/index-Ba0LObUC.js">
+    <link rel="modulepreload" crossorigin href="/assets/chevron-down-BRWw0f7J.js">
+    <link rel="modulepreload" crossorigin href="/assets/button-C_wGZ6jj.js">
+    <link rel="modulepreload" crossorigin href="/assets/useCanonicalFirmPageData-cOMsWmI7.js">
+    <link rel="modulepreload" crossorigin href="/assets/useCanonicalFirmRules-DyDSFWy6.js">
+    <link rel="modulepreload" crossorigin href="/assets/canonicalRules-yhGyuGJm.js">
+    <link rel="modulepreload" crossorigin href="/assets/useLucidCanonicalProduct-Bo6ijoqh.js">
+    <link rel="modulepreload" crossorigin href="/assets/evaluationCardStandard-tKfyyGpX.js">
+    <link rel="modulepreload" crossorigin href="/assets/calendar-check-CZCfsbA9.js">
+    <link rel="modulepreload" crossorigin href="/assets/external-link-B6S6_USm.js">
+    <link rel="modulepreload" crossorigin href="/assets/info-Bdk4sD6Z.js">
+    <link rel="preload" as="style" crossorigin href="/assets/index-DgFdmHIc.css">
+  </head>
+  <body>
+    <noscript>
+      <div
+        style="max-width:900px;margin:0 auto;padding:40px 20px;font-family:Heebo,sans-serif;direction:rtl;text-align:right;"
+      >
+        <h1>AntarTrade – השוואת חברות מימון ונוסטרו לסוחרים 2026</h1>
+        <p>
+          אתר ההשוואות המוביל בישראל לחברות מימון לסוחרים 2026 – ניתוחים אישיים, קודי הנחה בלעדיים ותוכן מקצועי מאת נועם
+          ענתר.
+        </p>
+        <h2>השוואת חברות ומבצעים</h2>
+        <ul>
+          <li>
+            <a href="/comparison">השוואת חברות מימון ונוסטרו</a> – מחירים, חוקים ותנאי משיכה של כל החברות בטבלה אחת.
+          </li>
+          <li><a href="/promotions">מבצעים וקודי הנחה</a> – כל המבצעים הפעילים וקוד ההנחה ANTAR.</li>
+          <li><a href="/matching-quiz">שאלון התאמה</a> – איזו חברת מימון מתאימה לך.</li>
+          <li><a href="/comparison/head-to-head">דו-קרב חברות</a> – שתי חברות ראש בראש.</li>
+        </ul>
+        <h2>חברות מימון</h2>
+        <ul>
+          <li><a href="/take-profit">טייק פרופיט (TakeProfit Trader)</a> – סקירה, חוקים, משיכות וקוד הנחה.</li>
+          <li><a href="/lucid">לוסיד טריידינג (Lucid Trading)</a> – סקירה, מסלולים, חוקים וקוד הנחה.</li>
+          <li><a href="/apex">אפקס (Apex Trader Funding)</a> – סקירה, חוקים וקוד הנחה.</li>
+          <li><a href="/top-step">טופסטפ (TopStep)</a> – סקירה, חשבונות, חוקים ומשיכות.</li>
+          <li><a href="/bulenox">בולנוקס (Bulenox)</a> – סקירה, חשבונות, חוקים וקוד הנחה.</li>
+          <li><a href="/funded-next">פאנדד נקסט (FundedNext Futures)</a> – סקירה, חשבונות, חוקים ומבצעים.</li>
+          <li><a href="/ftmo">FTMO Futures</a> – סקירה, חוקים, מחירים ומשיכות.</li>
+        </ul>
+        <h2>האקדמיה</h2>
+        <ul>
+          <li><a href="/academy">האקדמיה של AntarTrade</a> – קורסים, סרטונים, מאמרים וכלים למסחר בעברית.</li>
+          <li><a href="/blog/tik-nostro">מה זה תיק נוסטרו</a> – המדריך המלא לסחור על הון של חברות מימון.</li>
+          <li><a href="/blog">מאמרים ומדריכים</a></li>
+          <li><a href="/calculators">מחשבונים לסוחרים</a></li>
+          <li><a href="/academy/glossary">מילון מושגים</a></li>
+          <li><a href="/economic-calendar">יומן הודעות כלכליות</a></li>
+          <li><a href="/courses">קורסים</a></li>
+        </ul>
+        <h2>פלטפורמות וכלים</h2>
+        <ul>
+          <li><a href="/platforms">כל הפלטפורמות והכלים</a></li>
+          <li><a href="/ninjatrader-guide">NinjaTrader</a></li>
+          <li><a href="/atas-guide">ATAS</a></li>
+          <li><a href="/bookmap-guide">Bookmap</a></li>
+          <li><a href="/tradezella-guide">TradeZella</a></li>
+        </ul>
+        <h2>מידע נוסף</h2>
+        <ul>
+          <li><a href="/about">אודות נועם ענתר</a></li>
+          <li><a href="/faq">שאלות ותשובות</a></li>
+          <li><a href="/contact">צור קשר</a></li>
+        </ul>
+      </div>
+    </noscript>
+    <div id="root">
+      <style>html:has(.pr-body),body:has(.pr-body){background:#12161f;overflow-x:hidden}.pr-body{max-width:860px;margin:0 auto;padding:120px 20px 64px;box-sizing:border-box;color:#e8eef5;line-height:1.7;font-size:18px;direction:rtl;text-align:right;overflow-wrap:anywhere}.pr-body h1,.pr-body h2,.pr-body h3{color:inherit}.pr-body h1{font-size:40px;line-height:1.15;margin:16px 0}.pr-body h2{font-size:28px;margin:40px 0 12px}.pr-body h3{font-size:21px;margin:24px 0 8px}.pr-body a{color:#7dc6ff}.pr-body img{max-width:100%;height:auto}.pr-body table{border-collapse:collapse;display:block;max-width:100%;overflow-x:auto}.pr-body td,.pr-body th{border:1px solid #33415a;padding:6px 10px}.pr-body nav{font-size:15px;color:#9fb0c6}.pr-body dt{font-weight:700;margin-top:16px}.pr-body dd{margin:4px 0 0}</style><article class="pr-body"><nav aria-label="פירורי לחם"><a href="/">דף הבית</a> / <a href="/blog">בלוג</a> / Topstep - המדריך המלא לטופסטפ (2026)</nav><h1>Topstep - המדריך המלא לטופסטפ (2026)</h1><p>נכתב על ידי <a href="/about">נועם ענתר</a>, סוחר חוזים עתידיים ומייסד AntarTrade</p><p>Topstep היא חברת מימון (Prop Firm) לסוחרי חוזים עתידיים (Futures). החברה מאפשרת לסוחרים להוכיח את יכולות המסחר וניהול הסיכונים שלהם באמצעות מבחן הערכה (Trading Combine), להתקדם לחשבון ממומן בסימולציה (Express Funded Account) שממנו ניתן למשוך רווחים, ובהמשך - בהתאם לכללי החברה - לעבור לחשבון Live בכסף אמיתי.</p><p>המדריך מסביר את מבנה התוכנית, שלב המבחן, החשבון הממומן, תנאי המשיכה והמעבר ל־Live. המספרים והתנאים המשתנים נשאבים חיים ממאגר הנתונים של האתר ומתעדכנים אוטומטית. המדריך אינו דירוג או המלצה על החברה.</p><h2 id="model">איך המודל עובד בקצרה</h2><p>הפעילות של Topstep מבוססת על תהליך הדרגתי: הסוחר מתחיל במבחן שמתבצע בסביבת מסחר מדומה, ונדרש לעמוד ביעד רווח ובמגבלות סיכון שנקבעו מראש. לאחר מעבר מוצלח של המבחן ניתן להפעיל חשבון Express Funded Account (XFA) - חשבון ממומן בסימולציה שמאפשר להגיש בקשות משיכה בהתאם לתנאי החברה.</p><ol><li>בחירת גודל חשבון ורכישת מבחן (Trading Combine).</li><li>מבחן - חשבון סימולציה עם יעד רווח ומגבלות סיכון.</li><li>חשבון ממומן בסימולציה (Express Funded Account) - צבירת רווחים והגשת בקשות משיכה בהתאם לתנאי הזכאות.</li><li>משיכות (Payouts) - לאחר עמידה בתנאי המסלול שנבחר.</li><li>מעבר לחשבון Live Funded Account - מסחר בכסף אמיתי של החברה. המעבר אינו מתבצע אוטומטית עם סיום המבחן; הוא כפוף לתהליך ולהחלטת Topstep.</li></ol><h2 id="evaluation">שלב המבחן (Trading Combine)</h2><h3>מגבלת ההפסד המרבית (Maximum Loss Limit)</h3><h3>מגבלת הפסד יומית (Daily Loss Limit)</h3><h3>חוק העקביות (Consistency Target)</h3><h3>מגבלת חוזים וימי מסחר</h3><p>מספר החוזים המותר נקבע לפי גודל החשבון, תוך התחשבות ביחס ההמרה בין חוזי Mini ל־Micro. אין חובה לסחור בכל יום, וניתן לעבור את המבחן לאחר עמידה בתנאי החברה.</p><h3>תשלום, מסלולי רכישה ואיפוס</h3><h2 id="xfa">אחרי שעוברים את המבחן - חשבון XFA</h2><p>לאחר מעבר מבחן Trading Combine ניתן להפעיל חשבון Express Funded Account (XFA) - חשבון שבו המסחר מתבצע בסימולציה, אך ניתן למשוך ממנו רווחים אמיתיים בהתאם לתנאי החברה. הפעלת החשבון מתבצעת דרך אזור המשתמש וכוללת אישור הסכם, בחירת מסלול משיכות ותשלום דמי הפעלה אם נדרשים.</p><h3>מסלולי המשיכה: Standard או Consistency</h3><p>בעת הפעלת החשבון בוחרים מסלול משיכות: מסלול Standard מבוסס על צבירת ימי מסחר רווחיים העומדים ברף שקבעה החברה, ללא דרישת עקביות נוספת; מסלול Consistency מבוסס על ימי פעילות ועמידה בכלל עקביות. הבחירה מתבצעת בהפעלה ואינה ניתנת לשינוי לאחר מכן.</p><h3>אילו חוקים משתנים אחרי המעבר</h3><ul><li>מגבלת חוזים (Scaling Plan): מספר החוזים המותר משתנה בהתאם ליתרת החשבון ולהתקדמות הסוחר.</li><li>מגבלת הפסד יומית (DLL): עשויה לחול בהתאם להגדרות החשבון - הגעה אליה עוצרת את המסחר לאותו סשן, אך אינה מכשילה את החשבון כשלעצמה.</li><li>חוק עקביות: קיים במסלול Consistency; במסלול Standard אין דרישה כזו למשיכות.</li></ul><h2 id="payouts">משיכות רווחים</h2><h3>מה קורה לחשבון אחרי משיכה</h3><h3>אמצעי משיכה, עמלות וזמני טיפול</h3><p>בקשת המשיכה מוגשת דרך ה־Topstep Dashboard לאחר עמידה בתנאי הזכאות. הבקשה עוברת בדיקה ואישור, וזמן קבלת הכסף תלוי באמצעי התשלום ובמדינת היעד.</p><h2 id="live">המעבר לחשבון Live</h2><p>חשבון Live Funded Account (LFA) מאפשר לסוחר לבצע עסקאות בחוזים עתידיים באמצעות הון אמיתי של החברה, בניגוד לחשבון XFA שבו המסחר מתבצע בסימולציה. המעבר ל־Live אינו אוטומטי ואינו מובטח - הוא מתבצע בתהליך Call Up שבו צוות ניהול הסיכונים של Topstep בוחן את ביצועי הסוחר, עקביות המסחר והיסטוריית המשיכות.</p><h3>מבנה ההון בחשבון Live</h3><h3>Shoulder Tap - חזרה זמנית לחשבון מדומה</h3><h3>Back2Funded - הפעלה מחדש של XFA</h3><p>חשבון XFA שנסגר עקב הפרת כלל לפני המשיכה הראשונה ניתן להפעלה מחדש עד פעמיים, תוך 30 יום קלנדריים וללא מבחן חוזר. עלות ההפעלה: {xfa_back2funded}. בחירת מגבלת הפסד יומית (DLL) בהפעלה מעניקה הנחה של $50. האפשרות לא זמינה לאחר משיכה ראשונה או למשתתפי Focused Trader Plan.</p><h2 id="platforms">פלטפורמות מסחר וחיבורים</h2><p>פלטפורמת המסחר המרכזית של Topstep היא TopstepX, המאפשרת לסחור בחוזים עתידיים, לעקוב אחר ביצועים ולנהל את החשבונות. הפלטפורמה כוללת גרפים, ביצוע פקודות, נתוני חשבון וכלי ניהול סיכונים. רכישת מבחני Trading Combine חדשים מתבצעת באמצעות TopstepX.</p><p>קיימות אפשרויות חיבור לכלים חיצוניים - החיבורים כפופים לתנאי החברה ואינם זמינים למסחר בחשבון Live.</p><ul><li><a href="/topstepx-guide">למדריך המלא של TopstepX</a></li></ul><h2 id="key-points">מאפיינים מרכזיים וכללים שחשוב להכיר</h2><h3>המאפיינים המרכזיים</h3><ul><li>מבחן ללא הגבלת זמן - ניתן להמשיך במבחן כל עוד המנוי פעיל.</li><li>בחירת מסלול תשלום - בין מסלול עם דמי הפעלה למסלול ללא דמי הפעלה.</li><li>אפשרות למסחר בכסף אמיתי - סוחרים מתאימים עשויים להתקדם לחשבון Live, בהתאם להחלטת החברה.</li></ul><h3>כללים ומגבלות שחשוב להכיר</h3><ul><li>מנוי מתחדש - מבחן Trading Combine כרוך בחיוב חודשי כל עוד המנוי פעיל.</li><li>עמידה בכללי המבחן - נדרשת עמידה ביעד הרווח, בכלל העקביות ובמגבלות הסיכון.</li><li>סגירת חשבון בעקבות חריגה - הגעה למגבלת ההפסד המרבית עלולה להביא לכישלון המבחן או לסגירת החשבון הממומן.</li><li>רכישת פלטפורמה - מבחנים חדשים נרכשים דרך TopstepX.</li></ul><h2 id="getting-started">איך מתחילים לסחור ב־Topstep?</h2><ol><li>הרשמה לאתר - נכנסים לאתר הרשמי של Topstep ויוצרים חשבון משתמש.</li><li>בחירת מבחן - בוחרים את גודל חשבון ה־Trading Combine ואת מסלול התשלום המתאים: Standard Path או No Activation Fee Path.</li><li>רכישת המבחן - משלימים את התשלום ומקבלים גישה לחשבון המבחן דרך פלטפורמת TopstepX.</li><li>מעבר המבחן - סוחרים בסביבת סימולציה, מגיעים ליעד הרווח ועומדים בכלל העקביות ובמגבלות הסיכון.</li><li>הפעלת חשבון ממומן - לאחר מעבר המבחן מפעילים חשבון Express Funded Account, משלימים את דרישות ההפעלה ובוחרים את מסלול המשיכות.</li><li>מסחר ומשיכת רווחים - ממשיכים לסחור בחשבון הממומן, צוברים רווחים ומגישים בקשות משיכה בהתאם לתנאי הזכאות של Topstep.</li></ol><ul><li><a href="/top-step">לעמוד החברה המלא</a></li><li><a href="/comparison">להשוואת כל החברות</a></li></ul><h2 id="related">מדריכים נוספים (בקרוב)</h2><ul><li>איך קונים מבחן ב־Topstep? (בקרוב)</li><li>איך מושכים כסף מ־Topstep? (בקרוב)</li><li>השוואה בין חברות המימון (בקרוב)</li><li>מדריך וידאו ל־Topstep (בקרוב)</li></ul><h2>שאלות נפוצות</h2><h3>האם יש מגבלת הפסד יומית (DLL) ב־Topstep?</h3><h3>מה ההבדל בין מסלול Standard ל־No Activation Fee?</h3><p>מסלול Standard מציע תשלום חודשי נמוך יותר אך דורש דמי הפעלה לאחר מעבר המבחן; מסלול No Activation Fee כולל תשלום חודשי גבוה יותר ללא דמי הפעלה לאחר המעבר. הבחירה תלויה במשך הזמן הצפוי למעבר המבחן ובעלות הכוללת של כל מסלול.</p><h3>מה ההבדל בין מסלול Standard ל־Consistency בחשבון ה־XFA?</h3><h3>איך עובדות משיכות הרווחים ב־Topstep?</h3><h3>מה קורה לחשבון אחרי המשיכה הראשונה?</h3><h3>האם המעבר לחשבון Live אוטומטי?</h3><h3>מותר לסחור בזמן חדשות כלכליות?</h3><h3>כמה זמן לוקח לקבל משיכה?</h3></article>
+    </div>
+  </body>
+</html>

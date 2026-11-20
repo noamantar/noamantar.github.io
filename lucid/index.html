@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Microsoft Clarity מנוהל דרך שכבת המדידה המרכזית (src/lib/analytics/clarity.ts) ונטען רק לאחר הסכמה -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" sizes="any" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>לוסיד טריידינג (Lucid Trading) – קוד הנחה ANTAR, מחירים וחוקים 2026</title>
+    <meta data-rh="true" name="description" content="לפני שקונים מבחן בלוסיד: קוד ANTAR נותן הנחה. מסלולי Pro, Flex, Direct ו-Live, מחירי מבחנים, חוקי מסחר ותנאי משיכה 2026, בסקירה של נועם ענתר.">
+
+    <!-- Open Graph Meta Tags -->
+    <meta data-rh="true" property="og:title" content="לוסיד טריידינג (Lucid Trading) – קוד הנחה ANTAR, מחירים וחוקים 2026">
+    <meta data-rh="true" property="og:description" content="לפני שקונים מבחן בלוסיד: קוד ANTAR נותן הנחה. מסלולי Pro, Flex, Direct ו-Live, מחירי מבחנים, חוקי מסחר ותנאי משיכה 2026, בסקירה של נועם ענתר.">
+    <meta data-rh="true" property="og:image" content="https://antartrade.co.il/og-images/new/firm-lucid.jpg">
+    <meta data-rh="true" property="og:image:width" content="1200">
+    <meta data-rh="true" property="og:image:height" content="630">
+    <meta data-rh="true" property="og:image:alt" content="Lucid Trading">
+    <meta data-rh="true" property="og:type" content="website" />
+    <meta data-rh="true" property="og:site_name" content="AntarTrade" />
+    <meta data-rh="true" property="og:locale" content="he_IL" />
+
+    <!-- Twitter Cards Meta Tags -->
+    <meta data-rh="true" name="twitter:card" content="summary_large_image" />
+    <meta data-rh="true" name="twitter:title" content="לוסיד טריידינג (Lucid Trading) – קוד הנחה ANTAR, מחירים וחוקים 2026">
+    <meta data-rh="true" name="twitter:description" content="לפני שקונים מבחן בלוסיד: קוד ANTAR נותן הנחה. מסלולי Pro, Flex, Direct ו-Live, מחירי מבחנים, חוקי מסחר ותנאי משיכה 2026, בסקירה של נועם ענתר.">
+    <meta data-rh="true" name="twitter:image" content="https://antartrade.co.il/og-images/new/firm-lucid.jpg">
+    <meta data-rh="true" name="twitter:image:alt" content="Lucid Trading">
+
+    <!-- Additional Meta Tags -->
+    <meta name="author" content="AntarTrade" />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://i.ytimg.com" crossorigin />
+    <link rel="dns-prefetch" href="https://img.youtube.com" />
+    <link rel="dns-prefetch" href="https://www.youtube.com" />
+    <!-- Heebo is only the fallback behind Fb Reforma (and swaps in anyway), so it loads without holding up the first paint -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" rel="stylesheet" /></noscript>
+    <!-- the design's own font (base.css), fetched with the page instead of after the code runs -->
+    <link rel="preload" as="font" type="font/woff2" href="/home-new/fonts/FbReforma-Regular.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/home-new/fonts/FbReforma-Medium.woff2" crossorigin />
+    <!-- Critical inline CSS for instant LCP paint of hero H1 (replaced by React on hydration).
+         It draws the new homepage hero's first frame (dark ground, the same title in the same place), so the page doesn't flash another design. -->
+    <style>
+      html,body{margin:0;padding:0;background:#12161f;font-family:"Fb Reforma",Heebo,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+      #root{min-height:100vh}
+      .lcp-hero{position:relative;min-height:100vh;box-sizing:border-box;background:#12161f;padding:92px 16px 64px;text-align:right;direction:rtl;overflow:hidden}
+      .lcp-hero-inner{width:min(1171px,100%);margin:0 auto}
+      .lcp-hero h1{margin:0;font-weight:400;max-width:310px;background:linear-gradient(90deg,#61b1f2 0%,#fff 78.365%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+      .lcp-hero h1 .lcp-line{display:block;font-size:44px;line-height:1.05}
+      .lcp-hero h1 .lcp-sub{font-size:28px;line-height:1.3;margin-top:6px}
+      @media(min-width:761px){.lcp-hero{padding-top:92px}.lcp-hero h1{max-width:560px}.lcp-hero h1 .lcp-line{font-size:74px;line-height:.92}.lcp-hero h1 .lcp-sub{font-size:44px;line-height:1.1;margin-top:14px}}
+      html.no-lcp-hero .lcp-hero{display:none}
+    </style>
+    <script>
+      (function(){
+        var p = location.pathname;
+        if (p !== '/' && p !== '/index.html') {
+          document.documentElement.classList.add('no-lcp-hero');
+        }
+        // a foreign address with no prerendered file of its own (a 404, a page not translated yet) gets
+        // this Hebrew file: it reads left to right, without the Hebrew homepage title, from the first paint.
+        // The languages are FOREIGN_LOCALES in src/i18n/config.ts (the i18n test keeps them equal).
+        var foreign = p.match(/^\/(en)(\/|$)/);
+        if (foreign && document.documentElement.lang === 'he') {
+          document.documentElement.lang = foreign[1];
+          document.documentElement.dir = 'ltr';
+          document.title = 'AntarTrade';
+        }
+      })();
+    </script>
+    <!-- Stale-deploy recovery: if hashed JS chunks referenced by a cached index.html
+         are gone (404 / "Importing a module script failed"), reload once bypassing cache. -->
+    <script>
+      (function(){
+        var KEY = '__chunk_reload_at';
+        function reloadOnce(){
+          try {
+            var last = Number(sessionStorage.getItem(KEY) || 0);
+            if (Date.now() - last < 20000) return; // avoid reload loops
+            sessionStorage.setItem(KEY, String(Date.now()));
+          } catch(e){}
+          var u = location.pathname + (location.search ? location.search + '&' : '?') + '_r=' + Date.now() + location.hash;
+          location.replace(u);
+        }
+        // Resource-level failures (module script / preload) bubble only in capture phase
+        window.addEventListener('error', function(e){
+          var t = e && e.target;
+          if (t && t !== window && (t.tagName === 'SCRIPT' || t.tagName === 'LINK')) { reloadOnce(); return; }
+          var m = e && e.message;
+          if (m && (m.indexOf('Importing a module script failed') > -1 ||
+                    m.indexOf('Failed to fetch dynamically imported module') > -1 ||
+                    m.indexOf('error loading dynamically imported module') > -1)) reloadOnce();
+        }, true);
+        window.addEventListener('unhandledrejection', function(e){
+          var m = e && e.reason && (e.reason.message || String(e.reason));
+          if (m && (m.indexOf('Importing a module script failed') > -1 ||
+                    m.indexOf('Failed to fetch dynamically imported module') > -1 ||
+                    m.indexOf('error loading dynamically imported module') > -1)) reloadOnce();
+        });
+      })();
+    </script>
+
+    <!-- Meta Pixel מנוהל כעת דרך שכבת המדידה המרכזית (src/lib/analytics) ונטען רק לאחר הסכמה -->
+    <script type="module" crossorigin src="/assets/index-BbGaeILm.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-vendor-xAhqJu7B.js">
+    <link rel="modulepreload" crossorigin href="/assets/query-vendor-iefLz-8z.js">
+    <link rel="modulepreload" crossorigin href="/assets/supabase-vendor-DW0Ocl7u.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-DgFdmHIc.css">
+    <meta data-rh="true" property="og:url" content="https://antartrade.co.il/lucid">
+    <link data-rh="true" rel="canonical" href="https://antartrade.co.il/lucid">
+    <link rel="modulepreload" crossorigin href="/assets/FirmsNew-BcN01gda.js">
+    <link rel="modulepreload" crossorigin href="/assets/ApexNew-CNdWVuET.js">
+    <link rel="modulepreload" crossorigin href="/assets/SEOHead-7iY2VWpq.js">
+    <link rel="modulepreload" crossorigin href="/assets/NotFound-Cxk1qKU3.js">
+    <link rel="modulepreload" crossorigin href="/assets/Header-06XPzUpo.js">
+    <link rel="modulepreload" crossorigin href="/assets/useCanonicalFirmPageData-cOMsWmI7.js">
+    <link rel="modulepreload" crossorigin href="/assets/useCanonicalFirmRules-DyDSFWy6.js">
+    <link rel="modulepreload" crossorigin href="/assets/payoutApexLegacy-CObB4z4u.js">
+    <link rel="modulepreload" crossorigin href="/assets/fetch-DCdgZom6.js">
+    <link rel="modulepreload" crossorigin href="/assets/canonicalRules-yhGyuGJm.js">
+    <link rel="modulepreload" crossorigin href="/assets/products-WejJvjdw.js">
+    <link rel="modulepreload" crossorigin href="/assets/payoutStandard-B-ydjfl3.js">
+    <link rel="modulepreload" crossorigin href="/assets/payoutSelectedFirst-CKJTJlFd.js">
+    <link rel="modulepreload" crossorigin href="/assets/payoutPlainLanguage-CCLa1IXs.js">
+    <link rel="modulepreload" crossorigin href="/assets/RuleMatrixSection-p4DvIjAx.js">
+    <link rel="modulepreload" crossorigin href="/assets/useCanonicalComparison-BgqJ__QW.js">
+    <link rel="modulepreload" crossorigin href="/assets/evaluationCardStandard-tKfyyGpX.js">
+    <link rel="modulepreload" crossorigin href="/assets/dialog-Fv8fPKxX.js">
+    <link rel="modulepreload" crossorigin href="/assets/index-D22aaUOF.js">
+    <link rel="modulepreload" crossorigin href="/assets/index-BnXRerFH.js">
+    <link rel="modulepreload" crossorigin href="/assets/filters-DYbR_De5.js">
+    <link rel="modulepreload" crossorigin href="/assets/CompareView-DhNPyE-0.js">
+    <link rel="modulepreload" crossorigin href="/assets/switch-gPjNON3l.js">
+    <link rel="modulepreload" crossorigin href="/assets/index-CAFpbxuf.js">
+    <link rel="modulepreload" crossorigin href="/assets/use-mobile-Bxpkyd_4.js">
+    <link rel="modulepreload" crossorigin href="/assets/FactValue-vsgrQLhR.js">
+    <link rel="modulepreload" crossorigin href="/assets/popover-DnLwm8Nb.js">
+    <link rel="modulepreload" crossorigin href="/assets/info-Bdk4sD6Z.js">
+    <link rel="modulepreload" crossorigin href="/assets/chevron-down-BRWw0f7J.js">
+    <link rel="modulepreload" crossorigin href="/assets/lightbulb-DbjYJCfH.js">
+    <link rel="modulepreload" crossorigin href="/assets/companyIcons-D-m_uiIX.js">
+    <link rel="modulepreload" crossorigin href="/assets/git-compare-CikTgwTg.js">
+    <link rel="modulepreload" crossorigin href="/assets/repeat-rPXUHK1a.js">
+    <link rel="modulepreload" crossorigin href="/assets/monitor-DSr61DTk.js">
+    <link rel="modulepreload" crossorigin href="/assets/chevron-up-DRMauhtc.js">
+    <link rel="modulepreload" crossorigin href="/assets/sparkles-cNORt1Mq.js">
+    <link rel="modulepreload" crossorigin href="/assets/badge-percent-PEb76vRl.js">
+    <link rel="modulepreload" crossorigin href="/assets/rotate-ccw-SmEYDyV7.js">
+    <link rel="modulepreload" crossorigin href="/assets/external-link-B6S6_USm.js">
+    <link rel="modulepreload" crossorigin href="/assets/wallet-BlxHmSkZ.js">
+    <link rel="modulepreload" crossorigin href="/assets/chevron-left-DsuU41UA.js">
+    <link rel="modulepreload" crossorigin href="/assets/useIntersectionObserver-DSH7vrcN.js">
+    <link rel="modulepreload" crossorigin href="/assets/clock-CK_dA04q.js">
+    <link rel="modulepreload" crossorigin href="/assets/percent-CwmV0Vh9.js">
+    <link rel="modulepreload" crossorigin href="/assets/play-DubIB0OW.js">
+    <link rel="modulepreload" crossorigin href="/assets/triangle-alert-BsNilONh.js">
+    <link rel="modulepreload" crossorigin href="/assets/circle-help-Df8nW1M0.js">
+    <link rel="modulepreload" crossorigin href="/assets/calendar-days-C1uq2jMb.js">
+    <link rel="modulepreload" crossorigin href="/assets/useExternalRating-Ch4sew0J.js">
+    <link rel="modulepreload" crossorigin href="/assets/useFirmUpdates-BvHIVpSF.js">
+    <link rel="modulepreload" crossorigin href="/assets/firmUpdates-DN9rTqKp.js">
+    <link rel="modulepreload" crossorigin href="/assets/partnerLinks-BTnoGtgn.js">
+    <link rel="modulepreload" crossorigin href="/assets/derivedRuleValues-Doyg_K06.js">
+    <link rel="modulepreload" crossorigin href="/assets/takeProfitCanonical-Mx4B0APl.js">
+    <link rel="modulepreload" crossorigin href="/assets/useLucidCanonicalProduct-Bo6ijoqh.js">
+    <link rel="modulepreload" crossorigin href="/assets/lucidLiveView-7yw1L3aQ.js">
+    <link rel="modulepreload" crossorigin href="/assets/TopstepAccountsSection-BXGmOWSH.js">
+    <link rel="modulepreload" crossorigin href="/assets/button-C_wGZ6jj.js">
+    <link rel="modulepreload" crossorigin href="/assets/BulenoxQualificationCatalog-CfLkDzbe.js">
+    <link rel="modulepreload" crossorigin href="/assets/fundednext-rules-DMF2DqSi.js">
+    <link rel="modulepreload" crossorigin href="/assets/tabs-DZXZ27Hu.js">
+    <link rel="modulepreload" crossorigin href="/assets/index-DuVYHoAX.js">
+    <link rel="modulepreload" crossorigin href="/assets/index-Ba0LObUC.js">
+    <link rel="modulepreload" crossorigin href="/assets/calendar-clock-d5MvNlnX.js">
+    <link rel="modulepreload" crossorigin href="/assets/takeprofit-pro-plus-BB0eTs72.js">
+    <link rel="modulepreload" crossorigin href="/assets/opinions-CBJ3lYbE.js">
+    <link rel="modulepreload" crossorigin href="/assets/payoutQualifyingCycle-87OECxQY.js">
+    <link rel="modulepreload" crossorigin href="/assets/useToolPromotion-B3ISB0GE.js">
+    <link rel="modulepreload" crossorigin href="/assets/ui-CVd2ZZpM.js">
+    <link rel="modulepreload" crossorigin href="/assets/useMonitorCheck-DdWeDtr1.js">
+    <link rel="modulepreload" crossorigin href="/assets/NoamOpinion-DMhAEb4s.js">
+    <link rel="modulepreload" crossorigin href="/assets/index-B1GdWXP6.js">
+    <link rel="modulepreload" crossorigin href="/assets/CompareTable-CNc5dAOk.js">
+    <link rel="modulepreload" crossorigin href="/assets/ui-YBgL_hIm.js">
+    <link rel="modulepreload" crossorigin href="/assets/Slots-g77hvavO.js">
+    <link rel="modulepreload" crossorigin href="/assets/localVideo-CjjUGPzE.js">
+    <link rel="modulepreload" crossorigin href="/assets/SeoAccountVariantsBlock-CxdImxUF.js">
+    <link rel="preload" as="style" crossorigin href="/assets/firm-new-BS7v2L2J.css">
+    <link rel="preload" as="style" crossorigin href="/assets/index-DgFdmHIc.css">
+  </head>
+  <body>
+    <noscript>
+      <div
+        style="max-width:900px;margin:0 auto;padding:40px 20px;font-family:Heebo,sans-serif;direction:rtl;text-align:right;"
+      >
+        <h1>AntarTrade – השוואת חברות מימון ונוסטרו לסוחרים 2026</h1>
+        <p>
+          אתר ההשוואות המוביל בישראל לחברות מימון לסוחרים 2026 – ניתוחים אישיים, קודי הנחה בלעדיים ותוכן מקצועי מאת נועם
+          ענתר.
+        </p>
+        <h2>השוואת חברות ומבצעים</h2>
+        <ul>
+          <li>
+            <a href="/comparison">השוואת חברות מימון ונוסטרו</a> – מחירים, חוקים ותנאי משיכה של כל החברות בטבלה אחת.
+          </li>
+          <li><a href="/promotions">מבצעים וקודי הנחה</a> – כל המבצעים הפעילים וקוד ההנחה ANTAR.</li>
+          <li><a href="/matching-quiz">שאלון התאמה</a> – איזו חברת מימון מתאימה לך.</li>
+          <li><a href="/comparison/head-to-head">דו-קרב חברות</a> – שתי חברות ראש בראש.</li>
+        </ul>
+        <h2>חברות מימון</h2>
+        <ul>
+          <li><a href="/take-profit">טייק פרופיט (TakeProfit Trader)</a> – סקירה, חוקים, משיכות וקוד הנחה.</li>
+          <li><a href="/lucid">לוסיד טריידינג (Lucid Trading)</a> – סקירה, מסלולים, חוקים וקוד הנחה.</li>
+          <li><a href="/apex">אפקס (Apex Trader Funding)</a> – סקירה, חוקים וקוד הנחה.</li>
+          <li><a href="/top-step">טופסטפ (TopStep)</a> – סקירה, חשבונות, חוקים ומשיכות.</li>
+          <li><a href="/bulenox">בולנוקס (Bulenox)</a> – סקירה, חשבונות, חוקים וקוד הנחה.</li>
+          <li><a href="/funded-next">פאנדד נקסט (FundedNext Futures)</a> – סקירה, חשבונות, חוקים ומבצעים.</li>
+          <li><a href="/ftmo">FTMO Futures</a> – סקירה, חוקים, מחירים ומשיכות.</li>
+        </ul>
+        <h2>האקדמיה</h2>
+        <ul>
+          <li><a href="/academy">האקדמיה של AntarTrade</a> – קורסים, סרטונים, מאמרים וכלים למסחר בעברית.</li>
+          <li><a href="/blog/tik-nostro">מה זה תיק נוסטרו</a> – המדריך המלא לסחור על הון של חברות מימון.</li>
+          <li><a href="/blog">מאמרים ומדריכים</a></li>
+          <li><a href="/calculators">מחשבונים לסוחרים</a></li>
+          <li><a href="/academy/glossary">מילון מושגים</a></li>
+          <li><a href="/economic-calendar">יומן הודעות כלכליות</a></li>
+          <li><a href="/courses">קורסים</a></li>
+        </ul>
+        <h2>פלטפורמות וכלים</h2>
+        <ul>
+          <li><a href="/platforms">כל הפלטפורמות והכלים</a></li>
+          <li><a href="/ninjatrader-guide">NinjaTrader</a></li>
+          <li><a href="/atas-guide">ATAS</a></li>
+          <li><a href="/bookmap-guide">Bookmap</a></li>
+          <li><a href="/tradezella-guide">TradeZella</a></li>
+        </ul>
+        <h2>מידע נוסף</h2>
+        <ul>
+          <li><a href="/about">אודות נועם ענתר</a></li>
+          <li><a href="/faq">שאלות ותשובות</a></li>
+          <li><a href="/contact">צור קשר</a></li>
+        </ul>
+      </div>
+    </noscript>
+    <div id="root">
+      <style>html:has(.pr-body),body:has(.pr-body){background:#12161f;overflow-x:hidden}.pr-body{max-width:860px;margin:0 auto;padding:120px 20px 64px;box-sizing:border-box;color:#e8eef5;line-height:1.7;font-size:18px;direction:rtl;text-align:right;overflow-wrap:anywhere}.pr-body h1,.pr-body h2,.pr-body h3{color:inherit}.pr-body h1{font-size:40px;line-height:1.15;margin:16px 0}.pr-body h2{font-size:28px;margin:40px 0 12px}.pr-body h3{font-size:21px;margin:24px 0 8px}.pr-body a{color:#7dc6ff}.pr-body img{max-width:100%;height:auto}.pr-body table{border-collapse:collapse;display:block;max-width:100%;overflow-x:auto}.pr-body td,.pr-body th{border:1px solid #33415a;padding:6px 10px}.pr-body nav{font-size:15px;color:#9fb0c6}.pr-body dt{font-weight:700;margin-top:16px}.pr-body dd{margin:4px 0 0}</style><article class="pr-body"><nav aria-label="פירורי לחם"><a href="/">דף הבית</a> / <a href="/comparison">השוואת חברות</a> / Lucid Trading</nav><h1>Lucid Trading</h1><p>קוד הנחה: <strong>ANTAR</strong>. <a href="/promotions">כל המבצעים</a></p><h2>Lucid Trading Pro</h2><h3>LucidPro - במילים פשוטות</h3><ul><li>זמין בגדלים 25K, 50K, 100K ו-150K</li><li>תשלום חד-פעמי למבחן, ללא חיוב חודשי חוזר</li><li>אפשר לעבור את המבחן ביום מסחר אחד</li><li>סטופ נגרר סוף יום</li><li>עוברים לחשבון ממומן ללא דמי הפעלה</li><li>בחשבון הממומן חל חוק עקביות של 40%</li><li>אפשר להגיע לזכאות למשיכה אחרי 3 ימי מסחר</li><li>מינימום משיכה $500</li><li>אפשר למשוך רק רווחים שמעל הבאפר</li><li>חלוקת הרווחים היא 90% לסוחר ו-10% ללוסיד</li><li>תקרת המשיכה משתנה לפי גודל החשבון ולפי אם זו המשיכה הראשונה או משיכה מאוחרת יותר</li></ul><ol><li>עוברים את המבחן, אפשר גם ביום אחד</li><li>עוברים לחשבון ממומן ללא דמי הפעלה</li><li>צוברים 3 ימי מסחר ועומדים ביעד הרווח, בחוק העקביות ובבאפר</li><li>מושכים את הרווח שמעל הבאפר בחלוקה של 90/10</li><li>לאחר 5 משיכות - עובדים לחשבון לייב אמיתי</li></ol><p>גובה הסטופ, יעד הרווח למשיכה, הבאפר ותקרת המשיכה משתנים לפי גודל החשבון.</p><table><thead><tr><th>חשבון</th><th>עלות מבחן</th><th>יעד מעבר</th><th>סטופ מקסימלי</th><th>סוג הסטופ</th><th>מגבלת הפסד יומית</th><th>חוק עקביות</th><th>חלוקת רווחים</th></tr></thead><tbody><tr><td>25K</td><td>$90.30</td><td>$26,250</td><td>$1,000</td><td>סוף יום (EOD)</td><td>אין</td><td>אין</td><td>90% לסוחר</td></tr><tr><td>50K</td><td>$150.50</td><td>$53,000</td><td>$2,000</td><td>סוף יום (EOD)</td><td>אין</td><td>אין</td><td>90% לסוחר</td></tr><tr><td>100K</td><td>$225.40</td><td>$106,000</td><td>$3,000</td><td>סוף יום (EOD)</td><td>אין</td><td>אין</td><td>90% לסוחר</td></tr><tr><td>150K</td><td>$300.30</td><td>$159,000</td><td>$4,500</td><td>סוף יום (EOD)</td><td>אין</td><td>אין</td><td>90% לסוחר</td></tr></tbody></table><p>פלטפורמות: NinjaTrader, TradingView, MotiveWave, Quantower, Tradesea, Sierra Chart, Jigsaw, Bookmap, ATAS, R Trader Pro, MultiCharts, Tradovate</p><h2>Lucid Trading Flex</h2><h3>LucidFlex - במילים פשוטות</h3><ul><li>זמין בגדלים 25K, 50K, 100K ו-150K</li><li>תשלום חד-פעמי למבחן, ללא חיוב חודשי</li><li>סטופ נגרר סוף יום</li><li>במבחן חל חוק עקביות של 40%</li><li>אפשר לבחור אם להוסיף מגבלת הפסד יומית, בתוספת תשלום</li><li>עוברים לחשבון ממומן ללא דמי הפעלה</li><li>בחשבון הממומן אין חוק עקביות</li><li>כדי למשוך צריך 5 ימי רווח מזכים, כשהרווח הנדרש בכל יום משתנה לפי גודל החשבון</li><li>אין באפר למשיכה</li><li>מינימום משיכה $500</li><li>אפשר למשוך עד 50% מהרווחים, עד לתקרה של גודל החשבון</li><li>אחרי משיכה הסטופ עולה ליתרת ההתחלה + $100, ולכן מרווח ההפסד שנותר בחשבון מצטמצם</li><li>חלוקת הרווחים היא 90% לסוחר ו-10% ללוסיד</li><li>בחשבון הממומן יש Scaling על מספר החוזים</li></ul><ol><li>עוברים את המבחן</li><li>עוברים לחשבון ממומן ללא דמי הפעלה</li><li>צוברים 5 ימי רווח מזכים</li><li>מושכים עד 50% מהרווחים, עד לתקרה</li><li>לאחר 5 משיכות עוברים לחשבון LIVE אמיתי</li></ol><p>גובה הסטופ, הרווח הנדרש ליום מזכה, תקרת המשיכה ומספר החוזים משתנים לפי גודל החשבון.</p><table><thead><tr><th>חשבון</th><th>עלות מבחן</th><th>יעד מעבר</th><th>סטופ מקסימלי</th><th>סוג הסטופ</th><th>מגבלת הפסד יומית</th><th>חוק עקביות</th><th>חלוקת רווחים</th></tr></thead><tbody><tr><td>25K</td><td>$60.20</td><td>$26,250</td><td>$1,000</td><td>סוף יום (EOD)</td><td>אין</td><td>40%</td><td>90% לסוחר</td></tr><tr><td>50K</td><td>$115.50</td><td>$53,000</td><td>$2,000</td><td>סוף יום (EOD)</td><td>אין</td><td>40%</td><td>90% לסוחר</td></tr><tr><td>100K</td><td>$195.30</td><td>$106,000</td><td>$3,000</td><td>סוף יום (EOD)</td><td>אין</td><td>40%</td><td>90% לסוחר</td></tr><tr><td>150K</td><td>$265.30</td><td>$159,000</td><td>$4,500</td><td>סוף יום (EOD)</td><td>אין</td><td>40%</td><td>90% לסוחר</td></tr></tbody></table><p>פלטפורמות: NinjaTrader, TradingView, MotiveWave, Quantower, Tradesea, Sierra Chart, Jigsaw, Bookmap, ATAS, R Trader Pro, MultiCharts, Tradovate</p><h2>Lucid Trading Daily</h2><h3>LucidDaily - במילים פשוטות</h3><ul><li>זמין בגדלים 25K, 50K, 100K ו-150K</li><li>במבחן אפשר לבחור בין סטופ נגרר סוף יום לסטופ נגרר תוך יומי</li><li>אפשר לבחור אם להוסיף מגבלת הפסד יומית</li><li>במבחן חל חוק עקביות של 40%</li><li>עוברים לחשבון ממומן ללא דמי הפעלה</li><li>בחשבון הממומן הסטופ תוך יומי, אלא אם בחרתם בקנייה סטופ סוף יום גם לממומן (בתוספת תשלום)</li><li>בחשבון הממומן אין חוק עקביות</li><li>אפשר לבקש משיכה בכל יום ברגע שעומדים בתנאים</li><li>מינימום משיכה $500, ואין תקרת משיכה קבועה - אפשר למשוך את כל הרווח שמעל הבאפר</li><li>הבאפר הוא גובה הסטופ + $100 ואי אפשר למשוך ממנו</li><li>חלוקת הרווחים היא 90% לסוחר ו-10% ללוסיד</li><li>מסחר בחדשות אמריקאיות בעלות השפעה גבוהה אסור בחשבון הממומן בדקה שלפני ועד דקה שאחרי הפרסום</li><li>המעבר לחשבון LIVE נעשה לפי החלטת צוות הסיכון של Lucid</li></ul><ol><li>בוחרים סוג סטופ (אפשר סוף יום גם בממומן) ומחליטים אם רוצים מגבלת הפסד יומית</li><li>עוברים את המבחן ועוברים לחשבון ממומן ללא דמי הפעלה</li><li>בחשבון הממומן אין חוק עקביות, והסטופ תוך יומי - או סוף יום אם בחרתם בזה בקנייה</li><li>בונים רווח מעל הבאפר וניתן לבקש משיכה בכל יום</li><li>בהמשך ניתן לעבור לחשבון LIVE אמיתי לפי החלטת צוות הסיכון</li></ol><p>גובה הסטופ, הבאפר, מספר החוזים והרווח היומי שמוביל לבחינת מעבר ל-LIVE משתנים לפי גודל החשבון.</p><table><thead><tr><th>חשבון</th><th>עלות מבחן</th><th>יעד מעבר</th><th>סטופ מקסימלי</th><th>סוג הסטופ</th><th>מגבלת הפסד יומית</th><th>חוק עקביות</th><th>חלוקת רווחים</th></tr></thead><tbody><tr><td>25K</td><td>$80.50</td><td>$26,250</td><td>$1,000</td><td>סוף יום (EOD)</td><td>אין</td><td>40%</td><td>90% לסוחר</td></tr><tr><td>50K</td><td>$115.50</td><td>$53,000</td><td>$2,000</td><td>סוף יום (EOD)</td><td>אין</td><td>40%</td><td>90% לסוחר</td></tr><tr><td>100K</td><td>$180.60</td><td>$106,000</td><td>$3,000</td><td>סוף יום (EOD)</td><td>אין</td><td>40%</td><td>90% לסוחר</td></tr><tr><td>150K</td><td>$250.60</td><td>$159,000</td><td>$4,500</td><td>סוף יום (EOD)</td><td>אין</td><td>40%</td><td>90% לסוחר</td></tr></tbody></table><p>פלטפורמות: NinjaTrader, TradingView, MotiveWave, Quantower, Tradesea, Sierra Chart, Jigsaw, Bookmap, ATAS, R Trader Pro, MultiCharts, Tradovate</p><h2>Lucid Trading Direct</h2><h3>LucidDirect - במילים פשוטות</h3><ul><li>זמין בגדלים 25K, 50K, 100K ו-150K</li><li>אין מבחן - מתחילים ישר בחשבון ממומן</li><li>סטופ נגרר סוף יום</li><li>בחשבון חל חוק עקביות של 20%</li><li>ניתן להגיע לזכאות למשיכה אחרי 5 ימי מסחר</li><li>בכל מחזור משיכה צריך להגיע ליעד רווח מינימלי, שמתאפס לאחר משיכה</li><li>מינימום משיכה הוא $500</li><li>קיימת תקרת משיכה שמשתנה לפי גודל החשבון ולפי מספר המשיכה</li><li>חלוקת הרווחים היא 90% לסוחר ו-10% ללוסיד</li><li>בגדלים 50K ומעלה קיימת מגבלת הפסד יומית</li><li>לאחר שהחשבון עובר את רמת הסטופ ההתחלתית, מגבלת ההפסד היומית יכולה לגדול בהתאם לרווחי החשבון</li></ul><ol><li>רוכשים חשבון ומתחילים ישר בשלב הממומן, ללא מבחן</li><li>צוברים לפחות 5 ימי מסחר ועומדים בחוק העקביות וביעד הרווח למחזור</li><li>מבקשים משיכה של לפחות $500, עד לתקרה של אותו חשבון</li><li>לאחר משיכה יעד הרווח וחוק העקביות מתאפסים ומתחיל מחזור חדש</li></ol><p>גובה הסטופ, יעד הרווח למחזור, מגבלת ההפסד היומית ותקרת המשיכה משתנים לפי גודל החשבון.</p><table><thead><tr><th>חשבון</th><th>עלות מבחן</th><th>יעד מעבר</th><th>סטופ מקסימלי</th><th>סוג הסטופ</th><th>מגבלת הפסד יומית</th><th>חוק עקביות</th><th>חלוקת רווחים</th></tr></thead><tbody><tr><td>25K</td><td>$230.30</td><td>לא רלוונטי</td><td>$1,000</td><td>סוף יום (EOD)</td><td>אין</td><td>20%</td><td>90% לסוחר</td></tr><tr><td>50K</td><td>$360.50</td><td>לא רלוונטי</td><td>$2,000</td><td>סוף יום (EOD)</td><td>$1,200</td><td>20%</td><td>90% לסוחר</td></tr><tr><td>100K</td><td>$490</td><td>לא רלוונטי</td><td>$3,500</td><td>סוף יום (EOD)</td><td>$2,100</td><td>20%</td><td>90% לסוחר</td></tr><tr><td>150K</td><td>$585.20</td><td>לא רלוונטי</td><td>$5,000</td><td>סוף יום (EOD)</td><td>$3,000</td><td>20%</td><td>90% לסוחר</td></tr></tbody></table><p>פלטפורמות: NinjaTrader, TradingView, MotiveWave, Quantower, Tradesea, Sierra Chart, Jigsaw, Bookmap, ATAS, R Trader Pro, MultiCharts, Tradovate</p><h2>שאלות נפוצות</h2><h3>אילו מסלולי מסחר קיימים בלוסיד ומה ההבדל ביניהם?</h3><p>לוסיד מציעה שלושה סוגי חשבונות עיקריים שמתאימים לסגנונות מסחר שונים:
+
+LucidPro: המסלול הקלאסי. יש בו הגבלת הפסד יומי (DLL), וכדי למשוך כספים נדרשת עקביות של 40% והשארת &quot;כרית ביטחון&quot; (Buffer) בחשבון.
+
+LucidFlex: מסלול גמיש ללא הפסד יומי (No DLL) כלל! בחשבון הממומן יש תוכנית צמיחה (Scaling) המגבילה את כמות החוזים בהתאם לרווח. למשיכת רווחים אין חוק עקביות באחוזים ואין צורך ב-Buffer, אלא רק צבירת 5 ימי מסחר מרוויחים.
+
+LucidDirect: מימון ישיר ללא שלב מבחן. מתחילים מיד לייצר רווחים, אך חוקי המשיכה נוקשים יותר (עקביות של 20% וחובת הגעה ליעד רווח מוגדר לפני המשיכה).</p><h3>האם יש דמי מנוי חודשיים בלוסיד?</h3><p>לא! אחת הבשורות הגדולות של לוסיד היא שאין מנוי חודשי מתחדש (No monthly rebilling). התשלום עבור חשבונות המבחן (LucidPro) והחשבונות הישירים (LucidDirect) הוא תשלום חד-פעמי (One-Time Fee). כמו כן, אין דמי הפעלה (Activation Fees) בעת המעבר לחשבון ממומן.</p><h3>איך מחושב ההפסד המקסימלי (Drawdown) בחשבונות?</h3><p>כל החשבונות בלוסיד משתמשים במנגנון משיכת סוף-יום (End-of-Day Drawdown). המערכת בודקת את יתרת החשבון הגבוהה ביותר שלכם רק בסוף כל יום מסחר. ברגע שיתרת החשבון שלכם עולה על יתרת הפתיחה פלוס 100$, ההפסד המקסימלי &quot;קופא&quot; (ננעל) ולעולם לא יעלה יותר.
+
+(הערה חשובה לסוחרי ה-Flex: ברגע שאתם מבקשים משיכה ראשונה, ה-Drawdown שלכם קופץ וננעל אוטומטית על נקודת הפתיחה פלוס 100$).</p><h3>מהו מנגנון ה-LucidScale DLL (הפסד יומי גמיש)?</h3><p>בחשבונות ה-Pro וה-Direct, קיים הפסד יומי (DLL). עם זאת, ברגע שהחשבון שלכם צומח ומגיע לנקודת היתרה הנעולה, ההפסד היומי הופך להיות גמיש (LucidScale DLL). מעתה, ההפסד היומי המותר שלכם יהיה 60% משיא הרווח שלכם בסוף היום. המנגנון הזה רק עולה ככל שהחשבון גדל, ולא יורד לעולם. (במסלול ה-Flex, כאמור, אין הפסד יומי כלל).</p><h3>כמה חשבונות ממומנים מותר לי להחזיק במקביל?</h3><p>לוסיד מאפשרת לכם להחזיק מקסימום של 10 חשבונות בסך הכל (מבחנים וממומנים יחד). מתוך העשרה האלו, מותר לכם להחזיק עד 5 חשבונות ממומנים (Funded) פעילים בו-זמנית, וניתן לשלב בין סוגים שונים (למשל Pro, Flex ו-Direct יחד). תוכנות להעתקת עסקאות (Trade Copiers) מותרות בהחלט.</p><h3>איך עובדות משיכות כספים וחלוקת רווחים?</h3><p>בכל החשבונות הממומנים בלוסיד, חלוקת הרווחים עומדת על 90% לסוחר ו-10% לחברה. סכום המשיכה המינימלי בכל המסלולים הוא 500$. תקרת המשיכה המקסימלית תלויה בגודל החשבון ובסוג המסלול (לדוגמה, בפלקס מותר למשוך עד 50% מהרווחים עד לתקרה קבועה). הרווחים יכולים להימשך דרך העברה בנקאית (לארה&quot;ב), WorkMarket, או במטבעות קריפטו (כגון BTC, ETH, USDT) לסוחרים בינלאומיים.</p><h3>מה יגרום לחסימת החשבון שלי? (ממה חייבים להיזהר)</h3><p>בלוסיד מחפשים סוחרים אמיתיים ואוסרים על ניצול פרצות. הפעולות הבאות אסורות בתכלית האיסור ויגרמו לפסילת רווחים או חסימה:
+
+Microscalping: אם למעלה מ-50% מהרווחים שלכם מגיעים מעסקאות שהוחזקו 5 שניות או פחות.
+
+גידור (Hedging): אסור לפתוח פוזיציית לונג בחשבון אחד ופוזיציית שורט על אותו נכס בחשבון אחר במקביל. (מותר לגדר רק בתוך אותו חשבון).
+
+מסחר בתדירות גבוהה (HFT): שימוש באלגוריתמים המבצעים פעולות רבות בשניות בודדות.</p><h3>האם מותר לסחור בזמן חדשות ולהשאיר עסקאות פתוחות ללילה?</h3><p>חדשות: מותר לחלוטין לסחור לפני, במהלך ואחרי חדשות, אך הסוחר נושא באחריות מלאה לכל החלקת מחיר (Slippage) שעלולה לקרות בשל התנודתיות.
+
+שעות מסחר: אסור להשאיר עסקאות ללילה בחשבונות מבחן וממומנים. חובה לסגור את כל הפוזיציות עד השעה 16:45 (שעון ארה&quot;ב EST). עסקאות שיישארו פתוחות ייסגרו אוטומטית על ידי המערכת.</p><h3>מה קורה כשעוברים לחשבון לייב אמיתי (Live Account)?</h3><p>לפי מבנה הלייב החדש, ברגע שתקבלו מספיק משיכות (או לפי החלטת צוות ניהול הסיכונים), תועברו לחשבון לייב אמיתי. כל חשבון לייב מתחיל עם יתרה של 0$ ו-Drawdown שקבוע מראש. הבונוס הגדול: אם תייצרו רווח בגובה ה-Drawdown שלכם, לוסיד תשחרר לכם &quot;Live Bonus&quot; כספי לחשבון כאות הערכה! בנוסף, בחשבון לייב תוכלו לבקש משיכות על בסיס יומי ללא הגבלת הפסד יומי (DLL).</p><h3>מה קורה אם לא סחרתי הרבה זמן?</h3><p>חשבון שלא בוצעה בו אף עסקה במשך 30 ימים קלנדריים ייחשב לנטוש ויימחק מהמערכת לצמיתות (כך גם לגבי חשבון שנכשל ולא אופס תוך 30 יום).
+
+💡 טיפ הזהב של AntarTrade: בחרתם את המסלול שהכי מתאים לכם? לפני שאתם משלמים, זכרו תמיד להזין את קוד ההנחה ANTAR בקופה (Checkout) כדי להבטיח את המחיר הזול והמשתלם ביותר עבור חשבון הלוסיד החדש שלכם!</p><p><a href="/comparison">השוואה מול שאר החברות</a></p></article>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Microsoft Clarity מנוהל דרך שכבת המדידה המרכזית (src/lib/analytics/clarity.ts) ונטען רק לאחר הסכמה -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" sizes="any" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>בלוג AntarTrade - מדריכים לחברות מימון ומסחר בחוזים</title>
+    <meta data-rh="true" name="description" content="מדריכים כתובים על חברות מימון לסוחרים, חוקי מבחנים, משיכות רווחים ומסחר בחוזים עתידיים.">
+
+    <!-- Open Graph Meta Tags -->
+    <meta data-rh="true" property="og:title" content="בלוג AntarTrade - מדריכים לחברות מימון ומסחר בחוזים">
+    <meta data-rh="true" property="og:description" content="מדריכים כתובים על חברות מימון לסוחרים, חוקי מבחנים, משיכות רווחים ומסחר בחוזים עתידיים.">
+    <meta data-rh="true" property="og:image" content="https://antartrade.co.il/og-images/new/blog.jpg">
+    <meta data-rh="true" property="og:image:width" content="1200">
+    <meta data-rh="true" property="og:image:height" content="630">
+    <meta data-rh="true" property="og:image:alt" content="הבלוג">
+    <meta data-rh="true" property="og:type" content="website" />
+    <meta data-rh="true" property="og:site_name" content="AntarTrade" />
+    <meta data-rh="true" property="og:locale" content="he_IL" />
+
+    <!-- Twitter Cards Meta Tags -->
+    <meta data-rh="true" name="twitter:card" content="summary_large_image" />
+    <meta data-rh="true" name="twitter:title" content="בלוג AntarTrade - מדריכים לחברות מימון ומסחר בחוזים">
+    <meta data-rh="true" name="twitter:description" content="מדריכים כתובים על חברות מימון לסוחרים, חוקי מבחנים, משיכות רווחים ומסחר בחוזים עתידיים.">
+    <meta data-rh="true" name="twitter:image" content="https://antartrade.co.il/og-images/new/blog.jpg">
+    <meta data-rh="true" name="twitter:image:alt" content="הבלוג">
+
+    <!-- Additional Meta Tags -->
+    <meta name="author" content="AntarTrade" />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://i.ytimg.com" crossorigin />
+    <link rel="dns-prefetch" href="https://img.youtube.com" />
+    <link rel="dns-prefetch" href="https://www.youtube.com" />
+    <!-- Heebo is only the fallback behind Fb Reforma (and swaps in anyway), so it loads without holding up the first paint -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" rel="stylesheet" /></noscript>
+    <!-- the design's own font (base.css), fetched with the page instead of after the code runs -->
+    <link rel="preload" as="font" type="font/woff2" href="/home-new/fonts/FbReforma-Regular.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/home-new/fonts/FbReforma-Medium.woff2" crossorigin />
+    <!-- Critical inline CSS for instant LCP paint of hero H1 (replaced by React on hydration).
+         It draws the new homepage hero's first frame (dark ground, the same title in the same place), so the page doesn't flash another design. -->
+    <style>
+      html,body{margin:0;padding:0;background:#12161f;font-family:"Fb Reforma",Heebo,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+      #root{min-height:100vh}
+      .lcp-hero{position:relative;min-height:100vh;box-sizing:border-box;background:#12161f;padding:92px 16px 64px;text-align:right;direction:rtl;overflow:hidden}
+      .lcp-hero-inner{width:min(1171px,100%);margin:0 auto}
+      .lcp-hero h1{margin:0;font-weight:400;max-width:310px;background:linear-gradient(90deg,#61b1f2 0%,#fff 78.365%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+      .lcp-hero h1 .lcp-line{display:block;font-size:44px;line-height:1.05}
+      .lcp-hero h1 .lcp-sub{font-size:28px;line-height:1.3;margin-top:6px}
+      @media(min-width:761px){.lcp-hero{padding-top:92px}.lcp-hero h1{max-width:560px}.lcp-hero h1 .lcp-line{font-size:74px;line-height:.92}.lcp-hero h1 .lcp-sub{font-size:44px;line-height:1.1;margin-top:14px}}
+      html.no-lcp-hero .lcp-hero{display:none}
+    </style>
+    <script>
+      (function(){
+        var p = location.pathname;
+        if (p !== '/' && p !== '/index.html') {
+          document.documentElement.classList.add('no-lcp-hero');
+        }
+        // a foreign address with no prerendered file of its own (a 404, a page not translated yet) gets
+        // this Hebrew file: it reads left to right, without the Hebrew homepage title, from the first paint.
+        // The languages are FOREIGN_LOCALES in src/i18n/config.ts (the i18n test keeps them equal).
+        var foreign = p.match(/^\/(en)(\/|$)/);
+        if (foreign && document.documentElement.lang === 'he') {
+          document.documentElement.lang = foreign[1];
+          document.documentElement.dir = 'ltr';
+          document.title = 'AntarTrade';
+        }
+      })();
+    </script>
+    <!-- Stale-deploy recovery: if hashed JS chunks referenced by a cached index.html
+         are gone (404 / "Importing a module script failed"), reload once bypassing cache. -->
+    <script>
+      (function(){
+        var KEY = '__chunk_reload_at';
+        function reloadOnce(){
+          try {
+            var last = Number(sessionStorage.getItem(KEY) || 0);
+            if (Date.now() - last < 20000) return; // avoid reload loops
+            sessionStorage.setItem(KEY, String(Date.now()));
+          } catch(e){}
+          var u = location.pathname + (location.search ? location.search + '&' : '?') + '_r=' + Date.now() + location.hash;
+          location.replace(u);
+        }
+        // Resource-level failures (module script / preload) bubble only in capture phase
+        window.addEventListener('error', function(e){
+          var t = e && e.target;
+          if (t && t !== window && (t.tagName === 'SCRIPT' || t.tagName === 'LINK')) { reloadOnce(); return; }
+          var m = e && e.message;
+          if (m && (m.indexOf('Importing a module script failed') > -1 ||
+                    m.indexOf('Failed to fetch dynamically imported module') > -1 ||
+                    m.indexOf('error loading dynamically imported module') > -1)) reloadOnce();
+        }, true);
+        window.addEventListener('unhandledrejection', function(e){
+          var m = e && e.reason && (e.reason.message || String(e.reason));
+          if (m && (m.indexOf('Importing a module script failed') > -1 ||
+                    m.indexOf('Failed to fetch dynamically imported module') > -1 ||
+                    m.indexOf('error loading dynamically imported module') > -1)) reloadOnce();
+        });
+      })();
+    </script>
+
+    <!-- Meta Pixel מנוהל כעת דרך שכבת המדידה המרכזית (src/lib/analytics) ונטען רק לאחר הסכמה -->
+    <script type="module" crossorigin src="/assets/index-BbGaeILm.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-vendor-xAhqJu7B.js">
+    <link rel="modulepreload" crossorigin href="/assets/query-vendor-iefLz-8z.js">
+    <link rel="modulepreload" crossorigin href="/assets/supabase-vendor-DW0Ocl7u.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-DgFdmHIc.css">
+    <meta data-rh="true" property="og:url" content="https://antartrade.co.il/blog">
+    <link data-rh="true" rel="canonical" href="https://antartrade.co.il/blog">
+    <link rel="modulepreload" crossorigin href="/assets/BlogNew-0L5Ju3Ou.js">
+    <link rel="modulepreload" crossorigin href="/assets/SEOHead-7iY2VWpq.js">
+    <link rel="modulepreload" crossorigin href="/assets/ui-CVd2ZZpM.js">
+    <link rel="preload" as="style" crossorigin href="/assets/firm-new-BS7v2L2J.css">
+    <link rel="preload" as="style" crossorigin href="/assets/blog-new-DQKHcKJp.css">
+    <link rel="preload" as="style" crossorigin href="/assets/index-DgFdmHIc.css">
+  </head>
+  <body>
+    <noscript>
+      <div
+        style="max-width:900px;margin:0 auto;padding:40px 20px;font-family:Heebo,sans-serif;direction:rtl;text-align:right;"
+      >
+        <h1>AntarTrade – השוואת חברות מימון ונוסטרו לסוחרים 2026</h1>
+        <p>
+          אתר ההשוואות המוביל בישראל לחברות מימון לסוחרים 2026 – ניתוחים אישיים, קודי הנחה בלעדיים ותוכן מקצועי מאת נועם
+          ענתר.
+        </p>
+        <h2>השוואת חברות ומבצעים</h2>
+        <ul>
+          <li>
+            <a href="/comparison">השוואת חברות מימון ונוסטרו</a> – מחירים, חוקים ותנאי משיכה של כל החברות בטבלה אחת.
+          </li>
+          <li><a href="/promotions">מבצעים וקודי הנחה</a> – כל המבצעים הפעילים וקוד ההנחה ANTAR.</li>
+          <li><a href="/matching-quiz">שאלון התאמה</a> – איזו חברת מימון מתאימה לך.</li>
+          <li><a href="/comparison/head-to-head">דו-קרב חברות</a> – שתי חברות ראש בראש.</li>
+        </ul>
+        <h2>חברות מימון</h2>
+        <ul>
+          <li><a href="/take-profit">טייק פרופיט (TakeProfit Trader)</a> – סקירה, חוקים, משיכות וקוד הנחה.</li>
+          <li><a href="/lucid">לוסיד טריידינג (Lucid Trading)</a> – סקירה, מסלולים, חוקים וקוד הנחה.</li>
+          <li><a href="/apex">אפקס (Apex Trader Funding)</a> – סקירה, חוקים וקוד הנחה.</li>
+          <li><a href="/top-step">טופסטפ (TopStep)</a> – סקירה, חשבונות, חוקים ומשיכות.</li>
+          <li><a href="/bulenox">בולנוקס (Bulenox)</a> – סקירה, חשבונות, חוקים וקוד הנחה.</li>
+          <li><a href="/funded-next">פאנדד נקסט (FundedNext Futures)</a> – סקירה, חשבונות, חוקים ומבצעים.</li>
+          <li><a href="/ftmo">FTMO Futures</a> – סקירה, חוקים, מחירים ומשיכות.</li>
+        </ul>
+        <h2>האקדמיה</h2>
+        <ul>
+          <li><a href="/academy">האקדמיה של AntarTrade</a> – קורסים, סרטונים, מאמרים וכלים למסחר בעברית.</li>
+          <li><a href="/blog/tik-nostro">מה זה תיק נוסטרו</a> – המדריך המלא לסחור על הון של חברות מימון.</li>
+          <li><a href="/blog">מאמרים ומדריכים</a></li>
+          <li><a href="/calculators">מחשבונים לסוחרים</a></li>
+          <li><a href="/academy/glossary">מילון מושגים</a></li>
+          <li><a href="/economic-calendar">יומן הודעות כלכליות</a></li>
+          <li><a href="/courses">קורסים</a></li>
+        </ul>
+        <h2>פלטפורמות וכלים</h2>
+        <ul>
+          <li><a href="/platforms">כל הפלטפורמות והכלים</a></li>
+          <li><a href="/ninjatrader-guide">NinjaTrader</a></li>
+          <li><a href="/atas-guide">ATAS</a></li>
+          <li><a href="/bookmap-guide">Bookmap</a></li>
+          <li><a href="/tradezella-guide">TradeZella</a></li>
+        </ul>
+        <h2>מידע נוסף</h2>
+        <ul>
+          <li><a href="/about">אודות נועם ענתר</a></li>
+          <li><a href="/faq">שאלות ותשובות</a></li>
+          <li><a href="/contact">צור קשר</a></li>
+        </ul>
+      </div>
+    </noscript>
+    <div id="root">
+      <style>html:has(.pr-body),body:has(.pr-body){background:#12161f;overflow-x:hidden}.pr-body{max-width:860px;margin:0 auto;padding:120px 20px 64px;box-sizing:border-box;color:#e8eef5;line-height:1.7;font-size:18px;direction:rtl;text-align:right;overflow-wrap:anywhere}.pr-body h1,.pr-body h2,.pr-body h3{color:inherit}.pr-body h1{font-size:40px;line-height:1.15;margin:16px 0}.pr-body h2{font-size:28px;margin:40px 0 12px}.pr-body h3{font-size:21px;margin:24px 0 8px}.pr-body a{color:#7dc6ff}.pr-body img{max-width:100%;height:auto}.pr-body table{border-collapse:collapse;display:block;max-width:100%;overflow-x:auto}.pr-body td,.pr-body th{border:1px solid #33415a;padding:6px 10px}.pr-body nav{font-size:15px;color:#9fb0c6}.pr-body dt{font-weight:700;margin-top:16px}.pr-body dd{margin:4px 0 0}</style><article class="pr-body"><h1>הבלוג של AntarTrade</h1><ul><li><a href="/blog/smc-smart-money-concepts">SMC מאפס: אורדר בלוק, אימבלנס ושריפת סטופים, ואיך סוחרים עם הכסף החכם</a> – כל הבסיס של SMC במקום אחד: איך השוק זז, מה זה BOS ו-CHoCH, אימבלנס, אורדר בלוק ושריפת סטופים, ואיך זה נראה בעסקאות אמיתיות על הנאסדק. מאת טל פרטוק מ-Boiler Room.</li><li><a href="/blog/friday-options-bias">הביאס של יום שישי: איך שוק האופציות מגלה לאן הנאסדק רוצה להיסגר</a> – ביום הפקיעה המוסדיים נלחמים על המחיר. טל פרטוק מ-Boiler Room מראה איך מוצאים ב-Barchart את הקולים והפוטים הגדולים, מחשבים Max Pain ומקבלים את הטווח שבו השוק כנראה ייסגר.</li><li><a href="/blog/smt-smart-money-technique">SMT: איך לזהות היפוך כשהנאסדק וה-S&amp;P 500 מפסיקים לזוז יחד</a> – מדד אחד פורץ שיא והשני לא? זה SMT. טל פרטוק מ-Boiler Room מראה איך מזהים אותו בכל טווח זמן, בין רבעים ובין סשנים, ולמה הוא אזור עניין ולא כניסה.</li><li><a href="/blog/atas-template-install">איך מתקינים טמפלייט ו-Workspace ב-ATAS: מדריך עם צילומי מסך</a> – הטמפלייט וה-Workspace שלי ל-ATAS להורדה חינם, ומדריך התקנה צעד אחר צעד: ייבוא בכפתור Import, טעינה, ומה עושים אחרי ההתקנה.</li><li><a href="/blog/tradingview-tutorial">מדריך TradingView בעברית: איך משתמשים בטריידינג ויו, אזור אחרי אזור</a> – כל אזור במסך של טריידינג ויו, עם צילומי מסך: רשימת מעקב והתראות, הסרגל העליון, כלי הציור והכלי שמחשב כמות, וחשבון הדמו.</li><li><a href="/blog/long-short">לונג ושורט: מה זה ואיך מרוויחים גם כשהשוק יורד</a> – בלונג מרוויחים מעלייה ובשורט מירידה. דוגמאות פשוטות, איפה הסיכון גבוה יותר, איך עושים שורט על הגרף ומה זה שורט סקוויז.</li><li><a href="/blog/order-types">סוגי פקודות מסחר: מרקט, לימיט, סטופ וסטופ לימיט</a> – מרקט, לימיט, סטופ וסטופ לימיט, ביד, אסק וספרד: מה כל פקודה עושה, מתי משתמשים בה, ולמה לסטופ הפסד משתמשים רק בסטופ מרקט.</li><li><a href="/blog/trading-styles">סגנונות מסחר: מסחר יומי, סווינג או השקעה לטווח ארוך</a> – השקעה לטווח ארוך, סווינג או מסחר יומי? מה ההבדל בסיכון, ברווח, בזמן מול המסך ובסוג הניתוח, וטבלה שמשווה בין השלושה.</li><li><a href="/blog/technical-vs-fundamental-analysis">ניתוח טכני מול ניתוח פונדמנטלי: מה ההבדל ובמה להשתמש</a> – פונדמנטלי מסתכל על החברה ועל העולם, טכני מסתכל על הגרף. מה ההבדל, למה במסחר לטווח קצר מסתכלים בעיקר על הגרף, ואיך קוראים נר יפני.</li><li><a href="/blog/replikanto-install-guide">איך מתקינים ומגדירים Replikanto: מדריך קופי טרייד צעד אחר צעד</a> – המדריך המלא להעתקת עסקאות בין חשבונות: איך קונים את Replikanto, מפיקים Machine ID, מתקינים בנינג'ה טריידר, ומעתיקים את העסקה הראשונה בלי לסכן את חשבונות המימון.</li><li><a href="/blog/how-to-pass-prop-firm-evaluation">איך לעבור מבחן נוסטרו: הדרך למתחילים והדרך המהירה למתקדמים</a> – שתי דרכים לגשת למבחן נוסטרו: מתחילים לומדים מהמבחנים בזול עם סיכון קבוע וסטטיסטיקה, ומתקדמים עוברים מהר, עם החישובים והסיכונים של כל שיטה.</li><li><a href="/blog/trading-psychology">הצד המנטלי במסחר: למה רוב הסוחרים מפסידים (ואיך לא להיות אחד מהם)</a> – המנטלי הוא 90% מהמסחר. למה בדמו כולנו אלופי העולם, מה עושים אחרי הפסד ואחרי רווח, ואיך עקביות והפסקות שומרות על החשבון.</li><li><a href="/blog/overtrading">אובר טריידינג: מה זה, איך מזהים ואיך מפסיקים</a> – כל פעולה במסחר שלא נובעת מתוכנית היא אובר טריידינג. איך מזהים את הסימנים, ו-6 כלים שעוזרים לעצור לפני שהחשבון נשרף.</li><li><a href="/blog/trading-plan">איך בונים תוכנית מסחר: מה כותבים, ולמה לא משנים אותה באמצע היום</a> – תוכנית מסחר כתובה מוציאה את הרגש מהמשחק. מה כותבים בה, איך מחשבים כמה ימים ייקח להגיע ליעד, ולמה אסור לשנות אותה באמצע יום מסחר.</li><li><a href="/blog/options-flow-gamma">זרימת האופציות: איך שוק האופציות מזיז את הנאסדק שלכם</a> – דלתא, גמא ואפס הגמא, מאפס ובלי נוסחאות: למה הגידור של עושי השוק מאט את השוק בבלם ומאיץ אותו בגז, ואיך זה נראה על הגרף. כולל מפה אינטראקטיבית.</li><li><a href="/blog/tik-nostro">מה זה תיק נוסטרו? המדריך המלא לסחור על הון של חברות מימון (2026)</a> – מה זה תיק נוסטרו, איך עובר מבחן, כמה זה עולה, למה החשבון הממומן הוא עדיין דמו ואיך חברות הנוסטרו מרוויחות. המדריך המלא, על בסיס קורס הבזק לנוסטרו.</li><li><a href="/blog/risk-reward-1-to-3-losing-streaks">למה יחס 1:3 שורף לכם את התיק? ההוכחה המתמטית לקריסה המנטלית</a> – עסקאות 1:3 מצטלמות יפה, אבל ב-30% הצלחה כמעט בטוח שתעברו 7 הפסדים ברצף ב-100 עסקאות. המספרים, הנוסחה, והמשמעות לחשבון ממומן.</li><li><a href="/blog/ftmo-futures-guide">FTMO - המדריך המלא ל־FTMO בחוזים עתידיים (2026)</a> – Evaluation, Sim-Funded ו־Live Funded: ההבדלים בין Growth ל־Pro, הכללים בכל שלב ותנאי המשיכה, עם נתונים חיים מהמאגר של האתר.</li><li><a href="/blog/take-profit-trader-guide">Take Profit Trader - המדריך המלא לטייק פרופיט טריידר (2026)</a> – איך החברה עובדת, מה הכללים בכל שלב ומה תנאי המשיכה, כולל נתונים חיים מהמאגר של האתר.</li><li><a href="/blog/takeprofit-buffer-withdrawal">איך מושכים כסף מהבאפר בטייק פרופיט: סגירת חשבון ומשיכה, שלב אחר שלב</a> – בטייק פרופיט אפשר למשוך רק את מה שמעל הבאפר. אבל יש אפשרות שהרבה סוחרים לא מכירים: לסגור את החשבון ולמשוך חלק מהכסף שנמצא בתוך הבאפר.</li><li><a href="/blog/tradovate-drawdown">איך רואים איפה הסטופ (Drawdown) של החשבון בטריידובייט</a> – זו שאלה שחוזרת אליי המון: אתם סוחרים בחשבון של חברת מימון דרך טריידובייט, ורוצים לדעת איפה ה-Drawdown שלכם. כלומר, מהי הנקודה שאם החשבון יגיע אליה, הוא נשרף. ככה מוסיפים אותה למסך, בכמה דקות.</li><li><a href="/blog/journal-statistics-1-to-1">איך לשפר את הרווחיות שלכם בעזרת יומן מסחר: בונים סטטיסטיקה מ-1:1</a> – מסחר הוא משחק סטטיסטי. ככל שתבינו את הסטטיסטיקה שלכם ותשפרו אותה, כך תצליחו יותר.</li><li><a href="/blog/tradovate-export-trades">איך מייצאים עסקאות מטריידובייט ליומן המסחר</a> – ככה מוציאים את העסקאות מטריידובייט לקובץ CSV ומכניסים אותן ליומן המסחר החינמי של AntarTrade, תוך פחות משתי דקות.</li><li><a href="/blog/ninjatrader-export-trades">איך מייצאים עסקאות מנינג'ה טריידר (ריתמיק) ליומן המסחר</a> – סוחרים דרך ריתמיק עם נינג'ה טריידר? ככה מוציאים את כל העסקאות מנינג'ה בקובץ אחד ומכניסים אותן ליומן המסחר החינמי של AntarTrade. כל התהליך לוקח בערך דקה וחצי, ואפשר לעשות אותו פעם בשבוע.</li><li><a href="/blog/trading-journal-guide">יומן מסחר חינמי של AntarTrade: המדריך המלא</a> – יומן מסחר הוא הדבר הכי בסיסי שיכול לעזור לסוחר להשתפר, ורוב הסוחרים פשוט לא עושים אותו. בניתי יומן מסחר חינמי שעושה את רוב העבודה לבד: מסנכרן עסקאות מטריידובייט, מייבא מ-ATAS ומנינג'ה טריידר, ומחשב לכם לפי החוקים של חברת המימון כמה חסר לכם למשיכה. במדריך הזה נעבור על הכל, צעד אחר צעד.</li><li><a href="/blog/tradovate-daily-stop">המדריך להגדרת סטופ יומי וניהול סיכונים ב-Tradovate</a> – איך מגדירים סטופ יומי ב-Tradovate: Daily Loss Limit, מגבלות שבועיות, יעדי רווח, נעילת ההגדרות ו-Manual Lockout, שלב אחר שלב עם צילומי מסך.</li><li><a href="/blog/rithmic-daily-stop">המדריך המלא להגדרת סטופ יומי ב-Rithmic</a> – מדריך שלב אחר שלב להגדרת סטופ יומי ב-Rithmic דרך R Trader Pro: Auto Liquidate, Loss Limit ו-Auto Liquidate Threshold, עם צילומי מסך.</li><li><a href="/blog/footprint-guide">מה זה פוטפרינט (Footprint)? המדריך המלא לקריאת פוטפרינט</a> – מה רואים בתוך נר פוטפרינט: Bid ו-Ask, פקודות Limit מול Market, אימבלנס, דלתא, POC, Value Area וספיגה - ואיך מגדירים הכול בטריידינג ויו.</li><li><a href="/blog/takeprofit-to-interactive-brokers-via-wise">משיכה מטייק פרופיט לאינטראקטיב דרך Wise - מדריך צעד אחר צעד</a> – איך העברתי משיכה מ-Take Profit Trader לחשבון דולרי ב-Wise, ומשם לאינטראקטיב ברוקרס - 20 שלבים עם צילומי מסך.</li><li><a href="/blog/topstep-guide">Topstep - המדריך המלא לטופסטפ (2026)</a> – המבחן, חשבון ה־XFA, מסלולי המשיכה והמעבר ל־Live - כולל נתונים חיים מהמאגר של האתר.</li><li><a href="/blog/apex-trader-funding-guide">המדריך המלא לאפקס טריידר פאנדינג - Apex Trader Funding (2026)</a> – שני מסלולי המבחן, הפעלת ה־PA, נעילת הסטופ, תנאי המשיכה והפלטפורמות - כולל נתונים חיים מהמאגר של האתר.</li><li><a href="/blog/lucid-trading-guide">Lucid Trading - המדריך המלא: מסלולים, כללים ומשיכות</a> – ארבעת המסלולים, חוקי המבחן והממומן, תנאי המשיכה והמעבר ל־Live - כולל נתונים חיים מהמאגר של האתר.</li></ul></article>
+    </div>
+  </body>
+</html>

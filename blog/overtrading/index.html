@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Microsoft Clarity מנוהל דרך שכבת המדידה המרכזית (src/lib/analytics/clarity.ts) ונטען רק לאחר הסכמה -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" sizes="any" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>אובר טריידינג (Overtrading): מה זה, איך מזהים ואיך מפסיקים | AntarTrade</title>
+    <meta data-rh="true" name="description" content="אובר טריידינג הוא כל פעולה במסחר שלא נובעת מתוכנית. הסימנים שמראים שנכנסתם אליו, ו-6 כלים פשוטים לעצור אותו: מספר עסקאות קבוע, שעות מסחר, הפסקות, צ'קליסט ויומן מנטלי.">
+
+    <!-- Open Graph Meta Tags -->
+    <meta data-rh="true" property="og:title" content="אובר טריידינג (Overtrading): מה זה, איך מזהים ואיך מפסיקים | AntarTrade">
+    <meta data-rh="true" property="og:description" content="אובר טריידינג הוא כל פעולה במסחר שלא נובעת מתוכנית. הסימנים שמראים שנכנסתם אליו, ו-6 כלים פשוטים לעצור אותו: מספר עסקאות קבוע, שעות מסחר, הפסקות, צ'קליסט ויומן מנטלי.">
+    <meta data-rh="true" property="og:image" content="https://antartrade.co.il/images/blog/covers/overtrading.webp">
+    
+    
+    <meta data-rh="true" property="og:image:alt" content="אובר טריידינג: סוחר מול מסכים עם עשרות פקודות קנייה ומכירה">
+    <meta data-rh="true" property="og:type" content="website" />
+    <meta data-rh="true" property="og:site_name" content="AntarTrade" />
+    <meta data-rh="true" property="og:locale" content="he_IL" />
+
+    <!-- Twitter Cards Meta Tags -->
+    <meta data-rh="true" name="twitter:card" content="summary_large_image" />
+    <meta data-rh="true" name="twitter:title" content="אובר טריידינג (Overtrading): מה זה, איך מזהים ואיך מפסיקים | AntarTrade">
+    <meta data-rh="true" name="twitter:description" content="אובר טריידינג הוא כל פעולה במסחר שלא נובעת מתוכנית. הסימנים שמראים שנכנסתם אליו, ו-6 כלים פשוטים לעצור אותו: מספר עסקאות קבוע, שעות מסחר, הפסקות, צ'קליסט ויומן מנטלי.">
+    <meta data-rh="true" name="twitter:image" content="https://antartrade.co.il/images/blog/covers/overtrading.webp">
+    <meta data-rh="true" name="twitter:image:alt" content="אובר טריידינג: סוחר מול מסכים עם עשרות פקודות קנייה ומכירה">
+
+    <!-- Additional Meta Tags -->
+    <meta name="author" content="AntarTrade" />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://i.ytimg.com" crossorigin />
+    <link rel="dns-prefetch" href="https://img.youtube.com" />
+    <link rel="dns-prefetch" href="https://www.youtube.com" />
+    <!-- Heebo is only the fallback behind Fb Reforma (and swaps in anyway), so it loads without holding up the first paint -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" rel="stylesheet" /></noscript>
+    <!-- the design's own font (base.css), fetched with the page instead of after the code runs -->
+    <link rel="preload" as="font" type="font/woff2" href="/home-new/fonts/FbReforma-Regular.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/home-new/fonts/FbReforma-Medium.woff2" crossorigin />
+    <!-- Critical inline CSS for instant LCP paint of hero H1 (replaced by React on hydration).
+         It draws the new homepage hero's first frame (dark ground, the same title in the same place), so the page doesn't flash another design. -->
+    <style>
+      html,body{margin:0;padding:0;background:#12161f;font-family:"Fb Reforma",Heebo,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+      #root{min-height:100vh}
+      .lcp-hero{position:relative;min-height:100vh;box-sizing:border-box;background:#12161f;padding:92px 16px 64px;text-align:right;direction:rtl;overflow:hidden}
+      .lcp-hero-inner{width:min(1171px,100%);margin:0 auto}
+      .lcp-hero h1{margin:0;font-weight:400;max-width:310px;background:linear-gradient(90deg,#61b1f2 0%,#fff 78.365%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+      .lcp-hero h1 .lcp-line{display:block;font-size:44px;line-height:1.05}
+      .lcp-hero h1 .lcp-sub{font-size:28px;line-height:1.3;margin-top:6px}
+      @media(min-width:761px){.lcp-hero{padding-top:92px}.lcp-hero h1{max-width:560px}.lcp-hero h1 .lcp-line{font-size:74px;line-height:.92}.lcp-hero h1 .lcp-sub{font-size:44px;line-height:1.1;margin-top:14px}}
+      html.no-lcp-hero .lcp-hero{display:none}
+    </style>
+    <script>
+      (function(){
+        var p = location.pathname;
+        if (p !== '/' && p !== '/index.html') {
+          document.documentElement.classList.add('no-lcp-hero');
+        }
+        // a foreign address with no prerendered file of its own (a 404, a page not translated yet) gets
+        // this Hebrew file: it reads left to right, without the Hebrew homepage title, from the first paint.
+        // The languages are FOREIGN_LOCALES in src/i18n/config.ts (the i18n test keeps them equal).
+        var foreign = p.match(/^\/(en)(\/|$)/);
+        if (foreign && document.documentElement.lang === 'he') {
+          document.documentElement.lang = foreign[1];
+          document.documentElement.dir = 'ltr';
+          document.title = 'AntarTrade';
+        }
+      })();
+    </script>
+    <!-- Stale-deploy recovery: if hashed JS chunks referenced by a cached index.html
+         are gone (404 / "Importing a module script failed"), reload once bypassing cache. -->
+    <script>
+      (function(){
+        var KEY = '__chunk_reload_at';
+        function reloadOnce(){
+          try {
+            var last = Number(sessionStorage.getItem(KEY) || 0);
+            if (Date.now() - last < 20000) return; // avoid reload loops
+            sessionStorage.setItem(KEY, String(Date.now()));
+          } catch(e){}
+          var u = location.pathname + (location.search ? location.search + '&' : '?') + '_r=' + Date.now() + location.hash;
+          location.replace(u);
+        }
+        // Resource-level failures (module script / preload) bubble only in capture phase
+        window.addEventListener('error', function(e){
+          var t = e && e.target;
+          if (t && t !== window && (t.tagName === 'SCRIPT' || t.tagName === 'LINK')) { reloadOnce(); return; }
+          var m = e && e.message;
+          if (m && (m.indexOf('Importing a module script failed') > -1 ||
+                    m.indexOf('Failed to fetch dynamically imported module') > -1 ||
+                    m.indexOf('error loading dynamically imported module') > -1)) reloadOnce();
+        }, true);
+        window.addEventListener('unhandledrejection', function(e){
+          var m = e && e.reason && (e.reason.message || String(e.reason));
+          if (m && (m.indexOf('Importing a module script failed') > -1 ||
+                    m.indexOf('Failed to fetch dynamically imported module') > -1 ||
+                    m.indexOf('error loading dynamically imported module') > -1)) reloadOnce();
+        });
+      })();
+    </script>
+
+    <!-- Meta Pixel מנוהל כעת דרך שכבת המדידה המרכזית (src/lib/analytics) ונטען רק לאחר הסכמה -->
+    <script type="module" crossorigin src="/assets/index-BbGaeILm.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-vendor-xAhqJu7B.js">
+    <link rel="modulepreload" crossorigin href="/assets/query-vendor-iefLz-8z.js">
+    <link rel="modulepreload" crossorigin href="/assets/supabase-vendor-DW0Ocl7u.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-DgFdmHIc.css">
+    <meta data-rh="true" property="og:url" content="https://antartrade.co.il/blog/overtrading">
+    <link data-rh="true" rel="canonical" href="https://antartrade.co.il/blog/overtrading">
+    <link rel="modulepreload" crossorigin href="/assets/ArticleNew-BN76p2zN.js">
+    <link rel="modulepreload" crossorigin href="/assets/SEOHead-7iY2VWpq.js">
+    <link rel="modulepreload" crossorigin href="/assets/ui-CVd2ZZpM.js">
+    <link rel="modulepreload" crossorigin href="/assets/AtasDownloads-CQDqw8NP.js">
+    <link rel="modulepreload" crossorigin href="/assets/useAuth-Bo6pQwSW.js">
+    <link rel="modulepreload" crossorigin href="/assets/partnerLinks-BTnoGtgn.js">
+    <link rel="modulepreload" crossorigin href="/assets/kit-DFi4IUs2.js">
+    <link rel="modulepreload" crossorigin href="/assets/ui-YBgL_hIm.js">
+    <link rel="modulepreload" crossorigin href="/assets/companyIcons-D-m_uiIX.js">
+    <link rel="preload" as="style" crossorigin href="/assets/firm-new-BS7v2L2J.css">
+    <link rel="preload" as="style" crossorigin href="/assets/article-new-mxkhYOwE.css">
+    <link rel="preload" as="style" crossorigin href="/assets/promotions-new-DO8TOHM4.css">
+    <link rel="preload" as="style" crossorigin href="/assets/platforms-new-CUu_han2.css">
+    <link rel="preload" as="style" crossorigin href="/assets/index-DgFdmHIc.css">
+    <link rel="preload" as="style" crossorigin href="/assets/kit-BKUgoKfT.css">
+  </head>
+  <body>
+    <noscript>
+      <div
+        style="max-width:900px;margin:0 auto;padding:40px 20px;font-family:Heebo,sans-serif;direction:rtl;text-align:right;"
+      >
+        <h1>AntarTrade – השוואת חברות מימון ונוסטרו לסוחרים 2026</h1>
+        <p>
+          אתר ההשוואות המוביל בישראל לחברות מימון לסוחרים 2026 – ניתוחים אישיים, קודי הנחה בלעדיים ותוכן מקצועי מאת נועם
+          ענתר.
+        </p>
+        <h2>השוואת חברות ומבצעים</h2>
+        <ul>
+          <li>
+            <a href="/comparison">השוואת חברות מימון ונוסטרו</a> – מחירים, חוקים ותנאי משיכה של כל החברות בטבלה אחת.
+          </li>
+          <li><a href="/promotions">מבצעים וקודי הנחה</a> – כל המבצעים הפעילים וקוד ההנחה ANTAR.</li>
+          <li><a href="/matching-quiz">שאלון התאמה</a> – איזו חברת מימון מתאימה לך.</li>
+          <li><a href="/comparison/head-to-head">דו-קרב חברות</a> – שתי חברות ראש בראש.</li>
+        </ul>
+        <h2>חברות מימון</h2>
+        <ul>
+          <li><a href="/take-profit">טייק פרופיט (TakeProfit Trader)</a> – סקירה, חוקים, משיכות וקוד הנחה.</li>
+          <li><a href="/lucid">לוסיד טריידינג (Lucid Trading)</a> – סקירה, מסלולים, חוקים וקוד הנחה.</li>
+          <li><a href="/apex">אפקס (Apex Trader Funding)</a> – סקירה, חוקים וקוד הנחה.</li>
+          <li><a href="/top-step">טופסטפ (TopStep)</a> – סקירה, חשבונות, חוקים ומשיכות.</li>
+          <li><a href="/bulenox">בולנוקס (Bulenox)</a> – סקירה, חשבונות, חוקים וקוד הנחה.</li>
+          <li><a href="/funded-next">פאנדד נקסט (FundedNext Futures)</a> – סקירה, חשבונות, חוקים ומבצעים.</li>
+          <li><a href="/ftmo">FTMO Futures</a> – סקירה, חוקים, מחירים ומשיכות.</li>
+        </ul>
+        <h2>האקדמיה</h2>
+        <ul>
+          <li><a href="/academy">האקדמיה של AntarTrade</a> – קורסים, סרטונים, מאמרים וכלים למסחר בעברית.</li>
+          <li><a href="/blog/tik-nostro">מה זה תיק נוסטרו</a> – המדריך המלא לסחור על הון של חברות מימון.</li>
+          <li><a href="/blog">מאמרים ומדריכים</a></li>
+          <li><a href="/calculators">מחשבונים לסוחרים</a></li>
+          <li><a href="/academy/glossary">מילון מושגים</a></li>
+          <li><a href="/economic-calendar">יומן הודעות כלכליות</a></li>
+          <li><a href="/courses">קורסים</a></li>
+        </ul>
+        <h2>פלטפורמות וכלים</h2>
+        <ul>
+          <li><a href="/platforms">כל הפלטפורמות והכלים</a></li>
+          <li><a href="/ninjatrader-guide">NinjaTrader</a></li>
+          <li><a href="/atas-guide">ATAS</a></li>
+          <li><a href="/bookmap-guide">Bookmap</a></li>
+          <li><a href="/tradezella-guide">TradeZella</a></li>
+        </ul>
+        <h2>מידע נוסף</h2>
+        <ul>
+          <li><a href="/about">אודות נועם ענתר</a></li>
+          <li><a href="/faq">שאלות ותשובות</a></li>
+          <li><a href="/contact">צור קשר</a></li>
+        </ul>
+      </div>
+    </noscript>
+    <div id="root">
+      <style>html:has(.pr-body),body:has(.pr-body){background:#12161f;overflow-x:hidden}.pr-body{max-width:860px;margin:0 auto;padding:120px 20px 64px;box-sizing:border-box;color:#e8eef5;line-height:1.7;font-size:18px;direction:rtl;text-align:right;overflow-wrap:anywhere}.pr-body h1,.pr-body h2,.pr-body h3{color:inherit}.pr-body h1{font-size:40px;line-height:1.15;margin:16px 0}.pr-body h2{font-size:28px;margin:40px 0 12px}.pr-body h3{font-size:21px;margin:24px 0 8px}.pr-body a{color:#7dc6ff}.pr-body img{max-width:100%;height:auto}.pr-body table{border-collapse:collapse;display:block;max-width:100%;overflow-x:auto}.pr-body td,.pr-body th{border:1px solid #33415a;padding:6px 10px}.pr-body nav{font-size:15px;color:#9fb0c6}.pr-body dt{font-weight:700;margin-top:16px}.pr-body dd{margin:4px 0 0}</style><article class="pr-body"><nav aria-label="פירורי לחם"><a href="/">דף הבית</a> / <a href="/blog">בלוג</a> / אובר טריידינג: מה זה, איך מזהים ואיך מפסיקים</nav><h1>אובר טריידינג: מה זה, איך מזהים ואיך מפסיקים</h1><p>נכתב על ידי <a href="/about">נועם ענתר</a>, סוחר חוזים עתידיים ומייסד AntarTrade</p>
+<p class="lead">אובר טריידינג הוא הרוצח השקט של חשבונות מסחר. הוא לא נראה מסוכן: עוד עסקה אחת, עוד קצת זמן מול המסך. אבל הוא אחראי לחלק גדול מהחשבונות שנשרפים, גם אצל סוחרים שיודעים לנתח גרף מצוין.</p>
+
+<h2>מה זה אובר טריידינג?</h2>
+<p>ההגדרה הכי פשוטה: <strong>כל פעולה במסחר שלא נובעת מתוכנית ברורה היא אובר טריידינג.</strong> נכנסתם לעסקה שהיא לא הסטאפ שלכם, כי היה דחף, לחץ, חוסר סבלנות, רצון להחזיר הפסד או רצון להרוויח עוד. זה אובר טריידינג.</p>
+<p>זה מתבטא בעיקר בשני דברים: <strong>יותר מדי עסקאות ביום</strong>, ו<strong>יותר מדי שעות מול המסך</strong>. ככל שיושבים יותר, משעמם יותר, ומשעמום לוחצים על הכפתור.</p>
+
+<h2>איך זה קורה (לכולם)</h2>
+<p>יושבים שלוש שעות, מחכים לעסקה. סוף סוף נכנסים, והעסקה מפסידה. עכשיו אין כוח לחכות עוד שלוש שעות, אז נכנסים לעוד עסקה, כדי להחזיר. ועוד אחת.</p>
+<p>ויש את המלכודת הקלאסית: "העסקה שאני מחכה לה תכף מגיעה." בזמן שמחכים, עושים עוד עסקה ועוד עסקה. נשארים עוד חצי שעה ועוד שעה, והעסקה לא מגיעה.</p>
+
+<h2>הסימנים: איך מזהים שנכנסתם לאובר טריידינג</h2>
+<ul>
+<li><strong>עסקה אחרי עסקה, בלחץ.</strong></li>
+<li><strong>אובדן שליטה:</strong> נכנסים לעסקאות במקומות לא קשורים, באמצע תנועה, בלי סטאפ ברור.</li>
+<li><strong><span class="en">FOMO</span>:</strong> התנועה בורחת, ונכנסים כי "אסור לפספס".</li>
+<li><strong>משחקים עם הסטופ:</strong> מרחיקים אותו כשהמחיר הולך נגדכם.</li>
+<li><strong>הגוף מאותת:</strong> זזים בחוסר נוחות על הכיסא, מחפשים עסקה בכוח, ואחרי הכניסה שואלים "למה נכנסתי?"</li>
+</ul>
+
+<h2>איך מפסיקים: 6 כלים</h2>
+<h3>1. מספר עסקאות מוגדר מראש</h3>
+<p>שלוש, ארבע, חמש, ואפילו עשר, לפי השיטה שלכם. העיקר שהמספר נקבע לפני שפותחים את הגרף, ולא תוך כדי.</p>
+<h3>2. שעות מסחר קבועות</h3>
+<p>אני, למשל, סוחר בחלון זמן קבוע של בערך שעה וחצי, ולא מעבר. כשנגמרה השעה, קמים, גם אם "העסקה תכף מגיעה".</p>
+<h3>3. הפסקה אחרי כל הפסד</h3>
+<p>הפסדתם? קמים. קפה, משהו לאכול, אוויר, חמש עד עשר דקות. אם הפסדתם שתי עסקאות ברצף, אפשר לסגור את המחשב לרבע שעה או חצי שעה. הגרף ייתן עוד הזדמנויות, אני מבטיח.</p>
+<h3>4. צ'קליסט לפני כל עסקה</h3>
+<p>למה אני נכנס, איך, ומה אני מחכה שיקרה. כשיש צ'קליסט מסודר, נכנסים רק כשהוא מתקיים, ולא "סתם".</p>
+<h3>5. יומן מנטלי</h3>
+<p>חוץ מיומן העסקאות, מסמנים גם את הטעויות המנטליות: אובר טריידינג, מסחר מחוץ לשעות, ניסיון להחזיר הפסד, חוסר סבלנות. בסוף החודש רואים איפה נופלים הכי הרבה, ומתמקדים בשיפור של הדבר הזה בלבד. ב<a href="https://journal.antartrade.co.il" target="_blank" rel="noopener">יומן המסחר</a> אפשר לסמן טעויות כאלה ליד כל עסקה.</p>
+<h3>6. תוכנית מסחר</h3>
+<p>כל הכלים האלה מתחברים ל<a href="/blog/trading-plan">תוכנית מסחר</a> אחת כתובה, שלא משנים באמצע יום מסחר.</p>
+
+<div class="box"><strong>ככל שתסחרו פחות, תרוויחו יותר</strong>שואלים אותי: אם אתה יודע להרוויח אלף דולר בחצי שעה, למה שלא תסחר ארבע שעות ותרוויח ארבעת אלפים? התשובה: אם אשב ארבע שעות מול הגרף, לא רק שלא ארוויח ארבעת אלפים, אני אפסיד. אומרים שמסחר הוא הדרך הקשה ביותר להרוויח כסף קל.</div>
+
+<h2>קראו עוד</h2>
+<ul>
+<li><a href="/blog/trading-psychology">הצד המנטלי במסחר: למה רוב הסוחרים מפסידים</a></li>
+<li><a href="/blog/risk-reward-1-to-3-losing-streaks">כמה הפסדים ברצף צפויים לכם, ולמה זה משנה</a></li>
+<li><a href="/blog/journal-statistics-1-to-1">איך יומן מסחר משפר את הסטטיסטיקה</a></li>
+</ul>
+</article>
+    </div>
+  </body>
+</html>

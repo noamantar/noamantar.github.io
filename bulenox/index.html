@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Microsoft Clarity מנוהל דרך שכבת המדידה המרכזית (src/lib/analytics/clarity.ts) ונטען רק לאחר הסכמה -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" sizes="any" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>בולנוקס (Bulenox) – קוד הנחה ANTAR, חשבונות וחוקים 2026</title>
+    <meta data-rh="true" name="description" content="לפני שקונים בבולנוקס: קוד ANTAR נותן הנחה על המבחנים. חשבונות Qualification ו-Master בגדלים 25K-150K, מחירים, משיכות וכללי מסחר 2026.">
+
+    <!-- Open Graph Meta Tags -->
+    <meta data-rh="true" property="og:title" content="בולנוקס – סקירה 2026, חשבונות, חוקים וקוד הנחה | Bulenox">
+    <meta data-rh="true" property="og:description" content="לפני שקונים בבולנוקס: קוד ANTAR נותן הנחה על המבחנים. חשבונות Qualification ו-Master בגדלים 25K-150K, מחירים, משיכות וכללי מסחר 2026.">
+    <meta data-rh="true" property="og:image" content="https://antartrade.co.il/og-images/new/firm-bulenox.jpg">
+    <meta data-rh="true" property="og:image:width" content="1200">
+    <meta data-rh="true" property="og:image:height" content="630">
+    <meta data-rh="true" property="og:image:alt" content="Bulenox">
+    <meta data-rh="true" property="og:type" content="website" />
+    <meta data-rh="true" property="og:site_name" content="AntarTrade" />
+    <meta data-rh="true" property="og:locale" content="he_IL" />
+
+    <!-- Twitter Cards Meta Tags -->
+    <meta data-rh="true" name="twitter:card" content="summary_large_image" />
+    <meta data-rh="true" name="twitter:title" content="בולנוקס – סקירה 2026, חשבונות, חוקים וקוד הנחה | Bulenox">
+    <meta data-rh="true" name="twitter:description" content="לפני שקונים בבולנוקס: קוד ANTAR נותן הנחה על המבחנים. חשבונות Qualification ו-Master בגדלים 25K-150K, מחירים, משיכות וכללי מסחר 2026.">
+    <meta data-rh="true" name="twitter:image" content="https://antartrade.co.il/og-images/new/firm-bulenox.jpg">
+    <meta data-rh="true" name="twitter:image:alt" content="Bulenox">
+
+    <!-- Additional Meta Tags -->
+    <meta name="author" content="AntarTrade" />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://i.ytimg.com" crossorigin />
+    <link rel="dns-prefetch" href="https://img.youtube.com" />
+    <link rel="dns-prefetch" href="https://www.youtube.com" />
+    <!-- Heebo is only the fallback behind Fb Reforma (and swaps in anyway), so it loads without holding up the first paint -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" rel="stylesheet" /></noscript>
+    <!-- the design's own font (base.css), fetched with the page instead of after the code runs -->
+    <link rel="preload" as="font" type="font/woff2" href="/home-new/fonts/FbReforma-Regular.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/home-new/fonts/FbReforma-Medium.woff2" crossorigin />
+    <!-- Critical inline CSS for instant LCP paint of hero H1 (replaced by React on hydration).
+         It draws the new homepage hero's first frame (dark ground, the same title in the same place), so the page doesn't flash another design. -->
+    <style>
+      html,body{margin:0;padding:0;background:#12161f;font-family:"Fb Reforma",Heebo,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+      #root{min-height:100vh}
+      .lcp-hero{position:relative;min-height:100vh;box-sizing:border-box;background:#12161f;padding:92px 16px 64px;text-align:right;direction:rtl;overflow:hidden}
+      .lcp-hero-inner{width:min(1171px,100%);margin:0 auto}
+      .lcp-hero h1{margin:0;font-weight:400;max-width:310px;background:linear-gradient(90deg,#61b1f2 0%,#fff 78.365%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+      .lcp-hero h1 .lcp-line{display:block;font-size:44px;line-height:1.05}
+      .lcp-hero h1 .lcp-sub{font-size:28px;line-height:1.3;margin-top:6px}
+      @media(min-width:761px){.lcp-hero{padding-top:92px}.lcp-hero h1{max-width:560px}.lcp-hero h1 .lcp-line{font-size:74px;line-height:.92}.lcp-hero h1 .lcp-sub{font-size:44px;line-height:1.1;margin-top:14px}}
+      html.no-lcp-hero .lcp-hero{display:none}
+    </style>
+    <script>
+      (function(){
+        var p = location.pathname;
+        if (p !== '/' && p !== '/index.html') {
+          document.documentElement.classList.add('no-lcp-hero');
+        }
+        // a foreign address with no prerendered file of its own (a 404, a page not translated yet) gets
+        // this Hebrew file: it reads left to right, without the Hebrew homepage title, from the first paint.
+        // The languages are FOREIGN_LOCALES in src/i18n/config.ts (the i18n test keeps them equal).
+        var foreign = p.match(/^\/(en)(\/|$)/);
+        if (foreign && document.documentElement.lang === 'he') {
+          document.documentElement.lang = foreign[1];
+          document.documentElement.dir = 'ltr';
+          document.title = 'AntarTrade';
+        }
+      })();
+    </script>
+    <!-- Stale-deploy recovery: if hashed JS chunks referenced by a cached index.html
+         are gone (404 / "Importing a module script failed"), reload once bypassing cache. -->
+    <script>
+      (function(){
+        var KEY = '__chunk_reload_at';
+        function reloadOnce(){
+          try {
+            var last = Number(sessionStorage.getItem(KEY) || 0);
+            if (Date.now() - last < 20000) return; // avoid reload loops
+            sessionStorage.setItem(KEY, String(Date.now()));
+          } catch(e){}
+          var u = location.pathname + (location.search ? location.search + '&' : '?') + '_r=' + Date.now() + location.hash;
+          location.replace(u);
+        }
+        // Resource-level failures (module script / preload) bubble only in capture phase
+        window.addEventListener('error', function(e){
+          var t = e && e.target;
+          if (t && t !== window && (t.tagName === 'SCRIPT' || t.tagName === 'LINK')) { reloadOnce(); return; }
+          var m = e && e.message;
+          if (m && (m.indexOf('Importing a module script failed') > -1 ||
+                    m.indexOf('Failed to fetch dynamically imported module') > -1 ||
+                    m.indexOf('error loading dynamically imported module') > -1)) reloadOnce();
+        }, true);
+        window.addEventListener('unhandledrejection', function(e){
+          var m = e && e.reason && (e.reason.message || String(e.reason));
+          if (m && (m.indexOf('Importing a module script failed') > -1 ||
+                    m.indexOf('Failed to fetch dynamically imported module') > -1 ||
+                    m.indexOf('error loading dynamically imported module') > -1)) reloadOnce();
+        });
+      })();
+    </script>
+
+    <!-- Meta Pixel מנוהל כעת דרך שכבת המדידה המרכזית (src/lib/analytics) ונטען רק לאחר הסכמה -->
+    <script type="module" crossorigin src="/assets/index-BbGaeILm.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-vendor-xAhqJu7B.js">
+    <link rel="modulepreload" crossorigin href="/assets/query-vendor-iefLz-8z.js">
+    <link rel="modulepreload" crossorigin href="/assets/supabase-vendor-DW0Ocl7u.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-DgFdmHIc.css">
+    <meta data-rh="true" property="og:url" content="https://antartrade.co.il/bulenox">
+    <link data-rh="true" rel="canonical" href="https://antartrade.co.il/bulenox">
+    <link rel="modulepreload" crossorigin href="/assets/FirmsNew-BcN01gda.js">
+    <link rel="modulepreload" crossorigin href="/assets/ApexNew-CNdWVuET.js">
+    <link rel="modulepreload" crossorigin href="/assets/SEOHead-7iY2VWpq.js">
+    <link rel="modulepreload" crossorigin href="/assets/NotFound-Cxk1qKU3.js">
+    <link rel="modulepreload" crossorigin href="/assets/Header-06XPzUpo.js">
+    <link rel="modulepreload" crossorigin href="/assets/useCanonicalFirmPageData-cOMsWmI7.js">
+    <link rel="modulepreload" crossorigin href="/assets/useCanonicalFirmRules-DyDSFWy6.js">
+    <link rel="modulepreload" crossorigin href="/assets/payoutApexLegacy-CObB4z4u.js">
+    <link rel="modulepreload" crossorigin href="/assets/fetch-DCdgZom6.js">
+    <link rel="modulepreload" crossorigin href="/assets/canonicalRules-yhGyuGJm.js">
+    <link rel="modulepreload" crossorigin href="/assets/products-WejJvjdw.js">
+    <link rel="modulepreload" crossorigin href="/assets/payoutStandard-B-ydjfl3.js">
+    <link rel="modulepreload" crossorigin href="/assets/payoutSelectedFirst-CKJTJlFd.js">
+    <link rel="modulepreload" crossorigin href="/assets/payoutPlainLanguage-CCLa1IXs.js">
+    <link rel="modulepreload" crossorigin href="/assets/RuleMatrixSection-p4DvIjAx.js">
+    <link rel="modulepreload" crossorigin href="/assets/useCanonicalComparison-BgqJ__QW.js">
+    <link rel="modulepreload" crossorigin href="/assets/evaluationCardStandard-tKfyyGpX.js">
+    <link rel="modulepreload" crossorigin href="/assets/dialog-Fv8fPKxX.js">
+    <link rel="modulepreload" crossorigin href="/assets/index-D22aaUOF.js">
+    <link rel="modulepreload" crossorigin href="/assets/index-BnXRerFH.js">
+    <link rel="modulepreload" crossorigin href="/assets/filters-DYbR_De5.js">
+    <link rel="modulepreload" crossorigin href="/assets/CompareView-DhNPyE-0.js">
+    <link rel="modulepreload" crossorigin href="/assets/switch-gPjNON3l.js">
+    <link rel="modulepreload" crossorigin href="/assets/index-CAFpbxuf.js">
+    <link rel="modulepreload" crossorigin href="/assets/use-mobile-Bxpkyd_4.js">
+    <link rel="modulepreload" crossorigin href="/assets/FactValue-vsgrQLhR.js">
+    <link rel="modulepreload" crossorigin href="/assets/popover-DnLwm8Nb.js">
+    <link rel="modulepreload" crossorigin href="/assets/info-Bdk4sD6Z.js">
+    <link rel="modulepreload" crossorigin href="/assets/chevron-down-BRWw0f7J.js">
+    <link rel="modulepreload" crossorigin href="/assets/lightbulb-DbjYJCfH.js">
+    <link rel="modulepreload" crossorigin href="/assets/companyIcons-D-m_uiIX.js">
+    <link rel="modulepreload" crossorigin href="/assets/git-compare-CikTgwTg.js">
+    <link rel="modulepreload" crossorigin href="/assets/repeat-rPXUHK1a.js">
+    <link rel="modulepreload" crossorigin href="/assets/monitor-DSr61DTk.js">
+    <link rel="modulepreload" crossorigin href="/assets/chevron-up-DRMauhtc.js">
+    <link rel="modulepreload" crossorigin href="/assets/sparkles-cNORt1Mq.js">
+    <link rel="modulepreload" crossorigin href="/assets/badge-percent-PEb76vRl.js">
+    <link rel="modulepreload" crossorigin href="/assets/rotate-ccw-SmEYDyV7.js">
+    <link rel="modulepreload" crossorigin href="/assets/external-link-B6S6_USm.js">
+    <link rel="modulepreload" crossorigin href="/assets/wallet-BlxHmSkZ.js">
+    <link rel="modulepreload" crossorigin href="/assets/chevron-left-DsuU41UA.js">
+    <link rel="modulepreload" crossorigin href="/assets/useIntersectionObserver-DSH7vrcN.js">
+    <link rel="modulepreload" crossorigin href="/assets/clock-CK_dA04q.js">
+    <link rel="modulepreload" crossorigin href="/assets/percent-CwmV0Vh9.js">
+    <link rel="modulepreload" crossorigin href="/assets/play-DubIB0OW.js">
+    <link rel="modulepreload" crossorigin href="/assets/triangle-alert-BsNilONh.js">
+    <link rel="modulepreload" crossorigin href="/assets/circle-help-Df8nW1M0.js">
+    <link rel="modulepreload" crossorigin href="/assets/calendar-days-C1uq2jMb.js">
+    <link rel="modulepreload" crossorigin href="/assets/useExternalRating-Ch4sew0J.js">
+    <link rel="modulepreload" crossorigin href="/assets/useFirmUpdates-BvHIVpSF.js">
+    <link rel="modulepreload" crossorigin href="/assets/firmUpdates-DN9rTqKp.js">
+    <link rel="modulepreload" crossorigin href="/assets/partnerLinks-BTnoGtgn.js">
+    <link rel="modulepreload" crossorigin href="/assets/derivedRuleValues-Doyg_K06.js">
+    <link rel="modulepreload" crossorigin href="/assets/takeProfitCanonical-Mx4B0APl.js">
+    <link rel="modulepreload" crossorigin href="/assets/useLucidCanonicalProduct-Bo6ijoqh.js">
+    <link rel="modulepreload" crossorigin href="/assets/lucidLiveView-7yw1L3aQ.js">
+    <link rel="modulepreload" crossorigin href="/assets/TopstepAccountsSection-BXGmOWSH.js">
+    <link rel="modulepreload" crossorigin href="/assets/button-C_wGZ6jj.js">
+    <link rel="modulepreload" crossorigin href="/assets/BulenoxQualificationCatalog-CfLkDzbe.js">
+    <link rel="modulepreload" crossorigin href="/assets/fundednext-rules-DMF2DqSi.js">
+    <link rel="modulepreload" crossorigin href="/assets/tabs-DZXZ27Hu.js">
+    <link rel="modulepreload" crossorigin href="/assets/index-DuVYHoAX.js">
+    <link rel="modulepreload" crossorigin href="/assets/index-Ba0LObUC.js">
+    <link rel="modulepreload" crossorigin href="/assets/calendar-clock-d5MvNlnX.js">
+    <link rel="modulepreload" crossorigin href="/assets/takeprofit-pro-plus-BB0eTs72.js">
+    <link rel="modulepreload" crossorigin href="/assets/opinions-CBJ3lYbE.js">
+    <link rel="modulepreload" crossorigin href="/assets/payoutQualifyingCycle-87OECxQY.js">
+    <link rel="modulepreload" crossorigin href="/assets/useToolPromotion-B3ISB0GE.js">
+    <link rel="modulepreload" crossorigin href="/assets/ui-CVd2ZZpM.js">
+    <link rel="modulepreload" crossorigin href="/assets/useMonitorCheck-DdWeDtr1.js">
+    <link rel="modulepreload" crossorigin href="/assets/NoamOpinion-DMhAEb4s.js">
+    <link rel="modulepreload" crossorigin href="/assets/index-B1GdWXP6.js">
+    <link rel="modulepreload" crossorigin href="/assets/CompareTable-CNc5dAOk.js">
+    <link rel="modulepreload" crossorigin href="/assets/ui-YBgL_hIm.js">
+    <link rel="modulepreload" crossorigin href="/assets/Slots-g77hvavO.js">
+    <link rel="modulepreload" crossorigin href="/assets/localVideo-CjjUGPzE.js">
+    <link rel="modulepreload" crossorigin href="/assets/SeoAccountVariantsBlock-CxdImxUF.js">
+    <link rel="preload" as="style" crossorigin href="/assets/firm-new-BS7v2L2J.css">
+    <link rel="preload" as="style" crossorigin href="/assets/index-DgFdmHIc.css">
+  </head>
+  <body>
+    <noscript>
+      <div
+        style="max-width:900px;margin:0 auto;padding:40px 20px;font-family:Heebo,sans-serif;direction:rtl;text-align:right;"
+      >
+        <h1>AntarTrade – השוואת חברות מימון ונוסטרו לסוחרים 2026</h1>
+        <p>
+          אתר ההשוואות המוביל בישראל לחברות מימון לסוחרים 2026 – ניתוחים אישיים, קודי הנחה בלעדיים ותוכן מקצועי מאת נועם
+          ענתר.
+        </p>
+        <h2>השוואת חברות ומבצעים</h2>
+        <ul>
+          <li>
+            <a href="/comparison">השוואת חברות מימון ונוסטרו</a> – מחירים, חוקים ותנאי משיכה של כל החברות בטבלה אחת.
+          </li>
+          <li><a href="/promotions">מבצעים וקודי הנחה</a> – כל המבצעים הפעילים וקוד ההנחה ANTAR.</li>
+          <li><a href="/matching-quiz">שאלון התאמה</a> – איזו חברת מימון מתאימה לך.</li>
+          <li><a href="/comparison/head-to-head">דו-קרב חברות</a> – שתי חברות ראש בראש.</li>
+        </ul>
+        <h2>חברות מימון</h2>
+        <ul>
+          <li><a href="/take-profit">טייק פרופיט (TakeProfit Trader)</a> – סקירה, חוקים, משיכות וקוד הנחה.</li>
+          <li><a href="/lucid">לוסיד טריידינג (Lucid Trading)</a> – סקירה, מסלולים, חוקים וקוד הנחה.</li>
+          <li><a href="/apex">אפקס (Apex Trader Funding)</a> – סקירה, חוקים וקוד הנחה.</li>
+          <li><a href="/top-step">טופסטפ (TopStep)</a> – סקירה, חשבונות, חוקים ומשיכות.</li>
+          <li><a href="/bulenox">בולנוקס (Bulenox)</a> – סקירה, חשבונות, חוקים וקוד הנחה.</li>
+          <li><a href="/funded-next">פאנדד נקסט (FundedNext Futures)</a> – סקירה, חשבונות, חוקים ומבצעים.</li>
+          <li><a href="/ftmo">FTMO Futures</a> – סקירה, חוקים, מחירים ומשיכות.</li>
+        </ul>
+        <h2>האקדמיה</h2>
+        <ul>
+          <li><a href="/academy">האקדמיה של AntarTrade</a> – קורסים, סרטונים, מאמרים וכלים למסחר בעברית.</li>
+          <li><a href="/blog/tik-nostro">מה זה תיק נוסטרו</a> – המדריך המלא לסחור על הון של חברות מימון.</li>
+          <li><a href="/blog">מאמרים ומדריכים</a></li>
+          <li><a href="/calculators">מחשבונים לסוחרים</a></li>
+          <li><a href="/academy/glossary">מילון מושגים</a></li>
+          <li><a href="/economic-calendar">יומן הודעות כלכליות</a></li>
+          <li><a href="/courses">קורסים</a></li>
+        </ul>
+        <h2>פלטפורמות וכלים</h2>
+        <ul>
+          <li><a href="/platforms">כל הפלטפורמות והכלים</a></li>
+          <li><a href="/ninjatrader-guide">NinjaTrader</a></li>
+          <li><a href="/atas-guide">ATAS</a></li>
+          <li><a href="/bookmap-guide">Bookmap</a></li>
+          <li><a href="/tradezella-guide">TradeZella</a></li>
+        </ul>
+        <h2>מידע נוסף</h2>
+        <ul>
+          <li><a href="/about">אודות נועם ענתר</a></li>
+          <li><a href="/faq">שאלות ותשובות</a></li>
+          <li><a href="/contact">צור קשר</a></li>
+        </ul>
+      </div>
+    </noscript>
+    <div id="root">
+      <style>html:has(.pr-body),body:has(.pr-body){background:#12161f;overflow-x:hidden}.pr-body{max-width:860px;margin:0 auto;padding:120px 20px 64px;box-sizing:border-box;color:#e8eef5;line-height:1.7;font-size:18px;direction:rtl;text-align:right;overflow-wrap:anywhere}.pr-body h1,.pr-body h2,.pr-body h3{color:inherit}.pr-body h1{font-size:40px;line-height:1.15;margin:16px 0}.pr-body h2{font-size:28px;margin:40px 0 12px}.pr-body h3{font-size:21px;margin:24px 0 8px}.pr-body a{color:#7dc6ff}.pr-body img{max-width:100%;height:auto}.pr-body table{border-collapse:collapse;display:block;max-width:100%;overflow-x:auto}.pr-body td,.pr-body th{border:1px solid #33415a;padding:6px 10px}.pr-body nav{font-size:15px;color:#9fb0c6}.pr-body dt{font-weight:700;margin-top:16px}.pr-body dd{margin:4px 0 0}</style><article class="pr-body"><nav aria-label="פירורי לחם"><a href="/">דף הבית</a> / <a href="/comparison">השוואת חברות</a> / Bulenox</nav><h1>Bulenox</h1><p>קוד הנחה: <strong>ANTAR</strong>. <a href="/promotions">כל המבצעים</a></p><h2>Bulenox Qualification</h2><h3>Bulenox Qualification · סטופ תוך יומי (Intraday) - במילים פשוטות</h3><ul><li>זמין בגדלים 25K, 50K, 100K ו-150K</li><li>אפשר לעבור את המבחן ביום מסחר אחד</li><li>סטופ נגרר תוך יומי (Intraday) שמתעדכן בזמן אמת</li><li>אין Scaling ואין מגבלת הפסד יומית</li><li>עוברים לחשבון Master לאחר בדיקה ואישור</li><li>יש דמי הפעלה חד-פעמיים</li><li>בחשבון Master נדרשים 10 ימי מסחר לפני משיכה</li><li>חוק עקביות 40%</li><li>מינימום משיכה $1,000</li><li>בשלוש המשיכות הראשונות יש תקרת משיכה. מהמשיכה הרביעית הסכום המבוקש חייב להיות פחות מ-50% מסך הרווח בחשבון ה-Master. מינימום $1,000, 10 ימי מסחר, רזרבת ביטחון ועקביות 40% ממשיכים לחול.</li><li>צריך להשאיר באפר בחשבון</li><li>חלוקת רווחים: 90%</li></ul><ol><li>עוברים את המבחן, אפשר גם ביום אחד</li><li>לאחר בדיקה ואישור מפעילים חשבון Master ומשלמים דמי הפעלה</li><li>צוברים 10 ימי מסחר ועומדים בחוק העקביות ובבאפר</li><li>מבקשים משיכה של לפחות $1,000, עד לתקרה הרלוונטית</li></ol><p>גובה הסטופ, הבאפר, תקרת המשיכה, דמי ההפעלה ומספר החוזים משתנים לפי גודל החשבון.</p><table><thead><tr><th>חשבון</th><th>עלות מבחן</th><th>יעד מעבר</th><th>סטופ מקסימלי</th><th>סוג הסטופ</th><th>מגבלת הפסד יומית</th><th>חוק עקביות</th><th>חלוקת רווחים</th></tr></thead><tbody><tr><td>25K</td><td>$15.95</td><td>$26,500</td><td>$1,500</td><td>תוך יומי (Intraday)</td><td>אין</td><td>אין</td><td>90% לסוחר</td></tr><tr><td>50K</td><td>$19.25</td><td>$53,000</td><td>$2,500</td><td>תוך יומי (Intraday)</td><td>אין</td><td>אין</td><td>90% לסוחר</td></tr><tr><td>100K</td><td>$23.65</td><td>$106,000</td><td>$3,000</td><td>תוך יומי (Intraday)</td><td>אין</td><td>אין</td><td>90% לסוחר</td></tr><tr><td>150K</td><td>$35.75</td><td>$159,000</td><td>$4,500</td><td>תוך יומי (Intraday)</td><td>אין</td><td>אין</td><td>90% לסוחר</td></tr></tbody></table><p>פלטפורמות: R|Trader Pro, NinjaTrader, Quantower, Sierra Chart, MultiCharts, ATAS, Bookmap, Tiger.Trade, Optimus Flow, Photon Trader, MotiveWave, OverCharts, Trade Navigator, QST, Inside Edge, Investor/RT, Medved Trader, QScalp, ScalpTool, TSLab, VolFix</p><h2>Bulenox Fast Track</h2><h3>Bulenox Fast Track · סטופ תוך יומי (Intraday) - במילים פשוטות</h3><ul><li>זמין בגדלים 25K, 50K, 100K ו-150K</li><li>אין מבחן, מתחילים ישר בחשבון מדומה שמיועד למשיכות</li><li>סטופ נגרר תוך יומי (Intraday)</li><li>אין Scaling ואין מגבלת הפסד יומית</li><li>אין מינימום ימי מסחר רשמי, אבל בפועל חוק העקביות דורש לפחות 5 ימי רווח במשיכה הראשונה</li><li>למשיכה הראשונה צריך להגיע ליעד רווח שנקבע לפי גודל החשבון</li><li>חוק העקביות הוא 20% במשיכה הראשונה, 25% בשנייה ו-30% מהשלישית והלאה</li><li>מינימום משיכה $1,000</li><li>בשלוש המשיכות הראשונות יש תקרת משיכה, ומהמשיכה הרביעית התקרה עולה</li><li>חלוקת רווחים: 90%</li></ul><ol><li>רוכשים את החשבון ומתחילים לסחור מיד, בלי מבחן</li><li>מגיעים ליעד הרווח הראשון ועומדים בחוק העקביות</li><li>מבקשים משיכה של לפחות $1,000, עד לתקרה הרלוונטית</li><li>אחרי כל משיכה מתחיל מחזור חדש עם יעד רווח חדש</li><li>מהמשיכה השלישית חוק העקביות נשאר על 30%</li></ol><p>גובה הסטופ, יעד הרווח למשיכה, תקרת המשיכה ומספר החוזים משתנים לפי גודל החשבון.</p><table><thead><tr><th>חשבון</th><th>עלות מבחן</th><th>יעד מעבר</th><th>סטופ מקסימלי</th><th>סוג הסטופ</th><th>מגבלת הפסד יומית</th><th>חוק עקביות</th><th>חלוקת רווחים</th></tr></thead><tbody><tr><td>25K</td><td>$202.80</td><td>לא רלוונטי</td><td>$1,000</td><td>תוך יומי (Intraday)</td><td>אין</td><td>משיכה 1: 20% · משיכה 2: 25% · משיכה 3+: 30%</td><td>90% לסוחר</td></tr><tr><td>50K</td><td>$292.80</td><td>לא רלוונטי</td><td>$2,000</td><td>תוך יומי (Intraday)</td><td>אין</td><td>משיכה 1: 20% · משיכה 2: 25% · משיכה 3+: 30%</td><td>90% לסוחר</td></tr><tr><td>100K</td><td>$388.80</td><td>לא רלוונטי</td><td>$4,000</td><td>תוך יומי (Intraday)</td><td>אין</td><td>משיכה 1: 20% · משיכה 2: 25% · משיכה 3+: 30%</td><td>90% לסוחר</td></tr><tr><td>150K</td><td>$472.80</td><td>לא רלוונטי</td><td>$5,500</td><td>תוך יומי (Intraday)</td><td>אין</td><td>משיכה 1: 20% · משיכה 2: 25% · משיכה 3+: 30%</td><td>90% לסוחר</td></tr></tbody></table><p>פלטפורמות: R|Trader Pro, NinjaTrader, Quantower, Sierra Chart, MultiCharts, ATAS, Bookmap, Tiger.Trade, Optimus Flow, Photon Trader, MotiveWave, OverCharts, Trade Navigator, QST, Inside Edge, Investor/RT, Medved Trader, QScalp, ScalpTool, TSLab, VolFix</p><h2>Bulenox Momentum</h2><h3>Bulenox Momentum · סטופ תוך יומי (Intraday) - במילים פשוטות</h3><ul><li>זמין בגדלים 25K, 50K, 100K ו-150K</li><li>אפשר לעבור את המבחן ביום מסחר אחד</li><li>אין חוק עקביות במבחן</li><li>סטופ נגרר תוך יומי (Intraday), ללא מגבלת הפסד יומית</li><li>אחרי מעבר המבחן עוברים ל־Momentum Master ללא דמי הפעלה</li><li>לפני כל משיכה נדרשים 5 ימי רווח מזכים</li><li>בחשבון Master חל חוק עקביות של 35%</li><li>יש מינימום יתרה ומינימום משיכה לפי גודל החשבון</li><li>תקרת המשיכה עולה בהדרגה עד המשיכה הרביעית, ולאחר מכן נשארת קבועה</li><li>מהמשיכה השנייה והלאה צריך גם להגיע ליעד רווח חדש בכל מחזור</li><li>חלוקת רווחים: 90%</li></ul><ol><li>עוברים את המבחן, אפשר גם ביום אחד</li><li>עוברים ל־Momentum Master ללא דמי הפעלה</li><li>צוברים 5 ימי רווח מזכים ועומדים בחוק העקביות</li><li>מגיעים ליתרה הנדרשת ומבקשים משיכה</li><li>אחרי כל משיכה מתחיל מחזור חדש עם יעד רווח חדש</li></ol><p>הרווח הנדרש ליום מזכה, היתרה המינימלית, יעד הרווח ותקרת המשיכה משתנים לפי גודל החשבון.</p><table><thead><tr><th>חשבון</th><th>עלות מבחן</th><th>יעד מעבר</th><th>סטופ מקסימלי</th><th>סוג הסטופ</th><th>מגבלת הפסד יומית</th><th>חוק עקביות</th><th>חלוקת רווחים</th></tr></thead><tbody><tr><td>25K</td><td>$61.10</td><td>$26,500</td><td>$1,000</td><td>תוך יומי (Intraday)</td><td>אין</td><td>אין</td><td>90% לסוחר</td></tr><tr><td>50K</td><td>$77.22</td><td>$53,000</td><td>$2,000</td><td>תוך יומי (Intraday)</td><td>אין</td><td>אין</td><td>90% לסוחר</td></tr><tr><td>100K</td><td>$96.72</td><td>$106,000</td><td>$3,000</td><td>תוך יומי (Intraday)</td><td>אין</td><td>אין</td><td>90% לסוחר</td></tr><tr><td>150K</td><td>$232.70</td><td>$159,000</td><td>$4,500</td><td>תוך יומי (Intraday)</td><td>אין</td><td>אין</td><td>90% לסוחר</td></tr></tbody></table><p>פלטפורמות: R|Trader Pro, NinjaTrader, Quantower, Sierra Chart, MultiCharts, ATAS, Bookmap, Tiger.Trade, Optimus Flow, Photon Trader, MotiveWave, OverCharts, Trade Navigator, QST, Inside Edge, Investor/RT, Medved Trader, QScalp, ScalpTool, TSLab, VolFix</p><h2>שאלות נפוצות</h2><h3>אילו מסלולי מסחר קיימים בבולנוקס ואיזה מהם כדאי לבחור?</h3><p>בולנוקס מציעה שני מסלולים, אך חשוב מאוד להכיר את ההבדלים ביניהם כדי לא לבזבז כסף סתם:
+
+אופציה 1 (No Scaling / Trailing Drawdown) - המסלול המומלץ שלנו ללמידה! במסלול זה ההפסד המקסימלי עוקב אחריכם בזמן אמת, כולל רווחים פתוחים (Unrealized gains). הסטופ התוך-יומי הזה נחשב לקשה יותר, אבל זהו היתרון הגדול של בולנוקס: המבחנים האלו נמכרים במחירים זולים מאוד רוב הזמן, מה שהופך אותם לפלטפורמה מושלמת וזולה לאימונים ולמידה מבלי לסכן הון גדול. בנוסף, אין במסלול זה תוכנית הגבלת חוזים (Scaling Plan) כלל.
+
+אופציה 2 (EOD Account): מסלול שבו הסטופ מחושב רק בסוף היום. אנחנו לא ממליצים על המסלול הזה בשום צורה! למרות שסטופ סוף-יום נשמע מפתה, המסלול הזה בבולנוקס יקר מאוד ולא משתלם. יש כיום בשוק חברות מתחרות שמציעות מסלולי EOD בתנאים טובים הרבה יותר.</p><h3>איך מחושב הסטופ התוך-יומי באופציה 1 (המסלול הזול)?</h3><p>ההפסד המקסימלי יעקוב תמיד אחרי יתרת החשבון הנוכחית שלכם בזמן אמת. הוא מחושב על בסיס הרווח הפתוח המקסימלי שהגעתם אליו בעסקה (גם אם לא סגרתם אותה שם), וכולל בתוכו את העמלות. זהו כלי מצוין ללמוד איך לנעול רווחים ולא לתת לעסקאות מרוויחות להפוך למפסידות.</p><h3>כמה ימי מסחר מינימליים נדרשים כדי לעבור את המבחן?</h3><p>אחד היתרונות של בולנוקס הוא שאין שום דרישה לימי מסחר מינימליים (0 ימים) כדי לקבל חשבון מאסטר ממומן. ברגע שהגעתם ליעד הרווח – עברתם. כמו כן, אתם לא חייבים לסחור כל יום, ויום נספר רק אם פתחתם בו עסקה.</p><h3>כמה חשבונות ממומנים מותר לי להחזיק במקביל?</h3><p>ניתן להחזיק מספר בלתי מוגבל של חשבונות מבחן, ועד 11 חשבונות ממומנים (Master Accounts) פעילים בו-זמנית. חובה שכל החשבונות יהיו תחת אותו מזהה משתמש (User ID) ב-Rithmic; שימוש במספר משתמשים כדי לעקוף את המגבלה יוביל לחסימה.</p><h3>מתי חובה עליי לסגור עסקאות?</h3><p>אין להשאיר עסקאות פתוחות ללילה. חובה לסגור את כל הפוזיציות הפתוחות לפני השעה 15:59 (שעון CT) בכל יום.</p><h3>האזהרה הקריטית: מה קורה אם הפלטפורמה מתנתקת כשיש פקודת OCO פתוחה?</h3><p>תשומת לב רבה! מנגנון ה-OCO (למשל פקודות יעד וסטופ שמבטלות אחת את השנייה) מופעל בצורה מסומלצת על המחשב שלכם בלבד. אם נינג'ה טריידר מתנתקת מ-Rithmic והסטופ שלכם נפגע, ה-Take Profit לא יתבטל אוטומטית! הוא יישאר בהמתנה במערכת ועלול לפתוח לכם עסקה חדשה והפוכה כשתחזרו. בולנוקס אינה לוקחת אחריות על הפסדים מפוזיציות עודפות אלו.</p><h3>איך מחושבים חוזי מיקרו מול חוזי מיני (Standard)?</h3><p>מותר לסחור בשני סוגי החוזים במקביל, כאשר חוזה סטנדרט (Mini) אחד שווה בערכו ל-10 חוזי מיקרו.</p><h3>האם אצטרך לשלם על נתוני בורסה (Data Feed)?</h3><p>אם אתם מוגדרים כסוחרים לא-מקצועיים (Non-professional), נתוני הבורסה כלולים בחינם בחשבון המבחן. אם נרשמתם בסטטוס &quot;מקצועי&quot;, תצטרכו לשלם $116 או $112 בכל חודש על נתונים. חשוב לדעת שמרגע שבחרתם סטטוס ב-Rithmic, לא ניתן לשנות אותו בשום שלב גם במבחן וגם בחשבון הממומן.</p><h3>💡 טיפ הזהב של AntarTrade</h3><p>נכשלתם במבחן? בולנוקס מאפשרת לבצע איפוס (Reset) מיידי בעלות של $78. אבל שימו לב: איפוס לא משנה את תאריך החיוב החודשי שלכם, שממשיך לדפוק. בגלל שבולנוקס מאפשרת לרכוש מבחנים תוך-יומיים במחירים מאוד זולים, כמעט תמיד ישתלם לכם פשוט לרכוש חשבון מבחן חדש עם קוד ההנחה ANTAR מאשר לשלם $78 על איפוס!</p><p><a href="/comparison">השוואה מול שאר החברות</a></p></article>
+    </div>
+  </body>
+</html>
